@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.udea.vulnfinder.gram
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.udea.vulnfinder.gram; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ edu.udea.vulnfinder.escaneo,
+ org.eclipse.xtext.util,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.xbase
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: edu.udea.vulnfinder.gram,
+ edu.udea.vulnfinder.gram.services,
+ edu.udea.vulnfinder.gram.serializer,
+ edu.udea.vulnfinder.gram.parser.antlr,
+ edu.udea.vulnfinder.gram.parser.antlr.internal,
+ edu.udea.vulnfinder.gram.validation,
+ edu.udea.vulnfinder.gram.scoping,
+ edu.udea.vulnfinder.gram.generator,
+ edu.udea.vulnfinder.gram.formatting,
+ edu.udea.vulnfinder.gram.jvmmodel

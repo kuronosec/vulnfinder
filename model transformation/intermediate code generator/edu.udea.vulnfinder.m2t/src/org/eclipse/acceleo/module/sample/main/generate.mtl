@@ -1,0 +1,29 @@
+[comment encoding = UTF-8 /]
+[module generate('http://udea/vulnfinder/securityTest')]
+
+
+[template public generateElement(aSecurityTest : Test)]
+[comment @main/]
+[file (aSecurityTest.id+'.seclang', false, 'UTF-8')]
+(securityTest [aSecurityTest.id/]
+	(toes
+	[for (toe : TargetOfEvaluation | aSecurityTest.scope)]
+		(toe "[toe.domain/]"
+			[for (page : WebComponent | toe.components) ]
+			(page "[page.path/]"
+				[for (field : Input | page.inputs)]
+					(field "[field.name/]" ['['/][for (attack : Attack | field.attacks) separator (' ')]"[attack.name/]"[/for][']'/])
+				[/for]
+			)
+			[/for]
+		)
+	[/for]
+	)
+	(attacks
+	[for (attack : Attack | aSecurityTest.possibleAttacks)]
+		(attack [attack.name/] { :level [attack.severity/] } )
+	[/for]
+	)
+)
+[/file]
+[/template]
