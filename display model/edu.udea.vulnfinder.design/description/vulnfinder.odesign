@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="vulnfinder" version="10.0.0.201505222000">
+  <ownedViewpoints name="VistaEscaneo" modelFileExtension="uml">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Diagrama de escaneo" domainClass="escaneo.Escaneo">
+      <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="paginasEdge" sourceMapping="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@containerMappings[name='DominioContainer']/@subContainerMappings[name='PaginaContainter']" targetMapping="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@containerMappings[name='DominioContainer']/@subContainerMappings[name='PaginaContainter']" targetFinderExpression="feature:enlaces">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="DominioContainer" semanticCandidatesExpression="feature:dominios" domainClass="escaneo.DominioWeb">
+          <subContainerMappings name="PaginaContainter" semanticCandidatesExpression="feature:paginas" domainClass="escaneo.Pagina" childrenPresentation="List">
+            <subNodeMappings name="EntradaNodo" semanticCandidatesExpression="feature:entradas" domainClass="escaneo.Entrada">
+              <style xsi:type="style:BundledImageDescription" labelExpression="[self.tipo+': '+self.nombre/]" labelPosition="node" resizeKind="NSEW" shape="stroke">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="feature:">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="feature:nombre">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="InsertarNuevo" label="Insertar nuevo....">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DominioCreator" label="Dominio" containerMappings="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@containerMappings[name='DominioContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="escaneo.DominioWeb" referenceName="dominios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="nombre" valueExpression="['dominio'+(siblings()->size()+1)+'.com'/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="PaginaCreator" label="Pagina" containerMappings="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@containerMappings[name='DominioContainer']/@subContainerMappings[name='PaginaContainter']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="escaneo.Pagina" referenceName="paginas">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ruta" valueExpression="['pagina'+(siblings()->size()+1)+'.html'/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="EntradaCreator" label="Entrada" nodeMappings="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@containerMappings[name='DominioContainer']/@subContainerMappings[name='PaginaContainter']/@subNodeMappings[name='EntradaNodo']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="escaneo.Entrada" referenceName="entradas">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="nombre" valueExpression="['entrada'+(siblings()->size()+1)/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="tipo" valueExpression="GET"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="EnlaceCreator" label="Enlace" edgeMappings="//@ownedViewpoints[name='VistaEscaneo']/@ownedRepresentations[name='Diagrama%20de%20escaneo']/@defaultLayer/@edgeMappings[name='paginasEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="enlaces" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="tabla de escaneo" domainClass="escaneo.Escaneo">
+      <ownedLineMappings name="ElDominio" domainClass="escaneo.DominioWeb" semanticCandidatesExpression="[dominios/]" headerLabelExpression="[nombre/]">
+        <ownedSubLines name="LaPagina" domainClass="escaneo.Pagina" semanticCandidatesExpression="[paginas/]">
+          <ownedSubLines name="LaEntradaAtaque" domainClass="escaneo.Ataque" semanticCandidatesExpression="[entradas.ataques/]" headerLabelExpression="[eContainer(Entrada).tipo+': '+eContainer(Entrada).nombre/]"/>
+        </ownedSubLines>
+      </ownedLineMappings>
+      <ownedColumnMappings name="SQLClm" headerLabelExpression="SQL" featureName="SQL" labelExpression="[SQL/]"/>
+      <ownedColumnMappings name="XSSClm" headerLabelExpression="XSS" featureName="XSS" labelExpression="[XSS/]"/>
+      <ownedColumnMappings name="FuzzerClm" headerLabelExpression="Fuzzer" featureName="fuzzer" labelExpression="[fuzzer/]"/>
+      <ownedColumnMappings name="Authentication and Session" headerLabelExpression="Authentication and Session" featureName="authenticationAndSession" labelExpression="[authenticationAndSession/]"/>
+      <ownedColumnMappings name="AuthClm" headerLabelExpression="Auth" featureName="auth" labelExpression="[auth/]"/>
+      <ownedColumnMappings name="General Injection Clm" headerLabelExpression="General Injection" featureName="generalInjection" labelExpression="[generalInjection/]"/>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

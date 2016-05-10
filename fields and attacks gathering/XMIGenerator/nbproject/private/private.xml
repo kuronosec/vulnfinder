@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/Main.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/metaclasses/Attack.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/metaclasses/WebComponent.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/ServerSocketFinder.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/metaclasses/Input.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/exporter/Mem2XMIFormat.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/ServerSocketFinderMina.java</file>
+            <file>file:/home/raven/NetBeansProjects/XMIGenerator/src/udea/vulnfinder/xmigenerator/generator/metaclasses/TargetOfEvaluation.java</file>
+        </group>
+    </open-files>
+</project-private>
