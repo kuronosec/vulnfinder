@@ -10,7 +10,7 @@ In order to run Vulnfinder you will need:
     -  [Xpand Plugin for Eclipse.] [Xpand]
 - [**Greasemonkey**] [GM] extension on Firefox / [**Tampermonkey**] [TM] extension on Google Chrome
 
-### Installing & Getting ready
+### Installing & Getting Ready
 The following steps are to be executed before trying to run or modify *Vulnfinder*. These steps will become simplier as soon as an stable version is ready to be launched.
 
 Once you've installed the required software mentioned above, you must install the *userscript* on Greasemonkey/Tampermonkey, the script can be found on:
