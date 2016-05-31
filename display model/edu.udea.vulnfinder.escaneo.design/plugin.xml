@@ -2,9 +2,9 @@
 <?eclipse version="3.0"?>
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="edu.udea.vulnfinder.design.Activator"
-               id="edu.udea.vulnfinder.design"
-	       name="vulnfinder">
+    <component class="edu.udea.vulnfinder.escaneo.design.Activator"
+               id="edu.udea.vulnfinder.escaneo.design"
+	       name="escaneo">
     </component>
   </extension>
 </plugin>

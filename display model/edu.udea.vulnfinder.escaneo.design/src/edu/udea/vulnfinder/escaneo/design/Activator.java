@@ -1,4 +1,4 @@
-package edu.udea.vulnfinder.design;
+package edu.udea.vulnfinder.escaneo.design;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "edu.udea.vulnfinder.design";
+    public static final String PLUGIN_ID = "edu.udea.vulnfinder.escaneo.design";
 
     // The shared instance
     private static Activator plugin;
@@ -35,7 +35,7 @@ public class Activator extends AbstractUIPlugin {
       super.start(context);
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/vulnfinder.odesign")); 
+	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/escaneo.odesign")); 
     }
 
     /*
