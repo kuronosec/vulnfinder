@@ -5,9 +5,11 @@
 // @version     1
 // @grant       none
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js
-// @require     http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
+// @require     https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
 // ==/UserScript==
 
+
+//String template with CSS
 var vulfinder_st = `
 .attack-list {
   display: none;
@@ -100,8 +102,9 @@ var vulfinder_st = `
   user-select: none;           /* non-prefixed version, currently not supported by any browser */
 }`;
 
+//initializing variables
 var attackList = ['SQL Injection', 'Fuzzer', 'XSS', 'Auth and session', 'Auth', 'General Injection'];
-var schema = "<div class='row'> <div class='col-md-2' id='nav-bar'/> <div class='col-md-10' id='original_content' /> </div>";
+var schema = "<div class='site'> <div class='col-md-2' id='nav-bar'/> <div class='col-md-10' id='original_content' /> </div>";
 var server_url = vulfinder_server = '127.0.0.1:3000';
 var toHide = [];
 
@@ -116,7 +119,7 @@ function addGlobalStyle(css) {
 }
 
 var stylesheets = [
-  "<link rel='stylesheet' type='text/css' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' />",
+  "<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />",
   "<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js' />"
 ];
 
