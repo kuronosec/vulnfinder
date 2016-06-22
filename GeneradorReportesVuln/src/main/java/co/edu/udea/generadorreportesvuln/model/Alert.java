@@ -11,16 +11,19 @@ package co.edu.udea.generadorreportesvuln.model;
  */
 public class Alert {
 
+    private final String field;
     private String alert;
     private Risk risk;
     private String description;
     private String solution;
     private String confidence;
 
-    public Alert() {
+    public Alert(String field) {
+        this.field = field;
     }
 
-    public Alert(String alert, Risk risk, String description, String solution, String confidence) {
+    public Alert(String field,String alert, Risk risk, String description, String solution, String confidence) {
+        this.field = field;
         this.alert = alert;
         this.risk = risk;
         this.description = description;
@@ -70,7 +73,8 @@ public class Alert {
 
     @Override
     public String toString() {
-        return "Alert{ " + alert + "\n"
+        return "Alert{ " + "Field="+ field 
+                + "\t" + alert + "\n"
                 + "\t" + risk + "\n"
                 + "\tDescription: " + description + "\n"
                 + "\tConfidence: " + confidence + "\n"
