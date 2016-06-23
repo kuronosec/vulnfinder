@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name        prueba2
+// @name        VulnFinder
 // @namespace   test
 // @include     *
 // @version     1
 // @grant       none
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js
+// @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js
 // @require     https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
 // ==/UserScript==
 
 
 //String template with CSS
-var vulfinder_st = `
+var vulnfinder_st = `
 .attack-list {
   display: none;
   color: white;
@@ -89,7 +89,7 @@ var vulfinder_st = `
   margin-right: 10px !important;
 }
 
-.vulfinder-header {
+.vulnfinder-header {
   color: gray;
 }
 
@@ -105,7 +105,7 @@ var vulfinder_st = `
 //initializing variables
 var attackList = ['SQL Injection', 'Fuzzer', 'XSS', 'Auth and session', 'Auth', 'General Injection'];
 var schema = "<div class='site'> <div class='col-md-2' id='nav-bar'/> <div class='col-md-10' id='original_content' /> </div>";
-var server_url = vulfinder_server = '127.0.0.1:3000';
+var server_url = vulnfinder_server = '127.0.0.1:3000';
 var toHide = [];
 
 function addGlobalStyle(css) {
@@ -120,15 +120,43 @@ function addGlobalStyle(css) {
 
 var stylesheets = [
   "<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />",
-  "<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js' />"
+  "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js' />"
 ];
 
-addGlobalStyle(vulfinder_st);
+addGlobalStyle(vulnfinder_st);
 
 onHover = function(input, field) {
   input.toggleClass('active-input');
   field.toggleClass('active-field');
 }
+
+
+// attacksUI = function (idx) {
+//     // var content = document.createElement('ul');
+//     // content.className = 'attack-list';
+//     // content.id = 'attacks-' + idx;
+//     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
+//     for (attack in attackList) {
+//         // var item = document.createElement('li');
+//         // item.className = 'li-f noselect';
+//         // var attackCheck = document.createElement('input');
+//         // attackCheck.type = 'checkbox';
+//         // attackCheck.className = 'ch';
+//         // var attackText = document.createElement('span');
+//         // attackText.className = 'attack-name';
+//         // var attackName = document.createTextNode(attackList[attack]);
+//         // attackText.appendChild(attackName);
+//         // item.appendChild(attackCheck);
+//         // item.appendChild(attackText)
+//         content += "<li class='li-f noselect'>";
+//         content += "<input type='checkbox' class='ch'> <span class='attack-name'>" + attackList[attack] + "</span>";
+//         content += "</li>";
+//     }
+//     content.appendChild(item);
+//     doc
+//     content += "</ul>";
+//     return content;
+// }
 
 attacksUI = function (idx) {
   var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
@@ -167,11 +195,11 @@ actionForm = function (input) {
 
   if (action == '' || action === undefined) {
     action = action_d;
-  } else if (action[0] == '/') {
-    var last = String(action_d.split('/').slice(-1)).length;
-    action = action_d.substr(0, action_d.length - last - 1) + String(action);
+  // } else if (action[0] == '/') {
+    // var last = String(action_d.split('/').slice(-1)).length;
+    // action = action_d.substr(0, action_d.length - last - 1) + String(action);
   }
-  return action;
+  return String(action);
 }
 
 onReset = function () {
@@ -193,7 +221,7 @@ configPanel = function () {
     "<div class='modal-body'>" +
     "<input type='radio' name='vul-config-server' class='vul-chk-config vcc1' value='1' checked /> Use online servers<br><br>" +
     "<input type='radio' name='vul-config-server' class='vul-chk-config vcc2' value='2' /> I have my own server<br><br>" +
-    "<input type='text' name='vul-server-ip' id='vul-server-field' class='form-control' value='"+ server_url +"' placeholder='ex. 127.0.0.1'/>" +
+    "<input type='text' name='vul-server-ip' id='vul-server-field' class='form-control' value='"+ server_url +"' placeholder='e.g. 127.0.0.1'/>" +
     "</div>" +
     "<div class='modal-footer'>" +
     "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>" +
@@ -214,7 +242,7 @@ jQuery(document).ready(function () {
   var body_content = $('body').html();
   $('body').html(schema);
   $('#nav-bar').append(configPanel);
-  $('#nav-bar').append("<h1 class='vulfinder-header'> Vulfinder </h1>");
+  $('#nav-bar').append("<h1 class='vulnfinder-header'> vulnfinder </h1>");
   $('#nav-bar').append("<div class='vul-config' data-toggle='modal' data-target='#configPanel'><span class='btn btn-xs btn-default'>config</span></div>");
   $('#nav-bar').append("<hr class='v-line' />");
   $('#nav-bar').append("<input type='checkbox' class='ch' />");
@@ -232,7 +260,7 @@ $(window).load(function () {
     $('.all-fields').append(elm);
 
     if (elm.length > 0) {
-      input.addClass('vulfinder-target');
+      input.addClass('vulnfinder-target');
     }
 
     $('#field-' + idx).hover(function () {
@@ -242,6 +270,12 @@ $(window).load(function () {
     }).click(function() {
       $("#attacks-" + idx).toggle();
     });
+
+      input.hover(function (){
+          if ($('#attacks-' + idx).css('display') === 'none') {
+              onHover(input, $('#field-' + idx))
+          }
+      });
   });
 
   // attach select and bind events
@@ -259,9 +293,15 @@ $(window).load(function () {
     }).click(function() {
       $("#attacks-" + hack).toggle();
     });
+
+      input.hover(function (){
+          if ($('#attacks-' + idx).css('display') === 'none') {
+              onHover(input, $('#field-' + idx))
+          }
+      });
     idx += 1;
   });
-  
+
   $('#nav-bar').append("<hr class='v-line' />");
   $('#nav-bar').append("<button class='btn-sm btn-block vul-send btn btn-default'>Analize input fields</button>");
 
@@ -275,7 +315,7 @@ $(window).load(function () {
   });
 
   $('.vcc1').click(function () {
-    server_url = vulfinder_server;
+    server_url = vulnfinder_server;
     $('#vul-server-field').attr('value', server_url);
     $('#vul-server-field').css('display', 'none');
   });
@@ -313,12 +353,18 @@ $(window).load(function () {
     $('.ul-f').each(function () {
       var marked = $(this).find('input:checkbox:checked');
       var index = $(this).attr('id').split('-')[1];
+        var field = $(this).find('.field-name').html();
 
       if (marked.length == 1) {
         $.getJSON("http://" + server_url + "/?callback=?", {
           actionForm: $(this).find('.input-form-url').attr('value'),
-          inputName: $(this).find('.field-name').html(),
+          inputName: field,
           "attacks[]": dataContent(index)
+        }).fail(function( data, textStatus, error ) {
+            var err = "field " + field + ", " + textStatus + ", " + error;
+            alert( "Request Failed: " + err );
+        }).done(function () {
+            alert("Datos enviados.");
         });
       }
     });
@@ -341,7 +387,6 @@ $(window).load(function () {
     // also can check original ISSUE
     // https://bugs.jquery.com/ticket/3442
 
-    alert("Datos enviados.");
   });
 
   // handle 'see hidden' checkbox
@@ -349,7 +394,7 @@ $(window).load(function () {
     var chk = $(this).parent().find('input:checkbox').first();
     if (chk.prop('checked') === false) {
       chk.prop('checked', true);
-      $('.vulfinder-target').each(function () {
+      $('.vulnfinder-target').each(function () {
         if ($(this).attr('type') == 'hidden') {
           toHide.push($(this));
           $(this).attr('type', 'text');
