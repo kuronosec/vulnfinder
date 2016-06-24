@@ -18,6 +18,8 @@ package udea.vulnfinder.xmigenerator.generator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -51,6 +53,10 @@ import udea.vulnfinder.xmigenerator.generator.metaclasses.Input;
 import udea.vulnfinder.xmigenerator.generator.metaclasses.TargetOfEvaluation;
 import udea.vulnfinder.xmigenerator.generator.metaclasses.WebComponent;
 
+//import com.sun.net.httpserver.Headers;
+//import com.sun.net.httpserver.HttpExchange;
+//import com.sun.net.httpserver.HttpHandler;
+//import com.sun.net.httpserver.HttpServer;
 
 
 /**
@@ -68,15 +74,20 @@ public class Main {
     private static final Map<String, Attack> attackMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) throws ClientApiException, IOException {
+//    	HttpServer server = HttpServer.create(new InetSocketAddress(3000), 0);
+//        server.createContext("/", new MyHandler());
+//        server.setExecutor(null); // creates a default executor
+//        server.start();
+        
         IoAcceptor acc = null;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         initialize();
-        acc = startServerSocketFinder();
+//        acc = startServerSocketFinder();
         do {
             System.out.println("Ingrese y para iniciar el spidering.");
         } while (!"y".equals(br.readLine()));
-        acc.unbind();
-        acc.dispose();
+//        acc.unbind();
+//        acc.dispose();
         
         insertarDominio(TargetOfEvaluation.extractDomain(TOE));
         System.out.println("Dominio: " + dominio.getNombre());
@@ -92,6 +103,19 @@ public class Main {
         start();
     }
 
+//    static class MyHandler implements HttpHandler {
+//        @Override
+//        public void handle(HttpExchange t) throws IOException {
+//            String response = "This is the response";
+//            System.out.println(t.getRequestURI());
+//            t.sendResponseHeaders(200, response.length());
+//            Headers headers = t.getResponseHeaders();
+//            headers.add("Access-Control-Allow-Origin", "*");            
+//            OutputStream os = t.getResponseBody();
+//            os.write(response.getBytes());
+//            os.close();
+//        }
+//    }
     private static IoAcceptor startServerSocketFinder() throws IOException {
         IoAcceptor acceptor = new NioSocketAcceptor();
 
