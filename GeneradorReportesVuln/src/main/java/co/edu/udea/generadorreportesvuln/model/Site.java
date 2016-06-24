@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Site {
 
+    private List<String> charset;
     private String site;
     private List<Alert> alerts;
 
@@ -56,6 +57,20 @@ public class Site {
                 + builder.toString()
                 + "}";
     }
+    
+    public boolean deleteCharset(String charset) {
+        return this.charset.remove(charset);
+    }
+
+    public String getCharset(int i) {
+        return charset.get(i);
+    }
+
+    public void setCharset(String charset) {
+        this.charset.add(charset);
+    }
+    
+    
     
     
 
