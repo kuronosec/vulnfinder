@@ -1,16 +1,90 @@
+/**
+ * Created by jonathan on 27/06/16.
+ */
 // ==UserScript==
-// @name        VulnFinder
+// @name        VulnFinderNew
 // @namespace   test
 // @include     *
 // @version     1
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js
-// @require     https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
 // ==/UserScript==
 
+var vulnfinder_st = `.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer; 
+}
 
-//String template with CSS
-var vulnfinder_st = `
+.button:hover {
+  background: #088A4B;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .modal-body {
+  max-height: 30%;
+  overflow: auto;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
 .attack-list {
   display: none;
   color: white;
@@ -25,33 +99,69 @@ var vulnfinder_st = `
   float: left;
   background-color: #333;
   margin: 0px 0px 0px 0px;
-  padding: 30px 0px 30px 30px;
+  padding: 30px 0px 30px 5px;
   border: solid;
   border-color: black;
   color: white;
+  position: fixed;
+  z-index: 100;
+  overflow-y: auto;
+  height: 93%;
+  width:15%;
 }
-
 #original-content {
-  float: left;
+    width:84.5%;
+    float:right;
 }
 
+.ul-f {
+  color: white;
+  margin-top: 20px;
+  cursor: pointer; 
+  clear:left
+}
+
+.li-f .label-ch{
+  display:block;
+  cursor: pointer;
+  text-indent:15px;
+}
+
+.li-f:hover {
+  background:#f1f1f1;
+  color:black
+}
+
+.ch {
+  cursor:pointer;
+}
+
+#see-hidden {
+  cursor: pointer;
+}
+  
 .active-input {
   background-color: yellow !important;
 }
 
 .active-field {
-  background-color: yellow !important;
-  color: gray !important;
+  background:#f1f1f1;
+  color:black
 }
 
-.ul-f {
-  color: white;
-  margin-top: 5px;
-  cursor: pointer;
+.all-fields {
+  margin: 15px 0px 15px 0px;
 }
 
-.li-f {
-  cursor: pointer;
+.domain {
+    float:left;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .v-line {
@@ -59,52 +169,15 @@ var vulnfinder_st = `
   padding: 0px 0px 0px 0px;
 }
 
-.vul-config {
-  font-size: 15px;
-  margin-bottom: 20px;
+.active {
+    background-color: #4CAF50;
+    color: white;
 }
-
-#see-hidden {
-  cursor: pointer;
-}
-
-.all-fields {
-  margin: 15px 0px 15px 0px;
-}
-
-.vul-send {
-  margin: 30px 0px 0px -15px;
-}
-
-#vul-server-field {
-  display: none;
-}
-
-#configPanel {
-  color: black;
-}
-
-.ch {
-  cursor: pointer;
-  margin-right: 10px !important;
-}
-
-.vulnfinder-header {
-  color: gray;
-}
-
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           /* non-prefixed version, currently not supported by any browser */
-}`;
+`;
 
 //initializing variables
 var attackList = ['SQL Injection', 'Fuzzer', 'XSS', 'Auth and session', 'Auth', 'General Injection'];
-var schema = "<div class='site'> <div class='col-md-2' id='nav-bar'/> <div class='col-md-10' id='original_content' /> </div>";
+var schema = "<div class='site'> <div class='menu' id='nav-bar'/> <div class='original' id='original-content' /> </div>";
 var server_url = vulnfinder_server = '127.0.0.1:3000';
 var toHide = [];
 
@@ -121,7 +194,6 @@ function addGlobalStyle(css) {
 }
 
 var stylesheets = [
-    "<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />",
     "<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js' />"
 ];
 
@@ -132,39 +204,11 @@ onHover = function (input, field) {
     field.toggleClass('active-field');
 }
 
-
-// attacksUI = function (idx) {
-//     // var content = document.createElement('ul');
-//     // content.className = 'attack-list';
-//     // content.id = 'attacks-' + idx;
-//     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
-//     for (attack in attackList) {
-//         // var item = document.createElement('li');
-//         // item.className = 'li-f noselect';
-//         // var attackCheck = document.createElement('input');
-//         // attackCheck.type = 'checkbox';
-//         // attackCheck.className = 'ch';
-//         // var attackText = document.createElement('span');
-//         // attackText.className = 'attack-name';
-//         // var attackName = document.createTextNode(attackList[attack]);
-//         // attackText.appendChild(attackName);
-//         // item.appendChild(attackCheck);
-//         // item.appendChild(attackText)
-//         content += "<li class='li-f noselect'>";
-//         content += "<input type='checkbox' class='ch'> <span class='attack-name'>" + attackList[attack] + "</span>";
-//         content += "</li>";
-//     }
-//     content.appendChild(item);
-//     doc
-//     content += "</ul>";
-//     return content;
-// }
-
 attacksUI = function (idx) {
     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f noselect'>";
-        content += "<input type='checkbox' class='ch'> <span class='attack-name'>" + attackList[attack] + "</span>";
+        content += "<label class='label-ch'><input type='checkbox' class='ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -173,14 +217,15 @@ attacksUI = function (idx) {
 
 format = function (field, idx, action) {
     var label = field.attr('name');
-    var text = "<div class='ul-f noselect' id='field-" + idx + "'>";
-    text += "<input type='checkbox' class='ch'> <span class='field-name'>" + label + "</span>";
+    var text = "<div class='ul-f noselect truncate' id='field-" + idx + "'>";
+    text += "<input type='checkbox' class='vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
     text += "<input type='hidden' class='input-form-url' value='" + action + "' />";
     text += "</div>";
 
     if (label === undefined || label == 'downvoteReason') return '';
-    return text + attacksUI(idx) + " (" + action + ")";
+    return text + attacksUI(idx) + " <span class='domain'>(" + action + ")</span>";
 }
+
 
 dataContent = function (idx) {
     var res = [];
@@ -211,23 +256,32 @@ onReset = function () {
     $('input').removeClass('active-input');
 }
 
+checking = function (field) {
+    var attack = field.find('input');
+
+    if (attack.prop('checked')) {
+        attack.prop('checked', true);
+
+    } else {
+        attack.prop('checked', false);
+    }
+}
+
 configPanel = function () {
     // would be nice to use a template engine as handlebars for this kind of html codes insertion ...
-    var panel = "<div class='modal fade' id='configPanel' tabindex='-1' role='dialog' aria-labelledby='select server ...'>" +
-        "<div class='modal-dialog' role='document'>" +
-        "<div class='modal-content'>" +
+    var panel = "<div class='overlay' id='configPanel'>" +
+        "<div class='popup' role='document'>" +
         "<div class='modal-header'>" +
-        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>x</span></button>" +
-        "<h4 class='modal-title'>Select a Server</h4>" +
+        "<a class='close' href='#'>&times</a>" +
+        "<h2>Select a Server</h2>" +
         "</div>" +
         "<div class='modal-body'>" +
         "<input type='radio' name='vul-config-server' class='vul-chk-config vcc1' value='1' checked /> Use online servers<br><br>" +
         "<input type='radio' name='vul-config-server' class='vul-chk-config vcc2' value='2' /> I have my own server<br><br>" +
-        "<input type='text' name='vul-server-ip' id='vul-server-field' class='form-control' value='" + server_url + "' placeholder='e.g. 127.0.0.1'/>" +
+        "<input type='text' name='vul-server-ip' id='vul-server-field' class='form-control' value='" + server_url + "' placeholder='e.g. 127.0.0.1' hidden='true'/>" +
         "</div>" +
         "<div class='modal-footer'>" +
-        "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>" +
-        "<button type='button' class='btn btn-primary' data-dismiss='modal' id='vul-server-button'>Save changes</button>" +
+        "<button type='button' class='btn btn-primary' id='vul-server-button'>Save changes</button>" +
         "</div>" +
         "</div>" +
         "</div>" +
@@ -245,18 +299,18 @@ jQuery(document).ready(function () {
     $('body').html(schema);
     $('#nav-bar').append(configPanel);
     $('#nav-bar').append("<h1 class='vulnfinder-header'> vulnfinder </h1>");
-    $('#nav-bar').append("<div class='vul-config' data-toggle='modal' data-target='#configPanel'><span class='btn btn-xs btn-default'>config</span></div>");
+    $('#nav-bar').append("<a class='button' href='#configPanel'>settings</a><br><br><br>");
     $('#nav-bar').append("<hr class='v-line' />");
-    $('#nav-bar').append("<input type='checkbox' class='ch' />");
-    $('#nav-bar').append("<span class='noselect' id='see-hidden'> See hidden </span> <hr class='v-line' />");
+    $('#nav-bar').append("<label id='see-hidden'><input type='checkbox' class='ch' /><span class='noselect' id='see-hidden-span'> See hidden </span></label> <hr class='v-line' />");
+    // $('#nav-bar').append("<span class='noselect' id='see-hidden-span'> See hidden </span> <hr class='v-line' /></label>");
     $('#nav-bar').append("<div class='all-fields' />");
 
-    $('#original_content').html(body_content);
+    $('#original-content').html(body_content);
 });
 
 $(window).load(function () {
     // attach input and bind events
-    $("#original_content").find('input').each(function (idx, val) {
+    $("#original-content").find('input').each(function (idx, val) {
         var input = $(this);
         var elm = format(input, idx, actionForm(input));
         $('.all-fields').append(elm);
@@ -278,13 +332,13 @@ $(window).load(function () {
             if ($('#attacks-' + idx).css('display') === 'none') {
                 onHover(input, $('#field-' + idx));
             }
-            // $('#field-' + idx).focus();
+            $('#field-' + idx).find('input')[0].focus();
         });
     });
 
     // attach select and bind events
     var idx = 1000;
-    $("#original_content").find('select').each(function () {
+    $("#original-content").find('select').each(function () {
         var input = $(this);
         var elm = format(input, idx, actionForm(input));
         $('.all-fields').append(elm);
@@ -300,10 +354,10 @@ $(window).load(function () {
         });
 
         input.hover(function () {
-            if ($('#attacks-' + idx).css('display') === 'none') {
-                onHover(input, $('#field-' + idx));
+            if ($('#attacks-' + hack).css('display') === 'none') {
+                onHover(input, $('#field-' + hack));
             }
-            // $('#field-' + idx).focus();
+            $('#field-' + hack).find('input')[0].focus();
         });
         idx += 1;
     });
@@ -312,7 +366,12 @@ $(window).load(function () {
     $('#nav-bar').append("<button class='btn-sm btn-block vul-send btn btn-default'>Analize input fields</button>");
 
     // disable checkboxes
-    $('input:checkbox').prop('disabled', true);
+    // $('#field-ch').prop('disabled', true);
+
+    //handle field checkbox
+    $('.vulnfinder-ch-field').click(function () {
+        $(this).prop('checked', !$(this).prop('checked'))
+    })
 
     // handle config panel
     $('.vcc2').click(function () {
@@ -334,46 +393,70 @@ $(window).load(function () {
     });
 
     // handle checkboxes - check / uncheck
-    $('.li-f').click(function () {
+    $('.label-ch').click(function () {
         var attack = $(this).find('input');
-        var index = $(this).parent().attr('id').split('-')[1];
-        var input = $('#field-' + index).find('input');
-
+        var index = $(this).parent().parent().attr('id').split('-')[1];
+        var field = $('#field-' + index)
+        var input = field.find('input');
         if (attack.prop('checked')) {
-            attack.prop('checked', false);
-            if ($(this).parent().find('input:checkbox:checked').length == 0) {
-                input.prop('checked', false);
-            }
-        } else {
-            attack.prop('checked', true);
             input.prop('checked', true);
+            field.toggleClass('active');
+            field.toggleClass('active-field');
+        } else {
+            if ($(this).parent().parent().find('input:checkbox:checked').length == 0) {
+                input.prop('checked', false);
+            } else {
+                field.toggleClass('active');
+                field.toggleClass('active-field');
+            }
         }
-    }).hover(function () {
-        $(this).toggleClass('active-field');
+    })
+    //     .hover(function () {
+    //     $(this).toggleClass('active-field');
+    // });
+
+    // handle 'see hidden' checkbox
+    $('#see-hidden').click(function () {
+        var chk = $(this).find('input:checkbox').first();
+        if (chk.prop('checked')) {
+            chk.prop('checked', true);
+            $('.vulnfinder-target').each(function () {
+                if ($(this).attr('type') == 'hidden') {
+                    toHide.push($(this));
+                    $(this).attr('type', 'text');
+                }
+            });
+        } else {
+            chk.prop('checked', false);
+            for (input in toHide) {
+                toHide[input].attr('type', 'hidden');
+            }
+        }
     });
+
 
     // due to cross-site attacks, ajax request are marked as preflighted requests
     // http://stackoverflow.com/questions/1256593/why-am-i-getting-an-options-request-instead-of-a-get-request
     // origin policy only allow XMLHTTPRequests to your own domain, then we will use JSONP instead
-    $('.vul-send').click(function () {
-        $('.ul-f').each(function () {
-            var marked = $(this).find('input:checkbox:checked');
-            var index = $(this).attr('id').split('-')[1];
-            var field = $(this).find('.field-name').html();
-
-            if (marked.length == 1) {
-                $.getJSON("https://" + server_url + "/?callback=?", {
-                    actionForm: $(this).find('.input-form-url').attr('value'),
-                    inputName: field,
-                    "attacks[]": dataContent(index)
-                }).fail(function (data, textStatus, error) {
-                    //var err = textStatus + ", " + error;
-                    alert("Request Failed: " + "field " + field + ", " + error);
-                }).done(function () {
-                    alert("Datos enviados.");
-                });
-            }
-        });
+    // $('.vul-send').click(function () {
+    //     $('.ul-f').each(function () {
+    //         var marked = $(this).find('input:checkbox:checked');
+    //         var index = $(this).attr('id').split('-')[1];
+    //         var field = $(this).find('.field-name').html();
+    //
+    //         if (marked.length == 1) {
+    //             $.getJSON("https://" + server_url + "/?callback=?", {
+    //                 actionForm: $(this).find('.input-form-url').attr('value'),
+    //                 inputName: field,
+    //                 "attacks[]": dataContent(index)
+    //             }).fail(function (data, textStatus, error) {
+    //                 //var err = textStatus + ", " + error;
+    //                 alert("Request Failed: " + "field " + field + ", " + error);
+    //             }).done(function () {
+    //                 alert("Datos enviados.");
+    //             });
+    //         }
+    //     });
 
     // $('.vul-send').click(function () {
     //     $('.ul-f').each(function () {
@@ -411,43 +494,27 @@ $(window).load(function () {
     //             dump("currently the application is at" + invocation.readyState);
     //     }
 
-        onReset();
+    // onReset();
 
-        // decide whether a server is offline is impossible from JS
-        // anyway if don't take my words you can google "javascript ping"
+    // decide whether a server is offline is impossible from JS
+    // anyway if don't take my words you can google "javascript ping"
 
-        // now you can say AJAX and its method handlers are the solution but ...
+    // now you can say AJAX and its method handlers are the solution but ...
 
-        // that is't quite true, we can't make any request to other domains
-        // without verify our identity MEANS preflight-request (works like sync-ack in tcp protocol)
+    // that is't quite true, we can't make any request to other domains
+    // without verify our identity MEANS preflight-request (works like sync-ack in tcp protocol)
 
-        // but you can say lets use .error() handler for $.getJSON unfortunately JQUERY doesn't support it for JSONP request
-        // taken from JQUERY DOC:
+    // but you can say lets use .error() handler for $.getJSON unfortunately JQUERY doesn't support it for JSONP request
+    // taken from JQUERY DOC:
 
-        // .timeout(): "JSONP requests cannot be cancelled by a timeout; the script will run even if it arrives after the timeout period."
-        // .error(): "This handler is not called for cross-domain script and cross-domain JSONP requests"
+    // .timeout(): "JSONP requests cannot be cancelled by a timeout; the script will run even if it arrives after the timeout period."
+    // .error(): "This handler is not called for cross-domain script and cross-domain JSONP requests"
 
-        // also can check original ISSUE
-        // https://bugs.jquery.com/ticket/3442
+    // also can check original ISSUE
+    // https://bugs.jquery.com/ticket/3442
 
-    });
+    // });
 
-    // handle 'see hidden' checkbox
-    $('#see-hidden').click(function () {
-        var chk = $(this).parent().find('input:checkbox').first();
-        if (chk.prop('checked') === false) {
-            chk.prop('checked', true);
-            $('.vulnfinder-target').each(function () {
-                if ($(this).attr('type') == 'hidden') {
-                    toHide.push($(this));
-                    $(this).attr('type', 'text');
-                }
-            });
-        } else {
-            chk.prop('checked', false);
-            for (input in toHide) {
-                toHide[input].attr('type', 'hidden');
-            }
-        }
-    });
+    //
+
 });
