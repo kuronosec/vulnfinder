@@ -7,6 +7,7 @@ package co.edu.udea.generadorreportesvuln;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
 import co.edu.udea.generadorreportesvuln.model.Alert;
+import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Risk;
 import co.edu.udea.generadorreportesvuln.model.Site;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import co.edu.udea.generadorreportesvuln.service.SiteMaker;
 
 /**
  *
@@ -63,7 +65,8 @@ public class ZAPReportGenerator {
             siteElements.stream().forEach((Element siteElement) -> {
                 String siteName = siteElement.getAttributeValue("name");
                 if (siteURL.equals("") || siteURL.contains(siteName)) {
-                    Site site = new Site(siteElement.getAttributeValue("name"));
+                    Site site = SiteMaker.getSite(siteElement.getAttributeValue("name"));
+                    site.addAnalyzer(Analyzer.ZAP);
                     List<Element> alerts = siteElement.getChild("alerts").getChildren();
                     alerts.stream().forEach((Element alertElement) -> {
                         String riskcodeString = alertElement.getChild("riskcode").getText();
@@ -74,8 +77,7 @@ public class ZAPReportGenerator {
                         String description = alertElement.getChild("desc").getText().replace("<p>", "").replace("</p>", "");
                         String confidence = alertElement.getChild("confidence").getText();
                         String solution = alertElement.getChild("solution").getText().replace("<p>", "").replace("</p>", "");
-
-                        Alert alert = new Alert("", alertString, risk, description, solution, confidence);
+                        Alert alert = new Alert("", Analyzer.ZAP, alertString, risk, description, solution, confidence);
                         site.addAlert(alert);
                     });
                     LOGGER.info(site);

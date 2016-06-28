@@ -10,7 +10,7 @@ package co.edu.udea.generadorreportesvuln.model;
  * @author camilosampedro
  */
 public class Alert {
-
+    private final Analyzer analyzer;
     private final String field;
     private String alert;
     private Risk risk;
@@ -18,17 +18,19 @@ public class Alert {
     private String solution;
     private String confidence;
 
-    public Alert(String field) {
+    public Alert(String field, Analyzer analyzer) {
+        this.analyzer = analyzer;
         this.field = field;
     }
 
-    public Alert(String field,String alert, Risk risk, String description, String solution, String confidence) {
+    public Alert(String field,Analyzer analyzer,String alert, Risk risk, String description, String solution, String confidence) {
         this.field = field;
         this.alert = alert;
         this.risk = risk;
         this.description = description;
         this.solution = solution;
         this.confidence = confidence;
+        this.analyzer = analyzer;
     }
 
     public Risk getRisk() {
@@ -73,13 +75,24 @@ public class Alert {
 
     @Override
     public String toString() {
-        return "Alert{ " + "Field="+ field 
-                + "\t" + alert + "\n"
-                + "\t" + risk + "\n"
-                + "\tDescription: " + description + "\n"
-                + "\tConfidence: " + confidence + "\n"
-                + "\tSolution: " + solution + "\n"
+        return "Alert{ Field:"+ field  + "\n"
+                + "Analyzer:\t" + analyzer + "\n"
+                + "Alert:\t\t" + alert + "\n"
+                + "Risk:\t\t" + risk + "\n"
+                + "Description:\t" + description + "\n"
+                + "Confidence:\t" + confidence + "\n"
+                + "Solution:\t" + solution + "\n"
                 + "}";
     }
+
+    public Analyzer getAnalyzer() {
+        return analyzer;
+    }
+
+    public String getField() {
+        return field;
+    }
+    
+    
 
 }

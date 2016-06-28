@@ -6,14 +6,8 @@
 package co.edu.udea.generadorreportesvuln;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -30,8 +24,8 @@ public class GeneradorReportes {
 
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
     private final static String ZAPURL = "http://zap/OTHER/core/other/xmlreport/";
-    private static Options options = new Options();
-    private static CommandLineParser parser = new DefaultParser();
+    private static final Options OPTIONS = new Options();
+    private static final CommandLineParser PARSER = new DefaultParser();
 
     /**
      * @param args the command line arguments
@@ -39,13 +33,14 @@ public class GeneradorReportes {
      * @throws org.apache.commons.cli.ParseException
      */
     public static void main(String[] args) throws IOException, ParseException {
-        options.addOption("s", true, "Set the site to analyze");
+        LOGGER.info("Starting report generator");
+        OPTIONS.addOption("s", true, "Set the site to analyze");
         Option fileOption = new Option("f", "Files to be analyzed");
         fileOption.setArgs(Option.UNLIMITED_VALUES);
-        options.addOption(fileOption);
+        OPTIONS.addOption(fileOption);
         String site = "";
 
-        CommandLine cmd = parser.parse(options, args);
+        CommandLine cmd = PARSER.parse(OPTIONS, args);
         ZAPReportGenerator zapReportGenerator;
         if (cmd.hasOption("s")) {
             site = cmd.getOptionValue("s");

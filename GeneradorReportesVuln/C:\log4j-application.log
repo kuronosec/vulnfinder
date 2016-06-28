@@ -2185,3 +2185,1703 @@ Alert{ X-Frame-Options Header Not Set
 2016-06-22 11:24:05 INFO  GeneradorReportes:38 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
 2016-06-22 11:24:05 INFO  GeneradorReportes:67 - The site http://www.udea.edu.com is not been reported in this file. This file has reports of http://app.empiric.us.
 2016-06-22 11:24:05 INFO  GeneradorReportes:76 - Program execution finished!
+2016-06-23 14:28:27 INFO  GeneradorReportes:52 - Analyzing site reports of: http://www.udea.edu.com
+2016-06-23 14:28:27 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:28:28 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:28:28 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-23 14:28:28 INFO  GeneradorReportes:64 - ZAP report finished
+2016-06-23 14:28:28 INFO  GeneradorReportes:66 - Analyzing SQLMap files...
+2016-06-23 14:28:28 INFO  GeneradorReportes:68 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-23 14:28:28 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-23 14:28:28 INFO  GeneradorReportes:70 - The site http://www.udea.edu.com is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-06-23 14:28:28 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-23 14:28:28 INFO  GeneradorReportes:70 - The site http://www.udea.edu.com is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-06-23 14:28:28 INFO  GeneradorReportes:76 - Program execution finished!
+2016-06-23 14:32:21 INFO  GeneradorReportes:52 - Analyzing site reports of: http://app.empiric.us
+2016-06-23 14:32:21 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:32:21 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:33:13 INFO  GeneradorReportes:52 - Analyzing site reports of: http://app.empiric.us
+2016-06-23 14:33:13 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:33:13 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:33:40 INFO  GeneradorReportes:52 - Analyzing site reports of: http://app.empiric.us
+2016-06-23 14:33:40 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:33:40 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:33:40 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-23 14:33:40 INFO  GeneradorReportes:64 - ZAP report finished
+2016-06-23 14:33:40 INFO  GeneradorReportes:66 - Analyzing SQLMap files...
+2016-06-23 14:33:40 INFO  GeneradorReportes:68 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-23 14:33:40 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-23 14:33:40 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: W - POST parameter 'username' is not injectable
+2016-06-23 14:33:40 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-23 14:33:40 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: W - reflective value(s) found and filtering out
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - the back-end DBMS is MySQL
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - fetching banner
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-23 14:33:40 INFO  GeneradorReportes:98 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-23 14:33:40 INFO  GeneradorReportes:76 - Program execution finished!
+2016-06-23 14:38:36 INFO  GeneradorReportes:52 - Analyzing site reports of: http://app.empiric.us
+2016-06-23 14:38:36 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:38:36 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:38:36 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-23 14:38:36 INFO  GeneradorReportes:64 - ZAP report finished
+2016-06-23 14:38:36 INFO  GeneradorReportes:66 - Analyzing SQLMap files...
+2016-06-23 14:38:36 INFO  GeneradorReportes:68 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-23 14:38:36 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-23 14:38:36 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: W - POST parameter 'username' is not injectable
+2016-06-23 14:38:36 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-23 14:38:36 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: W - reflective value(s) found and filtering out
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - the back-end DBMS is MySQL
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - fetching banner
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-23 14:38:36 INFO  GeneradorReportes:98 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-23 14:38:36 INFO  GeneradorReportes:76 - Program execution finished!
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://ad.turn.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://ads.creative-serving.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://assets.rubiconproject.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://bh.contextweb.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://bidi-geo.mythings.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cdn.edu.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cdn.katch.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cdn.optmd.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cdn.turn.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://contextual.media.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://cti.w55c.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://d.adroll.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Content-Type Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Content-Type header was either missing or empty.
+	Confidence: 2
+	Solution: Ensure each page is setting the specific and appropriate content-type value for the content being delivered.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://dis.criteo.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://dsum.casalemedia.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://geo.vantagemedia.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://ib.adnxs.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://mnet-ad.net
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://openx2-match.dotomi.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://pix04.revsci.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://pixel-apac.rubiconproject.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://pixel.quantserve.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://pixel.rubiconproject.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://pr-bh.ybp.yahoo.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://px.owneriq.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://qsearch-a.akamaihd.net
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://qsearch.media.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://r.openx.net
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://res.media.net
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://rp.gwallet.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://rtb.gumgum.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://rtd.tubemogul.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://rubicon-cm.p.veruta.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://rubicon-match.dotomi.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://search.keywordblocks.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://ssum.casalemedia.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://sync.adaptv.advertising.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://tags.bluekai.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://tap-s.rubiconproject.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://tap-t.rubiconproject.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://tap2-cdn.rubiconproject.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://tapestry.tapad.com
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://um2.eqads.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://us-ads.openx.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://us-u.openx.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://www.edu.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cross-Domain JavaScript Source File Inclusion
+	Risk{code=1, description=Low (Medium)}
+	Description: The page includes one or more script files from a third-party domain.
+	Confidence: 2
+	Solution: Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://www.udea.edu.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cross-Domain JavaScript Source File Inclusion
+	Risk{code=1, description=Low (Medium)}
+	Description: The page includes one or more script files from a third-party domain.
+	Confidence: 2
+	Solution: Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://www.wtp101.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  ZAPReportGenerator:83 - Site{ http://x.bidswitch.net
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Cookie No HttpOnly Flag
+	Risk{code=1, description=Low (Medium)}
+	Description: A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+	Confidence: 2
+	Solution: Ensure that the HttpOnly flag is set for all cookies.
+}
+--------------------
+}
+2016-06-23 14:45:30 INFO  GeneradorReportes:64 - ZAP report finished
+2016-06-23 14:45:30 INFO  GeneradorReportes:66 - Analyzing SQLMap files...
+2016-06-23 14:45:30 INFO  GeneradorReportes:68 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-23 14:45:30 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-23 14:45:30 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - target URL is stable
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: W - POST parameter 'username' is not injectable
+2016-06-23 14:45:30 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-23 14:45:30 INFO  GeneradorReportes:73 - Site: http://app.empiric.us
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - target URL is stable
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: W - reflective value(s) found and filtering out
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - the back-end DBMS is MySQL
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - fetching banner
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-23 14:45:30 INFO  GeneradorReportes:100 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-23 14:45:30 INFO  GeneradorReportes:76 - Program execution finished!
+2016-06-27 15:45:21 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:45:21 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:45:21 INFO  ZAPReportGenerator:83 - Site{ http://172.21.0.180:8787
+}
+2016-06-27 15:45:21 INFO  GeneradorReportes:58 - ZAP report finished
+2016-06-27 15:45:21 INFO  GeneradorReportes:60 - Analyzing SQLMap files...
+2016-06-27 15:45:21 INFO  GeneradorReportes:62 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:45:21 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:45:21 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: W - POST parameter 'username' is not injectable
+2016-06-27 15:45:21 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:45:21 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: W - reflective value(s) found and filtering out
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - the back-end DBMS is MySQL
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - fetching banner
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:45:21 INFO  GeneradorReportes:98 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:45:21 INFO  GeneradorReportes:70 - Program execution finished!
+2016-06-27 15:45:48 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:45:48 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:45:48 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-27 15:45:48 INFO  GeneradorReportes:58 - ZAP report finished
+2016-06-27 15:45:48 INFO  GeneradorReportes:60 - Analyzing SQLMap files...
+2016-06-27 15:45:48 INFO  GeneradorReportes:62 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:45:48 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:45:48 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: W - POST parameter 'username' is not injectable
+2016-06-27 15:45:48 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:45:48 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: W - reflective value(s) found and filtering out
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - the back-end DBMS is MySQL
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - fetching banner
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:45:48 INFO  GeneradorReportes:98 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:45:48 INFO  GeneradorReportes:70 - Program execution finished!
+2016-06-27 15:47:38 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-27 15:47:38 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:47:38 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:47:38 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-27 15:47:38 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-27 15:47:38 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-27 15:47:38 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:47:38 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:47:38 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: W - heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: W - time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: W - POST parameter 'username' is not injectable
+2016-06-27 15:47:38 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:47:38 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'windows-1252'
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - target URL is stable
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristics detected web page charset 'ascii'
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: W - reflective value(s) found and filtering out
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - the back-end DBMS is MySQL
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - fetching banner
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:47:38 INFO  GeneradorReportes:98 - Found: I - fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:47:38 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-27 15:51:54 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-27 15:51:54 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:51:54 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:51:54 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-27 15:51:54 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-27 15:51:54 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-27 15:51:54 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:51:54 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:51:54 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is not injectable
+2016-06-27 15:51:54 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:51:54 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: reflective value(s) found and filtering out
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:51:54 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:51:54 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-27 15:52:58 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-27 15:52:58 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:52:58 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:52:58 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-27 15:52:58 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-27 15:52:58 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-27 15:52:58 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:52:58 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:52:58 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is not injectable
+2016-06-27 15:52:58 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:52:58 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: reflective value(s) found and filtering out
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:52:58 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:52:58 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-27 15:53:27 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-27 15:53:27 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-27 15:53:27 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-27 15:53:27 INFO  ZAPReportGenerator:63 - Empty ZAP XML report
+2016-06-27 15:53:27 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-27 15:53:27 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-27 15:53:27 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-27 15:53:27 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-27 15:53:27 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:53:27 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-27 15:53:27 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-27 15:53:27 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-27 15:53:27 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-27 15:53:27 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-27 15:53:27 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-27 15:53:27 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-27 15:53:27 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:43:01 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:43:01 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:43:01 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:43:01 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:43:01 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:43:01 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:43:01 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:43:01 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:43:01 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:43:01 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:43:01 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:43:01 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:43:01 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:43:01 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:43:01 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:46:24 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Web Browser XSS Protection Not Enabled
+	Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Content-Type-Options Header Missing
+	Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=
+	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	X-Frame-Options Header Not Set
+	Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:46:24 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:46:24 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:46:24 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:46:24 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:46:24 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:46:24 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:46:24 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:46:24 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:46:24 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:46:24 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:46:24 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:46:24 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:46:24 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:46:24 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:46:53 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=Web Browser XSS Protection Not Enabled
+	Risk=Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=X-Content-Type-Options Header Missing
+	Risk=Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=X-Frame-Options Header Not Set
+	Risk=Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=Web Browser XSS Protection Not Enabled
+	Risk=Risk{code=1, description=Low (Medium)}
+	Description: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+	Confidence: 2
+	Solution: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=X-Content-Type-Options Header Missing
+	Risk=Risk{code=1, description=Low (Medium)}
+	Description: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+	Confidence: 2
+	Solution: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field=
+	Analyzer=co.edu.udea.generadorreportesvuln.model.Analyzer@7
+	Alert=X-Frame-Options Header Not Set
+	Risk=Risk{code=2, description=Medium (Medium)}
+	Description: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+	Confidence: 2
+	Solution: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:46:53 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:46:53 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:46:53 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:46:53 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:46:53 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:46:53 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:46:53 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:46:53 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:46:53 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:46:53 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:46:53 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:46:53 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:46:53 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:46:53 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:47:51 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:47:51 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	Web Browser XSS Protection Not Enabled
+Risk:	Risk{code=1, description=Low (Medium)}
+Description	: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence	: 2
+Solution	: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Content-Type-Options Header Missing
+Risk:	Risk{code=1, description=Low (Medium)}
+Description	: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence	: 2
+Solution	: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Frame-Options Header Not Set
+Risk:	Risk{code=2, description=Medium (Medium)}
+Description	: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence	: 2
+Solution	: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	Web Browser XSS Protection Not Enabled
+Risk:	Risk{code=1, description=Low (Medium)}
+Description	: Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence	: 2
+Solution	: Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Content-Type-Options Header Missing
+Risk:	Risk{code=1, description=Low (Medium)}
+Description	: The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence	: 2
+Solution	: Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Frame-Options Header Not Set
+Risk:	Risk{code=2, description=Medium (Medium)}
+Description	: X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence	: 2
+Solution	: Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:47:52 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:47:52 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:47:52 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:47:52 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:47:52 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:47:52 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:47:52 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:47:52 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:47:52 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:47:52 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:47:52 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:47:52 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:47:52 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:47:52 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:48:44 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:48:44 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:48:44 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:48:45 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	Web Browser XSS Protection Not Enabled
+Risk:	Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Content-Type-Options Header Missing
+Risk:	Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Frame-Options Header Not Set
+Risk:	Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:48:45 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:48:45 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	Web Browser XSS Protection Not Enabled
+Risk:	Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Content-Type-Options Header Missing
+Risk:	Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:	X-Frame-Options Header Not Set
+Risk:	Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:48:45 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:48:45 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:48:45 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:48:45 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:48:45 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:48:45 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:48:45 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:48:45 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:48:45 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:48:45 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:48:45 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:48:45 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:48:45 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:48:45 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:48:45 INFO  GeneradorReportes:71 - Program execution finished!
+2016-06-28 10:49:00 INFO  GeneradorReportes:36 - Starting report generator
+2016-06-28 10:49:00 INFO  ZAPReportGenerator:93 - Connecting to ZAP API
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:99 - Connected! XML document retrieved, analyzing...
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:83 - Site{ http://api.mixpanel.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:83 - Site{ http://app.empiric.us
+}
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:83 - Site{ http://cdn.mxpnl.com
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}
+--------------------
+Alert{ Field:
+Analyzer:	co.edu.udea.generadorreportesvuln.model.Analyzer@7
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}
+--------------------
+}
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:83 - Site{ http://fonts.googleapis.com
+}
+2016-06-28 10:49:01 INFO  ZAPReportGenerator:83 - Site{ http://fonts.gstatic.com
+}
+2016-06-28 10:49:01 INFO  GeneradorReportes:59 - ZAP report finished
+2016-06-28 10:49:01 INFO  GeneradorReportes:61 - Analyzing SQLMap files...
+2016-06-28 10:49:01 INFO  GeneradorReportes:63 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-06-28 10:49:01 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-06-28 10:49:01 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:49:01 WARN  GeneradorReportes:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-06-28 10:49:01 WARN  GeneradorReportes:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-06-28 10:49:01 WARN  GeneradorReportes:101 - Found: POST parameter 'username' is not injectable
+2016-06-28 10:49:01 INFO  GeneradorReportes:39 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-06-28 10:49:01 INFO  GeneradorReportes:71 - Site: http://app.empiric.us
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: target URL is stable
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristics detected web page charset 'ascii'
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-06-28 10:49:01 WARN  GeneradorReportes:101 - Found: reflective value(s) found and filtering out
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: the back-end DBMS is MySQL
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: fetching banner
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-06-28 10:49:01 INFO  GeneradorReportes:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-06-28 10:49:01 INFO  GeneradorReportes:71 - Program execution finished!

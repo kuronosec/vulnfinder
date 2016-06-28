@@ -5,6 +5,7 @@
  */
 package co.edu.udea.generadorreportesvuln;
 
+import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Site;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,10 +15,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
+import co.edu.udea.generadorreportesvuln.service.SiteMaker;
 
 /**
  *
@@ -44,7 +45,7 @@ public class FileAnalyzer {
         Pattern urlPattern = Pattern.compile(urlPatternString);
         List<String> result = new ArrayList<>();
         List<String> parameters = new ArrayList<>();
-        Site site;
+        Site site = null;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -68,7 +69,8 @@ public class FileAnalyzer {
                             break;
                         }
                         LOGGER.info("Site: " + siteURL);
-                        site = new Site(siteURL);
+                        site = SiteMaker.getSite(siteURL);
+                        site.addAnalyzer(Analyzer.SQLMAP);
                     } else {
                         LOGGER.info("No site found");
                     }
@@ -90,7 +92,15 @@ public class FileAnalyzer {
                     String level = matcher.group(1);
                     String found = matcher.group(2);
                     result.add(found);
-                    LOGGER.info("Found: " + level.charAt(0) + " - " + found);
+                    if (found.contains("heuristics detected webpage charset")){
+                        site.setCharset(found.substring(found.lastIndexOf(" ")+1));
+                    }
+                    if ("INFO".equalsIgnoreCase(level)){
+                        LOGGER.info("Found: " + found);
+                    } else if("WARNING".equalsIgnoreCase(level)) {  
+                        LOGGER.warn("Found: "+found);
+                    }
+                    
                     // System.out.println(m.group(1));
                     // System.out.println("Found value 3: " + m.group(2));
                 }
@@ -103,5 +113,9 @@ public class FileAnalyzer {
         reporte.setParametros(parametros);
         return reporte;*/
 
+    }
+
+    private String getField(String found) {
+        return found;
     }
 }
