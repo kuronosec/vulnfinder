@@ -7,7 +7,6 @@
 // @include     *
 // @version     1
 // @grant       none
-// @require     https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js
 // ==/UserScript==
 
 var vulnfinder_st = `.button {
@@ -17,7 +16,7 @@ var vulnfinder_st = `.button {
   border: 2px solid #06D85F;
   border-radius: 20px/50px;
   text-decoration: none;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .button:hover {
@@ -109,7 +108,7 @@ var vulnfinder_st = `.button {
   height: 93%;
   width:15%;
 }
-#original-content {
+.vulnfinder-original-content {
     width:84.5%;
     float:right;
 }
@@ -117,7 +116,7 @@ var vulnfinder_st = `.button {
 .ul-f {
   color: white;
   margin-top: 20px;
-  cursor: pointer; 
+  cursor: pointer;
   clear:left
 }
 
@@ -139,7 +138,7 @@ var vulnfinder_st = `.button {
 #see-hidden {
   cursor: pointer;
 }
-  
+
 .active-input {
   background-color: yellow !important;
 }
@@ -208,7 +207,7 @@ attacksUI = function (idx) {
     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f noselect'>";
-        content += "<label class='label-ch'><input type='checkbox' class='ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='label-ch'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -218,8 +217,8 @@ attacksUI = function (idx) {
 format = function (field, idx, action) {
     var label = field.attr('name');
     var text = "<div class='ul-f noselect truncate' id='field-" + idx + "'>";
-    text += "<input type='checkbox' class='vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
-    text += "<input type='hidden' class='input-form-url' value='" + action + "' />";
+    text += "<input type='checkbox' class='vulnfinder-input vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
+    text += "<input type='hidden' class='vulnfinder-input input-form-url' value='" + action + "' />";
     text += "</div>";
 
     if (label === undefined || label == 'downvoteReason') return '';
@@ -276,9 +275,9 @@ configPanel = function () {
         "<h2>Select a Server</h2>" +
         "</div>" +
         "<div class='modal-body'>" +
-        "<input type='radio' name='vul-config-server' class='vul-chk-config vcc1' value='1' checked /> Use online servers<br><br>" +
-        "<input type='radio' name='vul-config-server' class='vul-chk-config vcc2' value='2' /> I have my own server<br><br>" +
-        "<input type='text' name='vul-server-ip' id='vul-server-field' class='form-control' value='" + server_url + "' placeholder='e.g. 127.0.0.1' hidden='true'/>" +
+        "<input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc1' value='1' checked /> Use online servers<br><br>" +
+        "<input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc2' value='2' /> I have my own server<br><br>" +
+        "<input type='text' name='vul-server-ip' id='vul-server-field' class='vulnfinder-input form-control' value='" + server_url + "' placeholder='e.g. 127.0.0.1' hidden='true'/>" +
         "</div>" +
         "<div class='modal-footer'>" +
         "<button type='button' class='btn btn-primary' id='vul-server-button'>Save changes</button>" +
@@ -289,77 +288,82 @@ configPanel = function () {
     return panel;
 }
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
     // Inject dependencies
     for (st in stylesheets)
         $('head').prepend(stylesheets[st]);
 
     // add left-nav
-    var body_content = $('body').html();
-    $('body').html(schema);
+    body_content = $('body').html();
+    // $('body').toggleClass('vulnfinder-original-content');
+    // $('body').html(schema);
+    $('body').prepend("<div class='menu' id='nav-bar'/>");
     $('#nav-bar').append(configPanel);
     $('#nav-bar').append("<h1 class='vulnfinder-header'> vulnfinder </h1>");
     $('#nav-bar').append("<a class='button' href='#configPanel'>settings</a><br><br><br>");
     $('#nav-bar').append("<hr class='v-line' />");
-    $('#nav-bar').append("<label id='see-hidden'><input type='checkbox' class='ch' /><span class='noselect' id='see-hidden-span'> See hidden </span></label> <hr class='v-line' />");
-    // $('#nav-bar').append("<span class='noselect' id='see-hidden-span'> See hidden </span> <hr class='v-line' /></label>");
+    $('#nav-bar').append("<label id='see-hidden'><input type='checkbox' class='vulnfinder-input ch' /><span class='noselect' id='see-hidden-span'> See hidden </span></label> <hr class='v-line' />");
     $('#nav-bar').append("<div class='all-fields' />");
 
-    $('#original-content').html(body_content);
+    // $('#original-content').html(body_content);
 });
 
 $(window).load(function () {
     // attach input and bind events
-    $("#original-content").find('input').each(function (idx, val) {
+    $('body').find('input').each(function (idx, val) {
         var input = $(this);
-        var elm = format(input, idx, actionForm(input));
-        $('.all-fields').append(elm);
+         if (!input.hasClass('vulnfinder-input')) {
+            var elm = format(input, idx, actionForm(input));
+            $('.all-fields').append(elm);
 
-        if (elm.length > 0) {
-            input.addClass('vulnfinder-target');
+            if (elm.length > 0) {
+                input.addClass('vulnfinder-target');
+            }
+
+            $('#field-' + idx).hover(function () {
+                if ($('#attacks-' + idx).css('display') === 'none') {
+                    onHover(input, $(this));
+                }
+                input.focus();
+            }).click(function () {
+                $("#attacks-" + idx).toggle();
+            });
+
+            input.hover(function () {
+                if ($('#attacks-' + idx).css('display') === 'none') {
+                    onHover(input, $('#field-' + idx));
+                }
+                $('#field-' + idx).find('input')[0].focus();
+            });
         }
-
-        $('#field-' + idx).hover(function () {
-            if ($('#attacks-' + idx).css('display') === 'none') {
-                onHover(input, $(this));
-            }
-            input.focus();
-        }).click(function () {
-            $("#attacks-" + idx).toggle();
-        });
-
-        input.hover(function () {
-            if ($('#attacks-' + idx).css('display') === 'none') {
-                onHover(input, $('#field-' + idx));
-            }
-            $('#field-' + idx).find('input')[0].focus();
-        });
     });
 
     // attach select and bind events
     var idx = 1000;
-    $("#original-content").find('select').each(function () {
+    $('body').find('select').each(function () {
         var input = $(this);
-        var elm = format(input, idx, actionForm(input));
-        $('.all-fields').append(elm);
+        if (!input.hasClass('vulnfinder-input')) {
+            var elm = format(input, idx, actionForm(input));
+            $('.all-fields').append(elm);
 
-        var hack = idx;
-        $('#field-' + idx).hover(function () {
-            if ($('#attacks-' + hack).css('display') === 'none') {
-                onHover(input, $(this));
-            }
-            input.focus();
-        }).click(function () {
-            $("#attacks-" + hack).toggle();
-        });
+            var hack = idx;
+            $('#field-' + idx).hover(function () {
+                if ($('#attacks-' + hack).css('display') === 'none') {
+                    onHover(input, $(this));
+                }
+                input.focus();
+            }).click(function () {
+                $("#attacks-" + hack).toggle();
+            });
 
-        input.hover(function () {
-            if ($('#attacks-' + hack).css('display') === 'none') {
-                onHover(input, $('#field-' + hack));
-            }
-            $('#field-' + hack).find('input')[0].focus();
-        });
-        idx += 1;
+            input.hover(function () {
+                if ($('#attacks-' + hack).css('display') === 'none') {
+                    onHover(input, $('#field-' + hack));
+                }
+                $('#field-' + hack).find('input')[0].focus();
+            });
+            idx += 1;
+        }
     });
 
     $('#nav-bar').append("<hr class='v-line' />");
