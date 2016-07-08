@@ -1,0 +1,39 @@
+{
+  "description": "Perfomrs security test to web sites.",
+  "manifest_version": 2,
+  "name": "VulnFinder",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/48.png"
+  },
+
+  "permissions": [],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "icons/32.png",
+    "default_title": "VulnFinder"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["contentscript.js"],
+      "run_at": "document_idle",
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "resources/nav-bar.html"
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "vulnfinder@udea.edu.co",
+      "strict_min_version": "46.0"
+    }
+  }
+}

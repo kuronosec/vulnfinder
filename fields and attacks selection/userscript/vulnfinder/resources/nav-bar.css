@@ -1,0 +1,169 @@
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #088A4B;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .modal-body {
+  max-height: 30%;
+  overflow: auto;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+.attack-list {
+  display: none;
+  color: white;
+  font-size: 10px;
+  margin: 5px 0px 5px 0px;
+  padding-left: 20px;
+}
+
+#nav-bar {
+  font-family: sans-serif !important;
+  font-size: 14px;
+  float: left;
+  background-color: #333;
+  margin: 0px 0px 0px 0px;
+  padding: 30px 0px 30px 5px;
+  border: solid;
+  border-color: black;
+  color: white;
+  /*position: fixed;*/
+  /*z-index: 100;*/
+  /*overflow-y: auto;*/
+  /*height: 100%;*/
+  /*width:15%;*/
+}
+.vulnfinder-original-content {
+  width:84.5%;
+  float:right;
+}
+
+.ul-f {
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  clear:left
+}
+
+.li-f .label-ch{
+  display:block;
+  cursor: pointer;
+  text-indent:15px;
+}
+
+.li-f:hover {
+  background:#f1f1f1;
+  color:black
+}
+
+.ch {
+  cursor:pointer;
+}
+
+#see-hidden {
+  cursor: pointer;
+}
+
+.active-input {
+  background-color: yellow !important;
+}
+
+.active-field {
+  background:#f1f1f1;
+  color:black
+}
+
+.all-fields {
+  margin: 15px 0px 15px 0px;
+}
+
+.domain {
+  float:left;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.v-line {
+  margin: 5px 0px 5px -25px;
+  padding: 0px 0px 0px 0px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.whimsy {
+  width: 48px;
+  height: 48px;
+}
+
