@@ -84,18 +84,17 @@
 #nav-bar {
   font-family: sans-serif !important;
   font-size: 14px;
-  float: left;
   background-color: #333;
   margin: 0px 0px 0px 0px;
   padding: 30px 0px 30px 5px;
   border: solid;
   border-color: black;
   color: white;
-  /*position: fixed;*/
+  position: fixed;
   /*z-index: 100;*/
   /*overflow-y: auto;*/
-  /*height: 100%;*/
-  /*width:15%;*/
+  height: 100%;
+  width:100%;
 }
 .vulnfinder-original-content {
   width:84.5%;
