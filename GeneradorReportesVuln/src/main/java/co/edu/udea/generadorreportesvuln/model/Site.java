@@ -11,19 +11,19 @@ import java.util.List;
  * @author camilosampedro
  */
 public interface Site extends HtmlElement {    
+    public Field getField(String fieldName);
+    
+    public void addAlert(SiteAlert alert);
+    
+    public List<Alert> getAlerts();
+    
     public void addAnalyzer(Analyzer analyzer);
     
     public List<Analyzer> getAnalyzers();
-    
-    public void addAlert(Alert alert);
 
     public String getSite();
 
     public void setSite(String site);
-
-    public List<Alert> getAlerts();
-
-    public void setAlerts(List<Alert> alerts);
     
     public boolean deleteCharset(String charset);
 

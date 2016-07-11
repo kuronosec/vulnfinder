@@ -5,7 +5,9 @@
  */
 package co.edu.udea.generadorreportesvuln;
 
+import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
+import co.edu.udea.generadorreportesvuln.model.Field;
 import co.edu.udea.generadorreportesvuln.model.Site;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,7 +26,7 @@ import co.edu.udea.generadorreportesvuln.service.SiteMaker;
  *
  * @author camilosampedro
  */
-public class FileAnalyzer {
+public class FileAnalyzer extends FilePatternFinder {
 
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
     private final String file;
@@ -37,21 +39,18 @@ public class FileAnalyzer {
 
     public void analyze() throws IOException {
         LOGGER.info("Analyzing file: " + file);
-        //String patternString = "^\\[(?:[0-9]{2}:){2}[0-9]{2}\\]\\s\\[(?:INFO|WARNING)\\]\\s(?!testing)(.*)$";
-        String patternString = "^\\[(?:[0-9]{2}:){2}[0-9]{2}\\]\\s\\[(INFO|WARNING)\\]\\s(?!testing)(.*)$";
-        String urlPatternString = "(http|ftp|https):\\/\\/([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?";
         //Report reporte = new Report();
-        Pattern pattern = Pattern.compile(patternString);
-        Pattern urlPattern = Pattern.compile(urlPatternString);
-        List<String> result = new ArrayList<>();
-        List<String> parameters = new ArrayList<>();
         Site site = null;
+
+        String actualParameter = "";
+        String actualMethod;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             StringBuilder stringBuilder = new StringBuilder();
 
             String line = bufferedReader.readLine();
             Boolean isTheBeginning = false;
             Boolean firstLine = true;
+            String type = "", title = "", payload;
             while (line != null) {
                 if (firstLine) {
                     Matcher matcher = urlPattern.matcher(line);
@@ -84,23 +83,55 @@ public class FileAnalyzer {
                     continue;
                 }
                 if (isTheBeginning) {
-                    parameters.add(line);
+                    Matcher parameterMatcher = parameterPattern.matcher(line);
+                    if (parameterMatcher.find()) {
+                        actualParameter = parameterMatcher.group(0);
+                        Field actualField = site.getField(actualParameter);
+                        actualMethod = parameterMatcher.group(1);
+                        actualField.setFieldMethod(actualMethod);
+                        line = bufferedReader.readLine();
+                        continue;
+                    }
+                    Matcher typeMatcher = typePattern.matcher(line);
+                    if (typeMatcher.find()) {
+                        type = typeMatcher.group(0);
+                        line = bufferedReader.readLine();
+                        continue;
+                    }
+                    Matcher titleMatcher = titlePattern.matcher(line);
+                    if (titleMatcher.find()) {
+                        title = titleMatcher.group(0);
+                        line = bufferedReader.readLine();
+                        continue;
+                    }
+                    Matcher payloadMatcher = payloadPattern.matcher(line);
+                    if (payloadMatcher.find()) {
+                        payload = payloadMatcher.group(0);
+                        Field actualField = site.getField(actualParameter);
+                        FieldAlert alert = new FieldAlert(Analyzer.ZAP);
+                        alert.setType(type);
+                        alert.setTitle(title);
+                        alert.setPayload(payload);
+                        actualField.addAlert(alert);
+                        line = bufferedReader.readLine();
+                        continue;
+                    }
+
                 }
                 Matcher matcher = pattern.matcher(line);
                 if (matcher.find()) {
                     // System.out.println("Found value 1: " + m.group(0));
                     String level = matcher.group(1);
                     String found = matcher.group(2);
-                    result.add(found);
-                    if (found.contains("heuristics detected webpage charset")){
-                        site.setCharset(found.substring(found.lastIndexOf(" ")+1));
+                    if (found.contains("heuristics detected webpage charset")) {
+                        site.setCharset(found.substring(found.lastIndexOf(" ") + 1));
                     }
-                    if ("INFO".equalsIgnoreCase(level)){
+                    if ("INFO".equalsIgnoreCase(level)) {
                         LOGGER.info("Found: " + found);
-                    } else if("WARNING".equalsIgnoreCase(level)) {  
-                        LOGGER.warn("Found: "+found);
+                    } else if ("WARNING".equalsIgnoreCase(level)) {
+                        LOGGER.warn("Found: " + found);
                     }
-                    
+
                     // System.out.println(m.group(1));
                     // System.out.println("Found value 3: " + m.group(2));
                 }

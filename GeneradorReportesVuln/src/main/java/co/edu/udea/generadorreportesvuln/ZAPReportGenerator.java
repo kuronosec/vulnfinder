@@ -6,10 +6,11 @@
 package co.edu.udea.generadorreportesvuln;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import co.edu.udea.generadorreportesvuln.model.Alert;
+import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Risk;
 import co.edu.udea.generadorreportesvuln.model.Site;
+import co.edu.udea.generadorreportesvuln.model.SiteAlert;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -60,7 +61,7 @@ public class ZAPReportGenerator {
         List<Element> siteElements = root.getChildren();
 
         if (siteElements.isEmpty()) {
-            LOGGER.info("Empty ZAP XML report");
+            LOGGER.warn("Empty ZAP XML report");
         } else {
             siteElements.stream().forEach((Element siteElement) -> {
                 String siteName = siteElement.getAttributeValue("name");
@@ -77,7 +78,7 @@ public class ZAPReportGenerator {
                         String description = alertElement.getChild("desc").getText().replace("<p>", "").replace("</p>", "");
                         String confidence = alertElement.getChild("confidence").getText();
                         String solution = alertElement.getChild("solution").getText().replace("<p>", "").replace("</p>", "");
-                        Alert alert = new Alert("", Analyzer.ZAP, alertString, risk, description, solution, confidence);
+                        SiteAlert alert = new SiteAlert(Analyzer.ZAP, alertString, risk, description, solution, confidence);
                         site.addAlert(alert);
                     });
                     LOGGER.info(site);

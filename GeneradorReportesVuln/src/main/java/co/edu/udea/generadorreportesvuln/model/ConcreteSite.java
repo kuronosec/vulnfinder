@@ -7,33 +7,29 @@ package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author camilosampedro
  */
 public class ConcreteSite implements Site {
-
+    
+    private static final Map<String, Field> FIELDS = new HashMap<>();
+    private List<Alert> alerts;
     private List<String> charset;
     private String site;
-    private List<Alert> alerts;
     private final List<Analyzer> analyzers;
 
     public ConcreteSite() {
-        alerts = new ArrayList<>();
         analyzers = new ArrayList<>();
     }
 
     public ConcreteSite(String site) {
-        alerts = new ArrayList<>();
         analyzers = new ArrayList<>();
         this.site = site;
-    }
-
-    @Override
-    public void addAlert(Alert alert) {
-        alerts.add(alert);
     }
 
     @Override
@@ -47,21 +43,8 @@ public class ConcreteSite implements Site {
     }
 
     @Override
-    public List<Alert> getAlerts() {
-        return alerts;
-    }
-
-    @Override
-    public void setAlerts(List<Alert> alerts) {
-        this.alerts = alerts;
-    }
-
-    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        alerts.stream().forEach((alert) -> {
-            builder.append(alert.toString()).append("\n--------------------\n");
-        });
         return "Site{ " + site + "\n"
                 + builder.toString()
                 + "}";
@@ -96,9 +79,29 @@ public class ConcreteSite implements Site {
     public Div toHtml() {
         Div siteDiv = new Div();
         siteDiv.setCSSClass("site");
-        for (Alert alert : alerts) {
-            siteDiv.appendChild(alert.toHtml());
-        }
+        FIELDS.values().stream().forEach((field) -> {
+            siteDiv.appendChild(field.toHtml());
+        });
         return siteDiv;
+    }
+
+    @Override
+    public Field getField(String fieldName) {
+        Field field = FIELDS.get(fieldName);
+        if(field == null) {
+            field = new Field(fieldName);
+            FIELDS.put(fieldName, field);
+        }
+        return field;
+    }
+
+    @Override
+    public void addAlert(SiteAlert alert) {
+        this.alerts.add(alert);
+    }
+
+    @Override
+    public List<Alert> getAlerts() {
+        return this.alerts;
     }
 }
