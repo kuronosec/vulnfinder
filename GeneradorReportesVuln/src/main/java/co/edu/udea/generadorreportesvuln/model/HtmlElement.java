@@ -5,12 +5,12 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
-import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.FertileNode;
 
 /**
  *
  * @author camilosampedro
  */
 public interface HtmlElement {
-    public Div toHtml();
+    public FertileNode toHtml();
 }

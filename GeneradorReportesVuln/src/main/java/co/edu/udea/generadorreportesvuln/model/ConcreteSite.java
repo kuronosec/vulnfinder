@@ -6,6 +6,10 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.H1;
+import com.hp.gagawa.java.elements.Span;
+import com.hp.gagawa.java.elements.Table;
+import com.hp.gagawa.java.elements.Thead;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +20,7 @@ import java.util.Map;
  * @author camilosampedro
  */
 public class ConcreteSite implements Site {
-    
+
     private static final Map<String, Field> FIELDS = new HashMap<>();
     private List<Alert> alerts;
     private List<String> charset;
@@ -78,17 +82,37 @@ public class ConcreteSite implements Site {
     @Override
     public Div toHtml() {
         Div siteDiv = new Div();
+
         siteDiv.setCSSClass("site");
+
+        H1 title = new H1();
+
+        title.appendText("Site: ");
+
+        Span span = new Span();
+        span.appendText(site);
+
+        title.appendChild(span);
+
+        siteDiv.appendChild(title);
+
         FIELDS.values().stream().forEach((field) -> {
             siteDiv.appendChild(field.toHtml());
         });
+
+        Table table = new Table();
+        table.setCSSClass("table");
+        Thead thead = new Thead();
+        thead.setCSSClass("thead-default");
+        
+
         return siteDiv;
     }
 
     @Override
     public Field getField(String fieldName) {
         Field field = FIELDS.get(fieldName);
-        if(field == null) {
+        if (field == null) {
             field = new Field(fieldName);
             FIELDS.put(fieldName, field);
         }
