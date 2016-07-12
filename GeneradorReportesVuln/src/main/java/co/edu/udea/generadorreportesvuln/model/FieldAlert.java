@@ -6,6 +6,8 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.Td;
+import com.hp.gagawa.java.elements.Tr;
 
 /**
  *
@@ -47,8 +49,17 @@ public class FieldAlert extends Alert {
     }
 
     @Override
-    public Div toHtml() {
-        Div alertDiv = new Div();
+    public Tr toHtml() {
+        Tr alertDiv = new Tr();
+        Td sameTd = new Td();
+        sameTd.appendText(type);
+        alertDiv.appendChild(sameTd);
+        sameTd = new Td();
+        sameTd.appendText(title);
+        alertDiv.appendChild(sameTd);
+        sameTd = new Td();
+        sameTd.appendText(payload);
+        alertDiv.appendChild(sameTd);
         return alertDiv;
     }
 

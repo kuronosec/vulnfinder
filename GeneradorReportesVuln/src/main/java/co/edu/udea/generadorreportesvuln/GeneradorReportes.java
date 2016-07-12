@@ -6,6 +6,9 @@
 package co.edu.udea.generadorreportesvuln;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
+import co.edu.udea.generadorreportesvuln.model.Report;
+import co.edu.udea.generadorreportesvuln.service.SiteMaker;
+import com.hp.gagawa.java.elements.Html;
 import java.io.IOException;
 import java.util.Arrays;
 import org.apache.commons.cli.CommandLine;
@@ -35,7 +38,7 @@ public class GeneradorReportes {
     public static void main(String[] args) throws IOException, ParseException {
         LOGGER.info("Starting report generator");
         OPTIONS.addOption("s", true, "Set the site to analyze");
-        OPTIONS.addOption("c",true, "Set the parameters to analyze");
+        OPTIONS.addOption("c", true, "Set the parameters to analyze");
         Option fileOption = new Option("f", "Files to be analyzed");
         fileOption.setArgs(Option.UNLIMITED_VALUES);
         OPTIONS.addOption(fileOption);
@@ -44,7 +47,7 @@ public class GeneradorReportes {
 
         CommandLine cmd = PARSER.parse(OPTIONS, args);
         ZAPReportGenerator zapReportGenerator;
-        if (cmd.hasOption("c")){
+        if (cmd.hasOption("c")) {
             parameterFile = cmd.getOptionValue("c");
         }
         if (cmd.hasOption("s")) {
@@ -67,15 +70,19 @@ public class GeneradorReportes {
             String[] files = cmd.getOptionValues("f");
             LOGGER.info("Files to analyze (Input params): " + Arrays.toString(files));
             for (String file : files) {
-                FileAnalyzer analyzer = new FileAnalyzer(file,site);
+                FileAnalyzer analyzer = new FileAnalyzer(file, site);
                 analyzer.analyze();
             }
         } else {
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
         }
         LOGGER.info("Program execution finished!");
-    }
 
+        Html htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
+        Report.writeToFile(htmlReport, "report");
+    }
+    
+    
     
 
 }

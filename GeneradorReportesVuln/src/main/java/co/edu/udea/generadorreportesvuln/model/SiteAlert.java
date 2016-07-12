@@ -6,6 +6,7 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.Li;
 
 /**
  *
@@ -85,7 +86,9 @@ public class SiteAlert extends Alert {
     }
 
     @Override
-    public Div toHtml() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Li toHtml() {
+        Li alertItem = new Li();
+        alertItem.appendText(toString());
+        return alertItem;
     }
 }

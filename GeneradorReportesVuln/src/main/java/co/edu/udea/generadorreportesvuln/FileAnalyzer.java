@@ -85,28 +85,28 @@ public class FileAnalyzer extends FilePatternFinder {
                 if (isTheBeginning) {
                     Matcher parameterMatcher = parameterPattern.matcher(line);
                     if (parameterMatcher.find()) {
-                        actualParameter = parameterMatcher.group(0);
+                        actualParameter = parameterMatcher.group(1);
                         Field actualField = site.getField(actualParameter);
-                        actualMethod = parameterMatcher.group(1);
+                        actualMethod = parameterMatcher.group(2);
                         actualField.setFieldMethod(actualMethod);
                         line = bufferedReader.readLine();
                         continue;
                     }
                     Matcher typeMatcher = typePattern.matcher(line);
                     if (typeMatcher.find()) {
-                        type = typeMatcher.group(0);
+                        type = typeMatcher.group(1);
                         line = bufferedReader.readLine();
                         continue;
                     }
                     Matcher titleMatcher = titlePattern.matcher(line);
                     if (titleMatcher.find()) {
-                        title = titleMatcher.group(0);
+                        title = titleMatcher.group(1);
                         line = bufferedReader.readLine();
                         continue;
                     }
                     Matcher payloadMatcher = payloadPattern.matcher(line);
                     if (payloadMatcher.find()) {
-                        payload = payloadMatcher.group(0);
+                        payload = payloadMatcher.group(1);
                         Field actualField = site.getField(actualParameter);
                         FieldAlert alert = new FieldAlert(Analyzer.ZAP);
                         alert.setType(type);

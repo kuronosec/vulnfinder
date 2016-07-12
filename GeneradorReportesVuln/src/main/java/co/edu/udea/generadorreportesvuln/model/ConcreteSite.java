@@ -9,7 +9,10 @@ import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Table;
+import com.hp.gagawa.java.elements.Tbody;
+import com.hp.gagawa.java.elements.Th;
 import com.hp.gagawa.java.elements.Thead;
+import com.hp.gagawa.java.elements.Ul;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,11 +32,18 @@ public class ConcreteSite implements Site {
 
     public ConcreteSite() {
         analyzers = new ArrayList<>();
+        alerts = new ArrayList<>();
     }
 
     public ConcreteSite(String site) {
         analyzers = new ArrayList<>();
+        alerts = new ArrayList<>();
         this.site = site;
+    }
+
+    @Override
+    public void addAlert(SiteAlert alert) {
+        alerts.add(alert);
     }
 
     @Override
@@ -90,21 +100,49 @@ public class ConcreteSite implements Site {
         title.appendText("Site: ");
 
         Span span = new Span();
+        span.setCSSClass("siteurl");
         span.appendText(site);
 
         title.appendChild(span);
 
         siteDiv.appendChild(title);
 
-        FIELDS.values().stream().forEach((field) -> {
-            siteDiv.appendChild(field.toHtml());
-        });
+        if (!alerts.isEmpty()) {
+
+            H1 siteAlertsTitle = new H1();
+            siteAlertsTitle.appendText("Site alerts");
+            siteDiv.appendChild(siteAlertsTitle);
+
+            Ul siteAlertList = new Ul();
+            alerts.stream().forEach((siteAlert) -> {
+                siteAlertList.appendChild(siteAlert.toHtml());
+            });
+            siteDiv.appendChild(siteAlertList);
+        }
 
         Table table = new Table();
         table.setCSSClass("table");
         Thead thead = new Thead();
         thead.setCSSClass("thead-default");
-        
+        //Type title payload
+        Th typeTh = new Th();
+        typeTh.appendText("Type");
+        thead.appendChild(typeTh);
+        Th titleTh = new Th();
+        titleTh.appendText("Title");
+        thead.appendChild(titleTh);
+        Th payloadTh = new Th();
+        payloadTh.appendText("Payload");
+        thead.appendChild(payloadTh);
+        table.appendChild(thead);
+
+        Tbody tbody = new Tbody();
+        FIELDS.values().stream().forEach((field) -> {
+            tbody.appendChild(field.toHtml());
+        });
+        table.appendChild(tbody);
+
+        siteDiv.appendChild(table);
 
         return siteDiv;
     }
@@ -117,11 +155,6 @@ public class ConcreteSite implements Site {
             FIELDS.put(fieldName, field);
         }
         return field;
-    }
-
-    @Override
-    public void addAlert(SiteAlert alert) {
-        this.alerts.add(alert);
     }
 
     @Override

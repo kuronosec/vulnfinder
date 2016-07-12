@@ -4539,3 +4539,1063 @@ co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Out
 2016-07-11 15:04:06 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
 2016-07-11 15:04:06 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
 2016-07-11 15:04:06 INFO  GeneradorReportes:76 - Program execution finished!
+2016-07-12 13:31:29 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:31:29 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:31:29 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:31:29 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:31:29 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:31:29 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:31:29 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:31:29 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:31:29 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:31:29 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:31:29 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:31:29 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:31:29 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:31:29 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:31:29 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:31:29 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:31:29 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:31:29 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:31:46 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:31:46 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:31:46 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:31:46 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:31:46 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:31:46 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:31:46 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:31:46 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:31:46 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:31:46 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:31:46 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:31:46 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:31:46 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:31:46 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:31:46 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:31:46 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:31:46 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:31:46 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:33:19 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:33:19 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:33:19 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:33:19 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:33:19 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:33:19 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:33:19 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:33:19 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:33:19 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:33:19 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:33:19 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:33:19 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:33:19 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:33:19 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:33:19 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:33:19 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:33:19 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:33:19 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:36:17 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:36:17 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:36:17 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:36:18 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:36:18 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:36:18 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:36:18 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:36:18 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:36:18 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:36:18 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:36:18 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:36:18 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:36:18 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:36:18 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:36:18 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:36:18 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:36:18 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:36:18 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:36:43 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:36:43 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:36:43 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:36:43 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:36:43 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:36:43 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:36:43 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:36:43 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:36:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:36:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:36:43 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:36:43 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:36:43 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:36:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:36:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:36:43 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:36:43 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:36:43 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:39:20 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:39:20 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:39:20 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:39:20 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:39:20 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:39:20 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:39:20 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:39:20 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:39:20 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:39:20 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:39:20 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:39:20 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:39:20 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:39:20 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:39:20 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:39:20 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:39:20 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:39:20 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:40:32 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:40:32 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:40:32 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:40:32 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:40:32 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:40:32 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:40:32 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:40:32 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:40:32 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:40:32 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:40:32 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:40:32 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:40:32 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:40:32 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:40:32 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:40:32 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:40:32 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:40:32 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:45:34 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:45:34 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:45:34 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:45:35 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:45:35 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:45:35 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:45:35 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:45:35 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:45:35 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:45:35 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:45:35 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:45:35 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:45:35 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:45:35 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:45:35 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:45:35 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:45:35 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:45:35 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:48:23 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:48:23 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:48:23 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:48:23 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:48:23 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:48:23 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:48:23 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:48:23 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:48:23 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:48:23 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:48:23 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:48:23 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:48:23 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:48:23 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:48:23 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:48:23 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:48:23 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:48:23 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:48:45 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:48:45 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:48:45 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:48:45 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:48:45 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:48:45 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:48:45 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:48:45 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:48:45 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:48:45 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:48:45 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:48:45 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:48:45 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:48:45 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:48:45 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:48:45 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:48:45 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:48:45 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:49:32 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:49:32 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:49:32 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:49:33 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:49:33 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:49:33 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:49:33 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:49:33 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:49:33 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:49:33 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:49:33 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:49:33 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:49:33 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:49:33 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:49:33 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:49:33 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:49:33 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:49:33 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:49:48 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:49:48 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:49:48 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:49:49 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:49:49 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:49:49 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:49:49 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:49:49 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:49:49 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:49:49 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:49:49 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:49:49 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:49:49 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:49:49 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:49:49 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:49:49 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:49:49 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:49:49 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:50:21 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:50:21 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:50:21 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:50:21 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:50:21 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:50:21 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:50:21 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:50:21 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:50:21 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:50:21 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:50:21 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:50:21 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:50:21 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:50:21 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:50:21 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:50:21 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:50:21 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:50:21 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:51:15 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:51:15 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:51:15 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:51:16 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:51:16 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:51:16 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:51:16 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:51:16 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:51:16 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:51:16 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:51:16 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:51:16 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:51:16 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:51:16 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:51:16 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:51:16 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:51:16 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:51:16 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:52:48 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:52:48 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:52:48 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:52:48 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:52:48 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:52:48 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:52:48 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:52:48 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:52:48 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:52:48 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:52:48 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:52:48 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:52:48 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:52:48 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:52:48 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:52:48 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:52:48 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:52:48 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:54:43 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:54:43 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:54:43 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:54:43 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:54:43 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:54:43 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:54:43 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:54:43 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:54:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:54:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:54:43 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:54:43 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:54:43 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:54:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:54:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:54:43 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:54:43 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:54:43 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 13:56:01 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 13:56:01 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 13:56:01 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 13:56:01 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 13:56:01 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 13:56:01 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 13:56:01 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 13:56:01 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 13:56:01 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 13:56:01 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:56:01 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 13:56:01 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 13:56:01 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 13:56:01 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 13:56:01 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 13:56:01 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 13:56:01 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 13:56:01 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:03:08 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:03:08 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:03:08 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:03:09 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:03:09 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:03:09 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:03:09 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:03:09 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:03:09 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:03:09 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:03:09 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:03:09 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:03:09 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:03:09 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:03:09 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:03:09 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:03:09 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:03:09 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:06:41 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:06:41 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:06:41 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:06:41 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:06:41 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:06:41 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:06:41 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:06:41 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:06:41 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:06:41 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:06:41 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:06:41 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:06:41 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:06:41 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:06:41 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:06:41 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:06:41 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:06:41 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:07:51 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:07:51 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:07:51 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:07:51 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:07:51 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:07:51 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:07:51 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:07:51 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:07:51 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:07:51 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:07:51 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:07:51 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:07:51 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:07:51 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:07:51 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:07:51 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:07:51 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:07:51 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:08:34 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:08:34 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:08:34 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:08:35 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:08:35 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:08:35 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:08:35 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:08:35 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:08:35 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:08:35 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:08:35 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:08:35 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:08:35 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:08:35 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:08:35 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:08:35 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:08:35 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:08:35 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:09:30 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:09:31 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:09:31 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:09:31 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:09:31 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:09:31 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:09:31 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:09:31 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:09:31 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:09:31 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:09:31 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:09:31 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:09:31 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:09:31 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:09:31 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:09:31 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:09:31 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:09:31 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:11:30 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:11:30 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:11:30 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:11:30 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:11:31 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:11:31 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:11:31 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:11:31 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:11:31 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:11:31 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:11:31 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:11:31 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:11:31 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:11:31 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:11:31 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:11:31 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:11:31 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:11:31 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:15:43 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:15:43 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:15:43 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:15:43 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:15:43 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:15:43 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:15:43 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:15:43 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:15:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:15:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:15:43 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:15:43 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:15:43 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:15:43 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:15:43 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:15:43 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:15:43 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:15:43 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:16:57 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:16:57 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:16:57 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:16:58 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:16:58 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:16:58 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:16:58 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:16:58 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:16:58 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:16:58 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:16:58 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:16:58 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:16:58 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:16:58 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:16:58 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:16:58 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:16:58 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:16:58 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:17:12 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:17:12 INFO  GeneradorReportes:55 - Analyzing site reports of: http://app.empiric.us
+2016-07-12 14:17:12 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:17:12 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:17:12 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:17:12 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:17:12 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:17:12 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:17:12 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:17:12 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:17:12 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:17:12 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:17:12 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:17:12 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:17:12 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:17:12 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:17:12 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:17:12 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:18:06 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://api.mixpanel.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://b.scorecardresearch.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://cdn.mxpnl.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://clc.stackoverflow.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://engine.adzerk.net
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://i.stack.imgur.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://pixel.quantserve.com
+}
+2016-07-12 14:18:06 INFO  ZAPReportGenerator:84 - Site{ http://stackoverflow.com
+}
+2016-07-12 14:18:06 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:18:06 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:18:06 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:18:06 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:18:06 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:18:06 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:18:06 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:18:06 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:18:06 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:18:06 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:18:06 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:18:06 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:18:06 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:19:06 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:19:06 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://api.mixpanel.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://b.scorecardresearch.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://cdn.mxpnl.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://clc.stackoverflow.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://engine.adzerk.net
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://i.stack.imgur.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://pixel.quantserve.com
+}
+2016-07-12 14:19:07 INFO  ZAPReportGenerator:84 - Site{ http://stackoverflow.com
+}
+2016-07-12 14:19:07 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:19:07 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:19:07 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:19:07 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:19:07 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:19:07 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:19:07 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:19:07 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:19:07 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:19:07 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:19:07 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:19:07 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:19:07 INFO  GeneradorReportes:79 - Program execution finished!
+2016-07-12 14:19:53 INFO  GeneradorReportes:39 - Starting report generator
+2016-07-12 14:19:53 INFO  ZAPReportGenerator:94 - Connecting to ZAP API
+2016-07-12 14:19:53 INFO  ZAPReportGenerator:100 - Connected! XML document retrieved, analyzing...
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://api.mixpanel.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://app.empiric.us
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://b.scorecardresearch.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://cdn.mxpnl.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://clc.stackoverflow.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://engine.adzerk.net
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://i.stack.imgur.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://pixel.quantserve.com
+}
+2016-07-12 14:19:54 INFO  ZAPReportGenerator:84 - Site{ http://stackoverflow.com
+}
+2016-07-12 14:19:54 INFO  GeneradorReportes:67 - ZAP report finished
+2016-07-12 14:19:54 INFO  GeneradorReportes:69 - Analyzing SQLMap files...
+2016-07-12 14:19:54 INFO  GeneradorReportes:71 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-07-12 14:19:54 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-07-12 14:19:54 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:19:54 WARN  GeneradorReportes:132 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-07-12 14:19:54 WARN  GeneradorReportes:132 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-07-12 14:19:54 WARN  GeneradorReportes:132 - Found: POST parameter 'username' is not injectable
+2016-07-12 14:19:54 INFO  GeneradorReportes:41 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-07-12 14:19:54 INFO  GeneradorReportes:70 - Site: http://app.empiric.us
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'windows-1252'
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: target URL is stable
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristics detected web page charset 'ascii'
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-07-12 14:19:54 WARN  GeneradorReportes:132 - Found: reflective value(s) found and filtering out
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: target URL appears to be UNION injectable with 1 columns
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: the back-end DBMS is MySQL
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: fetching banner
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-07-12 14:19:54 INFO  GeneradorReportes:130 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-07-12 14:19:54 INFO  GeneradorReportes:79 - Program execution finished!

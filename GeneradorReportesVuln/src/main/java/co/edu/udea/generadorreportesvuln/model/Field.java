@@ -6,6 +6,9 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.Td;
+import com.hp.gagawa.java.elements.Th;
+import com.hp.gagawa.java.elements.Tr;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +50,16 @@ public class Field implements HtmlElement {
     }
 
     @Override
-    public Div toHtml() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Tr toHtml() {
+        Tr fieldRow = new Tr();
+        Th td = new Th();
+        td.setColspan("3");
+        td.appendText("Field: " + fieldName + "\tMethod: " + fieldMethod);
+        fieldRow.appendChild(td);
+        alerts.stream().forEach((alert) -> {
+            fieldRow.appendChild(alert.toHtml());
+        });
+        return fieldRow;
     }
     
 }

