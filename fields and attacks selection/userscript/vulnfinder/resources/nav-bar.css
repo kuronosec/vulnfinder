@@ -92,9 +92,9 @@
   color: white;
   position: fixed;
   /*z-index: 100;*/
-  /*overflow-y: auto;*/
-  height: 100%;
-  width:100%;
+  overflow-y: auto;
+  height: 93%;
+  width:94%;
 }
 .vulnfinder-original-content {
   width:84.5%;
