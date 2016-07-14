@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln;
+package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
 import co.edu.udea.generadorreportesvuln.model.FieldAlert;
@@ -30,9 +30,9 @@ import co.edu.udea.generadorreportesvuln.service.SiteMaker;
  *
  * @author camilosampedro
  */
-public class ZAPReportGenerator {
+public class ZapAnalyzer {
 
-    private final static Logger LOGGER = Logger.getLogger(ZAPReportGenerator.class);
+    private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
 
     private String zapUrl;
     private String siteURL = "";
@@ -46,11 +46,11 @@ public class ZAPReportGenerator {
         this.zapUrl = zapUrl;
     }
 
-    public ZAPReportGenerator(String zapUrl) {
+    public ZapAnalyzer(String zapUrl) {
         this.zapUrl = zapUrl;
     }
 
-    public ZAPReportGenerator(String zapUrl, String site) {
+    public ZapAnalyzer(String zapUrl, String site) {
         this.zapUrl = zapUrl;
         this.siteURL = site;
     }

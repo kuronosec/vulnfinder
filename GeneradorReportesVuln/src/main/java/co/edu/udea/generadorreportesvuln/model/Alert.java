@@ -11,7 +11,6 @@ package co.edu.udea.generadorreportesvuln.model;
  */
 public abstract class Alert implements HtmlElement {
     private final Analyzer analyzer;
-    private String description;
 
     public Alert(Analyzer analyzer) {
         this.analyzer = analyzer;

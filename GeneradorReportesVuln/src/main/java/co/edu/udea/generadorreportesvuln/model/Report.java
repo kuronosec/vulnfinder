@@ -5,7 +5,6 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
-import co.edu.udea.generadorreportesvuln.GeneradorReportes;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;

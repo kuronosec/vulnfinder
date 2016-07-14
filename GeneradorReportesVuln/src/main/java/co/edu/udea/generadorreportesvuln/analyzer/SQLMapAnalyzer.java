@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln;
+package co.edu.udea.generadorreportesvuln.analyzer;
 
+import co.edu.udea.generadorreportesvuln.FilePatternFinder;
+import co.edu.udea.generadorreportesvuln.GeneradorReportes;
 import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Field;
@@ -15,24 +17,21 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import co.edu.udea.generadorreportesvuln.service.SiteMaker;
 
 /**
- *
- * @author camilosampedro
+ * 
+ * @author Camilo Sampedro
  */
-public class FileAnalyzer extends FilePatternFinder {
+public class SQLMapAnalyzer extends FilePatternFinder {
 
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
     private final String file;
     private final String siteToAnalyze;
 
-    public FileAnalyzer(String file, String siteToAnalyze) {
+    public SQLMapAnalyzer(String file, String siteToAnalyze) {
         this.file = file;
         this.siteToAnalyze = siteToAnalyze;
     }
@@ -45,8 +44,6 @@ public class FileAnalyzer extends FilePatternFinder {
         String actualParameter = "";
         String actualMethod;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            StringBuilder stringBuilder = new StringBuilder();
-
             String line = bufferedReader.readLine();
             Boolean isTheBeginning = false;
             Boolean firstLine = true;
@@ -124,7 +121,7 @@ public class FileAnalyzer extends FilePatternFinder {
                     String level = matcher.group(1);
                     String found = matcher.group(2);
                     if (found.contains("heuristics detected webpage charset")) {
-                        site.setCharset(found.substring(found.lastIndexOf(" ") + 1));
+                        site.setCharset(found.substring(found.lastIndexOf(' ') + 1));
                     }
                     if ("INFO".equalsIgnoreCase(level)) {
                         LOGGER.info("Found: " + found);
