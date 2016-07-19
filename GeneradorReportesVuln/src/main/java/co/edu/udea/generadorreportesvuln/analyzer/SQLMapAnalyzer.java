@@ -142,8 +142,4 @@ public class SQLMapAnalyzer extends FilePatternFinder {
         return reporte;*/
 
     }
-
-    private String getField(String found) {
-        return found;
-    }
 }

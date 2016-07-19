@@ -32,7 +32,7 @@ public class GeneradorReportes {
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
 
     // Zap API URL
-    private final static String ZAPURL = "http://zap/OTHER/core/other/xmlreport/";
+    private final static String ZAPURL = "http://zap/";
 
     // Object that contains information about CLI arguments
     private static final Options OPTIONS = new Options();

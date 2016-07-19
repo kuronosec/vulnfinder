@@ -6,7 +6,6 @@
 package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Risk;
 import co.edu.udea.generadorreportesvuln.model.Site;
@@ -35,8 +34,8 @@ public class ZapAnalyzer {
     private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
 
     private String zapUrl;
+    private final static String REPORTURL = "OTHER/core/other/xmlreport/";
     private String siteURL = "";
-    private static final String USER_AGENT = "Mozilla/5.0";
 
     public String getZapUrl() {
         return zapUrl;
@@ -92,7 +91,7 @@ public class ZapAnalyzer {
     private Element getXmlRoot() throws ZAPApiConnectionException {
         try {
             LOGGER.info("Connecting to ZAP API");
-            URL obj = new URL(zapUrl);
+            URL obj = new URL(zapUrl + REPORTURL);
             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("localhost", 8080));
             HttpURLConnection con = (HttpURLConnection) obj.openConnection(proxy);
             SAXBuilder jdomBuilder = new SAXBuilder();
