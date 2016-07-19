@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="nav-bar.css">
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js'>
     </script>
-    <script type="text/javascript" src="vulnfinder.js">
-    </script>
+    <!--<script type="text/javascript" src="vulnfinder.js">-->
+    <!--</script>-->
 
 </head>
 <body id="nav-bar-body">
@@ -23,12 +23,12 @@
                     <input type='text' name='vul-server-ip' id='vul-server-field' class='vulnfinder-input form-control' value='+server_url+' placeholder='e.g. 127.0.0.1' hidden='true'/>
                 </div>
                 <div class='modal-footer'>
-                    <button type='button' class='btn btn-primary' id='vul-server-button'>Save changes</button>
+                    <a class='button' id='vul-server-button' href="#">Save changes</a>
                 </div>
             </div>
         </div>
         <h1 class='vulnfinder-header'> vulnfinder </h1>
-        <a class='button' href='#configPanel'>settings</a><br><br><br>
+        <a class='button' href='#config-panel' id="config-btn">settings</a><br><br><br>
         <hr class='v-line' />
         <label id='see-hidden'>
             <input type='checkbox' class='vulnfinder-input ch' />
@@ -40,6 +40,6 @@
 
 
     <hr class='v-line' />
-    <button class='btn-sm btn-block vul-send btn btn-default'>Analize input fields</button>
+    <button class='button vul-send'>Analize input fields</button>
 </body>
 </html>

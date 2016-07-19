@@ -1,3 +1,4 @@
+// CSS styles to fields
 var vulnfinder_st = `.active-input {
   background-color: yellow !important;
 }
@@ -11,6 +12,7 @@ var vulnfinder_st = `.active-input {
     color: white;
 }`;
 
+// Add CSS styles in head of TOE
 function addGlobalStyle(css) {
     var head, style;
     head = document.getElementsByTagName('head')[0];
@@ -243,26 +245,24 @@ function findInput() {
         }
     });
 
+    // handle config panel
+    iframe.find('.vcc2').click(function () {
+        iframe.find('#vul-server-field').attr('value', '');
+        iframe.find('#vul-server-field').css('display', 'block');
+    });
 
-    // iframe.find('.vul-send').click(function () {
-    //     iframe.find('.vulnfinder-selected-field').each(function () {
-    //         // var marked = $(this).find('input:checkbox:checked');
-    //         var index = $(this).attr('id').split('-')[1];
-    //         var field = $(this).find('.field-name').html();
-    //
-    //         // if (marked.length == 1) {
-    //         $.getJSON("http://" + server_url + "/?", {
-    //             actionForm: $(this).find('.input-form-url').attr('value'),
-    //             inputName: field,
-    //             "attacks[]": dataContent(index, iframe)
-    //         }).fail(function (data, textStatus, error) {
-    //             //var err = textStatus + ", " + error;
-    //             alert("Request Failed: " + "field " + field + ", " + error);
-    //         }).done(function () {
-    //             alert("Datos enviados.");
-    //         });
-    //         // }
-    //     });
+    iframe.find('.vcc1').click(function () {
+        server_url = vulnfinder_server;
+        iframe.find('#vul-server-field').attr('value', server_url);
+        iframe.find('#vul-server-field').css('display', 'none');
+    });
+
+    iframe.find('#vul-server-button').click(function () {
+        var r_val = iframe.find("input[name='vul-config-server']:checked").val();
+        if (r_val == '2') {
+            server_url = iframe.find('#vul-server-field').val();
+        }        
+    });
 
     iframe.find('.vul-send').click(function () {
         var invocation = new XMLHttpRequest();
@@ -272,7 +272,7 @@ function findInput() {
             var index = $(this).attr('id').split('-')[1];
             var field = $(this).find('.field-name').html();
 
-            dataField.actionForm = $(this).find('.input-form-url').attr('value');
+            dataField.actionForm = document.domain + $(this).find('.input-form-url').attr('value');
             dataField.inputName = field;
             dataField.attacks = dataContent(index, iframe);
             data.push(dataField);
