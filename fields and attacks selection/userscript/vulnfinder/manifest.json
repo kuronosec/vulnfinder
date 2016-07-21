@@ -7,7 +7,7 @@
     "48": "icons/48.png"
   },
 
-  "permissions": [],
+  "permissions": ["*://localhost:3000/*"],
 
   "background": {
     "scripts": ["background.js"]
