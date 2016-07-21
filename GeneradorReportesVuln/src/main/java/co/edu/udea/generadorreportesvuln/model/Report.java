@@ -29,6 +29,7 @@ import org.apache.log4j.Logger;
  * @author camilosampedro
  */
 public class Report {
+
     private final static Logger LOGGER = Logger.getLogger(Report.class);
     private static String pageTitleToPut;
     private static List<Site> sitesToUse;
@@ -49,8 +50,9 @@ public class Report {
     public static void writeToFile(Html html, String filePath) {
         try (PrintWriter out = new PrintWriter(filePath)) {
             out.println(html.write());
+            LOGGER.info("Saved to " + filePath + " successfuly");
         } catch (FileNotFoundException ex) {
-            LOGGER.error("File not found: " + filePath,ex);
+            LOGGER.error("File not found: " + filePath, ex);
         }
     }
 
@@ -80,6 +82,7 @@ public class Report {
         Style style = new Style("text/css");
         style.appendText(".siteurl {\n"
                 + "            font-family: monospace;\n"
+                + "            color: darkgreen;\n"
                 + "        }");
         head.appendChild(style);
 
@@ -104,17 +107,17 @@ public class Report {
         Div jumbotron = new Div();
 
         jumbotron.setCSSClass("jumbotron");
-        
+
         Div jumbotronContainer = new Div();
         jumbotronContainer.setCSSClass("container");
         Div row = new Div();
         row.setCSSClass("row");
         Div imgCol = new Div();
         imgCol.setCSSClass("col-md-3");
-        Img logo = new Img("Logo","loguito.png");
+        Img logo = new Img("Logo", "loguito.png");
         imgCol.appendChild(logo);
         row.appendChild(imgCol);
-        
+
         Div titleCol = new Div();
         titleCol.setCSSClass("col-md-9");
 
@@ -142,5 +145,11 @@ public class Report {
         body.appendChild(container);
 
         return body;
+    }
+
+    public static void writeToSystemOutput(List<Site> all) {
+        all.stream().forEach((site) -> {
+            System.out.println(site.toString());
+        });
     }
 }

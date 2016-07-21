@@ -5,24 +5,29 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import com.hp.gagawa.java.Node;
 import com.hp.gagawa.java.elements.Li;
+import com.hp.gagawa.java.elements.Strong;
+import com.hp.gagawa.java.elements.Th;
+import com.hp.gagawa.java.elements.Tr;
+import com.hp.gagawa.java.elements.Ul;
 
 /**
  *
  * @author camilosampedro
  */
 public class SiteAlert extends Alert {
-    
+
     private String alert;
     private Risk risk;
     private String description;
     private String solution;
     private String confidence;
-    
+
     public SiteAlert(Analyzer analyzer) {
         super(analyzer);
     }
-    
+
     public SiteAlert(Analyzer analyzer, String alert, Risk risk, String description, String solution, String confidence) {
         super(analyzer);
         this.alert = alert;
@@ -71,7 +76,7 @@ public class SiteAlert extends Alert {
     public void setAlert(String alert) {
         this.alert = alert;
     }
-    
+
     @Override
     public String toString() {
         return "Alert{\n"
@@ -86,8 +91,41 @@ public class SiteAlert extends Alert {
 
     @Override
     public Li toHtml() {
+        //siteDiv.appendChild(table);
         Li alertItem = new Li();
-        alertItem.appendText(toString());
+
+        Strong alertStrong = new Strong();
+        alertStrong.appendText(alert);
+        alertItem.appendChild(alertStrong);
+        Ul alertInformation = new Ul();
+        alertInformation.appendChild(generateLi("Analyzer", getAnalyzer().toString()));
+
+        if (risk != null) {
+            alertInformation.appendChild(generateLi("Risk", risk.toString()));
+        }
+
+        if (!"".equals(description) && description != null) {
+            alertInformation.appendChild(generateLi("Description", description));
+        }
+
+        if (!"".equals(confidence) && confidence != null) {
+            alertInformation.appendChild(generateLi("Confidence", confidence));
+        }
+
+        if (!"".equals(solution) && solution != null) {
+            alertInformation.appendChild(generateLi("Solution", solution));
+        }
+        alertItem.appendChild(alertInformation);
+
         return alertItem;
+    }
+
+    private Node generateLi(String title, String content) {
+        Li li = new Li();
+        Strong label = new Strong();
+        label.appendText(title + ": ");
+        li.appendChild(label);
+        li.appendText(content);
+        return li;
     }
 }

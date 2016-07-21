@@ -7,6 +7,7 @@ package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
+import com.hp.gagawa.java.elements.H2;
 import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
@@ -59,6 +60,19 @@ public class ConcreteSite implements Site {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
+        if (!alerts.isEmpty()) {
+            builder.append("ALERTS \n");
+            for (Alert alert : alerts) {
+                builder.append("\t").append(alert.toString());
+            }
+        }
+
+        if (!FIELDS.isEmpty()) {
+            builder.append("FIELDS");
+            for (Field field : FIELDS.values()) {
+                builder.append("\t").append(field.toString());
+            }
+        }
         return "Site{ " + site + "\n"
                 + builder.toString()
                 + "}";
@@ -109,7 +123,7 @@ public class ConcreteSite implements Site {
 
         if (!alerts.isEmpty()) {
 
-            H1 siteAlertsTitle = new H1();
+            H2 siteAlertsTitle = new H2();
             siteAlertsTitle.appendText("Site alerts");
             siteDiv.appendChild(siteAlertsTitle);
 
@@ -120,30 +134,18 @@ public class ConcreteSite implements Site {
             siteDiv.appendChild(siteAlertList);
         }
 
-        Table table = new Table();
-        table.setCSSClass("table");
-        Thead thead = new Thead();
-        thead.setCSSClass("thead-default");
-        //Type title payload
-        Th typeTh = new Th();
-        typeTh.appendText("Type");
-        thead.appendChild(typeTh);
-        Th titleTh = new Th();
-        titleTh.appendText("Title");
-        thead.appendChild(titleTh);
-        Th payloadTh = new Th();
-        payloadTh.appendText("Payload");
-        thead.appendChild(payloadTh);
-        table.appendChild(thead);
+        if (!FIELDS.isEmpty()) {
+            H2 siteAlertsTitle = new H2();
+            siteAlertsTitle.appendText("Field alerts");
+            siteDiv.appendChild(siteAlertsTitle);
 
-        Tbody tbody = new Tbody();
-        FIELDS.values().stream().forEach((field) -> {
-            tbody.appendChild(field.toHtml());
-        });
-        table.appendChild(tbody);
+            Div accordeon = new Div();
+            accordeon.setId("accordion");
 
-        siteDiv.appendChild(table);
-
+            FIELDS.values().stream().forEach((field) -> {
+                siteDiv.appendChild(field.toHtml());
+            });
+        }
         return siteDiv;
     }
 
@@ -160,5 +162,10 @@ public class ConcreteSite implements Site {
     @Override
     public List<Alert> getAlerts() {
         return this.alerts;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return alerts.isEmpty() && FIELDS.isEmpty();
     }
 }

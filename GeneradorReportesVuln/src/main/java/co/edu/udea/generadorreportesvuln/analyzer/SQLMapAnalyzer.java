@@ -105,7 +105,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                     if (payloadMatcher.find()) {
                         payload = payloadMatcher.group(1);
                         Field actualField = site.getField(actualParameter);
-                        FieldAlert alert = new FieldAlert(Analyzer.ZAP);
+                        FieldAlert alert = new FieldAlert(Analyzer.SQLMAP);
                         alert.setType(type);
                         alert.setTitle(title);
                         alert.setPayload(payload);
