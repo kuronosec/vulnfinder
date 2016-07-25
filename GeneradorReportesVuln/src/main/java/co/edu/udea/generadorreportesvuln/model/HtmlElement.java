@@ -8,9 +8,15 @@ package co.edu.udea.generadorreportesvuln.model;
 import com.hp.gagawa.java.FertileNode;
 
 /**
+ * This interface is used to ensure the class can be converted to a HTML element
+ * with <code>toHtml()</code> method.
  *
- * @author camilosampedro
+ * @author Camilo Sampedro
  */
 public interface HtmlElement {
+
+    /**
+     * @return Some FertileNode with the information of the class.
+     */
     public FertileNode toHtml();
 }

@@ -5,9 +5,15 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import co.edu.udea.generadorreportesvuln.service.Counter;
+import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.H3;
+import com.hp.gagawa.java.elements.Table;
+import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Td;
 import com.hp.gagawa.java.elements.Th;
+import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Tr;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +23,7 @@ import java.util.List;
  * @author camilosampedro
  */
 public class Field implements HtmlElement {
+
     private String fieldName;
     private String fieldMethod;
     private final List<Alert> alerts = new ArrayList<>();
@@ -40,26 +47,86 @@ public class Field implements HtmlElement {
     public void setFieldMethod(String fieldMethod) {
         this.fieldMethod = fieldMethod;
     }
-    
-    public void addAlert(FieldAlert newAlert){
-        this.alerts.add(newAlert);
+
+    public void addAlert(FieldAlert newAlert) {
+        if (!alerts.contains(newAlert)) {
+            this.alerts.add(newAlert);
+        }
     }
-    
-    public List<Alert> getAlerts(){
+
+    public List<Alert> getAlerts() {
         return this.alerts;
     }
 
     @Override
-    public Tr toHtml() {
-        Tr fieldRow = new Tr();
-        Th td = new Th();
-        td.setColspan("3");
-        td.appendText("Field: " + fieldName + "\tMethod: " + fieldMethod);
-        fieldRow.appendChild(td);
-        alerts.stream().forEach((alert) -> {
-            fieldRow.appendChild(alert.toHtml());
-        });
-        return fieldRow;
+    public Div toHtml() {
+        Div fieldAlertDiv = new Div();
+
+        if (!alerts.isEmpty()) {
+            String id = fieldName + Counter.getActual();
+            Div fieldPanel = new Div();
+            fieldPanel.setCSSClass("panel panel-default");
+
+            Div fieldPanelHeading = new Div();
+            fieldPanelHeading.setCSSClass("panel-heading");
+            fieldPanelHeading.setAttribute("role", "tab");
+            fieldPanelHeading.setId("heading" + id);
+
+            H3 fieldTitle = new H3();
+            A toggle = new A();
+            toggle.setAttribute("data-toggle", "collapse");
+            toggle.appendText(fieldName);
+            toggle.setHref("#body" + id);
+            toggle.setAttribute("aria-controls", "body" + id);
+            fieldTitle.appendChild(toggle);
+            fieldPanelHeading.appendChild(fieldTitle);
+            fieldPanel.appendChild(fieldPanelHeading);
+
+            Div collapsed = new Div();
+            collapsed.setId("body" + id);
+            collapsed.setCSSClass("panel-collapse collapse in");
+            collapsed.setAttribute("role", "tabpanel");
+            collapsed.setAttribute("aria-labelledby", "heading" + id);
+            Table table = new Table();
+            table.setCSSClass("table table-bordered");
+            Thead thead = new Thead();
+            thead.setCSSClass("thead-default");
+            //Type title payload
+            Th analyzerTh = new Th();
+            analyzerTh.appendText("Analyzer");
+            thead.appendChild(analyzerTh);
+            Th typeTh = new Th();
+            typeTh.appendText("Type");
+            thead.appendChild(typeTh);
+            Th titleTh = new Th();
+            titleTh.appendText("Title");
+            thead.appendChild(titleTh);
+            Th payloadTh = new Th();
+            payloadTh.appendText("Payload");
+            thead.appendChild(payloadTh);
+            table.appendChild(thead);
+
+            Tbody tbody = new Tbody();
+
+            table.appendChild(tbody);
+            alerts.stream().forEach((alert) -> {
+                tbody.appendChild(alert.toHtml());
+            });
+            collapsed.appendChild(table);
+            fieldPanel.appendChild(collapsed);
+            fieldAlertDiv.appendChild(fieldPanel);
+        }
+        return fieldAlertDiv;
     }
-    
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("\tField:").append(fieldName).append(" Method:").append(fieldMethod).append("\n");
+        for (Alert alert : alerts) {
+            builder.append("\t\t").append(alert.toString()).append("\n");
+        }
+        return builder.toString();
+    }
+
 }

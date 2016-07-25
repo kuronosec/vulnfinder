@@ -32,7 +32,7 @@ public class GeneradorReportes {
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
 
     // Zap API URL
-    private final static String ZAPURL = "http://zap/OTHER/core/other/xmlreport/";
+    private final static String ZAPURL = "http://zap/";
 
     // Object that contains information about CLI arguments
     private static final Options OPTIONS = new Options();
@@ -51,6 +51,23 @@ public class GeneradorReportes {
         // First initialize CLI options, for then recognizing the arguments
         initializeCLIOptions();
 
+        executeAllAnaylisis(args);
+        LOGGER.info("Program execution finished!");
+    }
+
+    /**
+     * Initializes recognized CLI options.
+     */
+    private static void initializeCLIOptions() {
+        OPTIONS.addOption("s", true, "Set the site to analyze");
+        OPTIONS.addOption("c", true, "Set the parameters to analyze");
+        OPTIONS.addOption("o", true, "Set the output html file");
+        Option fileOption = new Option("f", "Files to be analyzed");
+        fileOption.setArgs(Option.UNLIMITED_VALUES);
+        OPTIONS.addOption(fileOption);
+    }
+
+    private static void executeAllAnaylisis(String[] args) throws ParseException, IOException {
         // Site to analyze
         String site = "";
 
@@ -98,22 +115,15 @@ public class GeneradorReportes {
             // If there's not a <code>-f</code> argument, don't analyze SQLMap report
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
         }
-        LOGGER.info("Program execution finished!");
 
-        // After the report concluded, generate a Html file with the report information.
-        Html htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
-        Report.writeToFile(htmlReport, "report");
-    }
-
-    /**
-     * Initializes recognized CLI options.
-     */
-    private static void initializeCLIOptions() {
-        OPTIONS.addOption("s", true, "Set the site to analyze");
-        OPTIONS.addOption("c", true, "Set the parameters to analyze");
-        Option fileOption = new Option("f", "Files to be analyzed");
-        fileOption.setArgs(Option.UNLIMITED_VALUES);
-        OPTIONS.addOption(fileOption);
+        if (cmd.hasOption("o")) {
+            // After the report concluded, generate a Html file with the report information.
+            Html htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
+            Report.writeToFile(htmlReport, cmd.getOptionValue("o"));
+        } else {
+            // Or print it to standart output
+            Report.writeToSystemOutput(SiteMaker.getAll());
+        }
     }
 
 }

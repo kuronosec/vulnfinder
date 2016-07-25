@@ -30,4 +30,6 @@ public interface Site extends HtmlElement {
     public String getCharset(int i);
 
     public void setCharset(String charset);
+
+    public boolean isEmpty();
 }

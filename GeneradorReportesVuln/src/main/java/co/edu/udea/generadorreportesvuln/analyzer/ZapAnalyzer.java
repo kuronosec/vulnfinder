@@ -6,8 +6,10 @@
 package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import co.edu.udea.generadorreportesvuln.model.FieldAlert;
+import co.edu.udea.generadorreportesvuln.model.Alert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
+import co.edu.udea.generadorreportesvuln.model.Field;
+import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Risk;
 import co.edu.udea.generadorreportesvuln.model.Site;
 import co.edu.udea.generadorreportesvuln.model.SiteAlert;
@@ -35,8 +37,8 @@ public class ZapAnalyzer {
     private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
 
     private String zapUrl;
+    private final static String REPORTURL = "OTHER/core/other/xmlreport/";
     private String siteURL = "";
-    private static final String USER_AGENT = "Mozilla/5.0";
 
     public String getZapUrl() {
         return zapUrl;
@@ -79,9 +81,12 @@ public class ZapAnalyzer {
                         String confidence = alertElement.getChild("confidence").getText();
                         String solution = alertElement.getChild("solution").getText().replace("<p>", "").replace("</p>", "");
                         SiteAlert alert = new SiteAlert(Analyzer.ZAP, alertString, risk, description, solution, confidence);
+                        analyzeFieldAlerts(site, alertElement);
                         site.addAlert(alert);
                     });
-                    LOGGER.info(site);
+                    if (!site.isEmpty()) {
+                        //LOGGER.debug(site);
+                    }
                     sites.add(site);
                 }
             });
@@ -92,7 +97,7 @@ public class ZapAnalyzer {
     private Element getXmlRoot() throws ZAPApiConnectionException {
         try {
             LOGGER.info("Connecting to ZAP API");
-            URL obj = new URL(zapUrl);
+            URL obj = new URL(zapUrl + REPORTURL);
             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("localhost", 8080));
             HttpURLConnection con = (HttpURLConnection) obj.openConnection(proxy);
             SAXBuilder jdomBuilder = new SAXBuilder();
@@ -108,6 +113,23 @@ public class ZapAnalyzer {
         } catch (JDOMException ex) {
             LOGGER.error("There was an error connecting to ZAP Api", ex);
             throw new ZAPApiConnectionException("Jdom exception: " + ex.getMessage());
+        }
+    }
+
+    private void analyzeFieldAlerts(Site site, Element alertElement) {
+        List<Element> instances = alertElement.getChild("instances").getChildren();
+        for (Element instance : instances) {
+            Element paramElement = instance.getChild("param");
+            if (paramElement != null) {
+                String param = paramElement.getText();
+                if (!"N/A".equals(param)) {
+                    //LOGGER.debug("Param found with ZAP: " + param);
+                    Field field = site.getField(param);
+                    FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
+                    fieldAlert.setTitle(alertElement.getChildText("name"));
+                    field.addAlert(fieldAlert);
+                }
+            }
         }
     }
 }
