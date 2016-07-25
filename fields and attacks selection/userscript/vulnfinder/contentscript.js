@@ -32,9 +32,13 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe")
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0; left: 0; z-index: 10000; overflow-y: auto; height: 100%; width:15%; border:none");
+    iframe.setAttribute("style", "position: fixed; top: 0; left: 0; z-index: 10000; height: 100%; width:15%; border:none");
     document.body.appendChild(iframe);
     // $('#nav-bar-iframe').ready(findInput());
+
+    $('#nav-bar-iframe').on("load", function(){
+        findInput();
+    });
 
     return navBarUI = {
         iframe: iframe, visible: true
@@ -60,14 +64,13 @@ if (window.parent == window) {
             } else {
                 addGlobalStyle(vulnfinder_st);
                 navBarUI = initNavBar();
-                setTimeout(findInput, 500);
             }
         }
     });
 }
 
 //initializing variables
-var attackList = ['SQL Injection', 'Fuzzer', 'XSS', 'Auth and session', 'Auth', 'General Injection'];
+var attackList = ['SQL Injection', 'Authentication', 'XSS', 'Authorization', 'Privilege Scalation'];
 // var schema = "<div class='site'> <div class='menu' id='nav-bar'/> <div class='original' id='original-content' /> </div>";
 var server_url = vulnfinder_server = 'localhost:3000';
 var toHide = [];
@@ -89,7 +92,14 @@ function attacksUI(idx) {
 }
 
 function format(field, idx, action) {
-    var label = field.attr('name');
+    var label;
+    if(field.attr('name')){
+        label = field.attr('name');
+    }else if (field.attr('id')){
+        label = field.attr('id');
+    }else{
+        label = 'no-name'+ idx;
+    }
     var text = "<div class='ul-f noselect truncate' id='field-" + idx + "'>";
     text += "<input type='checkbox' class='vulnfinder-input vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
     text += "<input type='hidden' class='vulnfinder-input input-form-url' value='" + action + "' />";
@@ -145,7 +155,8 @@ function findInput() {
     // attach input and bind events
     $('body').find('input').each(function (idx, val) {
         var input = $(this);
-        if (!input.hasClass('vulnfinder-input')) {
+        // if (!input.hasClass('vulnfinder-input')) {
+            console.log(input.attr("name"));
             var elm = format(input, idx, actionForm(input));
             iframe.find('#fields-div').append(elm);
 
@@ -171,14 +182,14 @@ function findInput() {
                 }
                 field.find('input')[0].focus();
             });
-        }
+        // }
     });
 
     // attach select and bind events
     var idx = 1000;
     $('body').find('select').each(function () {
         var input = $(this);
-        if (!input.hasClass('vulnfinder-input')) {
+        // if (!input.hasClass('vulnfinder-input')) {
             var elm = format(input, idx, actionForm(input));
             iframe.find('.all-fields').append(elm);
 
@@ -202,7 +213,7 @@ function findInput() {
                 field.find('input')[0].focus();
             });
             idx += 1;
-        }
+        // }
     });
 
     // handle 'see hidden' checkbox
@@ -267,12 +278,16 @@ function findInput() {
     iframe.find('.vul-send').click(function () {
         var invocation = new XMLHttpRequest();
         var data = [];
+        var action_d = String(document.location.href);
+        var last = String(action_d.split('/').slice(-1)).length;
+
         iframe.find('.vulnfinder-selected-field').each(function () {
             var dataField = {};
             var index = $(this).attr('id').split('-')[1];
             var field = $(this).find('.field-name').html();
 
-            dataField.actionForm = document.domain + $(this).find('.input-form-url').attr('value');
+            action = action_d.substr(0, action_d.length - last - 1) + String($(this).find('.input-form-url').attr('value'));
+            dataField.actionForm = action;
             dataField.inputName = field;
             dataField.attacks = dataContent(index, iframe);
             data.push(dataField);
@@ -289,7 +304,7 @@ function findInput() {
         var url = 'http://' + server_url;
         invocation.open('POST', url, true);
         invocation.onreadystatechange = handler;
-        invocation.send(data);
+        invocation.send(JSON.stringify(data));
 
         function handler(evtXHR) {
             if (invocation.readyState == 4) {

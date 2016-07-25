@@ -1,0 +1,37 @@
+{
+  "extensionName": {
+    "message": "VulnFinder",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Performs security test to web sites.",
+    "description": "Description of the add-on."
+  },
+
+  "contextMenuItemSQLInjection": {
+    "message": "SQL Injection",
+    "description": "Title of context menu item that apply the SQL Injection attack."
+  },
+
+  "contextMenuItemAuthentication": {
+    "message": "Authentication",
+    "description": "Title of context menu item that apply the Authentication attack."
+  },
+
+  "contextMenuItemXSS": {
+    "message": "XSS",
+    "description": "Title of context menu item that apply the XSS attack."
+  },
+
+  "contextMenuItemAuthorization": {
+    "message": "Authorization",
+    "description": "Title of context menu item that apply the Authorization attack."
+  },
+
+  "contextMenuItemPrivilegeScalation": {
+    "message": "Privilege Scalation",
+    "description": "Title of context menu item that apply the Privilege Scalation attack."
+  }
+
+}
