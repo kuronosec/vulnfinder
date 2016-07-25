@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="edu.udea.vulnfinder.server.plugin.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+         <startup class="edu.udea.vulnfinder.server.plugin.startup.VulnStartup"/>
+   </extension>
+
+</plugin>
