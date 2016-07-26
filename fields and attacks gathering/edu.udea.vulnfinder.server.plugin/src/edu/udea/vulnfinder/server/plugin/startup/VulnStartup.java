@@ -34,63 +34,74 @@ public class VulnStartup implements IStartup {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				Display.getDefault().syncExec(new Runnable() {
-
 					@Override
 					public void run() {
-						Workbench.getInstance().getActiveWorkbenchWindow().getShell().getMenuBar().getItem(8).getMenu()
-								.addMenuListener(new MenuListener() {
-									
-									private Workbench wb = Workbench.getInstance();
-									private WorkbenchWindow ww = (WorkbenchWindow) wb.getActiveWorkbenchWindow();
-									private MenuManager menuManager = ww.getMenuManager();
-									private MenuManager mmVuln;
+						Workbench wb;
+						WorkbenchWindow ww;
+						MenuManager menuManager;
+						MenuManager mmVuln;
+						
+						
+						wb = Workbench.getInstance();
+						ww = (WorkbenchWindow) wb.getActiveWorkbenchWindow();
+						menuManager = ww.getMenuManager();
+						mmVuln = (MenuManager) menuManager.findMenuUsingPath(VULN_MENU_ID);
+						mmVuln.getMenu().addMenuListener(new MenuListener() {
 
-									@Override
-									public void menuShown(MenuEvent arg0) {
-										mmVuln = (MenuManager) menuManager.findMenuUsingPath(VULN_MENU_ID);
-										if (Main.getState() == 0) { //Nothing started yet
-											mmVuln.getMenu().getItem(0).setEnabled(true);
-											mmVuln.getMenu().getItem(1).setEnabled(true);
-											mmVuln.getMenu().getItem(2).setEnabled(false);
-											mmVuln.getMenu().getItem(3).setEnabled(false);
-											mmVuln.getMenu().getItem(4).setEnabled(false);
+							@Override
+							public void menuShown(MenuEvent ev) {
+								Menu vMenu = (Menu)ev.getSource();
+								
+								if (Main.getState() == 0) { // Nothing started
+															// yet
+									vMenu.getItem(0).setEnabled(true);
+									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(2).setEnabled(false);
+									vMenu.getItem(3).setEnabled(false);
+									vMenu.getItem(4).setEnabled(false);
 
-										} else if (Main.getState() == 1) { //Server started
-											mmVuln.getMenu().getItem(0).setEnabled(true);
-											mmVuln.getMenu().getItem(1).setEnabled(false);
-											mmVuln.getMenu().getItem(2).setEnabled(true);
-											mmVuln.getMenu().getItem(3).setEnabled(true);
-											mmVuln.getMenu().getItem(4).setEnabled(false);
-											
-										}else if (Main.getState() == 2) { //Server stopped but no spidering
-											mmVuln.getMenu().getItem(0).setEnabled(true);
-											mmVuln.getMenu().getItem(1).setEnabled(true);
-											mmVuln.getMenu().getItem(2).setEnabled(false);
-											mmVuln.getMenu().getItem(3).setEnabled(true);
-											mmVuln.getMenu().getItem(4).setEnabled(false);
-										}else if (Main.getState() == 3) { //Spidering started
-											mmVuln.getMenu().getItem(0).setEnabled(true);
-											mmVuln.getMenu().getItem(1).setEnabled(false);
-											mmVuln.getMenu().getItem(2).setEnabled(false);
-											mmVuln.getMenu().getItem(3).setEnabled(false);
-											mmVuln.getMenu().getItem(4).setEnabled(false);
-										}else if (Main.getState() == 4) { //Spidering done
-											mmVuln.getMenu().getItem(0).setEnabled(true);
-											mmVuln.getMenu().getItem(1).setEnabled(true);
-											mmVuln.getMenu().getItem(2).setEnabled(false);
-											mmVuln.getMenu().getItem(3).setEnabled(true);
-											mmVuln.getMenu().getItem(4).setEnabled(true);
-										}
+								} else if (Main.getState() == 1) { // Server
+																	// started
+									vMenu.getItem(0).setEnabled(true);
+									vMenu.getItem(1).setEnabled(false);
+									vMenu.getItem(2).setEnabled(true);
+									vMenu.getItem(3).setEnabled(true);
+									vMenu.getItem(4).setEnabled(false);
 
-										menuManager.update();
-									}
+								} else if (Main.getState() == 2) { // Server
+																	// stopped
+																	// but no
+																	// spidering
+									vMenu.getItem(0).setEnabled(true);
+									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(2).setEnabled(false);
+									vMenu.getItem(3).setEnabled(true);
+									vMenu.getItem(4).setEnabled(false);
+								} else if (Main.getState() == 3) { // Spidering
+																	// started
+									vMenu.getItem(0).setEnabled(true);
+									vMenu.getItem(1).setEnabled(false);
+									vMenu.getItem(2).setEnabled(false);
+									vMenu.getItem(3).setEnabled(false);
+									vMenu.getItem(4).setEnabled(false);
+								} else if (Main.getState() == 4) { // Spidering
+																	// done
+									vMenu.getItem(0).setEnabled(true);
+									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(2).setEnabled(false);
+									vMenu.getItem(3).setEnabled(true);
+									vMenu.getItem(4).setEnabled(true);
+								}
 
-									@Override
-									public void menuHidden(MenuEvent arg0) {
-										// TODO Auto-generated method stub
+								menuManager.update();
+							}
 
-									}
-								});
+							@Override
+							public void menuHidden(MenuEvent arg0) {
+								// TODO Auto-generated method stub
+
+							}
+						});
 
 					}
 				});
