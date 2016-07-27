@@ -1,7 +1,7 @@
 # VulnFinder
-In order to run Vulnfinder you will need:
+In order to run a developer instance of Vulnfinder you will need:
 
-- [Java 7 or superior.] [Java7]
+- [Java 8 or superior.] [Java8]
 - [OWASP ZAP 2.4.3 or superior.] [ZAP]
 - [Eclipse Modelling Tools Mars Release 2 or superior.] [EMT]
     -  [Sirius Plugin for Eclipse.] [Sirius]
@@ -57,7 +57,10 @@ That was the last step, wasn't it easy? We're now ready to go!
 
 ### Running VulnFinder
 
+So far, you only need to install the JARs into an Eclipse Modelling Tools instance ( on which you must also install Sirius in order for the Viewpoint Specification to to work)
 **PENDING**
+
+
 
 ### Development
 
@@ -66,7 +69,7 @@ That was the last step, wasn't it easy? We're now ready to go!
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 
-   [Java7]: <http://www.java.com/en/download>
+   [Java8]: <http://www.java.com/en/download>
    [ZAP]: <https://github.com/zaproxy/zaproxy/wiki/Downloads>
    [EMT]: <http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/mars2>
    [Sirius]: <https://eclipse.org/sirius/index.html>
