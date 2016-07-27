@@ -10,6 +10,22 @@ var vulnfinder_st = `.active-input {
 .active {
     background-color: #4CAF50;
     color: white;
+}
+
+/* CSS general */
+#nav-bar-iframe {
+  width: 250px;
+  height: 100%;
+}
+
+/* CSS pantallas de 1366px o superior */
+@media (min-width: 1366px) {
+
+  #nav-bar-iframe {
+    width: 21%;
+    height: 100%;
+  } 
+
 }`;
 
 // Add CSS styles in head of TOE
@@ -32,7 +48,7 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe")
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0; left: 0; z-index: 10000; height: 100%; width:15%; border:none");
+    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 100; border:none");
     document.body.appendChild(iframe);
     // $('#nav-bar-iframe').ready(findInput());
 
@@ -292,13 +308,6 @@ function findInput() {
             dataField.attacks = dataContent(index, iframe);
             data.push(dataField);
 
-            // var data = new FormData();
-            // data.append(field, dataField);
-            // data.append('inputName', field);
-            // data.append('attacks', dataContent(index, iframe));
-            // data.append('prueba', da);
-
-
         });
         alert(JSON.stringify(data));
         var url = 'http://' + server_url;
@@ -310,10 +319,11 @@ function findInput() {
             if (invocation.readyState == 4) {
                 if (invocation.status == 200) {
                     var response = invocation.responseXML;
-                    var invocationHistory = response.getElementsByTagName('invocationHistory').item(0).firstChild.data;
-                    invocationHistoryText = document.createTextNode(invocationHistory);
-                    var textDiv = document.getElementById("textDiv");
-                    textDiv.appendChild(invocationHistoryText);
+                    // var invocationHistory = response.getElementsByTagName('invocationHistory').item(0).firstChild.data;
+                    // invocationHistoryText = document.createTextNode(invocationHistory);
+                    // var textDiv = document.getElementById("textDiv");
+                    // textDiv.appendChild(invocationHistoryText);
+                    alert("Data sent successfully")
 
                 }
                 else
