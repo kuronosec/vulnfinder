@@ -22,7 +22,7 @@ var vulnfinder_st = `.active-input {
 @media (min-width: 1366px) {
 
   #nav-bar-iframe {
-    width: 21%;
+    width: 19%;
     height: 100%;
   } 
 
@@ -48,7 +48,7 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe")
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 100; border:none");
+    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 100; border:none; padding-bottom: 20%");
     document.body.appendChild(iframe);
     // $('#nav-bar-iframe').ready(findInput());
 

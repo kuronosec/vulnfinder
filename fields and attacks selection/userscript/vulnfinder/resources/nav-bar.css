@@ -1,3 +1,6 @@
+body {
+    margin: 0 auto;
+}
 .vul-send {
     display: inline-block;
     padding: 12px 28px;
@@ -11,10 +14,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    position: absolute;
-    left:0;
-    right:0;
-    margin: auto;
+    margin: 8px auto;
 }
 
 .button {
@@ -44,10 +44,6 @@
 
 .overlay {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
     visibility: hidden;
@@ -120,13 +116,12 @@
     font-size: 14px;
     background-color: #333;
     margin: 0px 0px 0px 0px;
-    padding: 30px 0px 30px 5px;
     border: solid;
     border-color: black;
     color: white;
     position: fixed;
-    height: 93%;
-    width: 94%;
+    height: 100%;
+    width: 100%;
 }
 
 .vulnfinder-original-content {
@@ -170,10 +165,13 @@
 }
 
 .all-fields {
-    margin: 15px 0px 15px 0px;
     overflow-y: auto;
-    height: 55%;
     overflow-x: hidden;
+    position: absolute;
+    bottom: 0;
+    top: 43px;
+    padding-left: 3%;
+    width: 96%;
 }
 
 .domain {
@@ -200,5 +198,30 @@
 .whimsy {
     width: 48px;
     height: 48px;
+}
+
+#vulnfinder-footer {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    border-top: solid 1px white;
+    text-align: center;
+}
+
+#vulnfinder-see-hidden {
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#vulnfinder-content {
+    position: absolute;
+    top:122px;
+    bottom: 62px;
+    width:100%;
+    margin: 8px auto;
 }
 

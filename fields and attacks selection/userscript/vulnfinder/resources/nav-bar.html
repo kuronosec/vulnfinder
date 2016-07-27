@@ -10,36 +10,45 @@
 
 </head>
 <body id="nav-bar-body">
-    <div id="nav-bar" class="menu">
-        <div class="overlay" id="config-panel">
-            <div class="popup" role="document">
-                <div class="modal-header">
-                    <a class='close' href='#'>&times</a>
-                    <h2>Select a Server</h2>
-                </div>
-                <div class='modal-body'>
-                    <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc1' value='1' checked /> Use online servers<br><br>
-                    <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc2' value='2' /> I have my own server<br><br>
-                    <input type='text' name='vul-server-ip' id='vul-server-field' class='vulnfinder-input form-control' value='+server_url+' placeholder='e.g. 127.0.0.1' hidden='true'/>
-                </div>
-                <div class='modal-footer'>
-                    <a class='button' id='vul-server-button' href="#">Save changes</a>
-                </div>
+<div id="nav-bar" class="menu">
+    <div class="overlay" id="config-panel">
+        <div class="popup" role="document">
+            <div class="modal-header">
+                <a class='close' href='#'>&times</a>
+                <h2>Select a Server</h2>
+            </div>
+            <div class='modal-body'>
+                <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc1' value='1'
+                       checked/> Use online servers<br><br>
+                <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc2' value='2'/> I
+                have my own server<br><br>
+                <input type='text' name='vul-server-ip' id='vul-server-field' class='vulnfinder-input form-control'
+                       value='+server_url+' placeholder='e.g. 127.0.0.1' hidden='true'/>
+            </div>
+            <div class='modal-footer'>
+                <a class='button' id='vul-server-button' href="#">Save changes</a>
             </div>
         </div>
+    </div>
+    <div id="vulnfinder-header">
         <h1 class='vulnfinder-header'> vulnfinder </h1>
         <a class='button' href='#config-panel' id="config-btn">Settings</a><br><br><br>
-        <hr class='v-line' />
-        <label id='see-hidden'>
-            <input type='checkbox' class='vulnfinder-input ch' />
-            <span class='noselect' id='see-hidden-span'> See hidden </span>
-        </label>
-        <hr class='v-line' />
-        <div class='all-fields' id="fields-div"/>
     </div>
+    <div id="vulnfinder-content">
+        <div id="vulnfinder-see-hidden">
+            <label id='see-hidden'>
+                <input type='checkbox' class='vulnfinder-input ch'/>
+                <span class='noselect' id='see-hidden-span'> See hidden </span>
+            </label>
+        </div>
+        <div class='all-fields' id="fields-div">
+        </div>
+    </div>
+    <div id="vulnfinder-footer">
+        <button class='vul-send'>Analize input fields</button>
+    </div>
+</div>
 
 
-    <hr class='v-line' />
-    <button class='vul-send'>Analize input fields</button>
 </body>
 </html>
