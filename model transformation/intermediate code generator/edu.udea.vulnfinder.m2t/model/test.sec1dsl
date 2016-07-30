@@ -1,0 +1,22 @@
+Test "t"{
+	scope TargetOfEvaluation {
+		domain "dom"
+		components {
+			WebComponent{
+				path "google.php"
+				inputs {
+					Input "User"
+					{
+						attacks ( hola )
+					}
+				}
+			}
+		}
+	}
+	possibleAttacks
+	{
+		Attack "hola" {
+			severity High
+		}
+	}
+}

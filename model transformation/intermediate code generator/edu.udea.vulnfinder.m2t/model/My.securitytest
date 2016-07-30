@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<securityTest:SecurityTest xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:securityTest="http://udea/vulnfinder/securityTest" id="id2">
+  <domains url="http://www.udea.edu.co">
+    <pages path="index.php"/>
+  </domains>
+  <domains url="http://google.com">
+    <pages path="index.php" targetLinks="//@domains.0/@pages.0 //@domains.1/@pages.0"/>
+  </domains>
+</securityTest:SecurityTest>

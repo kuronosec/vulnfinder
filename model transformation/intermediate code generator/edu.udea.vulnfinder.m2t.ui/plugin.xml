@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.securitytest"
+            id="edu.udea.vulnfinder.m2t.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="VulnFinder M2T" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="edu.udea.vulnfinder.m2t.ui.popupMenus.AcceleoGenerateM2tAction"
+               enablesFor="+"
+               id="edu.udea.vulnfinder.m2t.ui.popupMenus.acceleoGenerateM2tAction"
+               icon="icons/default.gif"
+               label="Transform VF Model"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>

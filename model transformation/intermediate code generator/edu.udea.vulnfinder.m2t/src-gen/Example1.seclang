@@ -1,0 +1,13 @@
+(securityTest Example
+	(toes
+		(toe "http://www.udea.edu.co"
+			(page "index.php"
+					(field "user" [ SQLInjection ])
+					(field "password" [])
+			)
+		)
+	)
+	(attacks
+		(attack SQLInjection { :level Medium } )
+	)
+)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<escaneo:Escaneo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:escaneo="http://udea/vulnfinder/escaneo">
+  <dominios nombre="http://www.udea.edu.co">
+    <paginas ruta="/index/index.php">
+      <entradas nombre="fiesta">
+        <ataques authenticationAndSession="Si"/>
+      </entradas>
+    </paginas>
+    <paginas ruta="login.php" enlaces="//@dominios.0/@paginas.0"/>
+  </dominios>
+  <dominios nombre="http://www.fayerwayer.com">
+    <paginas ruta="index/index2.php" enlaces="//@dominios.0/@paginas.0"/>
+  </dominios>
+</escaneo:Escaneo>

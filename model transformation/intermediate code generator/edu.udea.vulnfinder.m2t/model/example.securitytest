@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<securityTest:Test xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:securityTest="http://udea/vulnfinder/securityTest" id="Example1" name="Example1">
+  <scope domain="http://www.udea.edu.co" ip="" protocol="" port="">
+    <components path="index.php">
+      <inputs name="user" attacks="SQLInjection"/>
+      <inputs name="password"/>
+      <inputs name="inputName4"/>
+    </components>
+    <components path="webcomponent2">
+      <inputs name="inputName1"/>
+    </components>
+    <components path="webcomponent3"/>
+  </scope>
+  <possibleAttacks name="SQLInjection" severity="Medium"/>
+</securityTest:Test>
