@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: edu.udea.vulnfinder.escaneo.design
 Bundle-SymbolicName: edu.udea.vulnfinder.escaneo.design;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.3.2
 Bundle-Activator: edu.udea.vulnfinder.escaneo.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
