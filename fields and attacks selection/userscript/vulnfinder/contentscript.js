@@ -48,7 +48,7 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe")
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 100; border:none; padding-bottom: 20%");
+    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 1000; border:none; padding-bottom: 20%");
     document.body.appendChild(iframe);
     // $('#nav-bar-iframe').ready(findInput());
 
@@ -99,7 +99,7 @@ function onHover(input, field) {
 function attacksUI(idx) {
     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
     for (attack in attackList) {
-        content += "<li class='li-f noselect'>";
+        content += "<li class='li-f'>";
         content += "<label class='label-ch'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
@@ -109,14 +109,14 @@ function attacksUI(idx) {
 
 function format(field, idx, action) {
     var label;
-    if(field.attr('name')){
+    // if(field.attr('name')){
         label = field.attr('name');
-    }else if (field.attr('id')){
-        label = field.attr('id');
-    }else{
-        label = 'no-name'+ idx;
-    }
-    var text = "<div class='ul-f noselect truncate' id='field-" + idx + "'>";
+    // }else if (field.attr('id')){
+    //     label = field.attr('id');
+    // }else{
+    //     label = 'no-name'+ idx;
+    // }
+    var text = "<div class='vulnfinder-attack-item truncate' id='field-" + idx + "'>";
     text += "<input type='checkbox' class='vulnfinder-input vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
     text += "<input type='hidden' class='vulnfinder-input input-form-url' value='" + action + "' />";
     text += "</div>";
@@ -151,7 +151,7 @@ function actionForm(input) {
 function onReset() {
     $('input:checkbox').prop('checked', false);
     $('.attack-list').css('display', 'none');
-    $('.ul-f').removeClass('active-field');
+    $('.vulnfinder-attack-item').removeClass('active-field');
     $('input').removeClass('active-input');
 }
 
