@@ -17,11 +17,18 @@ import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
 import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
+import com.hp.gagawa.java.elements.Ul;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -31,6 +38,10 @@ import org.apache.log4j.Logger;
 public class Report {
 
     private final static Logger LOGGER = Logger.getLogger(Report.class);
+    private static final String JAVASCRIPT_FILE = "main.js";
+    private static final String CSS_FILE = "main.css";
+    private static final String JQUERYMINJS = "jquery.min.js";
+    private static final String LOGO = "logo.png";
     private static String pageTitleToPut;
     private static List<Site> sitesToUse;
 
@@ -48,7 +59,20 @@ public class Report {
     }
 
     public static void writeToFile(Html html, String filePath) {
-        try (PrintWriter out = new PrintWriter(filePath)) {
+        File path = new File(filePath);
+        if (!path.exists()) {
+            Boolean success = (path).mkdirs();
+            if (!success) {
+                LOGGER.error("Failed to create folder: " + filePath);
+                return;
+            }
+        }
+        copyResource(JQUERYMINJS, filePath);
+        copyResource(CSS_FILE, filePath);
+        copyResource(JAVASCRIPT_FILE, filePath);
+        copyResource(LOGO, filePath);
+
+        try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html")) {
             out.println(html.write());
             LOGGER.info("Saved to " + filePath + " successfuly");
         } catch (FileNotFoundException ex) {
@@ -74,29 +98,37 @@ public class Report {
         head.appendChild(script);
 
         script = new Script("javascript");
-        script.setSrc("https://code.jquery.com/jquery-3.0.0.min.js");
-        script.setAttribute("integrity", "sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=");
-        script.setAttribute("crossorigin", "anonymous");
+        script.setSrc("jquery.min.js");
         head.appendChild(script);
 
-        Style style = new Style("text/css");
-        style.appendText(".siteurl {\n"
-                + "            font-family: monospace;\n"
-                + "            color: darkgreen;\n"
-                + "        }");
+        Link style = new Link();
+        style.setRel("stylesheet");
+        style.setType("text/css");
+        style.setHref(CSS_FILE);
         head.appendChild(style);
-
-        script = new Script("javascript");
-        script.appendText("$(function () {\n"
-                + "            $(\"#site1\").load(\"site.html\");\n"
-                + "        });");
-        head.appendChild(script);
 
         Link link = new Link();
         link.setRel("stylesheet");
         link.setHref("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
         link.setType("text/css");
+
         head.appendChild(link);
+
+        link = new Link();
+        link.setHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+        link.setRel("stylesheet");
+        head.appendChild(link);
+
+        link = new Link();
+        link.setHref("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800");
+        link.setRel("stylesheet");
+        link.setType("text/css");
+        head.appendChild(link);
+
+        script = new Script("text/javascript");
+        script.setSrc(JAVASCRIPT_FILE);
+        script.setLanguage("javascript");
+        head.appendChild(script);
 
         return head;
     }
@@ -114,7 +146,7 @@ public class Report {
         row.setCSSClass("row");
         Div imgCol = new Div();
         imgCol.setCSSClass("col-md-3");
-        Img logo = new Img("Logo", "loguito.png");
+        Img logo = new Img("Logo", "logo.png");
         imgCol.appendChild(logo);
         row.appendChild(imgCol);
 
@@ -137,10 +169,17 @@ public class Report {
 
         Div container = new Div();
         container.setCSSClass("container");
+        Div integrator = new Div();
+        integrator.setId("integration-list");
+
+        Ul siteList = new Ul();
 
         sitesToUse.stream().forEach((site) -> {
-            container.appendChild(site.toHtml());
+            siteList.appendChild(site.toHtml());
         });
+
+        integrator.appendChild(siteList);
+        container.appendChild(integrator);
 
         body.appendChild(container);
 
@@ -151,5 +190,32 @@ public class Report {
         all.stream().forEach((site) -> {
             System.out.println(site.toString());
         });
+    }
+
+    private static void copyResource(String resource, String filePath) {
+        LOGGER.info("Copying resource: " + resource);
+        OutputStream outputStream = null;
+        try {
+            InputStream resourceAsStream = Report.class.getResourceAsStream("/" + resource);
+            if (resourceAsStream == null) {
+                LOGGER.error("Resource not found: " + resource);
+                return;
+            }
+            outputStream = new FileOutputStream(new File(filePath + "/" + resource));
+            int read = 0;
+            byte[] bytes = new byte[1024];
+            while ((read = resourceAsStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            LOGGER.info("Copying resource: " + resource + " | Done!");
+        } catch (IOException ex) {
+            LOGGER.error(ex);
+        } finally {
+            try {
+                outputStream.close();
+            } catch (IOException | NullPointerException ex) {
+                LOGGER.error(ex);
+            }
+        }
     }
 }

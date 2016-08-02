@@ -5,9 +5,12 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import com.hp.gagawa.java.Node;
+import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.H2;
+import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
@@ -25,7 +28,7 @@ import java.util.Map;
  */
 public class ConcreteSite implements Site {
 
-    private static final Map<String, Field> FIELDS = new HashMap<>();
+    private final Map<String, Field> FIELDS = new HashMap<>();
     private List<Alert> alerts;
     private List<String> charset;
     private String site;
@@ -104,8 +107,70 @@ public class ConcreteSite implements Site {
     }
 
     @Override
-    public Div toHtml() {
-        Div siteDiv = new Div();
+    public Li toHtml() {
+        Li siteLi = new Li();
+
+        A titleSection = new A();
+        titleSection.setCSSClass("expand");
+
+        Div rightArrow = new Div();
+        rightArrow.setCSSClass("right-arrow");
+        rightArrow.appendText("+");
+        titleSection.appendChild(rightArrow);
+
+        Div titleContent = new Div();
+        H2 title = new H2();
+        title.setCSSClass("siteurl");
+        title.appendText(site);
+        titleContent.appendChild(title);
+        //TODO add alert counters
+        Span span = new Span();
+        span.appendChild(getAlertCounters());
+        titleContent.appendChild(span);
+        titleSection.appendChild(titleContent);
+
+        siteLi.appendChild(titleSection);
+
+        Div contentSection = new Div();
+        contentSection.setCSSClass("detail");
+
+        Div left = new Div();
+        left.setCSSClass("left");
+        Div content = new Div();
+
+        if (!alerts.isEmpty()) {
+
+            H2 siteAlertsTitle = new H2();
+            siteAlertsTitle.appendText("Site alerts");
+            content.appendChild(siteAlertsTitle);
+
+            Ul siteAlertList = new Ul();
+            alerts.stream().forEach((siteAlert) -> {
+                siteAlertList.appendChild(siteAlert.toHtml());
+            });
+            content.appendChild(siteAlertList);
+        }
+
+        if (!FIELDS.isEmpty()) {
+            H2 siteAlertsTitle = new H2();
+            siteAlertsTitle.appendText("Field alerts");
+            content.appendChild(siteAlertsTitle);
+
+            Div accordion = new Div();
+            accordion.setId("accordion");
+
+            FIELDS.values().stream().forEach((field) -> {
+                accordion.appendChild(field.toHtml());
+            });
+            content.appendChild(accordion);
+        }
+
+        left.appendChild(content);
+        contentSection.appendChild(left);
+
+        siteLi.appendChild(contentSection);
+        return siteLi;
+        /*Div siteDiv = new Div();
 
         siteDiv.setCSSClass("site");
 
@@ -139,14 +204,16 @@ public class ConcreteSite implements Site {
             siteAlertsTitle.appendText("Field alerts");
             siteDiv.appendChild(siteAlertsTitle);
 
-            Div accordeon = new Div();
-            accordeon.setId("accordion");
+            Div accordion = new Div();
+            accordion.setId("accordion");
 
             FIELDS.values().stream().forEach((field) -> {
-                siteDiv.appendChild(field.toHtml());
+                accordion.appendChild(field.toHtml());
             });
+            siteDiv.appendChild(accordion);
         }
         return siteDiv;
+         */
     }
 
     @Override
@@ -167,5 +234,18 @@ public class ConcreteSite implements Site {
     @Override
     public boolean isEmpty() {
         return alerts.isEmpty() && FIELDS.isEmpty();
+    }
+
+    private List<Node> getAlertCounters() {
+        List<Node> alertCounters = new ArrayList<>();
+        Span siteAlertsSpan = new Span();
+        siteAlertsSpan.setCSSClass("sitealertcounter");
+        siteAlertsSpan.appendText("Site alerts: " + Integer.toString(alerts.size()) + " | ");
+        alertCounters.add(siteAlertsSpan);
+        Span fieldAlertsSpan = new Span();
+        fieldAlertsSpan.setCSSClass("fieldalertcounter");
+        fieldAlertsSpan.appendText("Field alerts: " + Integer.toString(FIELDS.size()));
+        alertCounters.add(fieldAlertsSpan);
+        return alertCounters;
     }
 }
