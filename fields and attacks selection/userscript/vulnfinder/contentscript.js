@@ -1,17 +1,8 @@
 // CSS styles to fields
-var vulnfinder_st = `.active-input {
+var vulnfinder_st = `
+.active-input {
   background-color: yellow !important;
 }
-
-.active-field {
-  background:#f1f1f1;
-  color:black
-}
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
 /* CSS general */
 #nav-bar-iframe {
   width: 250px;

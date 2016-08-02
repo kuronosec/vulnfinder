@@ -1,35 +1,21 @@
 body {
     margin: 0 auto;
 }
-.vul-send {
+
+#vulnfinder-send-button {
     display: inline-block;
-    padding: 12px 28px;
+    width: 94%;
+}
+.button {
+    display: block;
+    padding: 10px 24px;
     font-size: 16px;
     cursor: pointer;
-    text-align: center;
     text-decoration: none;
-    outline: none;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #02647C;
+    margin: 8px;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin: 8px auto;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 24px;
-    font-size: 12px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .vul-send:hover .button:hover {
@@ -48,11 +34,14 @@ body {
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+    width: 99%;
+    height: 100%;
 }
 
 .overlay:target {
     visibility: visible;
     opacity: 1;
+    z-index: 1100;
 }
 
 .popup {
@@ -121,7 +110,7 @@ body {
     color: white;
     position: fixed;
     height: 100%;
-    width: 100%;
+    width: 99%;
 }
 
 .vulnfinder-original-content {
@@ -134,7 +123,6 @@ body {
     margin-top: 10px;
     cursor: pointer;
     clear: left;
-    border-bottom: solid;
 }
 
 .li-f .label-ch {
@@ -170,7 +158,7 @@ body {
     overflow-x: hidden;
     position: absolute;
     bottom: 0;
-    top: 43px;
+    top: 100px;
     padding-left: 3%;
     width: 96%;
 }
@@ -192,7 +180,7 @@ body {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #02647C;
     color: white;
 }
 
@@ -212,10 +200,12 @@ body {
 #vulnfinder-see-hidden {
     border-top: solid 1px white;
     border-bottom: solid 1px white;
-    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     position: absolute;
-    top: 0;
     width: 100%;
+    text-align: center;
+
 }
 
 #vulnfinder-content {
@@ -224,5 +214,18 @@ body {
     bottom: 62px;
     width:100%;
     margin: 8px auto;
+}
+
+#vulnfinder-logo {
+    margin: 8px;
+    width: 100px;
+    height: 100px;
+}
+
+#vulnfinder-header {
+    position: absolute;
+    text-align: center;
+    width:100%;
+    height:110px;
 }
 
