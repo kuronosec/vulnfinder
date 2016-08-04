@@ -34,6 +34,7 @@ function addGlobalStyle(css) {
 };
 
 var navBarUI;
+var currentTOE = null;
 
 // Create the navBar ui iframe and inject it in the current page
 function initNavBar() {
@@ -66,13 +67,26 @@ function toggleNavBar(navBarUI) {
 // Handle messages from the add-on background page (only in top level iframes)
 if (window.parent == window) {
     chrome.runtime.onMessage.addListener(function (msg) {
-        if (msg == "toggle-in-page-navBar") {
+        currentTOE = msg.currentTOE;
+        alert(currentTOE);
+        if (msg.action == "toggle-in-page-navBar") {
             if (navBarUI) {
                 toggleNavBar(navBarUI);
             } else {
                 addGlobalStyle(vulnfinder_st);
                 navBarUI = initNavBar();
             }
+        }else if (msg.action == "add-in-page-navBar"){
+            if (navBarUI){
+                navBarUI.visible = true;
+                navBarUI.iframe.style["display"] = "block";
+            }else{
+                addGlobalStyle(vulnfinder_st);
+                navBarUI = initNavBar();
+            }
+        }else if (msg.action == "remove-in-page-navBar"){
+            navBarUI.visible = false;
+            navBarUI.iframe.style["display"] = "none";
         }
     });
 }
@@ -163,8 +177,6 @@ function findInput() {
     // attach input and bind events
     $('body').find('input').each(function (idx, val) {
         var input = $(this);
-        // if (!input.hasClass('vulnfinder-input')) {
-            console.log(input.attr("name"));
             var elm = format(input, idx, actionForm(input));
             iframe.find('#fields-div').append(elm);
 
@@ -190,7 +202,6 @@ function findInput() {
                 }
                 field.find('input')[0].focus();
             });
-        // }
     });
 
     // attach select and bind events
@@ -284,6 +295,10 @@ function findInput() {
     });
 
     iframe.find('.vul-send').click(function () {
+        var TOEDomain = document.domain;
+        if (currentTOE!=null & currentTOE != TOEDomain){
+            alert("Es un dominio diferente");
+        };
         var invocation = new XMLHttpRequest();
         var data = [];
         var action_d = String(document.location.href);
@@ -301,14 +316,16 @@ function findInput() {
             data.push(dataField);
 
         });
+
+        notifyBackgroundPage(TOEDomain);
+
         alert(JSON.stringify(data));
         var url = 'http://' + server_url;
         invocation.open('POST', url, true);
         invocation.onreadystatechange = handler;
         invocation.send(JSON.stringify(data));
 
-        var TOEDomain = document.domain;
-        notifyBackgroundPage(TOEDomain);
+
 
 
 

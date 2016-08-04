@@ -3,16 +3,34 @@ var TOEDomain = null;
 
 // Send a message to the current tab's content script.
 function toggleToolbar() {
-    chrome.browserAction.setIcon
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, "toggle-in-page-navBar");
-      (!activeNavBar)? true:false;
-  });
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+        if (!activeNavBar) {
+            activeNavBar = true;
+            chrome.browserAction.setIcon({path: "icons/32.png"});
+        } else {
+            activeNavBar = false;
+            chrome.browserAction.setIcon({path: "icons/disable/32.png"});
+        }
+        chrome.tabs.sendMessage(tabs[0].id, {action:"toggle-in-page-navBar", currentTOE: TOEDomain});
+    });
 }
 
-// if (activeNavBar) {
-//     toggleToolbar();
-// }
+function handleTabs(activeInfo) {
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+        if (activeNavBar) {
+            chrome.tabs.sendMessage(tabs[0].id, {"add-in-page-navBar", currentTOE: TOEDomain});
+        } else {
+            chrome.tabs.sendMessage(tabs[0].id, {"remove-in-page-navBar", currentTOE: TOEDomain});
+
+        }
+    });
+}
+
+//Handle the change of tabs
+chrome.tabs.onActivated.addListener(handleTabs);
+
+//Handle the creation of tabs
+chrome.tabs.onUpdated.addListener(handleTabs);
 
 // Handle the browser action button.
 chrome.browserAction.onClicked.addListener(toggleToolbar);
@@ -25,9 +43,10 @@ chrome.browserAction.onClicked.addListener(toggleToolbar);
 //   }
 // });
 
-function handleMessage(request, sender, sendResponse) {
-    alert("message from the content script: " +
-        request.TOEDomain);
+function handleMessage(message, sender) {
+    console.log("message from the content script: " +
+        message.TOEDomain);
+    TOEDomain = message.TOEDomain;
 
 }
 
@@ -120,22 +139,22 @@ function updateCheckUncheck() {
  The click event listener, where we perform the appropriate action given the
  ID of the menu item that was clicked.
  */
-chrome.contextMenus.onClicked.addListener(function(info, tab) {
-  switch (info.menuItemId) {
-    case "sql-injection":
-      console.log(info.selectionText);
-      break;
-    case "authentication":
-      chrome.contextMenus.remove(info.menuItemId, onRemoved);
-      break;
-    case "xss":
-      borderify(tab.id, blue);
-      break;
-    case "authorization":
-      borderify(tab.id, green);
-      break;
-    case "privilege-scalation":
-      updateCheckUncheck();
-      break;
-  }
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+    switch (info.menuItemId) {
+        case "sql-injection":
+            console.log(info.selectionText);
+            break;
+        case "authentication":
+            chrome.contextMenus.remove(info.menuItemId, onRemoved);
+            break;
+        case "xss":
+            borderify(tab.id, blue);
+            break;
+        case "authorization":
+            borderify(tab.id, green);
+            break;
+        case "privilege-scalation":
+            updateCheckUncheck();
+            break;
+    }
 });
