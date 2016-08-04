@@ -19,6 +19,7 @@ var vulnfinder_st = `
 
 }`;
 
+
 // Add CSS styles in head of TOE
 function addGlobalStyle(css) {
     var head, style;
@@ -306,6 +307,11 @@ function findInput() {
         invocation.onreadystatechange = handler;
         invocation.send(JSON.stringify(data));
 
+        var TOEDomain = document.domain;
+        notifyBackgroundPage(TOEDomain);
+
+
+
         function handler(evtXHR) {
             if (invocation.readyState == 4) {
                 if (invocation.status == 200) {
@@ -327,6 +333,12 @@ function findInput() {
         onReset();
 
     });
+
+    function notifyBackgroundPage(message) {
+        chrome.runtime.sendMessage(
+            {TOEDomain: message}
+        );
+    }
 }
 
 
