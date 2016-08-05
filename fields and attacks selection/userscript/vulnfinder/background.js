@@ -18,9 +18,9 @@ function toggleToolbar() {
 function handleTabs(activeInfo) {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
         if (activeNavBar) {
-            chrome.tabs.sendMessage(tabs[0].id, {"add-in-page-navBar", currentTOE: TOEDomain});
+            chrome.tabs.sendMessage(tabs[0].id, {action:"add-in-page-navBar", currentTOE: TOEDomain});
         } else {
-            chrome.tabs.sendMessage(tabs[0].id, {"remove-in-page-navBar", currentTOE: TOEDomain});
+            chrome.tabs.sendMessage(tabs[0].id, {action:"remove-in-page-navBar", currentTOE: TOEDomain});
 
         }
     });
@@ -46,6 +46,7 @@ chrome.browserAction.onClicked.addListener(toggleToolbar);
 function handleMessage(message, sender) {
     console.log("message from the content script: " +
         message.TOEDomain);
+    console.log("sender " + sender);
     TOEDomain = message.TOEDomain;
 
 }

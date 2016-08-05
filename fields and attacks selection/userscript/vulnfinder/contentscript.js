@@ -68,7 +68,7 @@ function toggleNavBar(navBarUI) {
 if (window.parent == window) {
     chrome.runtime.onMessage.addListener(function (msg) {
         currentTOE = msg.currentTOE;
-        alert(currentTOE);
+        // alert(currentTOE);
         if (msg.action == "toggle-in-page-navBar") {
             if (navBarUI) {
                 toggleNavBar(navBarUI);
@@ -294,11 +294,27 @@ function findInput() {
         }        
     });
 
+    iframe.find("#vul-accept-button").click(function () {
+        iframe.find("#TOE-panel").toggleClass("target-js");
+        sendData();
+    });
+
+    iframe.find("#vul-cancel-button").click(function () {
+        iframe.find("#TOE-panel").toggleClass("target-js");
+    });
+
     iframe.find('.vul-send').click(function () {
-        var TOEDomain = document.domain;
+        TOEDomain = document.domain;
         if (currentTOE!=null & currentTOE != TOEDomain){
-            alert("Es un dominio diferente");
+            iframe.find("#TOE-panel").toggleClass("target-js");
+            // window.location.href = "#TOE-panel";
+        } else {
+            sendData();
         };
+
+    });
+
+    function sendData(){
         var invocation = new XMLHttpRequest();
         var data = [];
         var action_d = String(document.location.href);
@@ -317,27 +333,21 @@ function findInput() {
 
         });
 
-        notifyBackgroundPage(TOEDomain);
 
         alert(JSON.stringify(data));
         var url = 'http://' + server_url;
         invocation.open('POST', url, true);
-        invocation.onreadystatechange = handler;
+        invocation.onreadystatechange = responseHandler;
         invocation.send(JSON.stringify(data));
 
 
-
-
-
-        function handler(evtXHR) {
+        //handle the response of XMLHttpRequest()
+        function responseHandler(evtXHR) {
             if (invocation.readyState == 4) {
                 if (invocation.status == 200) {
                     var response = invocation.responseXML;
-                    // var invocationHistory = response.getElementsByTagName('invocationHistory').item(0).firstChild.data;
-                    // invocationHistoryText = document.createTextNode(invocationHistory);
-                    // var textDiv = document.getElementById("textDiv");
-                    // textDiv.appendChild(invocationHistoryText);
-                    alert("Data sent successfully")
+                    alert("Data sent successfully");
+                    notifyBackgroundPage(TOEDomain);
 
                 }
                 else
@@ -348,9 +358,9 @@ function findInput() {
         }
 
         onReset();
+    }
 
-    });
-
+    //Send the last TOE analized to background script
     function notifyBackgroundPage(message) {
         chrome.runtime.sendMessage(
             {TOEDomain: message}

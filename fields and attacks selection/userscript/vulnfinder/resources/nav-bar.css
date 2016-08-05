@@ -44,6 +44,12 @@ body {
     z-index: 1100;
 }
 
+.target-js{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1100;
+}
+
 .popup {
     margin: 70px auto;
     padding: 20px;
