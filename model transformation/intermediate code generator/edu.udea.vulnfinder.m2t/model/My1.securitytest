@@ -6,7 +6,6 @@
       <inputs name="MSOLayout_LayoutChanges"/>
       <inputs name="__VIEWSTATEGENERATOR">
         <attacks href="../src-gen/secTest01.seclang#Authorization"/>
-        <attacks href="pcl.securitytest#PrivilegeScalation"/>
         <attacks href="#//@possibleAttacks.4"/>
         <attacks href="#XSS"/>
       </inputs>

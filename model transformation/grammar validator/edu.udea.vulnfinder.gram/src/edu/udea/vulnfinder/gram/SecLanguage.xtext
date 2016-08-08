@@ -25,7 +25,8 @@ TargetOfEvaluation returns TargetOfEvaluation:
 Attack returns Attack:
 	{Attack}
 	'('
-		('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
+		('attack' name=EString ('{' ':level' severity=ESeverity '}')?   )
+		//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 	')';
 
 EString returns ecore::EString:
@@ -43,7 +44,7 @@ WebComponent returns WebComponent:
 Input returns Input:
 	{Input}
 	'('
-		('field' name=EString ('[' EString* ']')?)
+		('field' name=EString ('[' attacks+=[Attack|EString]* ']')?)
 	')'; //attacks+=[Attack|ID]+
 
 enum ESeverity returns ESeverity:

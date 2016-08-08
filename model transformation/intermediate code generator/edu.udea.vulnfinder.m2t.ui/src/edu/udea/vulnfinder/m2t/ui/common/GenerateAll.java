@@ -27,7 +27,7 @@ import org.osgi.framework.Bundle;
 
 
 /**
- * Main entry point of the 'M2t' generation module.
+ * Main entry point of the 'VulnFinder' generation module.
  */
 public class GenerateAll {
 

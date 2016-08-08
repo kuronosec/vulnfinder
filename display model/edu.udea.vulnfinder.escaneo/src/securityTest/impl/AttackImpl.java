@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import securityTest.Attack;
-import securityTest.EAttackMethod;
 import securityTest.ESeverity;
 import securityTest.SecurityTestPackage;
 
@@ -37,7 +36,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EAttackMethod NAME_EDEFAULT = EAttackMethod.SQL_INJECTION;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -47,7 +46,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	 * @generated
 	 * @ordered
 	 */
-	protected EAttackMethod name = NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
@@ -93,7 +92,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttackMethod getName() {
+	public String getName() {
 		return name;
 	}
 
@@ -102,9 +101,9 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(EAttackMethod newName) {
-		EAttackMethod oldName = name;
-		name = newName == null ? NAME_EDEFAULT : newName;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SecurityTestPackage.ATTACK__NAME, oldName, name));
 	}
@@ -155,7 +154,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SecurityTestPackage.ATTACK__NAME:
-				setName((EAttackMethod)newValue);
+				setName((String)newValue);
 				return;
 			case SecurityTestPackage.ATTACK__SEVERITY:
 				setSeverity((ESeverity)newValue);
@@ -191,7 +190,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SecurityTestPackage.ATTACK__NAME:
-				return name != NAME_EDEFAULT;
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SecurityTestPackage.ATTACK__SEVERITY:
 				return severity != SEVERITY_EDEFAULT;
 		}

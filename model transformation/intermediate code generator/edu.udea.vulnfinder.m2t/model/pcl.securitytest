@@ -2,51 +2,49 @@
 <securityTest:Test xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:securityTest="http://udea/vulnfinder/securityTest" id="secTest01" name="Prueba1">
   <scope domain="http://www.pcl.com">
     <components path="Projects-that-Inspire/Pages/Projects-that-Inspire/Pages/default.aspx">
-      <inputs name="SOTlPn_ShowSettings" attacks="Authentication PrivilegeScalation"/>
-      <inputs name="SOTlPn_SelectedWpI" attacks="XSS PrivilegeScalation"/>
-      <inputs name="_EVENTTARGET" attacks="Authentication PrivilegeScalation"/>
-      <inputs name="SOLayout_LayoutChanges" attacks="Authentication PrivilegeScalation PrivilegeScalation"/>
-      <inputs name="SOSPWebPartManager_DisplayModeName">
-        <attacks href="#PrivilegeScalation"/>
-        <attacks href="../src-gen/secTest01.seclang#Authorization"/>
-      </inputs>
-      <inputs name="tl00$PlaceHolderMain$ctl00$marketDropDownList" attacks="XSS Authentication"/>
-      <inputs name="wzSelected" attacks="PrivilegeScalation Authentication PrivilegeScalation"/>
-      <inputs name="_VIEWSTATEGENERATOR" attacks="//@possibleAttacks.3 XSS Authentication"/>
-      <inputs name="tl00$ctl36$searchTextBox" attacks="//@possibleAttacks.3 Authentication"/>
-      <inputs name="SOSPWebPartManager_EndWebPartEditing" attacks="PrivilegeScalation XSS PrivilegeScalation"/>
-      <inputs name="pcmVal" attacks="//@possibleAttacks.3 Authentication"/>
-      <inputs name="_spText1" attacks="//@possibleAttacks.3 Authentication"/>
+      <inputs name="SOTlPn_ShowSettings" attacks="Authentication"/>
+      <inputs name="SOTlPn_SelectedWpI" attacks="XSS"/>
+      <inputs name="_EVENTTARGET" attacks="Authentication"/>
+      <inputs name="SOLayout_LayoutChanges"/>
+      <inputs name="tl00$PlaceHolderMain$ctl00$marketDropDownList" attacks="Authentication XSS SuperAtaque"/>
+      <inputs name="wzSelected" attacks="Authentication"/>
+      <inputs name="_VIEWSTATEGENERATOR" attacks="SuperAtaque XSS Authentication"/>
+      <inputs name="tl00$ctl36$searchTextBox" attacks="SuperAtaque Authentication"/>
+      <inputs name="SOSPWebPartManager_EndWebPartEditing" attacks="XSS SuperAtaque"/>
+      <inputs name="pcmVal" attacks="SuperAtaque Authentication"/>
+      <inputs name="_spText1" attacks="SuperAtaque Authentication"/>
+      <inputs/>
     </components>
-    <components path="" targetLinks="//@scope/@components.2 //@scope/@components.3 //@scope/@components.4 //@scope/@components.5 //@scope/@components.6 //@scope/@components.7 //@scope/@components.8 //@scope/@components.9 //@scope/@components.10 //@scope/@components.11 //@scope/@components.12 //@scope/@components.13 //@scope/@components.14 //@scope/@components.15 //@scope/@components.16 //@scope/@components.17 //@scope/@components.18 //@scope/@components.19 //@scope/@components.20 //@scope/@components.21 //@scope/@components.22 //@scope/@components.23 //@scope/@components.24 //@scope/@components.25 //@scope/@components.0 //@scope/@components.26 //@scope/@components.27 //@scope/@components.28 //@scope/@components.29 //@scope/@components.30 //@scope/@components.31 //@scope/@components.32 //@scope/@components.33 //@scope/@components.34 //@scope/@components.35 //@scope/@components.36 //@scope/@components.37 //@scope/@components.38 //@scope/@components.39 //@scope/@components.40 //@scope/@components.41 //@scope/@components.42 //@scope/@components.43 //@scope/@components.44"/>
-    <components path="Services-that-Deliver/Technology-and-Innovation" targetLinks="//@scope/@components.45"/>
-    <components path="Services-that-Deliver" targetLinks="//@scope/@components.35"/>
+    <components path="" targetLinks="//@scope/@components.2 //@scope/@components.3 //@scope/@components.4 //@scope/@components.5 //@scope/@components.6 //@scope/@components.7 //@scope/@components.8 //@scope/@components.9 //@scope/@components.10 //@scope/@components.11 //@scope/@components.12 //@scope/@components.13 //@scope/@components.14 //@scope/@components.15 //@scope/@components.16 //@scope/@components.17 //@scope/@components.18 //@scope/@components.19 //@scope/@components.20 //@scope/@components.21 //@scope/@components.22 //@scope/@components.23 //@scope/@components.24 //@scope/@components.0 //@scope/@components.25 //@scope/@components.26 //@scope/@components.27 //@scope/@components.28 //@scope/@components.29 //@scope/@components.30 //@scope/@components.31 //@scope/@components.32 //@scope/@components.33 //@scope/@components.34 //@scope/@components.35 //@scope/@components.36 //@scope/@components.37 //@scope/@components.38 //@scope/@components.39 //@scope/@components.40 //@scope/@components.41 //@scope/@components.42 //@scope/@components.43"/>
+    <components path="Services-that-Deliver/Technology-and-Innovation"/>
+    <components path="Services-that-Deliver" targetLinks="//@scope/@components.34"/>
     <components path="Services-that-Deliver/Pages"/>
     <components path="Services-that-Deliver/PublishingImages"/>
-    <components path="Projects-that-Inspire/_vti_bin/sites.asmx" targetLinks="//@scope/@components.46">
+    <components path="Projects-that-Inspire/_vti_bin/sites.asmx" targetLinks="//@scope/@components.44">
       <inputs name="op"/>
     </components>
-    <components path="Partners-in-Building" targetLinks="//@scope/@components.32"/>
+    <components path="Partners-in-Building" targetLinks="//@scope/@components.31"/>
     <components path="Projects-that-Inspire/Pages/Projects-that-Inspire/Pages"/>
-    <components path="Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint" targetLinks="//@scope/@components.47"/>
-    <components path="Services-that-Deliver/Capabilities-Services/PublishingImages"/>
+    <components path="Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint" targetLinks="//@scope/@components.45"/>
+    <components path="Services-that-Deliver/Capabilities-Services/PublishingImagess"/>
     <components path="Partners-in-Building/Pages"/>
-    <components path="Services-that-Deliver/Industry-Leadership" targetLinks="//@scope/@components.48"/>
+    <components path="Services-that-Deliver/Industry-Leadership" targetLinks="//@scope/@components.46"/>
     <components path="Services-that-Deliver/Delivery-Methods/PublishingImages"/>
-    <components path="_layouts/PCL.PublicSite.SharePoint" targetLinks="//@scope/@components.47"/>
-    <components path="Projects-that-Inspire" targetLinks="//@scope/@components.26"/>
+    <components path="_layouts/PCL.PublicSite.SharePoint" targetLinks="//@scope/@components.45"/>
+    <components path="Projects-that-Inspire" targetLinks="//@scope/@components.25"/>
     <components path="Culture-and-Community/Pages/default.aspx"/>
-    <components path="Services-that-Deliver/Contract-Types/PublishingImages"/>
+    <components path="Services-that-Deliver/Contract-Types/PublishingImages" targetLinks="//@scope/@components.0">
+      <inputs name="input"/>
+    </components>
     <components path="ScriptResource.axd">
-      <inputs name="d"/>
+      <inputs name="ddwsd"/>
       <inputs name="t"/>
     </components>
     <components path="Projects-that-Inspire/Pages/_LAYOUTS"/>
-    <components path="_layouts/pcl.publicsite.sharepoint" targetLinks="//@scope/@components.47"/>
-    <components path="PublishingImages"/>
+    <components path="_layouts/pcl.publicsite.sharepoint" targetLinks="//@scope/@components.45"/>
     <components path="Projects-that-Inspire/_vti_bin"/>
     <components path="Pages/default.aspx"/>
-    <components path="Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint/Images" targetLinks="//@scope/@components.49"/>
+    <components path="Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint/Images" targetLinks="//@scope/@components.47"/>
     <components path="Services-that-Deliver/Technology-and-Innovation/PublishingImages"/>
     <components path="Projects-that-Inspire/Pages/default.aspx"/>
     <components path="Services-that-Deliver/Industry-Leadership/PublishingImages"/>
@@ -56,10 +54,10 @@
       <inputs name="_"/>
       <inputs name="rev"/>
     </components>
-    <components path="_layouts/pcl.publicsite.sharepoint/scripts" targetLinks="//@scope/@components.50"/>
+    <components path="_layouts/pcl.publicsite.sharepoint/scripts" targetLinks="//@scope/@components.48"/>
     <components path="Partners-in-Building/Pages/default.aspx"/>
-    <components path="_layouts/PCL.PublicSite.SharePoint/images" targetLinks="//@scope/@components.51"/>
-    <components path="Services-that-Deliver/Delivery-Methods" targetLinks="//@scope/@components.52"/>
+    <components path="_layouts/PCL.PublicSite.SharePoint/images" targetLinks="//@scope/@components.49"/>
+    <components path="Services-that-Deliver/Delivery-Methods" targetLinks="//@scope/@components.50"/>
     <components path="Services-that-Deliver/Pages/default.aspx"/>
     <components path="Culture-and-Community" targetLinks="//@scope/@components.16"/>
     <components path="_layouts/pcl.publicsite.sharepoint/scripts/jquery.expander.min.js"/>
@@ -105,30 +103,24 @@
     </components>
     <components path="WebResource.axd">
       <inputs name="_"/>
-      <inputs name="d">
-        <attacks href="#PrivilegeScalation"/>
-        <attacks href="../src-gen/secTest01.seclang#Authorization"/>
-      </inputs>
       <inputs name="t"/>
     </components>
-    <components path="Services-that-Deliver/Contract-Types" targetLinks="//@scope/@components.53"/>
-    <components path="Services-that-Deliver/Capabilities-Services" targetLinks="//@scope/@components.54"/>
+    <components path="Services-that-Deliver/Contract-Types" targetLinks="//@scope/@components.51"/>
+    <components path="Services-that-Deliver/Capabilities-Services" targetLinks="//@scope/@components.52"/>
     <components path="_layouts"/>
     <components path="Projects-that-Inspire/Pages"/>
     <components path="Projects-that-Inspire/Pages/Projects-that-Inspire"/>
-    <components path="Services-that-Deliver/Technology-and-Innovation/Pages/default.aspx"/>
     <components path="_vti_bin/sites.asmx"/>
     <components path="_layouts/PCL.PublicSite.SharePoint/" targetLinks="//@scope/@components.14"/>
     <components path="Services-that-Deliver/Industry-Leadership/Pages/default.aspx"/>
     <components path="_layouts/PCL.PublicSite.SharePoint/Images/"/>
     <components path="_layouts/PCL.PublicSite.SharePoint/scripts/"/>
-    <components path="_layouts/PCL.PublicSite.SharePoint/images/" targetLinks="//@scope/@components.33"/>
+    <components path="_layouts/PCL.PublicSite.SharePoint/images/" targetLinks="//@scope/@components.32"/>
     <components path="Services-that-Deliver/Delivery-Methods/Pages/default.aspx"/>
     <components path="Services-that-Deliver/Contract-Types/Pages/default.aspx"/>
     <components path="Services-that-Deliver/Capabilities-Services/Pages/default.aspx"/>
   </scope>
   <possibleAttacks name="Authentication" severity="High"/>
-  <possibleAttacks name="PrivilegeScalation" severity="High"/>
   <possibleAttacks name="XSS" severity="High"/>
-  <possibleAttacks severity="High"/>
+  <possibleAttacks name="SuperAtaque" severity="High"/>
 </securityTest:Test>

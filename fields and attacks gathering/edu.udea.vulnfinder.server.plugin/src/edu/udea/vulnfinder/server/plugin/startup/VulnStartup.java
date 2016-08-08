@@ -92,6 +92,7 @@ public class VulnStartup implements IStartup {
 									vMenu.getItem(3).setEnabled(true);
 									vMenu.getItem(4).setEnabled(true);
 								}
+								
 
 								menuManager.update();
 							}

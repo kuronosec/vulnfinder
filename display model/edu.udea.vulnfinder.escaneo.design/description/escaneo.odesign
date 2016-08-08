@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="SecurityTest" version="11.0.0.201601261200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="SecurityTest" version="11.0.0.201601261200">
   <ownedViewpoints name="SecTestView" modelFileExtension="securitytest">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TOE Overview" domainClass="securityTest.Test" enablePopupBars="true">
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
@@ -7,6 +7,11 @@
       <filters xsi:type="filter:CompositeFilterDescription" name="inputlessFilter" label="Hide WebComponents without Inputs">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='TOE%20Overview']/@defaultLayer/@containerMappings[name='TOEContainer']/@subContainerMappings[name='WebComponentContainer']" semanticConditionExpression="aql:self.inputs->size()>0"/>
       </filters>
+      <validationSet name="TheValidation">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SuperVal" level="ERROR" message="The element has failed so hard" targetClass="securityTest.TargetOfEvaluation">
+          <audits auditExpression="[self.domain.endsWith('.com')/]"/>
+        </ownedRules>
+      </validationSet>
       <defaultLayer name="Default">
         <edgeMappings name="WebComponentsEdge" sourceMapping="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='TOE%20Overview']/@defaultLayer/@containerMappings[name='TOEContainer']/@subContainerMappings[name='WebComponentContainer']" targetMapping="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='TOE%20Overview']/@defaultLayer/@containerMappings[name='TOEContainer']/@subContainerMappings[name='WebComponentContainer']" targetFinderExpression="feature:targetLinks">
           <style sizeComputationExpression="2">

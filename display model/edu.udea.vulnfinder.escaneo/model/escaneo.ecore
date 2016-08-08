@@ -32,7 +32,7 @@
         eType="#//Attack"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attack">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//EAttackMethod"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//ESeverity"/>
   </eClassifiers>

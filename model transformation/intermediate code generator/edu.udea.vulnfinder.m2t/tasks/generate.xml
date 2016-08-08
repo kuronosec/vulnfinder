@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="edu.udea.vulnfinder.m2t">
-    <property name="ECLIPSE_HOME" value="../../../eclipseneonmodelling"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../runtime-Neonws"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipseneonintegration"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../integrationws"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="edu.udea.vulnfinder.m2t.libraryclasspath">

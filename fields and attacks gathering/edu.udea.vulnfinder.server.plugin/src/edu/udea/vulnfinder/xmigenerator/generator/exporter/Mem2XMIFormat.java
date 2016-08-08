@@ -38,27 +38,25 @@ public class Mem2XMIFormat {
 	// private ArrayList<TargetOfEvaluation> dominios;
 	private TargetOfEvaluation dominio;
 	Map<String, Attack> ataques;
-	private String savePath;
+	//private String savePath;
 	private String testId;
 	private String testName;
 
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String savepath) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques) {
 		this.dominio = dominio;
 		this.ataques = ataques;
-		this.savePath = savepath;
 		this.testId = "secTest01";
 		this.testName = "Test01";
 	}
 	
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String savepath, String testId, String testName) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String testId, String testName) {
 		this.dominio = dominio;
 		this.ataques = ataques;
-		this.savePath = savepath;
 		this.testId = testId;
 		this.testName = testName;
 	}
 
-	public boolean genAndSaveXMIFile() {
+	public boolean genAndSaveXMIFile(String savePath) {
 		String xmi = generateXMIFormat();
 		try (Writer writer = new BufferedWriter(
 				new OutputStreamWriter(new FileOutputStream(savePath), "utf-8"))) {
