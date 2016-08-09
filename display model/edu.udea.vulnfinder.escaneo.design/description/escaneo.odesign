@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="SecurityTest" version="11.0.0.201601261200">
   <ownedViewpoints name="SecTestView" modelFileExtension="securitytest">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TOE Overview" domainClass="securityTest.Test" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TOE Overview" titleExpression="aql:'new TOE Overview Diagram'" domainClass="securityTest.Test" enablePopupBars="true">
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
       <metamodel href="http://udea/vulnfinder/securityTest#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="inputlessFilter" label="Hide WebComponents without Inputs">
@@ -102,7 +102,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Inputs%20Table']"/>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Web%20Component%20Details%20Diagram']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -111,34 +111,48 @@
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Security Test Table" domainClass="securityTest.Test">
       <metamodel href="http://udea/vulnfinder/securityTest#/"/>
       <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <ownedRepresentationCreationDescriptions xsi:type="tool:DiagramCreationDescription" name="WebComponentsDiagramCreation" elementsToSelect="var:self" diagramDescription="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Web%20Component%20Details%20Diagram']">
+        <initialOperation/>
+        <containerViewVariable name="containerView"/>
+        <representationNameVariable name="diagramName"/>
+      </ownedRepresentationCreationDescriptions>
       <ownedLineMappings name="TOEs" domainClass="securityTest.TargetOfEvaluation" semanticCandidatesExpression="[scope/]" headerLabelExpression="[domain/]">
-        <ownedSubLines name="WebComponents" domainClass="securityTest.WebComponent" semanticCandidatesExpression="[components/]" headerLabelExpression="[path/]">
+        <ownedSubLines name="WebComponents" detailDescriptions="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Security%20Test%20Table']/@ownedRepresentationCreationDescriptions[name='WebComponentsDiagramCreation']" domainClass="securityTest.WebComponent" semanticCandidatesExpression="[components/]" headerLabelExpression="[path/]">
           <ownedSubLines name="Inputs" domainClass="securityTest.Input" semanticCandidatesExpression="[inputs/]" headerLabelExpression="[name/]"/>
         </ownedSubLines>
       </ownedLineMappings>
       <ownedColumnMappings name="Attacks" headerLabelExpression="Attacks" featureName="attacks" labelExpression="[attacks.name/]"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Inputs Table" domainClass="securityTest.WebComponent" enablePopupBars="true">
-      <metamodel href="http://udea/vulnfinder/securityTest#/"/>
-      <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Web Component Details Diagram" titleExpression="aql:'Details of '+self.path" domainClass="securityTest.WebComponent" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="InputCont" semanticCandidatesExpression="[inputs/]" domainClass="securityTest.Input" childrenPresentation="List">
-          <subNodeMappings name="AttacksNode" deletionDescription="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Inputs%20Table']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteAttack']" semanticCandidatesExpression="feature:attacks" domainClass="securityTest.Attack">
-            <style xsi:type="style:SquareDescription" tooltipExpression="feature:name" labelPosition="node" resizeKind="NSEW">
+        <containerMappings name="WebComponentCompartmentContainer" semanticCandidatesExpression="var:self" domainClass="securityTest.WebComponent" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="InputsCompartmentContainer" semanticCandidatesExpression="feature:inputs" domainClass="securityTest.Input" childrenPresentation="List">
+            <subNodeMappings name="AttacksCompartmentNode" deletionDescription="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Web%20Component%20Details%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteAttackNode']" semanticCandidatesExpression="feature:attacks" domainClass="securityTest.Attack">
+              <style xsi:type="style:SquareDescription" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
             </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="feature:path">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
         </containerMappings>
-        <toolSections name="VulnFinderWCTools" label="VulnFinder WC Tools">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createInputContainer" label="+Input" containerMappings="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Inputs%20Table']/@defaultLayer/@containerMappings[name='InputCont']">
+        <toolSections name="VulnfinderCompartmentTools" label="Vulnfinder WebComponent Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createInputCompartment" label="+Input" containerMappings="//@ownedViewpoints[name='SecTestView']/@ownedRepresentations[name='Web%20Component%20Details%20Diagram']/@defaultLayer/@containerMappings[name='WebComponentCompartmentContainer']/@subContainerMappings[name='InputsCompartmentContainer']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -149,7 +163,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:PaneBasedSelectionWizardDescription" name="paneAttacksSelection" label="Set Attacks" precondition="[self.oclIsTypeOf(securityTest::Input)/]" windowTitle="Select Attacks" candidatesExpression="[self.eContainer().eContainer().eContainer().eContents(securityTest::Attack)/]" preSelectedCandidatesExpression="[self.oclAsType(securityTest::Input).attacks/]">
+          <ownedTools xsi:type="tool_1:PaneBasedSelectionWizardDescription" name="paneAttacksContSelection" label="Set Attacks" precondition="[self.oclIsTypeOf(securityTest::Input)/]" windowTitle="Select Attacks" candidatesExpression="[self.eContainer().eContainer().eContainer().eContents(securityTest::Attack)/]" preSelectedCandidatesExpression="[self.oclAsType(securityTest::Input).attacks/]">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -160,7 +174,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteAttack">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteAttackNode">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>

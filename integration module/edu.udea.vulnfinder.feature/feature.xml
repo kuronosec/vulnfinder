@@ -2,7 +2,7 @@
 <feature
       id="edu.udea.vulnfinder.feature"
       label="Vulnfinder EMT Module"
-      version="0.1.3"
+      version="0.2.1"
       provider-name="UdeA">
 
    <description url="http://www.example.com/description">
@@ -13,7 +13,7 @@
       [Enter Copyright Description here.]
    </copyright>
 
-   <license url="http://www.example.com/license">
+   <license url="http://www.gnu.org/licenses/">
       VulnFinder is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -27,6 +27,10 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
    </license>
+
+   <url>
+      <update label="VulnFinder EMT Tools" url="http://172.21.0.178/vulnfinder/eclipse/"/>
+   </url>
 
    <requires>
       <import feature="org.eclipse.sirius.runtime" version="4.0.0" match="greaterOrEqual"/>
