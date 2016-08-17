@@ -1,41 +1,7 @@
-.siteurl {
-    font-family: monospace;
-    color: darkcyan;
-}
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-#integration-list {
-    font-family: 'Open Sans', sans-serif;
-    width: 80%;
-    margin: 0 auto;
-    display: table;
-}
-#integration-list ul {
-    padding: 0;
-    margin: 20px 0;
-    color: #555;
-}
-#integration-list ul> li {
-    list-style: none;
-    border-top: 1px solid #ddd;
-    display: block;
-    padding: 15px;
-    overflow: hidden;
-}
-#integration-list ul:last-child {
-    border-bottom: 1px solid #ddd;
-}
-#integration-list ul> li:hover {
-    background: #efefef;
-}
-.expand {
-    display: block;
-    text-decoration: none;
-    color: #555;
-    cursor: pointer;
 }
 h2 {
     padding: 0;
@@ -46,13 +12,67 @@ h2 {
 span {
     font-size: 12.5px;
 }
-.left {
-    width: 85%;
-    float: right;
-    height: 100%;
-    padding-left: 20px;
+a, a:hover, a:focus a:hover {
+    text-decoration: none !important;
 }
- .left, .right {
+.siteurl {
+    font-family: monospace;
+    color: #006680;
+}
+.siteurl:before {
+    font-family: FontAwesome;
+    content: "\f0e8\00a0\00a0";
+}
+#integration-list {
+    font-family: 'Open Sans', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+}
+#integration-list ul {
+    padding: 0;
+    margin: 5px 0;
+    color: #555;
+}
+#integration-list ul> li {
+    list-style: none;
+    border-top: 1px solid #ddd;
+    display: block;
+    padding: 5px;
+    overflow: hidden;
+}
+#integration-list ul:last-child {
+    border-bottom: 1px solid #ddd;
+}
+#integration-list ul> li:hover {
+    color: black;
+    background: #efefef;
+}
+.field-title {
+    font-family: monospace;
+    margin: 5px;
+}
+
+#logo {
+    float: right;
+}
+#report-title {
+    vertical-align: middle;
+    color: #006680;
+}
+.expand {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+}
+.left {
+    float: left;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.left, .right {
     display: table;
 }
 #sup {
@@ -62,11 +82,17 @@ span {
 }
 .detail a {
     text-decoration: none;
-    color: #C0392B;
-    border: 1px solid #C0392B;
+    width: 100%;
+    color: #009B29;
+    border: 1px solid #009B29;
     padding: 6px 10px 5px;
     font-size: 13px;
     margin-right: 7px;
+}
+.detail a:before {
+    font-family: FontAwesome;
+    content: "\f132\00a0\00a0";
+
 }
 .detail {
     margin: 10px 0 10px 0px;
@@ -105,11 +131,6 @@ span {
     background-size: cover;
 }
 .sitealertcounter .fieldalertcounter {
+    background-color: white;
     color: darkred;
-}
-a {
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: none;
 }

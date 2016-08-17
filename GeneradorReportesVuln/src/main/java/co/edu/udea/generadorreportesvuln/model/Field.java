@@ -73,6 +73,7 @@ public class Field implements HtmlElement {
             fieldPanelHeading.setId("heading" + id);
 
             H3 fieldTitle = new H3();
+            fieldTitle = fieldTitle.setCSSClass("field-title");
             A toggle = new A();
             toggle.setAttribute("data-toggle", "collapse");
             toggle.appendText(fieldName);
@@ -91,19 +92,21 @@ public class Field implements HtmlElement {
             table.setCSSClass("table table-bordered");
             Thead thead = new Thead();
             thead.setCSSClass("thead-default");
+            Tr tr = new Tr();
             //Type title payload
             Th analyzerTh = new Th();
             analyzerTh.appendText("Analyzer");
-            thead.appendChild(analyzerTh);
+            tr.appendChild(analyzerTh);
             Th typeTh = new Th();
             typeTh.appendText("Type");
-            thead.appendChild(typeTh);
+            tr.appendChild(typeTh);
             Th titleTh = new Th();
             titleTh.appendText("Title");
-            thead.appendChild(titleTh);
+            tr.appendChild(titleTh);
             Th payloadTh = new Th();
             payloadTh.appendText("Payload");
-            thead.appendChild(payloadTh);
+            tr.appendChild(payloadTh);
+            thead.appendChild(tr);
             table.appendChild(thead);
 
             Tbody tbody = new Tbody();

@@ -5,6 +5,8 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import com.hp.gagawa.java.Document;
+import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
@@ -45,20 +47,20 @@ public class Report {
     private static String pageTitleToPut;
     private static List<Site> sitesToUse;
 
-    public static Html toHtml(List<Site> sites, String pageTitle) {
+    public static DocumentWithHeadAndBody toHtml(List<Site> sites, String pageTitle) {
+        DocumentWithHeadAndBody finalHtml = new DocumentWithHeadAndBody("<!DOCTYPE html>");
         sitesToUse = sites;
         pageTitleToPut = pageTitle;
-        Html html = new Html();
 
         Head head = generateHead();
-        html.appendChild(head);
 
         Body body = generateBody();
-        html.appendChild(body);
-        return html;
+        finalHtml.head = head;
+        finalHtml.body = body;
+        return finalHtml;
     }
 
-    public static void writeToFile(Html html, String filePath) {
+    public static void writeToFile(DocumentWithHeadAndBody html, String filePath) {
         File path = new File(filePath);
         if (!path.exists()) {
             Boolean success = (path).mkdirs();
@@ -71,6 +73,9 @@ public class Report {
         copyResource(CSS_FILE, filePath);
         copyResource(JAVASCRIPT_FILE, filePath);
         copyResource(LOGO, filePath);
+        copyResource(BOOTSTRAPMINJS, filePath);
+        copyResource(FONTAWESOMEMINCSS, filePath);
+        copyResource(BOOTSTRAPMINCSS, filePath);
 
         try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html")) {
             out.println(html.write());
@@ -87,18 +92,14 @@ public class Report {
         meta.setHttpEquiv("content-type");
         head.appendChild(meta);
 
-        Title title = new Title();
-        title.appendText(pageTitleToPut);
-        head.appendChild(title);
+        Script script;
 
-        Script script = new Script("javascript");
-        script.setSrc("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js");
-        script.setAttribute("integrity", "sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS");
-        script.setAttribute("crossorigin", "anonymous");
+        script = new Script("text/javascript");
+        script.setSrc(JQUERYMINJS);
         head.appendChild(script);
 
-        script = new Script("javascript");
-        script.setSrc("jquery.min.js");
+        script = new Script("text/javascript");
+        script.setSrc(BOOTSTRAPMINJS);
         head.appendChild(script);
 
         Link style = new Link();
@@ -109,7 +110,7 @@ public class Report {
 
         Link link = new Link();
         link.setRel("stylesheet");
-        link.setHref("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+        link.setHref(BOOTSTRAPMINCSS);
         link.setType("text/css");
 
         head.appendChild(link);
@@ -117,6 +118,7 @@ public class Report {
         link = new Link();
         link.setHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
         link.setRel("stylesheet");
+        link.setType("text/css");
         head.appendChild(link);
 
         link = new Link();
@@ -128,10 +130,18 @@ public class Report {
         script = new Script("text/javascript");
         script.setSrc(JAVASCRIPT_FILE);
         script.setLanguage("javascript");
+        script.setDefer("defer");
         head.appendChild(script);
+        
+        Title title = new Title();
+        title.appendText(pageTitleToPut);
+        head.appendChild(title);
 
         return head;
     }
+    private static final String BOOTSTRAPMINCSS = "bootstrap.min.css";
+    private static final String FONTAWESOMEMINCSS = "font-awesome.min.css";
+    private static final String BOOTSTRAPMINJS = "bootstrap.min.js";
 
     private static Body generateBody() {
         Body body = new Body();
@@ -147,11 +157,13 @@ public class Report {
         Div imgCol = new Div();
         imgCol.setCSSClass("col-md-3");
         Img logo = new Img("Logo", "logo.png");
+        logo.setId("logo");
         imgCol.appendChild(logo);
         row.appendChild(imgCol);
 
         Div titleCol = new Div();
-        titleCol.setCSSClass("col-md-9");
+        titleCol.setId("report-title");
+        titleCol.setCSSClass("col-md-9 centerfy");
 
         H1 pageTitleElement = new H1();
         pageTitleElement.appendText(pageTitleToPut);
