@@ -21,13 +21,13 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public abstract class AbstractSecLanguageSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SecLanguageGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Input___LeftSquareBracketKeyword_2_2_0_EStringParserRuleCall_2_2_1_a_RightSquareBracketKeyword_2_2_2__q;
+	protected AbstractElementAlias match_Input___LeftSquareBracketKeyword_2_2_0_RightSquareBracketKeyword_2_2_2__q;
 	protected AbstractElementAlias match_WebComponent___LeftCurlyBracketKeyword_2_2_0_TargetKeyword_2_2_1_LeftSquareBracketKeyword_2_2_2_EStringParserRuleCall_2_2_3_a_RightSquareBracketKeyword_2_2_4_RightCurlyBracketKeyword_2_2_5__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SecLanguageGrammarAccess) access;
-		match_Input___LeftSquareBracketKeyword_2_2_0_EStringParserRuleCall_2_2_1_a_RightSquareBracketKeyword_2_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0()), new TokenAlias(true, true, grammarAccess.getInputAccess().getEStringParserRuleCall_2_2_1()), new TokenAlias(false, false, grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2()));
+		match_Input___LeftSquareBracketKeyword_2_2_0_RightSquareBracketKeyword_2_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0()), new TokenAlias(false, false, grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2()));
 		match_WebComponent___LeftCurlyBracketKeyword_2_2_0_TargetKeyword_2_2_1_LeftSquareBracketKeyword_2_2_2_EStringParserRuleCall_2_2_3_a_RightSquareBracketKeyword_2_2_4_RightCurlyBracketKeyword_2_2_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getWebComponentAccess().getLeftCurlyBracketKeyword_2_2_0()), new TokenAlias(false, false, grammarAccess.getWebComponentAccess().getTargetKeyword_2_2_1()), new TokenAlias(false, false, grammarAccess.getWebComponentAccess().getLeftSquareBracketKeyword_2_2_2()), new TokenAlias(true, true, grammarAccess.getWebComponentAccess().getEStringParserRuleCall_2_2_3()), new TokenAlias(false, false, grammarAccess.getWebComponentAccess().getRightSquareBracketKeyword_2_2_4()), new TokenAlias(false, false, grammarAccess.getWebComponentAccess().getRightCurlyBracketKeyword_2_2_5()));
 	}
 	
@@ -54,8 +54,8 @@ public abstract class AbstractSecLanguageSyntacticSequencer extends AbstractSynt
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Input___LeftSquareBracketKeyword_2_2_0_EStringParserRuleCall_2_2_1_a_RightSquareBracketKeyword_2_2_2__q.equals(syntax))
-				emit_Input___LeftSquareBracketKeyword_2_2_0_EStringParserRuleCall_2_2_1_a_RightSquareBracketKeyword_2_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Input___LeftSquareBracketKeyword_2_2_0_RightSquareBracketKeyword_2_2_2__q.equals(syntax))
+				emit_Input___LeftSquareBracketKeyword_2_2_0_RightSquareBracketKeyword_2_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_WebComponent___LeftCurlyBracketKeyword_2_2_0_TargetKeyword_2_2_1_LeftSquareBracketKeyword_2_2_2_EStringParserRuleCall_2_2_3_a_RightSquareBracketKeyword_2_2_4_RightCurlyBracketKeyword_2_2_5__q.equals(syntax))
 				emit_WebComponent___LeftCurlyBracketKeyword_2_2_0_TargetKeyword_2_2_1_LeftSquareBracketKeyword_2_2_2_EStringParserRuleCall_2_2_3_a_RightSquareBracketKeyword_2_2_4_RightCurlyBracketKeyword_2_2_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -64,12 +64,12 @@ public abstract class AbstractSecLanguageSyntacticSequencer extends AbstractSynt
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('[' EString* ']')?
+	 *     ('[' ']')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=EString (ambiguity) ')' (rule end)
 	 */
-	protected void emit_Input___LeftSquareBracketKeyword_2_2_0_EStringParserRuleCall_2_2_1_a_RightSquareBracketKeyword_2_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Input___LeftSquareBracketKeyword_2_2_0_RightSquareBracketKeyword_2_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

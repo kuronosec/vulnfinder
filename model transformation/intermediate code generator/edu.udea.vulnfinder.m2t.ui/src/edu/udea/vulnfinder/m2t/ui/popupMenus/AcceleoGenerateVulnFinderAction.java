@@ -35,9 +35,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
 /**
- * M2t code generation.
+ * VulnFinder code generation.
  */
-public class AcceleoGenerateM2tAction extends ActionDelegate implements IActionDelegate {
+public class AcceleoGenerateVulnFinderAction extends ActionDelegate implements IActionDelegate {
 	
 	/**
 	 * Selected model files.
@@ -71,7 +71,7 @@ public class AcceleoGenerateM2tAction extends ActionDelegate implements IActionD
 							IFile model = (IFile)filesIt.next();
 							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
 							try {
-								IContainer target = model.getProject().getFolder("src-gen");
+								IContainer target = model.getProject().getFolder("text-model");
 								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
 								generator.doGenerate(monitor);
 							} catch (IOException e) {

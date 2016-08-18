@@ -2,8 +2,8 @@
 <securityTest:Test xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:securityTest="http://udea/vulnfinder/securityTest" id="secTest01" name="Prueba1">
   <scope domain="http://www.pcl.com">
     <components path="Pages/default.aspx">
-      <inputs name="__spText1" attacks="//@possibleAttacks.3"/>
-      <inputs name="__spText2" attacks="//@possibleAttacks.0 //@possibleAttacks.4"/>
+      <inputs name="__spText1" attacks="XSS"/>
+      <inputs name="__spText2" attacks="Authorization SQLInjection"/>
     </components>
     <components path="" targetLinks="//@scope/@components.2 //@scope/@components.3 //@scope/@components.4 //@scope/@components.5 //@scope/@components.6 //@scope/@components.7 //@scope/@components.8 //@scope/@components.9 //@scope/@components.10 //@scope/@components.11 //@scope/@components.12 //@scope/@components.0 //@scope/@components.13 //@scope/@components.14 //@scope/@components.15 //@scope/@components.16 //@scope/@components.17 //@scope/@components.18 //@scope/@components.19 //@scope/@components.20 //@scope/@components.21 //@scope/@components.22 //@scope/@components.23 //@scope/@components.24 //@scope/@components.25 //@scope/@components.26 //@scope/@components.27 //@scope/@components.28 //@scope/@components.29 //@scope/@components.30 //@scope/@components.31 //@scope/@components.32 //@scope/@components.33 //@scope/@components.34 //@scope/@components.35 //@scope/@components.36 //@scope/@components.37 //@scope/@components.38 //@scope/@components.39 //@scope/@components.40 //@scope/@components.41 //@scope/@components.42 //@scope/@components.43 //@scope/@components.44 //@scope/@components.45 //@scope/@components.46 //@scope/@components.47 //@scope/@components.48 //@scope/@components.49 //@scope/@components.50 //@scope/@components.51 //@scope/@components.52 //@scope/@components.53 //@scope/@components.54 //@scope/@components.55 //@scope/@components.56 //@scope/@components.57 //@scope/@components.58 //@scope/@components.59 //@scope/@components.60"/>
     <components path="Services-that-Deliver/Technology-and-Innovation" targetLinks="//@scope/@components.61"/>

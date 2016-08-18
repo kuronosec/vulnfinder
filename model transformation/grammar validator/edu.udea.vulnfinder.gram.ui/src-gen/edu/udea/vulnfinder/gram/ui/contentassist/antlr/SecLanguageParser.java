@@ -64,6 +64,7 @@ public class SecLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWebComponentAccess().getPathAssignment_2_1(), "rule__WebComponent__PathAssignment_2_1");
 					put(grammarAccess.getWebComponentAccess().getInputsAssignment_2_3(), "rule__WebComponent__InputsAssignment_2_3");
 					put(grammarAccess.getInputAccess().getNameAssignment_2_1(), "rule__Input__NameAssignment_2_1");
+					put(grammarAccess.getInputAccess().getAttacksAssignment_2_2_1(), "rule__Input__AttacksAssignment_2_2_1");
 				}
 			};
 		}

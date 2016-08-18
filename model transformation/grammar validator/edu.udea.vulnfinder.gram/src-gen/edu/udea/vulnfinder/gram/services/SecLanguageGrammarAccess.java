@@ -165,7 +165,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cAttackKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNameEAttackMethodEnumRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Keyword cLevelKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
@@ -176,11 +176,13 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Attack:
 		//	{Attack}
-		//	'(' ('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?)
+		//	'(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
+		//	//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Attack} '(' ('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?) ')'
+		//{Attack} '(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?) //('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
+		//')'
 		public Group getGroup() { return cGroup; }
 
 		//{Attack}
@@ -189,17 +191,17 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?)
+		//('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
 		public Group getGroup_2() { return cGroup_2; }
 
 		//'attack'
 		public Keyword getAttackKeyword_2_0() { return cAttackKeyword_2_0; }
 
-		//name=EAttackMethod
+		//name=EString
 		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
 
-		//EAttackMethod
-		public RuleCall getNameEAttackMethodEnumRuleCall_2_1_0() { return cNameEAttackMethodEnumRuleCall_2_1_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_1_0() { return cNameEStringParserRuleCall_2_1_0; }
 
 		//('{' ':level' severity=ESeverity '}')?
 		public Group getGroup_2_2() { return cGroup_2_2; }
@@ -219,6 +221,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2_2_3() { return cRightCurlyBracketKeyword_2_2_3; }
 
+		////('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
@@ -332,17 +335,19 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cLeftSquareBracketKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final RuleCall cEStringParserRuleCall_2_2_1 = (RuleCall)cGroup_2_2.eContents().get(1);
+		private final Assignment cAttacksAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final CrossReference cAttacksAttackCrossReference_2_2_1_0 = (CrossReference)cAttacksAssignment_2_2_1.eContents().get(0);
+		private final RuleCall cAttacksAttackEStringParserRuleCall_2_2_1_0_1 = (RuleCall)cAttacksAttackCrossReference_2_2_1_0.eContents().get(1);
 		private final Keyword cRightSquareBracketKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Input:
 		//	{Input}
-		//	'(' ('field' name=EString ('[' EString* ']')?)
+		//	'(' ('field' name=EString ('[' attacks+=[Attack|EString]* ']')?)
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Input} '(' ('field' name=EString ('[' EString* ']')?) ')'
+		//{Input} '(' ('field' name=EString ('[' attacks+=[Attack|EString]* ']')?) ')'
 		public Group getGroup() { return cGroup; }
 
 		//{Input}
@@ -351,7 +356,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//('field' name=EString ('[' EString* ']')?)
+		//('field' name=EString ('[' attacks+=[Attack|EString]* ']')?)
 		public Group getGroup_2() { return cGroup_2; }
 
 		//'field'
@@ -363,14 +368,20 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_1_0() { return cNameEStringParserRuleCall_2_1_0; }
 
-		//('[' EString* ']')?
+		//('[' attacks+=[Attack|EString]* ']')?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//'['
 		public Keyword getLeftSquareBracketKeyword_2_2_0() { return cLeftSquareBracketKeyword_2_2_0; }
 
-		//EString*
-		public RuleCall getEStringParserRuleCall_2_2_1() { return cEStringParserRuleCall_2_2_1; }
+		//attacks+=[Attack|EString]*
+		public Assignment getAttacksAssignment_2_2_1() { return cAttacksAssignment_2_2_1; }
+
+		//[Attack|EString]
+		public CrossReference getAttacksAttackCrossReference_2_2_1_0() { return cAttacksAttackCrossReference_2_2_1_0; }
+
+		//EString
+		public RuleCall getAttacksAttackEStringParserRuleCall_2_2_1_0_1() { return cAttacksAttackEStringParserRuleCall_2_2_1_0_1; }
 
 		//']'
 		public Keyword getRightSquareBracketKeyword_2_2_2() { return cRightSquareBracketKeyword_2_2_2; }
@@ -551,7 +562,8 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Attack:
 	//	{Attack}
-	//	'(' ('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?)
+	//	'(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
+	//	//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 	//	')';
 	public AttackElements getAttackAccess() {
 		return pAttack;
@@ -585,7 +597,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Input:
 	//	{Input}
-	//	'(' ('field' name=EString ('[' EString* ']')?)
+	//	'(' ('field' name=EString ('[' attacks+=[Attack|EString]* ']')?)
 	//	')';
 	public InputElements getInputAccess() {
 		return pInput;

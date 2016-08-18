@@ -100,14 +100,14 @@ public class Main {
 	}
 	
 	
-	public static boolean generateXMI(String savePath){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, savePath);
-		return mem2xmi.genAndSaveXMIFile();
+	public static String generateXMI(){
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap);
+		return mem2xmi.generateXMIFormat();
 	}
 	
-	public static boolean generateXMI(String savePath, String testId, String testName){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, savePath, testId, testName);
-		return mem2xmi.genAndSaveXMIFile();
+	public static String generateXMI(String testId, String testName){
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, testId, testName);
+		return mem2xmi.generateXMIFormat();
 	}
 
 	/*
@@ -313,6 +313,10 @@ public class Main {
 
 	public static TargetOfEvaluation getDominio() {
 		return dominio;
+	}
+	
+	public static void clearDomain(){
+		dominio = null;
 	}
 
 	public static Queue<String> getCola() {

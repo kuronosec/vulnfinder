@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
 public interface Attack extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * The literals are from the enumeration {@link securityTest.EAttackMethod}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -32,24 +31,22 @@ public interface Attack extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see securityTest.EAttackMethod
-	 * @see #setName(EAttackMethod)
+	 * @see #setName(String)
 	 * @see securityTest.SecurityTestPackage#getAttack_Name()
 	 * @model id="true"
 	 * @generated
 	 */
-	EAttackMethod getName();
+	String getName();
 
 	/**
 	 * Sets the value of the '{@link securityTest.Attack#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see securityTest.EAttackMethod
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(EAttackMethod value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Severity</b></em>' attribute.

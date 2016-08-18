@@ -8,8 +8,10 @@ package co.edu.udea.generadorreportesvuln;
 import co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer;
 import co.edu.udea.generadorreportesvuln.analyzer.SQLMapAnalyzer;
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
+import co.edu.udea.generadorreportesvuln.model.DocumentWithHeadAndBody;
 import co.edu.udea.generadorreportesvuln.model.Report;
 import co.edu.udea.generadorreportesvuln.service.SiteMaker;
+import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.elements.Html;
 import java.io.IOException;
 import java.util.Arrays;
@@ -118,7 +120,7 @@ public class GeneradorReportes {
 
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
-            Html htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
+            DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
             Report.writeToFile(htmlReport, cmd.getOptionValue("o"));
         } else {
             // Or print it to standart output

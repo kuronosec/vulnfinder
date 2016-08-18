@@ -7,15 +7,15 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.securitytest"
             id="edu.udea.vulnfinder.m2t.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="VulnFinder M2T" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="VulnFinder Model to Text" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
-               class="edu.udea.vulnfinder.m2t.ui.popupMenus.AcceleoGenerateM2tAction"
+               class="edu.udea.vulnfinder.m2t.ui.popupMenus.AcceleoGenerateVulnFinderAction"
                enablesFor="+"
-               id="edu.udea.vulnfinder.m2t.ui.popupMenus.acceleoGenerateM2tAction"
+               id="edu.udea.vulnfinder.m2t.ui.popupMenus.acceleoGenerateVulnFinderAction"
                icon="icons/default.gif"
-               label="Transform VF Model"
+               label="Generate VulnFinder Model"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>

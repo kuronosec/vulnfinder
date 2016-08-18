@@ -8,9 +8,13 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
+import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnRequestParseException;
 import edu.udea.vulnfinder.xmigenerator.generator.gsonClasses.VulnJsonRequestElement;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Attack;
@@ -26,29 +30,25 @@ public class VulnServer extends NanoHTTPD {
 		super(port);
 		start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
 	}
-	/*
-	 * public static void main(String[] args) { try { Main.initialize(); new
-	 * VulnServer();
-	 * 
-	 * } catch (IOException ioe) { System.err.println("Couldn't start server:\n"
-	 * + ioe); } }
-	 */
 
 	@Override
 	public Response serve(IHTTPSession session) {
-
 		Scanner scanner = new Scanner(session.getInputStream());
-
+		Response r = null;
 		if (scanner.hasNext()) {
 			try {
 				handleMessage(scanner.nextLine());
-				return newFixedLengthResponse(Status.OK, "text/html", "");
+				r = newFixedLengthResponse(Status.OK, "text/html", "");
 			} catch (VulnRequestParseException e) {
 				System.err.println("Error while parsing request: "+e.getMessage());
-				return newFixedLengthResponse(Status.BAD_REQUEST, "text/html", e.getMessage());
+				r = newFixedLengthResponse(Status.BAD_REQUEST, "text/html", e.getMessage());
 			}
 		}
-		return newFixedLengthResponse(Status.BAD_REQUEST, "text/html", "Request body was empty.");
+		if(r == null){
+			r = newFixedLengthResponse(Status.BAD_REQUEST, "text/html", "Request body was empty.");
+		}
+		r.addHeader("Access-Control-Allow-Origin", "*");
+		return r;
 
 		
 	}
@@ -56,9 +56,11 @@ public class VulnServer extends NanoHTTPD {
 	private void handleMessage(String msg) throws VulnRequestParseException {
 		Attack a;
 		try {
+			MessageLauncher.showInformation(null, "Llegó petición", msg);
+			
 			VulnJsonRequestElement[] vjres = new Gson().fromJson(msg, VulnJsonRequestElement[].class);
 
-			System.out.println(Arrays.deepToString(vjres));
+			
 			WebComponent wc = null;
 			Input inp = null;
 
@@ -66,12 +68,9 @@ public class VulnServer extends NanoHTTPD {
 				if (element.getActionForm() == null || element.getInputName() == null || element.getAttacks() == null) {
 					throw new VulnRequestParseException("JSON format exception, request is lacking fields.");
 				}
-				if (!element.getActionForm().startsWith("http://") || !element.getActionForm().startsWith("https://")) {
-					element.setActionForm("http://" + element.getActionForm());
-				}
 
 			}
-
+			System.out.println(Arrays.deepToString(vjres));
 			for (VulnJsonRequestElement element : vjres) {
 
 				wc = handleDomain(element.getActionForm());
@@ -99,7 +98,11 @@ public class VulnServer extends NanoHTTPD {
 	}
 
 	private WebComponent handleDomain(String url) {
-		int domIni = Main.insertarDominio(TargetOfEvaluation.extractDomain(url));
+		String domStr = TargetOfEvaluation.extractDomain(url);
+		if(Main.getDominio() != null && !Main.getDominio().getNombre().equals(url)){
+			Main.clearDomain();
+		}
+		int domIni = Main.insertarDominio(domStr);
 		if (domIni != 1) {
 			return null;
 		}

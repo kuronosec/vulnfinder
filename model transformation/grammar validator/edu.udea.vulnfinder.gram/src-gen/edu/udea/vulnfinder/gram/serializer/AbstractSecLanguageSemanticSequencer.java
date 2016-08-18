@@ -12,9 +12,7 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import securityTest.Attack;
 import securityTest.Input;
 import securityTest.SecurityTestPackage;
@@ -61,7 +59,7 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 	 *     Attack returns Attack
 	 *
 	 * Constraint:
-	 *     (name=EAttackMethod severity=ESeverity?)
+	 *     (name=EString severity=ESeverity?)
 	 */
 	protected void sequence_Attack(ISerializationContext context, Attack semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -73,16 +71,10 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString attacks+=[Attack|EString]*)
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SecurityTestPackage.Literals.INPUT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SecurityTestPackage.Literals.INPUT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInputAccess().getNameEStringParserRuleCall_2_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

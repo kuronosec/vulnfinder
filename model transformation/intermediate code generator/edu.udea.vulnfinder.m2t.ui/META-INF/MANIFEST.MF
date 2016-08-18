@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo M2t Module IDE Plug-in
+Bundle-Name: VulnFinder Module IDE Plug-in
 Bundle-SymbolicName: edu.udea.vulnfinder.m2t.ui;singleton:=true
-Bundle-Version: 0.2.0
+Bundle-Version: 0.2.1
 Bundle-Activator: edu.udea.vulnfinder.m2t.ui.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.ui,

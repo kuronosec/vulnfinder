@@ -1,0 +1,176 @@
+(securityTest secTest01
+	(toes
+		(toe "http://www.pcl.com"
+			(page "Projects-that-Inspire/Pages/Projects-that-Inspire/Pages/default.aspx"
+					(field "SOTlPn_ShowSettings" ["Authentication"])
+					(field "SOTlPn_SelectedWpI" ["XSS"])
+					(field "_EVENTTARGET" ["Authentication"])
+					(field "SOLayout_LayoutChanges" [])
+					(field "tl00$PlaceHolderMain$ctl00$marketDropDownList" ["Authentication" "XSS" "SuperAtaque"])
+					(field "wzSelected" ["Authentication"])
+					(field "_VIEWSTATEGENERATOR" ["SuperAtaque" "XSS" "Authentication"])
+					(field "tl00$ctl36$searchTextBox" ["SuperAtaque" "Authentication"])
+					(field "SOSPWebPartManager_EndWebPartEditing" ["XSS" "SuperAtaque"])
+					(field "pcmVal" ["SuperAtaque" "Authentication"])
+					(field "_spText1" ["SuperAtaque" "Authentication"])
+					(field "" [])
+			)
+			(page ""
+			)
+			(page "Services-that-Deliver/Technology-and-Innovation"
+			)
+			(page "Services-that-Deliver"
+			)
+			(page "Services-that-Deliver/Pages"
+			)
+			(page "Services-that-Deliver/PublishingImages"
+			)
+			(page "Projects-that-Inspire/_vti_bin/sites.asmx"
+					(field "op" [])
+			)
+			(page "Partners-in-Building"
+			)
+			(page "Projects-that-Inspire/Pages/Projects-that-Inspire/Pages"
+			)
+			(page "Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint"
+			)
+			(page "Services-that-Deliver/Capabilities-Services/PublishingImagess"
+			)
+			(page "Partners-in-Building/Pages"
+			)
+			(page "Services-that-Deliver/Industry-Leadership"
+			)
+			(page "Services-that-Deliver/Delivery-Methods/PublishingImages"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint"
+			)
+			(page "Projects-that-Inspire"
+			)
+			(page "Culture-and-Community/Pages/default.aspx"
+			)
+			(page "Services-that-Deliver/Contract-Types/PublishingImages"
+					(field "input" [])
+			)
+			(page "ScriptResource.axd"
+					(field "ddwsd" [])
+					(field "t" [])
+			)
+			(page "Projects-that-Inspire/Pages/_LAYOUTS"
+			)
+			(page "_layouts/pcl.publicsite.sharepoint"
+			)
+			(page "Projects-that-Inspire/_vti_bin"
+			)
+			(page "Pages/default.aspx"
+			)
+			(page "Projects-that-Inspire/Pages/_LAYOUTS/PCL.PublicSite.SharePoint/Images"
+			)
+			(page "Services-that-Deliver/Technology-and-Innovation/PublishingImages"
+			)
+			(page "Projects-that-Inspire/Pages/default.aspx"
+			)
+			(page "Services-that-Deliver/Industry-Leadership/PublishingImages"
+			)
+			(page "Culture-and-Community/Pages"
+			)
+			(page "Projects-that-Inspire/PublishingImages"
+			)
+			(page "_layouts/blank.js"
+					(field "_" [])
+					(field "rev" [])
+			)
+			(page "_layouts/pcl.publicsite.sharepoint/scripts"
+			)
+			(page "Partners-in-Building/Pages/default.aspx"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint/images"
+			)
+			(page "Services-that-Deliver/Delivery-Methods"
+			)
+			(page "Services-that-Deliver/Pages/default.aspx"
+			)
+			(page "Culture-and-Community"
+			)
+			(page "_layouts/pcl.publicsite.sharepoint/scripts/jquery.expander.min.js"
+			)
+			(page "Projects-that-Inspire/Pages/Dome-Conservation.aspx"
+					(field "MSOLayout_LayoutChanges" [])
+					(field "__VIEWSTATEGENERATOR" [])
+					(field "__EVENTARGUMENT" [])
+					(field "__VIEWSTATE" [])
+					(field "_wzSelected" [])
+					(field "MSOWebPartPage_Shared" [])
+					(field "ctl00%24ctl36%24searchTextBox" [])
+					(field "MSOSPWebPartManager_DisplayModeName" [])
+					(field "MSOSPWebPartManager_ExitingDesignMode" [])
+					(field "MSOSPWebPartManager_OldDisplayModeName" [])
+					(field "MSOGallery_SelectedLibrary" [])
+					(field "__EVENTVALIDATION" [])
+					(field "MSOWebPartPage_PostbackSource" [])
+					(field "__REQUESTDIGEST" [])
+					(field "MSOGallery_FilterString" [])
+					(field "ctl00%24PlaceHolderMain%24ctl00%24sectorDropDownList" [])
+					(field "wpcmVal" [])
+					(field "_wpcmWpid" [])
+					(field "MSOTlPn_Button" [])
+					(field "MSOTlPn_View" [])
+					(field "__LASTFOCUS" [])
+					(field "MSOSPWebPartManager_EndWebPartEditing" [])
+					(field "MSOSPWebPartManager_StartWebPartEditingName" [])
+					(field "_wpSelected" [])
+					(field "MSOTlPn_SelectedWpId" [])
+					(field "__VIEWSTATEENCRYPTED" [])
+					(field "ctl00%24PlaceHolderMain%24ctl00%24marketDropDownList" [])
+					(field "__ASYNCPOST" [])
+					(field "__spText2" [])
+					(field "__spText1" [])
+					(field "__SCROLLPOSITIONY" [])
+					(field "__EVENTTARGET" [])
+					(field "__SCROLLPOSITIONX" [])
+					(field "ctl00%24ctl37%24searchTextBox" [])
+					(field "MSOLayout_InDesignMode" [])
+					(field "MSOTlPn_ShowSettings" [])
+					(field "ctl00%24ScriptManager" [])
+					(field "ctl00%24PlaceHolderMain%24ctl00%24locationDropDownList" [])
+			)
+			(page "WebResource.axd"
+					(field "_" [])
+					(field "d" [])
+					(field "t" [])
+			)
+			(page "Services-that-Deliver/Contract-Types"
+			)
+			(page "Services-that-Deliver/Capabilities-Services"
+			)
+			(page "_layouts"
+			)
+			(page "Projects-that-Inspire/Pages"
+			)
+			(page "Projects-that-Inspire/Pages/Projects-that-Inspire"
+			)
+			(page "_vti_bin/sites.asmx"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint/"
+			)
+			(page "Services-that-Deliver/Industry-Leadership/Pages/default.aspx"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint/Images/"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint/scripts/"
+			)
+			(page "_layouts/PCL.PublicSite.SharePoint/images/"
+			)
+			(page "Services-that-Deliver/Delivery-Methods/Pages/default.aspx"
+			)
+			(page "Services-that-Deliver/Contract-Types/Pages/default.aspx"
+			)
+			(page "Services-that-Deliver/Capabilities-Services/Pages/default.aspx"
+			)
+		)
+	)
+	(attacks
+		(attack Authentication { :level High } )
+		(attack XSS { :level High } )
+		(attack SuperAtaque { :level High } )
+	)
+)

@@ -287,9 +287,9 @@ ruleAttack returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAttackAccess().getNameEAttackMethodEnumRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getAttackAccess().getNameEStringParserRuleCall_2_1_0()); 
 	    }
-		lv_name_3_0=ruleEAttackMethod		{
+		lv_name_3_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAttackRule());
 	        }
@@ -297,7 +297,7 @@ ruleAttack returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"edu.udea.vulnfinder.gram.SecLanguage.EAttackMethod");
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -533,13 +533,20 @@ ruleInput returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0());
     }
 (
-    { 
-        newCompositeNode(grammarAccess.getInputAccess().getEStringParserRuleCall_2_2_1()); 
-    }
-ruleEString
-    { 
-        afterParserOrEnumRuleCall();
-    }
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInputRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getInputAccess().getAttacksAttackCrossReference_2_2_1_0()); 
+	    }
+		ruleEString		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )*	otherlv_6=']' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2());
@@ -579,41 +586,6 @@ ruleESeverity returns [Enumerator current=null]
 ));
 
 
-
-// Rule EAttackMethod
-ruleEAttackMethod returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((	enumLiteral_0='SQLInjection' 
-	{
-        $current = grammarAccess.getEAttackMethodAccess().getSQLInjectionEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getEAttackMethodAccess().getSQLInjectionEnumLiteralDeclaration_0()); 
-    }
-)
-    |(	enumLiteral_1='XSS' 
-	{
-        $current = grammarAccess.getEAttackMethodAccess().getXSSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getEAttackMethodAccess().getXSSEnumLiteralDeclaration_1()); 
-    }
-)
-    |(	enumLiteral_2='Authentication' 
-	{
-        $current = grammarAccess.getEAttackMethodAccess().getAuthenticationEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getEAttackMethodAccess().getAuthenticationEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='Authorization' 
-	{
-        $current = grammarAccess.getEAttackMethodAccess().getAuthorizationEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getEAttackMethodAccess().getAuthorizationEnumLiteralDeclaration_3()); 
-    }
-)
-    |(	enumLiteral_4='PrivilegeScalation' 
-	{
-        $current = grammarAccess.getEAttackMethodAccess().getPrivilegeScalationEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getEAttackMethodAccess().getPrivilegeScalationEnumLiteralDeclaration_4()); 
-    }
-));
 
 
 

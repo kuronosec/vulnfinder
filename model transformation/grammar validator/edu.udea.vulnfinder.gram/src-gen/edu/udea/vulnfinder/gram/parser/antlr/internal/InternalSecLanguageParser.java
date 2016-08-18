@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "'securityTest'", "'toes'", "')'", "'attacks'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'", "'Low'", "'Medium'", "'High'", "'SQLInjection'", "'XSS'", "'Authentication'", "'Authorization'", "'PrivilegeScalation'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "'securityTest'", "'toes'", "')'", "'attacks'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'", "'Low'", "'Medium'", "'High'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -32,14 +32,10 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__33=33;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
@@ -47,7 +43,6 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=6;
-    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -605,7 +600,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttack"
-    // InternalSecLanguage.g:269:1: ruleAttack returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) ;
+    // InternalSecLanguage.g:269:1: ruleAttack returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) ;
     public final EObject ruleAttack() throws RecognitionException {
         EObject current = null;
 
@@ -615,7 +610,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token otherlv_7=null;
         Token otherlv_8=null;
-        Enumerator lv_name_3_0 = null;
+        AntlrDatatypeRuleToken lv_name_3_0 = null;
 
         Enumerator lv_severity_6_0 = null;
 
@@ -623,11 +618,11 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:272:28: ( ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) )
-            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
+            // InternalSecLanguage.g:272:28: ( ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) )
+            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
             {
-            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
-            // InternalSecLanguage.g:273:2: () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')'
+            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
+            // InternalSecLanguage.g:273:2: () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')'
             {
             // InternalSecLanguage.g:273:2: ()
             // InternalSecLanguage.g:274:5: 
@@ -644,24 +639,24 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_1, grammarAccess.getAttackAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:283:1: (otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? )
-            // InternalSecLanguage.g:283:3: otherlv_2= 'attack' ( (lv_name_3_0= ruleEAttackMethod ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
+            // InternalSecLanguage.g:283:1: (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? )
+            // InternalSecLanguage.g:283:3: otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
             {
-            otherlv_2=(Token)match(input,17,FollowSets000.FOLLOW_12); 
+            otherlv_2=(Token)match(input,17,FollowSets000.FOLLOW_4); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getAttackAccess().getAttackKeyword_2_0());
                 
-            // InternalSecLanguage.g:287:1: ( (lv_name_3_0= ruleEAttackMethod ) )
-            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEAttackMethod )
+            // InternalSecLanguage.g:287:1: ( (lv_name_3_0= ruleEString ) )
+            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEString )
             {
-            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEAttackMethod )
-            // InternalSecLanguage.g:289:3: lv_name_3_0= ruleEAttackMethod
+            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEString )
+            // InternalSecLanguage.g:289:3: lv_name_3_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getAttackAccess().getNameEAttackMethodEnumRuleCall_2_1_0()); 
+            	        newCompositeNode(grammarAccess.getAttackAccess().getNameEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_13);
-            lv_name_3_0=ruleEAttackMethod();
+            pushFollow(FollowSets000.FOLLOW_12);
+            lv_name_3_0=ruleEString();
 
             state._fsp--;
 
@@ -673,7 +668,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                    			current, 
                    			"name",
                     		lv_name_3_0, 
-                    		"edu.udea.vulnfinder.gram.SecLanguage.EAttackMethod");
+                    		"edu.udea.vulnfinder.gram.SecLanguage.EString");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -693,11 +688,11 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSecLanguage.g:305:4: otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}'
                     {
-                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_14); 
+                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_13); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getAttackAccess().getLeftCurlyBracketKeyword_2_2_0());
                         
-                    otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_15); 
+                    otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_14); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getAttackAccess().getLevelKeyword_2_2_1());
                         
@@ -710,7 +705,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getAttackAccess().getSeverityESeverityEnumRuleCall_2_2_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_16);
+                    pushFollow(FollowSets000.FOLLOW_15);
                     lv_severity_6_0=ruleESeverity();
 
                     state._fsp--;
@@ -956,7 +951,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_17); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_16); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getWebComponentAccess().getLeftParenthesisKeyword_1());
                 
@@ -976,7 +971,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getWebComponentAccess().getPathEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_18);
+            pushFollow(FollowSets000.FOLLOW_17);
             lv_path_3_0=ruleEString();
 
             state._fsp--;
@@ -1009,15 +1004,15 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalSecLanguage.g:428:4: otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}'
                     {
-                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_19); 
+                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_18); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getWebComponentAccess().getLeftCurlyBracketKeyword_2_2_0());
                         
-                    otherlv_5=(Token)match(input,22,FollowSets000.FOLLOW_20); 
+                    otherlv_5=(Token)match(input,22,FollowSets000.FOLLOW_19); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWebComponentAccess().getTargetKeyword_2_2_1());
                         
-                    otherlv_6=(Token)match(input,23,FollowSets000.FOLLOW_21); 
+                    otherlv_6=(Token)match(input,23,FollowSets000.FOLLOW_20); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getWebComponentAccess().getLeftSquareBracketKeyword_2_2_2());
                         
@@ -1039,7 +1034,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     	     
                     	            newCompositeNode(grammarAccess.getWebComponentAccess().getEStringParserRuleCall_2_2_3()); 
                     	        
-                    	    pushFollow(FollowSets000.FOLLOW_21);
+                    	    pushFollow(FollowSets000.FOLLOW_20);
                     	    ruleEString();
 
                     	    state._fsp--;
@@ -1056,7 +1051,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_8=(Token)match(input,24,FollowSets000.FOLLOW_16); 
+                    otherlv_8=(Token)match(input,24,FollowSets000.FOLLOW_15); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getWebComponentAccess().getRightSquareBracketKeyword_2_2_4());
                         
@@ -1183,7 +1178,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInput"
-    // InternalSecLanguage.g:495:1: ruleInput returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? ) otherlv_7= ')' ) ;
+    // InternalSecLanguage.g:495:1: ruleInput returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) ;
     public final EObject ruleInput() throws RecognitionException {
         EObject current = null;
 
@@ -1198,11 +1193,11 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:498:28: ( ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? ) otherlv_7= ')' ) )
-            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? ) otherlv_7= ')' )
+            // InternalSecLanguage.g:498:28: ( ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) )
+            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
             {
-            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? ) otherlv_7= ')' )
-            // InternalSecLanguage.g:499:2: () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? ) otherlv_7= ')'
+            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
+            // InternalSecLanguage.g:499:2: () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')'
             {
             // InternalSecLanguage.g:499:2: ()
             // InternalSecLanguage.g:500:5: 
@@ -1215,12 +1210,12 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_22); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_21); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getInputAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:509:1: (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )? )
-            // InternalSecLanguage.g:509:3: otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )?
+            // InternalSecLanguage.g:509:1: (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? )
+            // InternalSecLanguage.g:509:3: otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
             {
             otherlv_2=(Token)match(input,25,FollowSets000.FOLLOW_4); 
 
@@ -1235,7 +1230,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getInputAccess().getNameEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_23);
+            pushFollow(FollowSets000.FOLLOW_22);
             lv_name_3_0=ruleEString();
 
             state._fsp--;
@@ -1257,7 +1252,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:531:2: (otherlv_4= '[' ( ruleEString )* otherlv_6= ']' )?
+            // InternalSecLanguage.g:531:2: (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1266,13 +1261,13 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalSecLanguage.g:531:4: otherlv_4= '[' ( ruleEString )* otherlv_6= ']'
+                    // InternalSecLanguage.g:531:4: otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']'
                     {
-                    otherlv_4=(Token)match(input,23,FollowSets000.FOLLOW_21); 
+                    otherlv_4=(Token)match(input,23,FollowSets000.FOLLOW_20); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0());
                         
-                    // InternalSecLanguage.g:535:1: ( ruleEString )*
+                    // InternalSecLanguage.g:535:1: ( ( ruleEString ) )*
                     loop10:
                     do {
                         int alt10=2;
@@ -1285,19 +1280,30 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // InternalSecLanguage.g:536:5: ruleEString
+                    	    // InternalSecLanguage.g:536:1: ( ruleEString )
                     	    {
+                    	    // InternalSecLanguage.g:536:1: ( ruleEString )
+                    	    // InternalSecLanguage.g:537:3: ruleEString
+                    	    {
+
+                    	    			if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getInputRule());
+                    	    	        }
+                    	            
                     	     
-                    	            newCompositeNode(grammarAccess.getInputAccess().getEStringParserRuleCall_2_2_1()); 
-                    	        
-                    	    pushFollow(FollowSets000.FOLLOW_21);
+                    	    	        newCompositeNode(grammarAccess.getInputAccess().getAttacksAttackCrossReference_2_2_1_0()); 
+                    	    	    
+                    	    pushFollow(FollowSets000.FOLLOW_20);
                     	    ruleEString();
 
                     	    state._fsp--;
 
                     	     
-                    	            afterParserOrEnumRuleCall();
-                    	        
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
 
                     	    }
                     	    break;
@@ -1345,7 +1351,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleESeverity"
-    // InternalSecLanguage.g:559:1: ruleESeverity returns [Enumerator current=null] : ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) ;
+    // InternalSecLanguage.g:566:1: ruleESeverity returns [Enumerator current=null] : ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) ;
     public final Enumerator ruleESeverity() throws RecognitionException {
         Enumerator current = null;
 
@@ -1355,10 +1361,10 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // InternalSecLanguage.g:561:28: ( ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) )
-            // InternalSecLanguage.g:562:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
+            // InternalSecLanguage.g:568:28: ( ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) )
+            // InternalSecLanguage.g:569:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
             {
-            // InternalSecLanguage.g:562:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
+            // InternalSecLanguage.g:569:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
             int alt12=3;
             switch ( input.LA(1) ) {
             case 26:
@@ -1385,10 +1391,10 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             switch (alt12) {
                 case 1 :
-                    // InternalSecLanguage.g:562:2: (enumLiteral_0= 'Low' )
+                    // InternalSecLanguage.g:569:2: (enumLiteral_0= 'Low' )
                     {
-                    // InternalSecLanguage.g:562:2: (enumLiteral_0= 'Low' )
-                    // InternalSecLanguage.g:562:4: enumLiteral_0= 'Low'
+                    // InternalSecLanguage.g:569:2: (enumLiteral_0= 'Low' )
+                    // InternalSecLanguage.g:569:4: enumLiteral_0= 'Low'
                     {
                     enumLiteral_0=(Token)match(input,26,FollowSets000.FOLLOW_2); 
 
@@ -1402,10 +1408,10 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSecLanguage.g:568:6: (enumLiteral_1= 'Medium' )
+                    // InternalSecLanguage.g:575:6: (enumLiteral_1= 'Medium' )
                     {
-                    // InternalSecLanguage.g:568:6: (enumLiteral_1= 'Medium' )
-                    // InternalSecLanguage.g:568:8: enumLiteral_1= 'Medium'
+                    // InternalSecLanguage.g:575:6: (enumLiteral_1= 'Medium' )
+                    // InternalSecLanguage.g:575:8: enumLiteral_1= 'Medium'
                     {
                     enumLiteral_1=(Token)match(input,27,FollowSets000.FOLLOW_2); 
 
@@ -1419,10 +1425,10 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSecLanguage.g:574:6: (enumLiteral_2= 'High' )
+                    // InternalSecLanguage.g:581:6: (enumLiteral_2= 'High' )
                     {
-                    // InternalSecLanguage.g:574:6: (enumLiteral_2= 'High' )
-                    // InternalSecLanguage.g:574:8: enumLiteral_2= 'High'
+                    // InternalSecLanguage.g:581:6: (enumLiteral_2= 'High' )
+                    // InternalSecLanguage.g:581:8: enumLiteral_2= 'High'
                     {
                     enumLiteral_2=(Token)match(input,28,FollowSets000.FOLLOW_2); 
 
@@ -1454,163 +1460,6 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleESeverity"
 
-
-    // $ANTLR start "ruleEAttackMethod"
-    // InternalSecLanguage.g:584:1: ruleEAttackMethod returns [Enumerator current=null] : ( (enumLiteral_0= 'SQLInjection' ) | (enumLiteral_1= 'XSS' ) | (enumLiteral_2= 'Authentication' ) | (enumLiteral_3= 'Authorization' ) | (enumLiteral_4= 'PrivilegeScalation' ) ) ;
-    public final Enumerator ruleEAttackMethod() throws RecognitionException {
-        Enumerator current = null;
-
-        Token enumLiteral_0=null;
-        Token enumLiteral_1=null;
-        Token enumLiteral_2=null;
-        Token enumLiteral_3=null;
-        Token enumLiteral_4=null;
-
-         enterRule(); 
-        try {
-            // InternalSecLanguage.g:586:28: ( ( (enumLiteral_0= 'SQLInjection' ) | (enumLiteral_1= 'XSS' ) | (enumLiteral_2= 'Authentication' ) | (enumLiteral_3= 'Authorization' ) | (enumLiteral_4= 'PrivilegeScalation' ) ) )
-            // InternalSecLanguage.g:587:1: ( (enumLiteral_0= 'SQLInjection' ) | (enumLiteral_1= 'XSS' ) | (enumLiteral_2= 'Authentication' ) | (enumLiteral_3= 'Authorization' ) | (enumLiteral_4= 'PrivilegeScalation' ) )
-            {
-            // InternalSecLanguage.g:587:1: ( (enumLiteral_0= 'SQLInjection' ) | (enumLiteral_1= 'XSS' ) | (enumLiteral_2= 'Authentication' ) | (enumLiteral_3= 'Authorization' ) | (enumLiteral_4= 'PrivilegeScalation' ) )
-            int alt13=5;
-            switch ( input.LA(1) ) {
-            case 29:
-                {
-                alt13=1;
-                }
-                break;
-            case 30:
-                {
-                alt13=2;
-                }
-                break;
-            case 31:
-                {
-                alt13=3;
-                }
-                break;
-            case 32:
-                {
-                alt13=4;
-                }
-                break;
-            case 33:
-                {
-                alt13=5;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt13) {
-                case 1 :
-                    // InternalSecLanguage.g:587:2: (enumLiteral_0= 'SQLInjection' )
-                    {
-                    // InternalSecLanguage.g:587:2: (enumLiteral_0= 'SQLInjection' )
-                    // InternalSecLanguage.g:587:4: enumLiteral_0= 'SQLInjection'
-                    {
-                    enumLiteral_0=(Token)match(input,29,FollowSets000.FOLLOW_2); 
-
-                            current = grammarAccess.getEAttackMethodAccess().getSQLInjectionEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_0, grammarAccess.getEAttackMethodAccess().getSQLInjectionEnumLiteralDeclaration_0()); 
-                        
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalSecLanguage.g:593:6: (enumLiteral_1= 'XSS' )
-                    {
-                    // InternalSecLanguage.g:593:6: (enumLiteral_1= 'XSS' )
-                    // InternalSecLanguage.g:593:8: enumLiteral_1= 'XSS'
-                    {
-                    enumLiteral_1=(Token)match(input,30,FollowSets000.FOLLOW_2); 
-
-                            current = grammarAccess.getEAttackMethodAccess().getXSSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_1, grammarAccess.getEAttackMethodAccess().getXSSEnumLiteralDeclaration_1()); 
-                        
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalSecLanguage.g:599:6: (enumLiteral_2= 'Authentication' )
-                    {
-                    // InternalSecLanguage.g:599:6: (enumLiteral_2= 'Authentication' )
-                    // InternalSecLanguage.g:599:8: enumLiteral_2= 'Authentication'
-                    {
-                    enumLiteral_2=(Token)match(input,31,FollowSets000.FOLLOW_2); 
-
-                            current = grammarAccess.getEAttackMethodAccess().getAuthenticationEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_2, grammarAccess.getEAttackMethodAccess().getAuthenticationEnumLiteralDeclaration_2()); 
-                        
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalSecLanguage.g:605:6: (enumLiteral_3= 'Authorization' )
-                    {
-                    // InternalSecLanguage.g:605:6: (enumLiteral_3= 'Authorization' )
-                    // InternalSecLanguage.g:605:8: enumLiteral_3= 'Authorization'
-                    {
-                    enumLiteral_3=(Token)match(input,32,FollowSets000.FOLLOW_2); 
-
-                            current = grammarAccess.getEAttackMethodAccess().getAuthorizationEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_3, grammarAccess.getEAttackMethodAccess().getAuthorizationEnumLiteralDeclaration_3()); 
-                        
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // InternalSecLanguage.g:611:6: (enumLiteral_4= 'PrivilegeScalation' )
-                    {
-                    // InternalSecLanguage.g:611:6: (enumLiteral_4= 'PrivilegeScalation' )
-                    // InternalSecLanguage.g:611:8: enumLiteral_4= 'PrivilegeScalation'
-                    {
-                    enumLiteral_4=(Token)match(input,33,FollowSets000.FOLLOW_2); 
-
-                            current = grammarAccess.getEAttackMethodAccess().getPrivilegeScalationEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                            newLeafNode(enumLiteral_4, grammarAccess.getEAttackMethodAccess().getPrivilegeScalationEnumLiteralDeclaration_4()); 
-                        
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleEAttackMethod"
-
     // Delegated rules
 
 
@@ -1629,18 +1478,17 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
         public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010000L});
         public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000003E0000000L});
-        public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000044000L});
-        public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000001C000000L});
-        public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000100000L});
-        public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000044800L});
-        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800000L});
-        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000001000030L});
-        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000804000L});
+        public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000044000L});
+        public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000001C000000L});
+        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100000L});
+        public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200000L});
+        public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000044800L});
+        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
+        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001000030L});
+        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
+        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000804000L});
     }
 
 
