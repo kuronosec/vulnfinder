@@ -1,0 +1,18 @@
+.active-input {
+    background-color: yellow !important;
+}
+/* CSS general */
+#nav-bar-iframe {
+    width: 250px;
+    height: 100%;
+}
+
+/* CSS pantallas de 1366px o superior */
+@media (min-width: 1366px) {
+
+    #nav-bar-iframe {
+        width: 19%;
+        height: 100%;
+    }
+
+}
