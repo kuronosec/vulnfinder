@@ -26,7 +26,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import co.edu.udea.generadorreportesvuln.service.SiteMaker;
+import co.edu.udea.generadorreportesvuln.service.SiteStore;
 
 /**
  *
@@ -39,6 +39,8 @@ public class ZapAnalyzer {
     private String zapUrl;
     private final static String REPORTURL = "OTHER/core/other/xmlreport/";
     private String siteURL = "";
+    private boolean forced = false;
+    private List<String> fieldList;
 
     public String getZapUrl() {
         return zapUrl;
@@ -67,11 +69,12 @@ public class ZapAnalyzer {
         } else {
             siteElements.stream().forEach((Element siteElement) -> {
                 String siteName = siteElement.getAttributeValue("name");
-                if (siteURL.equals("") || siteURL.contains(siteName)) {
-                    Site site = SiteMaker.getSite(siteElement.getAttributeValue("name"));
+                if (siteURL.equals("") || (!forced && siteURL.contains(siteName)) || (forced && siteURL.equals(siteName))) {
+                    Site site = SiteStore.getSite(siteElement.getAttributeValue("name"));
                     site.addAnalyzer(Analyzer.ZAP);
                     List<Element> alerts = siteElement.getChild("alerts").getChildren();
                     alerts.stream().forEach((Element alertElement) -> {
+                        
                         String riskcodeString = alertElement.getChild("riskcode").getText();
                         int riskcode = Integer.parseInt(riskcodeString);
                         String riskdescription = alertElement.getChild("riskdesc").getText();
@@ -122,7 +125,7 @@ public class ZapAnalyzer {
             Element paramElement = instance.getChild("param");
             if (paramElement != null) {
                 String param = paramElement.getText();
-                if (!"N/A".equals(param)) {
+                if (!"N/A".equals(param)&&((!fieldList.isEmpty() && fieldList.contains(param))||(fieldList.isEmpty()))) {
                     //LOGGER.debug("Param found with ZAP: " + param);
                     Field field = site.getField(param);
                     FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
@@ -131,5 +134,15 @@ public class ZapAnalyzer {
                 }
             }
         }
+    }
+
+    public void setFieldList(List<String> fieldList) {
+        this.fieldList = fieldList;
+    }
+    
+    
+
+    public void setForced(boolean forced) {
+        this.forced = forced;
     }
 }

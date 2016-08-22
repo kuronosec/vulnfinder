@@ -10,11 +10,15 @@ import co.edu.udea.generadorreportesvuln.analyzer.SQLMapAnalyzer;
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
 import co.edu.udea.generadorreportesvuln.model.DocumentWithHeadAndBody;
 import co.edu.udea.generadorreportesvuln.model.Report;
-import co.edu.udea.generadorreportesvuln.service.SiteMaker;
+import co.edu.udea.generadorreportesvuln.service.SiteStore;
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.elements.Html;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -61,10 +65,11 @@ public class GeneradorReportes {
      * Initializes recognized CLI options.
      */
     private static void initializeCLIOptions() {
-        OPTIONS.addOption("s", true, "Set the site to analyze");
-        OPTIONS.addOption("c", true, "Set the parameters to analyze");
-        OPTIONS.addOption("o", true, "Set the output html file");
-        Option fileOption = new Option("f", "Files to be analyzed");
+        OPTIONS.addOption("s", "site", true, "Sets the site to analyze");
+        OPTIONS.addOption("F", "force", true, "Force sites analyzed to be equals to -s option given argument");
+        OPTIONS.addOption("f", "fields-file", true, "Sets the fields to analyze");
+        OPTIONS.addOption("o", "output", true, "Sets the path where the HTML report will be exported");
+        Option fileOption = new Option("s", "files", true, "Adds SQLMap files to be analyzed");
         fileOption.setArgs(Option.UNLIMITED_VALUES);
         OPTIONS.addOption(fileOption);
     }
@@ -72,20 +77,14 @@ public class GeneradorReportes {
     private static void executeAllAnaylisis(String[] args) throws ParseException, IOException {
         // Site to analyze
         String site = "";
+        List<String> fieldList = null;
 
         // File with site fields to look for
-        String parameterFile;
-
         // This objects will recognize, based on OPTIONS the CLI arguments user sent
         CommandLine cmd = PARSER.parse(OPTIONS, args);
 
         // First create a ZAP analyzer
         ZapAnalyzer zapAnalyzer;
-
-        // If it is entered <code>-c</code> argument, save the parameterFile string
-        if (cmd.hasOption("c")) {
-            parameterFile = cmd.getOptionValue("c");
-        }
 
         // If it is entered <code>-s</code> argument, analyze ZAP report with site
         if (cmd.hasOption("s")) {
@@ -96,6 +95,22 @@ public class GeneradorReportes {
             // If there's not a <code>-s</code> argument, analyze all the sites.
             zapAnalyzer = new ZapAnalyzer(ZAPURL);
         }
+
+        // If it is entered <code>-f</code> argument, save the parameterFile string
+        if (cmd.hasOption("f")) {
+            String fieldsFile = cmd.getOptionValue("f");
+            try (Scanner s = new Scanner(new File(fieldsFile))) {
+                fieldList = new ArrayList<>();
+                while (s.hasNext()) {
+                    fieldList.add(s.next());
+                }
+            }
+            zapAnalyzer.setFieldList(fieldList);
+        }
+
+        if (cmd.hasOption("F")) {
+            zapAnalyzer.setForced(true);
+        }
         // Execute the ZAP report checking
         try {
             zapAnalyzer.getReport();
@@ -105,14 +120,18 @@ public class GeneradorReportes {
         LOGGER.info("ZAP report finished");
 
         // If it is entered <code>-f</code> argument, analyze the given SQLMap files
-        if (cmd.hasOption("f")) {
+        if (cmd.hasOption("s")) {
             LOGGER.info("Analyzing SQLMap files...");
-            String[] files = cmd.getOptionValues("f");
+            String[] files = cmd.getOptionValues("s");
             LOGGER.info("Files to analyze (Input params): " + Arrays.toString(files));
             for (String file : files) {
                 SQLMapAnalyzer analyzer = new SQLMapAnalyzer(file, site);
+                if (fieldList != null && !fieldList.isEmpty()) {
+                    analyzer.setFieldList(fieldList);
+                }
                 analyzer.analyze();
             }
+
         } else {
             // If there's not a <code>-f</code> argument, don't analyze SQLMap report
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
@@ -120,11 +139,11 @@ public class GeneradorReportes {
 
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
-            DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteMaker.getAll(), "VulnFinder Report");
+            DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
             Report.writeToFile(htmlReport, cmd.getOptionValue("o"));
         } else {
             // Or print it to standart output
-            Report.writeToSystemOutput(SiteMaker.getAll());
+            Report.writeToSystemOutput(SiteStore.getAll());
         }
     }
 

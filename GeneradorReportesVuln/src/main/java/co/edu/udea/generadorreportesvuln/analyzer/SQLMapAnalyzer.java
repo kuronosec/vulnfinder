@@ -19,10 +19,11 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.regex.Matcher;
 import org.apache.log4j.Logger;
-import co.edu.udea.generadorreportesvuln.service.SiteMaker;
+import co.edu.udea.generadorreportesvuln.service.SiteStore;
+import java.util.List;
 
 /**
- * 
+ *
  * @author Camilo Sampedro
  */
 public class SQLMapAnalyzer extends FilePatternFinder {
@@ -30,6 +31,12 @@ public class SQLMapAnalyzer extends FilePatternFinder {
     private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
     private final String file;
     private final String siteToAnalyze;
+    private List<String> fieldList;
+    private boolean isTheBeginning;
+    private boolean firstLine;
+    private String actualParameter;
+    private String actualMethod;
+    private String type = "", title = "", payload;
 
     public SQLMapAnalyzer(String file, String siteToAnalyze) {
         this.file = file;
@@ -41,13 +48,11 @@ public class SQLMapAnalyzer extends FilePatternFinder {
         //Report reporte = new Report();
         Site site = null;
 
-        String actualParameter = "";
-        String actualMethod;
+        actualParameter = "";
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line = bufferedReader.readLine();
-            Boolean isTheBeginning = false;
-            Boolean firstLine = true;
-            String type = "", title = "", payload;
+            isTheBeginning = false;
+            firstLine = true;
             while (line != null) {
                 if (firstLine) {
                     Matcher matcher = urlPattern.matcher(line);
@@ -65,7 +70,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                             break;
                         }
                         LOGGER.info("Site: " + siteURL);
-                        site = SiteMaker.getSite(siteURL);
+                        site = SiteStore.getSite(siteURL);
                         site.addAnalyzer(Analyzer.SQLMAP);
                     } else {
                         LOGGER.info("No site found");
@@ -80,47 +85,14 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                     continue;
                 }
                 if (isTheBeginning) {
-                    Matcher parameterMatcher = parameterPattern.matcher(line);
-                    if (parameterMatcher.find()) {
-                        actualParameter = parameterMatcher.group(1);
-                        Field actualField = site.getField(actualParameter);
-                        actualMethod = parameterMatcher.group(2);
-                        actualField.setFieldMethod(actualMethod);
-                        line = bufferedReader.readLine();
-                        continue;
-                    }
-                    Matcher typeMatcher = typePattern.matcher(line);
-                    if (typeMatcher.find()) {
-                        type = typeMatcher.group(1);
-                        line = bufferedReader.readLine();
-                        continue;
-                    }
-                    Matcher titleMatcher = titlePattern.matcher(line);
-                    if (titleMatcher.find()) {
-                        title = titleMatcher.group(1);
-                        line = bufferedReader.readLine();
-                        continue;
-                    }
-                    Matcher payloadMatcher = payloadPattern.matcher(line);
-                    if (payloadMatcher.find()) {
-                        payload = payloadMatcher.group(1);
-                        Field actualField = site.getField(actualParameter);
-                        FieldAlert alert = new FieldAlert(Analyzer.SQLMAP);
-                        alert.setType(type);
-                        alert.setTitle(title);
-                        alert.setPayload(payload);
-                        actualField.addAlert(alert);
-                        line = bufferedReader.readLine();
-                        continue;
-                    }
-
+                    line = analyzeBeginning(site, bufferedReader, line);
                 }
                 Matcher matcher = pattern.matcher(line);
                 if (matcher.find()) {
                     // System.out.println("Found value 1: " + m.group(0));
                     String level = matcher.group(1);
                     String found = matcher.group(2);
-                    if (found.contains("heuristics detected webpage charset")) {
+                    if (found.contains("heuristics detected webpage charset") && site != null) {
                         site.setCharset(found.substring(found.lastIndexOf(' ') + 1));
                     }
                     if ("INFO".equalsIgnoreCase(level)) {
@@ -142,4 +114,45 @@ public class SQLMapAnalyzer extends FilePatternFinder {
         return reporte;*/
 
     }
+
+    public void setFieldList(List<String> fieldList) {
+        this.fieldList = fieldList;
+    }
+
+    private String analyzeBeginning(Site site, BufferedReader bufferedReader, String line) throws IOException {
+        Matcher parameterMatcher = parameterPattern.matcher(line);
+        if (parameterMatcher.find()) {
+            actualParameter = parameterMatcher.group(1);
+            if (fieldList == null || fieldList.isEmpty() || (!fieldList.isEmpty() && fieldList.contains(actualParameter))) {
+                Field actualField = site.getField(actualParameter);
+                actualMethod = parameterMatcher.group(2);
+                actualField.setFieldMethod(actualMethod);
+            } else {
+                actualParameter = "";
+            }
+            return bufferedReader.readLine();
+        }
+        Matcher typeMatcher = typePattern.matcher(line);
+        if (typeMatcher.find() && !"".equals(actualParameter)) {
+            type = typeMatcher.group(1);
+            return bufferedReader.readLine();
+        }
+        Matcher titleMatcher = titlePattern.matcher(line);
+        if (titleMatcher.find() && !"".equals(actualParameter)) {
+            title = titleMatcher.group(1);
+            return bufferedReader.readLine();
+        }
+        Matcher payloadMatcher = payloadPattern.matcher(line);
+        if (payloadMatcher.find() && !"".equals(actualParameter)) {
+            payload = payloadMatcher.group(1);
+            Field actualField = site.getField(actualParameter);
+            FieldAlert alert = new FieldAlert(Analyzer.SQLMAP);
+            alert.setType(type);
+            alert.setTitle(title);
+            alert.setPayload(payload);
+            actualField.addAlert(alert);
+        }
+        return bufferedReader.readLine();
+    }
+
 }

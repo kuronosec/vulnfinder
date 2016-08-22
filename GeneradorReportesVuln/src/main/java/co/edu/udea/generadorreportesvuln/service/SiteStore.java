@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * @author camilosampedro
  */
-public class SiteMaker {
+public class SiteStore {
 
     private static final Map<String, ConcreteSite> SITES = new HashMap<>();
 
