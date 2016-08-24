@@ -6,7 +6,7 @@
 package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.FilePatternFinder;
-import co.edu.udea.generadorreportesvuln.GeneradorReportes;
+import co.edu.udea.generadorreportesvuln.ReportGenerator;
 import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Field;
@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class SQLMapAnalyzer extends FilePatternFinder {
 
-    private final static Logger LOGGER = Logger.getLogger(GeneradorReportes.class);
+    private final static Logger LOGGER = Logger.getLogger(ReportGenerator.class);
     private final String file;
     private final String siteToAnalyze;
     private List<String> fieldList;
