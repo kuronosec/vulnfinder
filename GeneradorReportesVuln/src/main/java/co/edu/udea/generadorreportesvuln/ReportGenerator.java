@@ -109,7 +109,14 @@ public class ReportGenerator {
         }
 
         zapAnalyzer.setForced(forced);
+        
+        executeAnalyzis();
 
+        DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
+        return htmlReport.toString();
+    }
+
+    private static void executeAnalyzis() throws IOException {
         // Execute the ZAP report checking
         try {
             zapAnalyzer.getReport();
@@ -126,9 +133,6 @@ public class ReportGenerator {
             }
             analyzer.analyze();
         }
-        
-        DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
-        return htmlReport.toString();
     }
 
     private static void executeAllAnaylisis(String[] args) throws ParseException, IOException {
@@ -159,6 +163,8 @@ public class ReportGenerator {
             // If there's not a <code>-f</code> argument, don't analyze SQLMap report
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
         }
+        
+        executeAnalyzis();
 
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
