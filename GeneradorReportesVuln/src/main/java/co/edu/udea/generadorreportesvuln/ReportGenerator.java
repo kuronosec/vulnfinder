@@ -12,7 +12,6 @@ import co.edu.udea.generadorreportesvuln.model.DocumentWithHeadAndBody;
 import co.edu.udea.generadorreportesvuln.model.Report;
 import co.edu.udea.generadorreportesvuln.service.SiteStore;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,33 +80,89 @@ public class ReportGenerator {
     private static String fieldsFile;
     private static List<String> sqlMapFiles;
 
-    public static String generateReport(String site, boolean forcedEqualSite, String fieldsFile, List<String> sqlMapFiles) throws IOException {
+    /**
+     * Generate a single report html
+     *
+     * @param site Site to be analyzed
+     * @param forcedEqualSite Force site to be strictly equals instead of
+     * checking if the report site contains the given "site"
+     * @param fieldList List of fields to be included.
+     * @param sqlMapFiles List of sqlMapFiles
+     * @return Single html file report
+     * @throws IOException Error reading the SQLMap files given
+     */
+    public static String generateReport(String site, boolean forcedEqualSite, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
         ReportGenerator.site = site;
         forced = forcedEqualSite;
-        ReportGenerator.fieldsFile = fieldsFile;
+        ReportGenerator.fieldList = fieldList;
         ReportGenerator.sqlMapFiles = sqlMapFiles;
-        return generateReportString();
+        try {
+            return generateReportString();
+        } catch (IOException ex) {
+            LOGGER.error("Error reading SQLMap files", ex);
+            throw ex;
+        }
+    }
+    
+    /**
+     * Generate a single report html
+     *
+     * @param site Site to be analyzed
+     * @param fieldList List of fields to be included.
+     * @param sqlMapFiles List of sqlMapFiles
+     * @return Single html file report
+     * @throws IOException Error reading the SQLMap files given
+     */
+    public static String generateReport(String site, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
+        return generateReport(site, false, fieldList, sqlMapFiles);
+    }
+    
+    /**
+     * Generate a single report html
+     *
+     * @param site Site to be analyzed
+     * @param forcedEqualSite Force site to be strictly equals instead of
+     * checking if the report site contains the given "site"
+     * @param sqlMapFiles List of sqlMapFiles
+     * @return Single html file report
+     * @throws IOException Error reading the SQLMap files given
+     */
+    public static String generateReport(String site, boolean forcedEqualSite, List<String> sqlMapFiles) throws IOException {
+        return generateReport(site, forcedEqualSite, null, sqlMapFiles);
+    }
+    
+    /**
+     * Generate a single report html
+     *
+     * @param site Site to be analyzed
+     * @param sqlMapFiles List of sqlMapFiles
+     * @return Single html file report
+     * @throws IOException Error reading the SQLMap files given
+     */
+    public static String generateReport(String site, List<String> sqlMapFiles) throws IOException {
+        return generateReport(site, false, null, sqlMapFiles);
+    }
+    
+    /**
+     * Generate a single report html
+     *
+     * @param site Site to be analyzed
+     * @return Single html file report
+     * @throws IOException Error reading the SQLMap files given
+     */
+    public static String generateReport(String site) throws IOException {
+        return generateReport(site, false, null, null);
     }
 
-    private static String generateReportString() throws FileNotFoundException, IOException {
+    private static String generateReportString() throws IOException {
         if (site != null && "".equals(site)) {
             zapAnalyzer = new ZapAnalyzer(ZAPURL, site);
         } else {
             zapAnalyzer = new ZapAnalyzer(ZAPURL);
         }
 
-        if (fieldsFile != null && "".equals(fieldsFile)) {
-            try (Scanner s = new Scanner(new File(fieldsFile),"UTF-8")) {
-                fieldList = new ArrayList<>();
-                while (s.hasNext()) {
-                    fieldList.add(s.next());
-                }
-            }
-            zapAnalyzer.setFieldList(fieldList);
-        }
-
         zapAnalyzer.setForced(forced);
-        
+
         executeAnalysis();
 
         DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
@@ -115,6 +170,8 @@ public class ReportGenerator {
     }
 
     private static void executeAnalysis() throws IOException {
+        zapAnalyzer.setFieldList(fieldList);
+
         // Execute the ZAP report checking
         try {
             zapAnalyzer.getReport();
@@ -147,6 +204,14 @@ public class ReportGenerator {
         // If it is entered <code>-f</code> argument, save the parameterFile string
         if (cmd.hasOption("f")) {
             fieldsFile = cmd.getOptionValue("f");
+            if (fieldsFile != null && "".equals(fieldsFile)) {
+                try (Scanner s = new Scanner(new File(fieldsFile), "UTF-8")) {
+                    fieldList = new ArrayList<>();
+                    while (s.hasNext()) {
+                        fieldList.add(s.next());
+                    }
+                }
+            }
         }
 
         if (cmd.hasOption("F")) {
@@ -161,11 +226,10 @@ public class ReportGenerator {
             // If there's not a <code>-f</code> argument, don't analyze SQLMap report
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
         }
-        
+
         executeAnalysis();
         // System.out.println("REPORT: \n"+generateReport(site, forced, fieldsFile, sqlMapFiles));
 
-        
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
             DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
