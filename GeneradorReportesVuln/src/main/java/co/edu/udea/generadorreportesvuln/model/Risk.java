@@ -65,10 +65,7 @@ public class Risk {
             return false;
         }
         final Risk other = (Risk) obj;
-        if (this.code != other.code) {
-            return false;
-        }
-        return true;
+        return this.code == other.code;
     }
     
     

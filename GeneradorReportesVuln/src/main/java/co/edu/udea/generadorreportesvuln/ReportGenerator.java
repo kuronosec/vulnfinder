@@ -11,8 +11,6 @@ import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
 import co.edu.udea.generadorreportesvuln.model.DocumentWithHeadAndBody;
 import co.edu.udea.generadorreportesvuln.model.Report;
 import co.edu.udea.generadorreportesvuln.service.SiteStore;
-import com.hp.gagawa.java.Document;
-import com.hp.gagawa.java.elements.Html;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -58,7 +56,7 @@ public class ReportGenerator {
         // First initialize CLI options, for then recognizing the arguments
         initializeCLIOptions();
 
-        executeAllAnaylisis(args);
+        executeAnalysisFromCLI(args);
         LOGGER.info("Program execution finished!");
     }
 
@@ -99,7 +97,7 @@ public class ReportGenerator {
         }
 
         if (fieldsFile != null && "".equals(fieldsFile)) {
-            try (Scanner s = new Scanner(new File(fieldsFile))) {
+            try (Scanner s = new Scanner(new File(fieldsFile),"UTF-8")) {
                 fieldList = new ArrayList<>();
                 while (s.hasNext()) {
                     fieldList.add(s.next());
@@ -110,13 +108,13 @@ public class ReportGenerator {
 
         zapAnalyzer.setForced(forced);
         
-        executeAnalyzis();
+        executeAnalysis();
 
         DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
         return htmlReport.toString();
     }
 
-    private static void executeAnalyzis() throws IOException {
+    private static void executeAnalysis() throws IOException {
         // Execute the ZAP report checking
         try {
             zapAnalyzer.getReport();
@@ -135,7 +133,7 @@ public class ReportGenerator {
         }
     }
 
-    private static void executeAllAnaylisis(String[] args) throws ParseException, IOException {
+    private static void executeAnalysisFromCLI(String[] args) throws ParseException, IOException {
         // File with site fields to look for
         // This objects will recognize, based on OPTIONS the CLI arguments user sent
         CommandLine cmd = PARSER.parse(OPTIONS, args);
@@ -164,8 +162,10 @@ public class ReportGenerator {
             LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
         }
         
-        executeAnalyzis();
+        executeAnalysis();
+        // System.out.println("REPORT: \n"+generateReport(site, forced, fieldsFile, sqlMapFiles));
 
+        
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
             DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");

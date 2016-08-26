@@ -93,7 +93,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                     String level = matcher.group(1);
                     String found = matcher.group(2);
                     if (found.contains("heuristics detected webpage charset") && site != null) {
-                        site.setCharset(found.substring(found.lastIndexOf(' ') + 1));
+                        site.addCharset(found.substring(found.lastIndexOf(' ') + 1));
                     }
                     if ("INFO".equalsIgnoreCase(level)) {
                         LOGGER.info("Found: " + found);

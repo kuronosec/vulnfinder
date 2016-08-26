@@ -8,14 +8,9 @@ package co.edu.udea.generadorreportesvuln.model;
 import com.hp.gagawa.java.Node;
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
-import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.H2;
 import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Span;
-import com.hp.gagawa.java.elements.Table;
-import com.hp.gagawa.java.elements.Tbody;
-import com.hp.gagawa.java.elements.Th;
-import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Ul;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,8 +24,8 @@ import java.util.Map;
 public class ConcreteSite implements Site {
 
     private final Map<String, Field> FIELDS = new HashMap<>();
-    private List<Alert> alerts;
-    private List<String> charset;
+    private final List<Alert> alerts;
+    private final List<String> charset = new ArrayList<>();
     private String site;
     private final List<Analyzer> analyzers;
 
@@ -65,16 +60,16 @@ public class ConcreteSite implements Site {
         StringBuilder builder = new StringBuilder();
         if (!alerts.isEmpty()) {
             builder.append("ALERTS \n");
-            for (Alert alert : alerts) {
+            alerts.stream().forEach((alert) -> {
                 builder.append("\t").append(alert.toString());
-            }
+            });
         }
 
         if (!FIELDS.isEmpty()) {
             builder.append("FIELDS");
-            for (Field field : FIELDS.values()) {
+            FIELDS.values().stream().forEach((field) -> {
                 builder.append("\t").append(field.toString());
-            }
+            });
         }
         return "Site{ " + site + "\n"
                 + builder.toString()
@@ -92,7 +87,7 @@ public class ConcreteSite implements Site {
     }
 
     @Override
-    public void setCharset(String charset) {
+    public void addCharset(String charset) {
         this.charset.add(charset);
     }
 

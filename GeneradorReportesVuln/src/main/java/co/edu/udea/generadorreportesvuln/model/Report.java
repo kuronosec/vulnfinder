@@ -6,19 +6,15 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import co.edu.udea.generadorreportesvuln.file.FilesAsStrings;
-import com.hp.gagawa.java.Document;
-import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.Head;
-import com.hp.gagawa.java.elements.Html;
 import com.hp.gagawa.java.elements.Img;
 import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Meta;
 import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
-import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
 import com.hp.gagawa.java.elements.Ul;
 import java.io.File;
@@ -28,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +61,7 @@ public class Report {
         return finalHtml;
     }
 
-    public static void writeToFile(DocumentWithHeadAndBody html, String filePath) {
+    public static void writeToFile(DocumentWithHeadAndBody html, String filePath) throws FileNotFoundException {
         File path = new File(filePath);
         if (!path.exists()) {
             Boolean success = (path).mkdirs();
@@ -81,11 +78,14 @@ public class Report {
         copyResource(FONTAWESOMEMINCSS, filePath);
         copyResource(BOOTSTRAPMINCSS, filePath);
 
-        try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html")) {
+        try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html", "UTF-8")) {
             out.println(html.write());
             LOGGER.info("Saved to " + filePath + " successfuly");
         } catch (FileNotFoundException ex) {
             LOGGER.error("File not found: " + filePath, ex);
+            throw ex;
+        } catch (UnsupportedEncodingException ex) {
+            java.util.logging.Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -136,14 +136,13 @@ public class Report {
         script.setLanguage("javascript");
         script.setDefer("defer");
         head.appendChild(script);
-        
+
         Title title = new Title();
         title.appendText(pageTitleToPut);
         head.appendChild(title);
 
         return head;
     }
-    
 
     private static Body generateBody() {
         Body body = new Body();
@@ -209,14 +208,15 @@ public class Report {
     private static void copyResource(String resource, String filePath) {
         LOGGER.info("Copying resource: " + resource);
         OutputStream outputStream = null;
+        InputStream resourceAsStream = null;
         try {
-            InputStream resourceAsStream = Report.class.getResourceAsStream("/" + resource);
+            resourceAsStream = Report.class.getResourceAsStream("/" + resource);
             if (resourceAsStream == null) {
                 LOGGER.error("Resource not found: " + resource);
                 return;
             }
             outputStream = new FileOutputStream(new File(filePath + "/" + resource));
-            int read = 0;
+            int read;
             byte[] bytes = new byte[1024];
             while ((read = resourceAsStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, read);
@@ -226,7 +226,12 @@ public class Report {
             LOGGER.error(ex);
         } finally {
             try {
-                outputStream.close();
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+                if (resourceAsStream != null) {
+                    resourceAsStream.close();
+                }
             } catch (IOException | NullPointerException ex) {
                 LOGGER.error(ex);
             }

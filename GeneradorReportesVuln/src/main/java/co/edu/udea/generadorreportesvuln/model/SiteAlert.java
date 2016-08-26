@@ -8,8 +8,6 @@ package co.edu.udea.generadorreportesvuln.model;
 import com.hp.gagawa.java.Node;
 import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Strong;
-import com.hp.gagawa.java.elements.Th;
-import com.hp.gagawa.java.elements.Tr;
 import com.hp.gagawa.java.elements.Ul;
 
 /**

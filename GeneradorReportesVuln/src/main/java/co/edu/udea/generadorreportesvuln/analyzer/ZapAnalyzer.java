@@ -6,9 +6,7 @@
 package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import co.edu.udea.generadorreportesvuln.model.Alert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
-import co.edu.udea.generadorreportesvuln.model.Field;
 import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Risk;
 import co.edu.udea.generadorreportesvuln.model.Site;
@@ -121,19 +119,12 @@ public class ZapAnalyzer {
 
     private void analyzeFieldAlerts(Site site, Element alertElement) {
         List<Element> instances = alertElement.getChild("instances").getChildren();
-        for (Element instance : instances) {
-            Element paramElement = instance.getChild("param");
-            if (paramElement != null) {
-                String param = paramElement.getText();
-                if (!"N/A".equals(param)&&((!fieldList.isEmpty() && fieldList.contains(param))||(fieldList.isEmpty()))) {
-                    //LOGGER.debug("Param found with ZAP: " + param);
-                    Field field = site.getField(param);
-                    FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
-                    fieldAlert.setTitle(alertElement.getChildText("name"));
-                    field.addAlert(fieldAlert);
-                }
-            }
-        }
+        instances.stream().map((instance) -> instance.getChild("param")).filter((paramElement) -> (paramElement != null)).map((paramElement) -> paramElement.getText()).filter((param) -> (!"N/A".equals(param)&&((!fieldList.isEmpty() && fieldList.contains(param))||(fieldList.isEmpty())))).map((param) -> site.getField(param)).forEach((field) -> {
+            //LOGGER.debug("Param found with ZAP: " + param);
+            FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
+            fieldAlert.setTitle(alertElement.getChildText("name"));
+            field.addAlert(fieldAlert);
+        });
     }
 
     public void setFieldList(List<String> fieldList) {
