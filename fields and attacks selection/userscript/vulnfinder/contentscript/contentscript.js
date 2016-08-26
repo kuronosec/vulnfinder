@@ -1,38 +1,17 @@
-// var stylesheets = [
-//     "<script type='text/javascript' src='../jquery/jquery.min.css' />"
-// ];
-
-
-// Add CSS styles in head of TOE
-// function addGlobalStyle(css) {
-//     var head, style;
-//     head = document.getElementsByTagName('head')[0];
-//     if (!head) {
-//         return;
-//     }
-//     style = document.createElement('style');
-//     style.type = 'text/css';
-//     style.innerHTML = css;
-//     head.appendChild(style);
-// };
-
-var navBarUI;
+var navBarUI = false;
 var currentTOE = null;
 
 // Create the navBar ui iframe and inject it in the current page
 function initNavBar() {
-    // // Inject dependencies
-    // for (st in stylesheets)
-    //     $('head').prepend(stylesheets[st]);
 
     var iframe = document.createElement("iframe");
-    iframe.setAttribute("id", "nav-bar-iframe")
+    iframe.setAttribute("id", "nav-bar-iframe");
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
     iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 1000; border:none");
     document.body.appendChild(iframe);
     // $('#nav-bar-iframe').ready(findInput());
 
-    $('#nav-bar-iframe').on("load", function(){
+    $('#nav-bar-iframe').on("load", function () {
         findInput();
     });
 
@@ -40,7 +19,6 @@ function initNavBar() {
         iframe: iframe, visible: true
     };
 }
-
 
 
 function toggleNavBar(navBarUI) {
@@ -62,18 +40,16 @@ if (window.parent == window) {
             if (navBarUI) {
                 toggleNavBar(navBarUI);
             } else {
-                // addGlobalStyle(vulnfinder_st);
                 navBarUI = initNavBar();
             }
-        }else if (msg.action == "add-in-page-navBar"){
-            if (navBarUI){
+        } else if (msg.action == "add-in-page-navBar") {
+            if (navBarUI) {
                 navBarUI.visible = true;
                 navBarUI.iframe.style["display"] = "block";
-            }else{
-                // addGlobalStyle(vulnfinder_st);
+            } else {
                 navBarUI = initNavBar();
             }
-        }else if (msg.action == "remove-in-page-navBar"){
+        } else if (msg.action == "remove-in-page-navBar") {
             navBarUI.visible = false;
             navBarUI.iframe.style["display"] = "none";
         }
@@ -86,17 +62,12 @@ var attackList = ['SQL Injection', 'Authentication', 'XSS', 'Authorization', 'Pr
 var server_url = vulnfinder_server = 'localhost:3000';
 var toHide = [];
 
-function onHover(input, field) {
-    input.toggleClass('active-input');
-    field.toggleClass('active-field');
-    // input.webuiPopover(options)
-}
 
 function attacksUI(idx) {
-    var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
+    var content = "<ul class='attack-list ' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f'>";
-        content += "<label class='label-ch'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack] + "'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -106,15 +77,15 @@ function attacksUI(idx) {
 function format(field, idx, action) {
     var label;
     // if(field.attr('name')){
-        label = field.attr('name');
+    label = field.attr('name');
     // }else if (field.attr('id')){
     //     label = field.attr('id');
     // }else{
     //     label = 'no-name'+ idx;
     // }
     var text = "<div class='vulnfinder-attack-item truncate' id='field-" + idx + "'>";
-    text += "<input type='checkbox' class='vulnfinder-input vulnfinder-ch-field'><span class='field-name'>" + label + "</span>";
-    text += "<input type='hidden' class='vulnfinder-input input-form-url' value='" + action + "' />";
+    text += "<input type='checkbox' class='vuln-input vuln-ch'/><span class='field-name'>" + label + "</span>";
+    text += "<input type='hidden' class='vuln-input input-form-url' value='" + action + "' />";
     text += "</div>";
 
     if (label === undefined || label == 'downvoteReason') return '';
@@ -151,47 +122,80 @@ function onReset() {
     $('input').removeClass('active-input');
 }
 
-function checking(field) {
-    var attack = field.find('input');
+function checking() {
+    // var attack = field.find('input');
 
-    if (attack.prop('checked')) {
-        attack.prop('checked', true);
+    if ($(this).prop('checked')) {
+        $(this).prop('checked', false);
 
     } else {
-        attack.prop('checked', false);
+        $(this).prop('checked', true);
     }
 }
 
 function findInput() {
     var iframe = $('#nav-bar-iframe').contents();
+
+    // function syncPopoverNavbar(checked) {
+    //
+    //     handlecheckbox(labelNavbar, labelPopover, checked);
+    //
+    //
+    // }
+
+    function onHover(input, field, elm) {
+
+        if (elm != null) {
+            input.webuiPopover('show');
+            $(".vuln-label-ch").click(function () {
+                syncPopoverNavbar($(this), 2)
+            });
+        }
+
+        input.toggleClass('active-input');
+        field.toggleClass('active-field');
+
+    }
+
+
     // attach input and bind events
     $('body').find('input').each(function (idx, val) {
         var input = $(this);
-            var elm = format(input, idx, actionForm(input));
-            iframe.find('#fields-div').append(elm);
+        var elm = format(input, idx, actionForm(input));
+        iframe.find('#fields-div').append(elm);
 
-            if (elm.length > 0) {
-                input.addClass('vulnfinder-target');
-            }
+        if (elm.length > 0) {
+            input.addClass('vulnfinder-target');
 
-            var field = iframe.find('#field-' + idx);
-            var attack = iframe.find('#attacks-' + idx);
+            //Create popover of this input
+            var element = document.createElement('div');
+            element.innerHTML = elm;
+            var divAttacks = document.createElement('div');
+            divAttacks.setAttribute('class', 'webui-popover-content');
+            divAttacks.setAttribute('id', 'vuln-attacks-' + idx);
+            divAttacks.appendChild(element.childNodes[1]);
+            document.body.appendChild(divAttacks);
+            input.webuiPopover({url: '#vuln-attacks-' + idx});
+        }
 
-            field.hover(function () {
-                if (attack.css('display') === 'none') {
-                    onHover(input, $(this));
-                }
-                input.focus();
-            }).click(function () {
-                attack.toggle();
-            });
+        var field = iframe.find('#field-' + idx);
+        var attack = iframe.find('#attacks-' + idx);
 
-            input.hover(function () {
-                if (attack.css('display') === 'none') {
-                    onHover(input, field);
-                }
-                field.find('input')[0].focus();
-            });
+        field.hover(function () {
+            onHover(input, $(this), null);
+            input.focus();
+        }, function () {
+            onHover(input, $(this), null);
+        }).click(function () {
+            attack.toggle();
+        });
+
+        input.hover(function () {
+            onHover(input, field, elm);
+            field.find('input')[0].focus();
+        }, function () {
+            onHover(input, field, null);
+        });
     });
 
     // attach select and bind events
@@ -199,29 +203,29 @@ function findInput() {
     $('body').find('select').each(function () {
         var input = $(this);
         // if (!input.hasClass('vulnfinder-input')) {
-            var elm = format(input, idx, actionForm(input));
-            iframe.find('.all-fields').append(elm);
+        var elm = format(input, idx, actionForm(input));
+        iframe.find('.all-fields').append(elm);
 
-            var field = iframe.find('#field-' + idx);
-            var attack = iframe.find('#attacks-' + idx);
+        var field = iframe.find('#field-' + idx);
+        var attack = iframe.find('#attacks-' + idx);
 
-            // var hack = idx;
-            field.hover(function () {
-                if (attack.css('display') === 'none') {
-                    onHover(input, $(this));
-                }
-                input.focus();
-            }).click(function () {
-                attack.toggle();
-            });
+        // var hack = idx;
+        field.hover(function () {
+            if (attack.css('display') === 'none') {
+                onHover(input, $(this), null);
+            }
+            input.focus();
+        }).click(function () {
+            attack.toggle();
+        });
 
-            input.hover(function () {
-                if (attack.css('display') === 'none') {
-                    onHover(input, field);
-                }
-                field.find('input')[0].focus();
-            });
-            idx += 1;
+        input.hover(function () {
+            if (attack.css('display') === 'none') {
+                onHover(input, field, elm);
+            }
+            field.find('input')[0].focus();
+        });
+        idx += 1;
         // }
     });
 
@@ -244,26 +248,66 @@ function findInput() {
         }
     });
 
-    iframe.find('.label-ch').click(function () {
-        var attack = $(this).find('input');
-        var index = $(this).parent().parent().attr('id').split('-')[1];
+
+    function syncPopoverNavbar(actLabel, checked) {
+        if (checked == 1){
+            var labelNavbar = actLabel;
+            var labelPopover = document.getElementById('#' + actLabel.attr('id'));
+        }else{
+            var labelPopover = actLabel;
+            var labelNavbar = iframe.find('#' + actLabel.attr('id'));
+        }
+
+        var attackNavbar = labelNavbar.find('input');
+        var attackPopover = labelPopover.find('input');
+        var index = labelNavbar.attr('id').split('-')[0];
         var field = iframe.find('#field-' + index);
         var input = field.find('input');
-        if (attack.prop('checked')) {
+
+        function handlingCheckingTrue() {
             input.prop('checked', true);
             field.addClass('vulnfinder-selected-field');
             field.toggleClass('active');
             field.toggleClass('active-field');
-        } else {
-            if ($(this).parent().parent().find('input:checkbox:checked').length == 0) {
+        }
+
+        function handlingCheckingFalse() {
+            if (labelNavbar.parent().parent().find('input:checkbox:checked').length == 0) {
                 input.prop('checked', false);
                 field.removeClass('vulnfinder-selected-field');
             } else {
+                input.prop('checked', true);
                 field.toggleClass('active');
                 field.toggleClass('active-field');
             }
         }
+
+        if (checked == 1) {
+            if (attackNavbar.prop('checked')) {
+                attackPopover.prop('checked', true);
+                handlingCheckingTrue();
+
+            } else {
+                handlingCheckingFalse();
+                attackPopover.prop('checked', false);
+            }
+        } else {
+            if (!attackPopover.prop('checked')) {
+                attackNavbar.prop('checked', true);
+                handlingCheckingTrue();
+            } else {
+                handlingCheckingFalse();
+                attackNavbar.prop('checked', false);
+            }
+        }
+    }
+
+    iframe.find('.vuln-label-ch').click(function () {
+        syncPopoverNavbar($(this), 1)
     });
+
+    //handle checking of field in navBar
+    iframe.find('.vuln-ch').click(checking);
 
     // handle config panel
     iframe.find('.vcc2').click(function () {
@@ -281,7 +325,7 @@ function findInput() {
         var r_val = iframe.find("input[name='vul-config-server']:checked").val();
         if (r_val == '2') {
             server_url = iframe.find('#vul-server-field').val();
-        }        
+        }
     });
 
 
@@ -296,16 +340,17 @@ function findInput() {
 
     iframe.find('.vul-send').click(function () {
         TOEDomain = document.domain;
-        if (currentTOE!=null & currentTOE != TOEDomain){
+        if (currentTOE != null & currentTOE != TOEDomain) {
             iframe.find("#TOE-panel").toggleClass("target-js");
             // window.location.href = "#TOE-panel";
         } else {
             sendData();
-        };
+        }
+        ;
 
     });
 
-    function sendData(){
+    function sendData() {
         var invocation = new XMLHttpRequest();
         var data = [];
         var action_d = String(document.location.href);

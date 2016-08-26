@@ -28,8 +28,8 @@
 
   "content_scripts": [
     {
-      "js": ["jquery.js"],
-      "js": ["jquery.js","contentscript.js"],
+      "js": ["jquery/jquery.js", "jquery/jquery.webui-popover.min.js", "contentscript/contentscript.js"],
+      "css": ["jquery/jquery.webui-popover.min.css","contentscript/contentscript.css"],
       "run_at": "document_idle",
       "matches": ["<all_urls>"]
     }
