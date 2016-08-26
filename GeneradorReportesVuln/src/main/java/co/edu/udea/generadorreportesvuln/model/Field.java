@@ -11,7 +11,6 @@ import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H3;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
-import com.hp.gagawa.java.elements.Td;
 import com.hp.gagawa.java.elements.Th;
 import com.hp.gagawa.java.elements.Thead;
 import com.hp.gagawa.java.elements.Tr;
@@ -126,9 +125,9 @@ public class Field implements HtmlElement {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("\tField:").append(fieldName).append(" Method:").append(fieldMethod).append("\n");
-        for (Alert alert : alerts) {
+        alerts.stream().forEach((alert) -> {
             builder.append("\t\t").append(alert.toString()).append("\n");
-        }
+        });
         return builder.toString();
     }
 

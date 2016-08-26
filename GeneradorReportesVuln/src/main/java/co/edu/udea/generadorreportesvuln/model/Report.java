@@ -5,19 +5,16 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
-import com.hp.gagawa.java.Document;
-import com.hp.gagawa.java.DocumentType;
+import co.edu.udea.generadorreportesvuln.file.FilesAsStrings;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.Head;
-import com.hp.gagawa.java.elements.Html;
 import com.hp.gagawa.java.elements.Img;
 import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Meta;
 import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
-import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
 import com.hp.gagawa.java.elements.Ul;
 import java.io.File;
@@ -27,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -43,11 +41,14 @@ public class Report {
     private static final String JAVASCRIPT_FILE = "main.js";
     private static final String CSS_FILE = "main.css";
     private static final String JQUERYMINJS = "jquery.min.js";
+    private static final String BOOTSTRAPMINCSS = "bootstrap.min.css";
+    private static final String FONTAWESOMEMINCSS = "font-awesome.min.css";
+    private static final String BOOTSTRAPMINJS = "bootstrap.min.js";
     private static final String LOGO = "logo.png";
     private static String pageTitleToPut;
     private static List<Site> sitesToUse;
 
-    public static DocumentWithHeadAndBody toHtml(List<Site> sites, String pageTitle) {
+    public static DocumentWithHeadAndBody toHtml(List<Site> sites, String pageTitle) throws IOException {
         DocumentWithHeadAndBody finalHtml = new DocumentWithHeadAndBody("<!DOCTYPE html>");
         sitesToUse = sites;
         pageTitleToPut = pageTitle;
@@ -60,7 +61,7 @@ public class Report {
         return finalHtml;
     }
 
-    public static void writeToFile(DocumentWithHeadAndBody html, String filePath) {
+    public static void writeToFile(DocumentWithHeadAndBody html, String filePath) throws FileNotFoundException {
         File path = new File(filePath);
         if (!path.exists()) {
             Boolean success = (path).mkdirs();
@@ -77,15 +78,18 @@ public class Report {
         copyResource(FONTAWESOMEMINCSS, filePath);
         copyResource(BOOTSTRAPMINCSS, filePath);
 
-        try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html")) {
+        try (PrintWriter out = new PrintWriter(filePath + "/" + "report.html", "UTF-8")) {
             out.println(html.write());
             LOGGER.info("Saved to " + filePath + " successfuly");
         } catch (FileNotFoundException ex) {
             LOGGER.error("File not found: " + filePath, ex);
+            throw ex;
+        } catch (UnsupportedEncodingException ex) {
+            java.util.logging.Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private static Head generateHead() {
+    private static Head generateHead() throws IOException {
         Head head = new Head();
 
         Meta meta = new Meta("text/html; charset=ISO-8859-1");
@@ -95,22 +99,22 @@ public class Report {
         Script script;
 
         script = new Script("text/javascript");
-        script.setSrc(JQUERYMINJS);
+        script.appendText(FilesAsStrings.getFileAsString(JQUERYMINJS));
         head.appendChild(script);
 
         script = new Script("text/javascript");
-        script.setSrc(BOOTSTRAPMINJS);
+        script.appendText(FilesAsStrings.getFileAsString(BOOTSTRAPMINJS));
         head.appendChild(script);
 
         Link style = new Link();
         style.setRel("stylesheet");
         style.setType("text/css");
-        style.setHref(CSS_FILE);
+        style.appendText(FilesAsStrings.getFileAsString(CSS_FILE));
         head.appendChild(style);
 
         Link link = new Link();
         link.setRel("stylesheet");
-        link.setHref(BOOTSTRAPMINCSS);
+        link.appendText(FilesAsStrings.getFileAsString(BOOTSTRAPMINCSS));
         link.setType("text/css");
 
         head.appendChild(link);
@@ -128,20 +132,17 @@ public class Report {
         head.appendChild(link);
 
         script = new Script("text/javascript");
-        script.setSrc(JAVASCRIPT_FILE);
+        script.appendText(FilesAsStrings.getFileAsString(JAVASCRIPT_FILE));
         script.setLanguage("javascript");
         script.setDefer("defer");
         head.appendChild(script);
-        
+
         Title title = new Title();
         title.appendText(pageTitleToPut);
         head.appendChild(title);
 
         return head;
     }
-    private static final String BOOTSTRAPMINCSS = "bootstrap.min.css";
-    private static final String FONTAWESOMEMINCSS = "font-awesome.min.css";
-    private static final String BOOTSTRAPMINJS = "bootstrap.min.js";
 
     private static Body generateBody() {
         Body body = new Body();
@@ -156,7 +157,7 @@ public class Report {
         row.setCSSClass("row");
         Div imgCol = new Div();
         imgCol.setCSSClass("col-md-3");
-        Img logo = new Img("Logo", "logo.png");
+        Img logo = new Img("Logo", FilesAsStrings.BASE64LOGO);
         logo.setId("logo");
         imgCol.appendChild(logo);
         row.appendChild(imgCol);
@@ -207,14 +208,15 @@ public class Report {
     private static void copyResource(String resource, String filePath) {
         LOGGER.info("Copying resource: " + resource);
         OutputStream outputStream = null;
+        InputStream resourceAsStream = null;
         try {
-            InputStream resourceAsStream = Report.class.getResourceAsStream("/" + resource);
+            resourceAsStream = Report.class.getResourceAsStream("/" + resource);
             if (resourceAsStream == null) {
                 LOGGER.error("Resource not found: " + resource);
                 return;
             }
             outputStream = new FileOutputStream(new File(filePath + "/" + resource));
-            int read = 0;
+            int read;
             byte[] bytes = new byte[1024];
             while ((read = resourceAsStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, read);
@@ -224,7 +226,12 @@ public class Report {
             LOGGER.error(ex);
         } finally {
             try {
-                outputStream.close();
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+                if (resourceAsStream != null) {
+                    resourceAsStream.close();
+                }
             } catch (IOException | NullPointerException ex) {
                 LOGGER.error(ex);
             }

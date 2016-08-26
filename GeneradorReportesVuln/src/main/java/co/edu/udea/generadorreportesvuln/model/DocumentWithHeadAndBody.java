@@ -5,10 +5,7 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
-import com.hp.gagawa.java.Document;
-import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Body;
-import com.hp.gagawa.java.elements.Doctype;
 import com.hp.gagawa.java.elements.Head;
 import com.hp.gagawa.java.elements.Html;
 
@@ -18,8 +15,8 @@ import com.hp.gagawa.java.elements.Html;
  */
 public class DocumentWithHeadAndBody {
 
-    private String doctype;
-    private Html html;
+    private final String doctype;
+    private final Html html;
     public Head head;
     public Body body;
 

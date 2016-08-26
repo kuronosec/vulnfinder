@@ -97,10 +97,7 @@ public class FieldAlert extends Alert {
             return false;
         }
         final FieldAlert other = (FieldAlert) obj;
-        if (!Objects.equals(this.title, other.title)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.title, other.title);
     }
     
     

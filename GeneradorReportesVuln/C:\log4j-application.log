@@ -5303,3 +5303,110 @@ co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Out
 2016-08-17 12:51:48 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
 2016-08-17 12:51:48 INFO  Report:82 - Saved to output successfuly
 2016-08-17 12:51:48 INFO  GeneradorReportes:57 - Program execution finished!
+2016-08-26 14:57:00 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 14:57:32 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 14:57:32 INFO  ReportGenerator:144 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:57:32 INFO  ReportGenerator:158 - Analyzing SQLMap files...
+2016-08-26 14:57:32 INFO  ZapAnalyzer:102 - Connecting to ZAP API
+2016-08-26 14:57:33 ERROR ZapAnalyzer:114 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:107)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:64)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:120)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.generateReportString(ReportGenerator.java:111)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.generateReport(ReportGenerator.java:89)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:166)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:59)
+2016-08-26 14:57:33 ERROR ReportGenerator:122 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:115)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:64)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:120)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.generateReportString(ReportGenerator.java:111)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.generateReport(ReportGenerator.java:89)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:166)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:59)
+2016-08-26 14:57:33 INFO  ReportGenerator:124 - ZAP report finished
+2016-08-26 14:57:33 INFO  ReportGenerator:126 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-26 14:57:33 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:57:33 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:57:33 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-26 14:57:33 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:58:12 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 14:58:12 INFO  ReportGenerator:144 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:58:12 INFO  ReportGenerator:158 - Analyzing SQLMap files...
+2016-08-26 14:58:12 INFO  ZapAnalyzer:102 - Connecting to ZAP API
+2016-08-26 14:58:12 INFO  ZapAnalyzer:108 - Connected! XML document retrieved, analyzing...
+2016-08-26 14:58:12 WARN  ZapAnalyzer:68 - Empty ZAP XML report
+2016-08-26 14:58:12 INFO  ReportGenerator:124 - ZAP report finished
+2016-08-26 14:58:12 INFO  ReportGenerator:126 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-26 14:58:12 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:58:12 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:58:12 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-26 14:58:12 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:59:18 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 14:59:18 INFO  ReportGenerator:144 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:59:18 INFO  ReportGenerator:158 - Analyzing SQLMap files...
+2016-08-26 14:59:18 INFO  ZapAnalyzer:102 - Connecting to ZAP API
+2016-08-26 14:59:18 INFO  ZapAnalyzer:108 - Connected! XML document retrieved, analyzing...
+2016-08-26 14:59:18 WARN  ZapAnalyzer:68 - Empty ZAP XML report
+2016-08-26 14:59:18 INFO  ReportGenerator:124 - ZAP report finished
+2016-08-26 14:59:18 INFO  ReportGenerator:126 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-26 14:59:18 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 14:59:18 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:59:18 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-26 14:59:18 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 14:59:18 INFO  FilesAsStrings:27 - Generating jquery.min.js String
+2016-08-26 15:00:45 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 15:00:45 INFO  ReportGenerator:144 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 15:00:45 INFO  ReportGenerator:158 - Analyzing SQLMap files...
+2016-08-26 15:00:45 INFO  ZapAnalyzer:102 - Connecting to ZAP API
+2016-08-26 15:00:46 INFO  ZapAnalyzer:108 - Connected! XML document retrieved, analyzing...
+2016-08-26 15:00:46 WARN  ZapAnalyzer:68 - Empty ZAP XML report
+2016-08-26 15:00:46 INFO  ReportGenerator:124 - ZAP report finished
+2016-08-26 15:00:46 INFO  ReportGenerator:126 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-26 15:00:46 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 15:00:46 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 15:00:46 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-26 15:00:46 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 15:00:46 INFO  FilesAsStrings:28 - Generating jquery.min.js String
+2016-08-26 15:01:25 INFO  ReportGenerator:54 - Starting report generator
+2016-08-26 15:01:25 INFO  ReportGenerator:144 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 15:01:25 INFO  ReportGenerator:158 - Analyzing SQLMap files...
+2016-08-26 15:01:25 INFO  ZapAnalyzer:102 - Connecting to ZAP API
+2016-08-26 15:01:25 INFO  ZapAnalyzer:108 - Connected! XML document retrieved, analyzing...
+2016-08-26 15:01:25 WARN  ZapAnalyzer:68 - Empty ZAP XML report
+2016-08-26 15:01:25 INFO  ReportGenerator:124 - ZAP report finished
+2016-08-26 15:01:25 INFO  ReportGenerator:126 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-26 15:01:25 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-26 15:01:25 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 15:01:25 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-26 15:01:25 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating jquery.min.js String
+2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating bootstrap.min.js String
+2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating main.css String
+2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating bootstrap.min.css String
+2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating main.js String
+2016-08-26 15:01:25 INFO  ReportGenerator:60 - Program execution finished!
