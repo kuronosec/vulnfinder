@@ -17,41 +17,36 @@ import org.eclipse.swt.widgets.Shell;
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.server.plugin.view.dialog.VulnConfigDialog;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
+import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnSpideringException;
 
 public class SpiderStartHandler {
 
 	@Execute
 	public void execute(Shell shell) {
-		/*try{
-		MessageDialog.openInformation(shell, "First", "Iniciando Spidering...");
-		}catch(ClassCastException cce){
-			cce.printStackTrace();
-		}*/
+		
 		try {
-			// 10 is the workload, so in your case the number of files to copy
-			IRunnableWithProgress op = new YourThread(shell);
+			IRunnableWithProgress op = new SpiderThread(shell);
 			new ProgressMonitorDialog(shell).run(true, true, op);
 		} catch (InvocationTargetException ex) {
 			ex.printStackTrace();
 		} catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
-		//
+
 
 	}
 
-	private static class YourThread implements IRunnableWithProgress {
+	private static class SpiderThread implements IRunnableWithProgress {
 		
 		private Shell thisShell;
 		
 		
 		
-		public YourThread(Shell thisShell) {
+		public SpiderThread(Shell thisShell) {
 			super();
 			this.thisShell = thisShell;
 		}
-
 
 
 		@Override
@@ -64,6 +59,9 @@ public class SpiderStartHandler {
 				MessageLauncher.showInformation(thisShell, "Success", "Spidering finished successfully.");
 			} catch (VulnSpideringException e) {
 				MessageLauncher.showError(thisShell, "Error", e.getErrorMessage());
+				e.printStackTrace();
+			} catch(VulnServerException e){
+				MessageLauncher.showError(thisShell, "Error", e.getMessage());
 				e.printStackTrace();
 			}
 			// You are done

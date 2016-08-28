@@ -28,6 +28,11 @@ public class VulnConfigDialog extends Dialog {
 	private String zapHost = Main.getZapHost();
 	private Text txtZapPort;
 	private String zapPort = "";
+	private Text txtFilteredExtensionsInSpidering;
+	private String filteredExtensionsInSpidering = "";
+	
+	private Text txtFilteredExtensionsInModel;
+	private String filteredExtensionsInModel = "";
 	private Spinner txtSpiderMillis;
 	private String spiderMillis = "";
 	
@@ -42,9 +47,12 @@ public class VulnConfigDialog extends Dialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
-		GridLayout layout = new GridLayout(2, false);
+		
+		GridLayout layout = new GridLayout(2, true);
+		
 		layout.marginRight = 5;
 		layout.marginLeft = 10;
+		
 		container.setLayout(layout);
 		
 		Label lblVulnPort = new Label(container, SWT.NONE);
@@ -101,7 +109,7 @@ public class VulnConfigDialog extends Dialog {
 		txtSpiderMillis = new Spinner(container, SWT.BORDER);
 		txtSpiderMillis.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtSpiderMillis.setMaximum(120000);
-		txtSpiderMillis.setSelection(3000);
+		txtSpiderMillis.setSelection(Main.getMaxSpiderMilliseconds());
 		txtSpiderMillis.setMinimum(1000);
 		txtSpiderMillis.setIncrement(100);
 		txtSpiderMillis.setPageIncrement(1000);
@@ -114,6 +122,37 @@ public class VulnConfigDialog extends Dialog {
 				spiderMillis = spiderTime;
 			}
 		});
+		
+		Label lblFilteredExtensionsInSpidering = new Label(container, SWT.NONE);
+		lblFilteredExtensionsInSpidering.setText("Spidering Filtered Extensions:");
+
+		txtFilteredExtensionsInSpidering = new Text(container, SWT.BORDER);
+		txtFilteredExtensionsInSpidering.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtFilteredExtensionsInSpidering.setText(Main.getExcludedExtensionsInSpidering());
+		txtFilteredExtensionsInSpidering.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				Text textWidget = (Text) e.getSource();
+				String filteredExtensionsText = textWidget.getText();
+				filteredExtensionsInSpidering = filteredExtensionsText;
+			}
+		});
+		
+		Label lblFilteredExtensionsInModel = new Label(container, SWT.NONE);
+		lblFilteredExtensionsInModel.setText("Filtered Extensions on Model:");
+		txtFilteredExtensionsInModel = new Text(container, SWT.BORDER);
+		txtFilteredExtensionsInModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtFilteredExtensionsInModel.setText(Main.getExcludedExtensionsInSpidering());
+		txtFilteredExtensionsInModel.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				Text textWidget = (Text) e.getSource();
+				String filteredExtensionsText = textWidget.getText();
+				filteredExtensionsInModel = filteredExtensionsText;
+			}
+		});
 
 		
 		if(Main.getState() == 1){
@@ -121,18 +160,24 @@ public class VulnConfigDialog extends Dialog {
 			txtZapHost.setEnabled(true);
 			txtZapPort.setEnabled(true);
 			txtSpiderMillis.setEnabled(true);
+			txtFilteredExtensionsInSpidering.setEnabled(false);
+			txtFilteredExtensionsInModel.setEnabled(true);
 		}else if(Main.getState() == 3){
 			txtVulnPort.setEnabled(true);
 			txtZapHost.setEnabled(false);
 			txtZapPort.setEnabled(false);
 			txtSpiderMillis.setEnabled(false);
+			txtFilteredExtensionsInSpidering.setEnabled(false);
+			txtFilteredExtensionsInModel.setEnabled(true);
 		}else{
 			txtVulnPort.setEnabled(true);
 			txtZapHost.setEnabled(true);
 			txtZapPort.setEnabled(true);
 			txtSpiderMillis.setEnabled(true);
+			txtFilteredExtensionsInSpidering.setEnabled(true);
+			txtFilteredExtensionsInModel.setEnabled(true);
 		}
-		
+		container.pack();
 		return container;
 	}
 
@@ -145,7 +190,7 @@ public class VulnConfigDialog extends Dialog {
 
 	@Override
 	protected Point getInitialSize() {
-		return new Point(450, 300);
+		return new Point(500, 350);
 	}
 
 	@Override
@@ -154,6 +199,28 @@ public class VulnConfigDialog extends Dialog {
 		zapHost = txtZapHost.getText().trim();
 		zapPort = txtZapPort.getText().trim();
 		spiderMillis = txtSpiderMillis.getText().trim();
+		filteredExtensionsInSpidering = txtFilteredExtensionsInSpidering.getText().trim();
+		filteredExtensionsInModel = txtFilteredExtensionsInModel.getText().trim();
+		String[] filteredExtsArrSpider = filteredExtensionsInSpidering.split("\\|");
+		String[] filteredExtsArrSpiderModel = filteredExtensionsInModel.split("\\|");
+		
+		for(String s : filteredExtsArrSpider){
+			if( !s.chars().allMatch(x -> Character.isLetterOrDigit(x)) ){
+				System.out.println(s);
+				MessageDialog.openError(getShell(), "Error", "Invalid extension on the spider filtered extension list.");
+				return;
+			}
+		}
+		
+		for(String s : filteredExtsArrSpiderModel){
+			if( !s.chars().allMatch(x -> Character.isLetterOrDigit(x)) ){
+				System.out.println(s);
+				MessageDialog.openError(getShell(), "Error", "Invalid extension on the model filtered extension list.");
+				return;
+			}
+		}
+		
+		
 		
 		try{
 			vulnPortInt = Integer.parseInt(vulnPort);
@@ -176,6 +243,10 @@ public class VulnConfigDialog extends Dialog {
 			showPortError();
 		}
 		
+	}
+	
+	protected boolean isResizable() {
+	    return true;
 	}
 	
 	private void showPortError(){
@@ -214,9 +285,23 @@ public class VulnConfigDialog extends Dialog {
 	public void setSpiderMillisInt(int spiderMillisInt) {
 		this.spiderMillisInt = spiderMillisInt;
 	}
-
 	
-
+	public String getFilteredExtensionsInSpidering() {
+		return filteredExtensionsInSpidering;
+	}
+	
+	
+	public void setFilteredExtensionsInSpidering(String filteredExtensions) {
+		this.filteredExtensionsInSpidering = filteredExtensions;
+	}
+	
+	public String getFilteredExtensionsInModel() {
+		return filteredExtensionsInModel;
+	}
+	
+	public Text getTxtFilteredExtensionsInModel() {
+		return txtFilteredExtensionsInModel;
+	}
 	
 	
 

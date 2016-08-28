@@ -16,6 +16,7 @@ import com.google.gson.JsonSyntaxException;
 
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnRequestParseException;
+import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.xmigenerator.generator.gsonClasses.VulnJsonRequestElement;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Attack;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Input;
@@ -39,7 +40,7 @@ public class VulnServer extends NanoHTTPD {
 			try {
 				handleMessage(scanner.nextLine());
 				r = newFixedLengthResponse(Status.OK, "text/html", "");
-			} catch (VulnRequestParseException e) {
+			} catch (VulnRequestParseException | VulnServerException e) {
 				System.err.println("Error while parsing request: "+e.getMessage());
 				r = newFixedLengthResponse(Status.BAD_REQUEST, "text/html", e.getMessage());
 			}
@@ -53,7 +54,7 @@ public class VulnServer extends NanoHTTPD {
 		
 	}
 
-	private void handleMessage(String msg) throws VulnRequestParseException {
+	private void handleMessage(String msg) throws VulnRequestParseException, VulnServerException {
 		Attack a;
 		try {
 			MessageLauncher.showInformation(null, "Llegó petición", msg);
@@ -97,7 +98,7 @@ public class VulnServer extends NanoHTTPD {
 		}
 	}
 
-	private WebComponent handleDomain(String url) {
+	private WebComponent handleDomain(String url) throws VulnServerException {
 		String domStr = TargetOfEvaluation.extractDomain(url);
 		if(Main.getDominio() != null && !Main.getDominio().getNombre().equals(url)){
 			Main.clearDomain();

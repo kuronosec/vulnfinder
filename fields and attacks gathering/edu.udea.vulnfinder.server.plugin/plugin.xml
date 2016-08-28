@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.seclang"
+            id="edu.udea.vulnfinder.server.plugin.popupMenus.contribution.IFile">
+         <menu id="edu.udea.vulnfinder.server.plugin.runTestMenu" label="VulnFinder Test Execution" path="vulnfinderMenu" >
+               <groupMarker name="runTestMenu"/> 
+         </menu>
+         <action
+               class="edu.udea.vulnfinder.server.plugin.dialog.popupAction.RunVulnFinderTestsAction"
+               enablesFor="+"
+               id="edu.udea.vulnfinder.server.plugin.popupMenus.runVulnfinderTestsAction"
+               icon="icons/default.gif"
+               label="Run Tests"
+               menubarPath="edu.udea.vulnfinder.server.plugin.runTestMenu/runTestMenu"/>
+      </objectContribution>
+   </extension>
    <extension
          id="edu.udea.vulnfinder.server.plugin.fragment"
          point="org.eclipse.e4.workbench.model">
@@ -12,5 +29,5 @@
          point="org.eclipse.ui.startup">
          <startup class="edu.udea.vulnfinder.server.plugin.startup.VulnStartup"/>
    </extension>
-
+   
 </plugin>

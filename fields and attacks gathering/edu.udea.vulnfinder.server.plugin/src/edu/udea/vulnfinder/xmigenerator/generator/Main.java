@@ -48,6 +48,8 @@ public class Main {
 	//private static String toe = null;
 	// private static final ArrayList<TargetOfEvaluation> dominios = new
 	// ArrayList<>();
+	private static final String EXCLUDED_REGEX_BEGIN = ".*\\.(?:";
+	private static final String EXCLUDED_REGEX_END  = ")(?:\\?.*)?";
 	private static TargetOfEvaluation dominio = null;
 	private static int zapPort = 8080;
 	private static String zapHost = "localhost";
@@ -58,12 +60,15 @@ public class Main {
 	private static Map<String, Attack> attackMap;
 	private static IProgressMonitor monitor = null;
 	private static VulnServer vulnServer = null;
+	private static String excludedExtensionsInSpidering = "js|jpg|png|css|gif";
+	private static String excludedExtensionsInModel = "js|jpg|png|css|gif";
 	
 	private static int state = 0;
 
 	public static void startServer() throws IOException, VulnServerException {
 		initialize();
 		if(vulnServer == null || !vulnServer.isAlive() ){
+			clientApi = new ClientApi(zapHost, zapPort);
 			vulnServer = new VulnServer(serverPort);
 		}else{
 			throw new VulnServerException("There is another instance of the server running, please wait or restart the application.");
@@ -83,7 +88,7 @@ public class Main {
 		}
 	}
 
-	public static void startSpidering() throws VulnSpideringException {
+	public static void startSpidering() throws VulnSpideringException, VulnServerException {
 		try {
 			stopServer();
 		} catch (VulnServerException e) {
@@ -138,12 +143,20 @@ public class Main {
 		
 	}
 
-	private static void start() throws VulnSpideringException {
-		
+	private static void start() throws VulnSpideringException, VulnServerException {
+		ApiResponseList arl = null;
 		state = 3;
-		System.out.println(dominio.getNombre());
-		//System.out.println(toe);
 		cola.offer(dominio.getNombre());
+		try{
+			arl = (ApiResponseList) clientApi.core.urls();
+			for (ApiResponse ar : arl.getItems()) {
+				String res = ((ApiResponseElement) ar).getValue();
+				cola.offer(res);
+			}
+		}catch(ClientApiException e){
+			throw new VulnSpideringException(e, 3);
+		}
+		
 		while (!cola.isEmpty()) {
 			realizarSpidering();
 			if (monitor != null) {
@@ -170,7 +183,7 @@ public class Main {
 		
 	}
 
-	private static void ingresarEntradas() throws ClientApiException {
+	private static void ingresarEntradas() throws ClientApiException, VulnServerException {
 		ApiResponseSet ars;
 		for (ApiResponse respuestaParams : ((ApiResponseList) clientApi.params.params(null)).getItems()) {
 			for (ApiResponse valoresParams : ((ApiResponseList) respuestaParams).getItems()) {
@@ -185,7 +198,7 @@ public class Main {
 		}
 	}
 
-	private static void agregarParam(String tipoParam, String nombreParam) throws ClientApiException {
+	private static void agregarParam(String tipoParam, String nombreParam) throws ClientApiException, VulnServerException {
 		ApiResponseSet ars;
 		ApiResponseList respuesta = null;
 		String url = null;
@@ -236,7 +249,7 @@ public class Main {
 		}
 	}
 
-	private static void realizarSpidering() {
+	private static void realizarSpidering() throws VulnServerException {
 
 		String urlInicial = cola.poll();
 		int domIni = insertarDominio(TargetOfEvaluation.extractDomain(urlInicial));
@@ -258,7 +271,7 @@ public class Main {
 		insertarPaginas(sp, p);
 	}
 
-	private static void insertarPaginas(String spID, WebComponent paginaRoot) {
+	private static void insertarPaginas(String spID, WebComponent paginaRoot) throws VulnServerException {
 		int domIns;
 		int pagIns;
 		String pagPath, domPath;
@@ -274,7 +287,9 @@ public class Main {
 				if (!WebComponent.revisaExtensiones(pagPath) || paginaRoot.getRuta().equals(pagPath)) {
 					continue;
 				}
+				
 				domIns = insertarDominio(domPath);
+				
 				if (domIns != 1) {
 					continue;
 				}
@@ -292,9 +307,22 @@ public class Main {
 		paginaRoot.setSpidered();
 	}
 
-	public static int insertarDominio(String strDominio) {
+	public static int insertarDominio(String strDominio) throws VulnServerException {
+		String reg = "";
 		if (dominio == null) {
 			dominio = new TargetOfEvaluation(strDominio);
+			
+			reg = strDominio.replace("/", "\\/").replace(".", "\\.");
+			reg = "^(?:(?!"+reg+").*).$";
+			try{
+				clientApi.core.newSession("JSON", "", "");
+				clientApi.core.excludeFromProxy("JSON", reg);
+				clientApi.core.excludeFromProxy("JSON", EXCLUDED_REGEX_BEGIN+excludedExtensionsInSpidering+EXCLUDED_REGEX_END);
+				
+			}catch(ClientApiException e){
+				throw new VulnServerException("Couldn't start a new OWASP ZAP session.", e);
+			}
+			
 			return 1;
 		} else if (dominio.getNombre().equals(strDominio)) {
 			return 1;
@@ -317,6 +345,7 @@ public class Main {
 	
 	public static void clearDomain(){
 		dominio = null;
+		
 	}
 
 	public static Queue<String> getCola() {
@@ -343,8 +372,12 @@ public class Main {
 			clientApi.spider.setOptionMaxDepth("JSON", 1);
 			clientApi.spider.setOptionParseSitemapXml("JSON", false);
 			clientApi.spider.setOptionParseComments("JSON", false);
+			clientApi.spider.setOptionParseRobotsTxt("JSON", false);
+			clientApi.spider.setOptionParseSVNEntries("JSON", false);
+			clientApi.spider.excludeFromScan("JSON", EXCLUDED_REGEX_BEGIN+excludedExtensionsInSpidering+EXCLUDED_REGEX_END);
+			
 
-			ApiResponseElement ape = (ApiResponseElement) clientApi.spider.scan("JSON", url, "0");
+			ApiResponseElement ape = (ApiResponseElement) clientApi.spider.scan("JSON", url, "0", "1", "", "");
 			retorno = ape.getValue();
 			while (total < 70) {
 				/*
@@ -411,5 +444,21 @@ public class Main {
 
 	public static void setState(int state) {
 		Main.state = state;
+	}
+	
+	public static String getExcludedExtensionsInSpidering() {
+		return excludedExtensionsInSpidering;
+	}
+	
+	public static void setExcludedExtensionsInSpidering(String excludedExtensions) {
+		Main.excludedExtensionsInSpidering = excludedExtensions;
+	}
+	
+	public static String getExcludedExtensionsInModel() {
+		return excludedExtensionsInModel;
+	}
+	
+	public static void setExcludedExtensionsInModel(String excludedExtensionsInModel) {
+		Main.excludedExtensionsInModel = excludedExtensionsInModel;
 	}
 }

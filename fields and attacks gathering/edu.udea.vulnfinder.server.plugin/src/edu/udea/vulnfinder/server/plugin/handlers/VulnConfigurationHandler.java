@@ -12,13 +12,15 @@ public class VulnConfigurationHandler {
 	@Execute
 	public void execute(Shell shell) {
 		VulnConfigDialog dialog = new VulnConfigDialog(shell);
-
+		
 		// get the new values from the dialog
 		if (dialog.open() == Window.OK) {
 			Main.setServerPort(dialog.getVulnPortInt());
 			Main.setZapHost(dialog.getZapHost());
 			Main.setZapPort(dialog.getZapPortInt());
 			Main.setMaxSpiderMilliseconds(dialog.getSpiderMillisInt());
+			Main.setExcludedExtensionsInSpidering(dialog.getFilteredExtensionsInSpidering());
+			Main.setExcludedExtensionsInModel(dialog.getFilteredExtensionsInModel());
 		}
 	}
 
