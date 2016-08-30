@@ -14,6 +14,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 
+
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
 
 public class GenerateXMIHandler {
