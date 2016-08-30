@@ -86,6 +86,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                 }
                 if (isTheBeginning) {
                     line = analyzeBeginning(site, bufferedReader, line);
+                    continue;
                 }
                 Matcher matcher = pattern.matcher(line);
                 if (matcher.find()) {
@@ -96,7 +97,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
                         site.addCharset(found.substring(found.lastIndexOf(' ') + 1));
                     }
                     if ("INFO".equalsIgnoreCase(level)) {
-                        LOGGER.info("Found: " + found);
+                        //LOGGER.debug("Found: " + found);
                     } else if ("WARNING".equalsIgnoreCase(level)) {
                         LOGGER.warn("Found: " + found);
                     }
@@ -120,9 +121,12 @@ public class SQLMapAnalyzer extends FilePatternFinder {
     }
 
     private String analyzeBeginning(Site site, BufferedReader bufferedReader, String line) throws IOException {
+        LOGGER.debug("Analyzing beginning: " + line);
         Matcher parameterMatcher = parameterPattern.matcher(line);
         if (parameterMatcher.find()) {
+            
             actualParameter = parameterMatcher.group(1);
+            LOGGER.debug("Found parameter: " + actualParameter);
             if (fieldList == null || fieldList.isEmpty() || (!fieldList.isEmpty() && fieldList.contains(actualParameter))) {
                 Field actualField = site.getField(actualParameter);
                 actualMethod = parameterMatcher.group(2);
@@ -135,11 +139,14 @@ public class SQLMapAnalyzer extends FilePatternFinder {
         Matcher typeMatcher = typePattern.matcher(line);
         if (typeMatcher.find() && !"".equals(actualParameter)) {
             type = typeMatcher.group(1);
+            LOGGER.debug("Found type: " + type);
             return bufferedReader.readLine();
         }
         Matcher titleMatcher = titlePattern.matcher(line);
         if (titleMatcher.find() && !"".equals(actualParameter)) {
+            
             title = titleMatcher.group(1);
+            LOGGER.debug("Found title: " + title);
             return bufferedReader.readLine();
         }
         Matcher payloadMatcher = payloadPattern.matcher(line);

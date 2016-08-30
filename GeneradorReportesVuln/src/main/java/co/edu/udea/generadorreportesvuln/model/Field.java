@@ -60,27 +60,27 @@ public class Field implements HtmlElement {
     @Override
     public Div toHtml() {
         Div fieldAlertDiv = new Div();
+        String id = fieldName + Counter.getActual();
+        Div fieldPanel = new Div();
+        fieldPanel.setCSSClass("panel panel-default");
+
+        Div fieldPanelHeading = new Div();
+        fieldPanelHeading.setCSSClass("panel-heading");
+        fieldPanelHeading.setAttribute("role", "tab");
+        fieldPanelHeading.setId("heading" + id);
+
+        H3 fieldTitle = new H3();
+        fieldTitle = fieldTitle.setCSSClass("field-title");
+        A toggle = new A();
+        toggle.setAttribute("data-toggle", "collapse");
+        toggle.appendText(fieldName);
+        toggle.setHref("#body" + id);
+        toggle.setAttribute("aria-controls", "body" + id);
+        fieldTitle.appendChild(toggle);
+        fieldPanelHeading.appendChild(fieldTitle);
+        fieldPanel.appendChild(fieldPanelHeading);
 
         if (!alerts.isEmpty()) {
-            String id = fieldName + Counter.getActual();
-            Div fieldPanel = new Div();
-            fieldPanel.setCSSClass("panel panel-default");
-
-            Div fieldPanelHeading = new Div();
-            fieldPanelHeading.setCSSClass("panel-heading");
-            fieldPanelHeading.setAttribute("role", "tab");
-            fieldPanelHeading.setId("heading" + id);
-
-            H3 fieldTitle = new H3();
-            fieldTitle = fieldTitle.setCSSClass("field-title");
-            A toggle = new A();
-            toggle.setAttribute("data-toggle", "collapse");
-            toggle.appendText(fieldName);
-            toggle.setHref("#body" + id);
-            toggle.setAttribute("aria-controls", "body" + id);
-            fieldTitle.appendChild(toggle);
-            fieldPanelHeading.appendChild(fieldTitle);
-            fieldPanel.appendChild(fieldPanelHeading);
 
             Div collapsed = new Div();
             collapsed.setId("body" + id);
@@ -116,8 +116,8 @@ public class Field implements HtmlElement {
             });
             collapsed.appendChild(table);
             fieldPanel.appendChild(collapsed);
-            fieldAlertDiv.appendChild(fieldPanel);
         }
+        fieldAlertDiv.appendChild(fieldPanel);
         return fieldAlertDiv;
     }
 

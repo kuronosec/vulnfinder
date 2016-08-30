@@ -5410,3 +5410,1075 @@ co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Out
 2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating bootstrap.min.css String
 2016-08-26 15:01:25 INFO  FilesAsStrings:28 - Generating main.js String
 2016-08-26 15:01:25 INFO  ReportGenerator:60 - Program execution finished!
+2016-08-30 10:38:54 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 10:38:54 INFO  ReportGenerator:201 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 10:38:54 INFO  ReportGenerator:223 - Analyzing SQLMap files...
+2016-08-30 10:40:57 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 10:40:57 INFO  ReportGenerator:202 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 10:40:57 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 10:40:57 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 10:40:57 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 10:40:57 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 10:40:57 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 10:40:57 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 10:40:57 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 10:40:57 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-30 10:40:57 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 10:40:57 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-30 10:40:57 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 10:40:57 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 10:40:57 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 10:40:57 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 10:40:57 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: jquery.min.js
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: jquery.min.js | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: main.css
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: main.css | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: main.js
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: main.js | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: logo.png
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: logo.png | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: bootstrap.min.js
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: font-awesome.min.css
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 10:40:57 INFO  Report:209 - Copying resource: bootstrap.min.css
+2016-08-30 10:40:57 INFO  Report:224 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 10:40:57 INFO  Report:83 - Saved to output successfuly
+2016-08-30 10:40:57 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:02:03 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:02:03 INFO  ReportGenerator:202 - Analyzing site reports of: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:02:03 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:02:03 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:02:03 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:02:03 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:02:03 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:02:03 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:02:03 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:02:03 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-30 11:02:03 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:02:03 INFO  ReportGenerator:69 - The site /home/camilosampedro/Documentos/no-vulnerable.txt is not been reported in this file. This file has reports of http://app.empiric.us.
+2016-08-30 11:02:03 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:02:03 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:02:03 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:02:03 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:02:03 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:02:03 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:02:03 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:02:03 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:02:03 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:28:58 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:28:58 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:28:58 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:28:58 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:28:58 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:28:58 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:28:58 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:28:58 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:28:58 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:28:58 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:28:58 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:28:58 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:28:58 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:28:58 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:28:58 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:28:58 INFO  ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:28:58 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:28:58 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:28:58 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:28:58 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:28:58 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:28:58 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:28:58 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:28:58 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:28:58 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:36:10 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:36:10 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:36:10 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:36:10 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:36:10 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:36:10 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:36:10 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:36:10 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:36:10 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:36:10 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:36:10 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:36:10 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:36:10 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:36:10 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:36:10 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:36:10 INFO  ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:36:10 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:36:10 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:36:10 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:36:10 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:36:10 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:36:10 DEBUG ConcreteSite:160 - field: 	Field:username Method:POST
+
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:36:10 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:36:10 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:36:10 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:36:10 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:41:26 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:41:26 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:41:26 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:41:26 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:41:26 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:41:26 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:41:26 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:41:26 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:41:26 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:41:26 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:41:26 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:41:26 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:41:26 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:41:26 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:41:26 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:41:26 INFO  ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:41:26 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:41:26 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:41:26 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:41:26 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:41:26 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:41:26 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:41:26 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:41:26 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:41:26 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:43:17 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:43:17 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:43:17 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:43:17 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:43:17 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:43:17 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:43:17 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:43:17 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:43:17 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:43:17 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:43:17 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:43:17 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:43:17 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:43:17 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:43:17 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:43:17 DEBUG ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:43:17 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:43:17 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:43:17 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:43:17 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:43:17 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:43:17 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:43:17 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:43:17 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:43:17 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:43:44 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:43:44 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:43:44 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:43:44 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:43:44 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:43:44 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:43:44 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:43:44 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:43:44 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:43:44 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:43:44 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:43:44 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:43:44 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:43:44 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:43:44 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:43:44 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:43:44 DEBUG ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:43:44 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:43:44 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:43:44 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:43:44 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:43:44 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:43:44 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:43:44 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:43:44 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:43:44 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:44:26 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:44:26 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:44:26 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:44:27 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:44:27 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:44:27 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:44:27 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:44:27 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:44:27 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:44:27 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:44:27 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:44:27 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:44:27 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:44:27 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'windows-1252'
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: target URL is stable
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristics detected web page charset 'ascii'
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting attacks
+2016-08-30 11:44:27 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: POST parameter 'username' is 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable 
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: POST parameter 'username' seems to be 'MySQL >= 5.0.12 AND time-based blind (SELECT)' injectable 
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: target URL appears to be UNION injectable with 1 columns
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:44:27 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: the back-end DBMS is MySQL
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: fetching banner
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: retrieved: 5.5.49-0ubuntu0.14.04.1
+2016-08-30 11:44:27 DEBUG ReportGenerator:99 - Found: fetched data logged to text files under '/home/ryepes/.sqlmap/output/app.empiric.us'
+2016-08-30 11:44:27 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:44:27 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:44:27 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:44:27 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:44:27 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:44:27 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:44:27 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:44:27 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:44:27 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:45:05 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:45:05 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:45:05 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:45:05 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:45:05 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:45:05 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:45:05 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:45:05 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:45:05 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:45:05 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:45:05 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:45:05 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:45:05 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:45:05 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:45:05 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:45:05 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:45:05 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:45:05 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:45:05 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:45:05 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:45:05 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:45:05 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:45:05 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:45:05 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:45:05 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:45:55 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:45:55 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:45:55 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:45:55 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:45:55 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:45:55 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:45:55 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:45:55 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:45:55 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:45:55 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:45:55 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:45:55 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:45:55 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:45:55 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:45:55 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:45:55 DEBUG ReportGenerator:128 - Found parameter: username
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:45:55 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:45:55 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:45:55 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:45:55 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:45:55 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:45:55 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:45:55 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:45:55 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:45:55 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:45:55 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:46:16 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:46:16 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:46:16 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:46:17 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:46:17 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:46:17 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:46:17 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:46:17 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:46:17 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:46:17 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:46:17 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:46:17 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:46:17 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:46:17 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:46:17 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:46:17 DEBUG ReportGenerator:128 - Found parameter: username
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:46:17 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:46:17 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:46:17 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:46:17 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:46:17 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:46:17 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:46:17 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:46:17 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:46:17 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:46:17 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:46:38 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:46:38 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:46:38 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:46:38 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:46:38 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:46:38 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:46:38 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:46:38 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:46:38 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:46:38 WARN  ReportGenerator:101 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:46:38 WARN  ReportGenerator:101 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:46:38 WARN  ReportGenerator:101 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:46:38 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:46:38 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:46:38 WARN  ReportGenerator:101 - Found: reflective value(s) found and filtering out
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:46:38 DEBUG ReportGenerator:128 - Found parameter: username
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:38 DEBUG ReportGenerator:148 - Found title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:38 DEBUG ReportGenerator:148 - Found title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning: 
+2016-08-30 11:46:38 DEBUG ReportGenerator:123 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:46:38 DEBUG ReportGenerator:148 - Found title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:46:38 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:46:38 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:46:38 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:46:38 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:46:38 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:46:39 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:46:39 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:46:39 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:46:39 INFO  ReportGenerator:59 - Program execution finished!
+2016-08-30 11:49:49 INFO  ReportGenerator:53 - Starting report generator
+2016-08-30 11:49:49 INFO  ReportGenerator:224 - Analyzing SQLMap files...
+2016-08-30 11:49:49 INFO  ZapAnalyzer:100 - Connecting to ZAP API
+2016-08-30 11:49:49 ERROR ZapAnalyzer:112 - There was an error connecting to ZAP Api
+java.net.ConnectException: Conexión rehusada
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:484)
+	at sun.net.www.http.HttpClient$1.run(HttpClient.java:482)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.http.HttpClient.privilegedOpenServer(HttpClient.java:481)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:522)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1148)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:105)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:49:49 ERROR ReportGenerator:180 - Error generating ZAP Report
+co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException: Input Output Exception connecting to ZAP ApiConexión rehusada
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getXmlRoot(ZapAnalyzer.java:113)
+	at co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer.getReport(ZapAnalyzer.java:62)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysis(ReportGenerator.java:178)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.executeAnalysisFromCLI(ReportGenerator.java:231)
+	at co.edu.udea.generadorreportesvuln.ReportGenerator.main(ReportGenerator.java:58)
+2016-08-30 11:49:49 INFO  ReportGenerator:182 - ZAP report finished
+2016-08-30 11:49:49 INFO  ReportGenerator:184 - Files to analyze (Input params): [/home/camilosampedro/Documentos/no-vulnerable.txt, /home/camilosampedro/Documentos/vulnerable.txt]
+2016-08-30 11:49:49 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/no-vulnerable.txt
+2016-08-30 11:49:49 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:49:49 WARN  ReportGenerator:102 - Found: heuristic (basic) test shows that POST parameter 'username' might not be injectable
+2016-08-30 11:49:49 WARN  ReportGenerator:102 - Found: time-based comparison requires larger statistical model, please wait...... (done)                                               
+2016-08-30 11:49:49 WARN  ReportGenerator:102 - Found: POST parameter 'username' is not injectable
+2016-08-30 11:49:49 INFO  ReportGenerator:47 - Analyzing file: /home/camilosampedro/Documentos/vulnerable.txt
+2016-08-30 11:49:49 INFO  ReportGenerator:72 - Site: http://app.empiric.us
+2016-08-30 11:49:49 WARN  ReportGenerator:102 - Found: reflective value(s) found and filtering out
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning: Parameter: username (POST)
+2016-08-30 11:49:49 DEBUG ReportGenerator:129 - Found parameter: username
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Type: boolean-based blind
+2016-08-30 11:49:49 DEBUG ReportGenerator:142 - Found type: boolean-based blind
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:49:49 DEBUG ReportGenerator:149 - Found title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Payload: username=prueba' RLIKE (SELECT (CASE WHEN (6781=6781) THEN 0x707275656261 ELSE 0x28 END))-- WFlK&password=123&login-php-submit-button=Login
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning: 
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Type: error-based
+2016-08-30 11:49:49 DEBUG ReportGenerator:142 - Found type: error-based
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:49:49 DEBUG ReportGenerator:149 - Found title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Payload: username=prueba' AND (SELECT 3367 FROM(SELECT COUNT(*),CONCAT(0x716b6b7071,(SELECT (ELT(3367=3367,1))),0x71717a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)-- VcpB&password=123&login-php-submit-button=Login
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning: 
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Type: AND/OR time-based blind
+2016-08-30 11:49:49 DEBUG ReportGenerator:142 - Found type: AND/OR time-based blind
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:49:49 DEBUG ReportGenerator:149 - Found title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+2016-08-30 11:49:49 DEBUG ReportGenerator:124 - Analyzing beginning:     Payload: username=prueba' AND (SELECT * FROM (SELECT(SLEEP(5)))ilWB)-- cCLL&password=123&login-php-submit-button=Login
+2016-08-30 11:49:49 INFO  FilesAsStrings:23 - Generating jquery.min.js String
+2016-08-30 11:49:49 INFO  FilesAsStrings:23 - Generating bootstrap.min.js String
+2016-08-30 11:49:49 INFO  FilesAsStrings:23 - Generating main.css String
+2016-08-30 11:49:49 INFO  FilesAsStrings:23 - Generating bootstrap.min.css String
+2016-08-30 11:49:49 INFO  FilesAsStrings:23 - Generating main.js String
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: jquery.min.js
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: jquery.min.js | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: main.css
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: main.css | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: main.js
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: main.js | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: logo.png
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: logo.png | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: bootstrap.min.js
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: bootstrap.min.js | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: font-awesome.min.css
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: font-awesome.min.css | Done!
+2016-08-30 11:49:49 INFO  Report:207 - Copying resource: bootstrap.min.css
+2016-08-30 11:49:49 INFO  Report:222 - Copying resource: bootstrap.min.css | Done!
+2016-08-30 11:49:49 INFO  Report:84 - Saved to output successfuly
+2016-08-30 11:49:49 INFO  ReportGenerator:59 - Program execution finished!

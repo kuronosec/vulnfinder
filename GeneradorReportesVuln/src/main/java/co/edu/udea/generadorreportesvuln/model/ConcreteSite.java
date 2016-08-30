@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -23,6 +24,7 @@ import java.util.Map;
  */
 public class ConcreteSite implements Site {
 
+    private static final Logger LOGGER = Logger.getLogger(ConcreteSite.class);
     private final Map<String, Field> FIELDS = new HashMap<>();
     private final List<Alert> alerts;
     private final List<String> charset = new ArrayList<>();
@@ -165,50 +167,6 @@ public class ConcreteSite implements Site {
 
         siteLi.appendChild(contentSection);
         return siteLi;
-        /*Div siteDiv = new Div();
-
-        siteDiv.setCSSClass("site");
-
-        H1 title = new H1();
-
-        title.appendText("Site: ");
-
-        Span span = new Span();
-        span.setCSSClass("siteurl");
-        span.appendText(site);
-
-        title.appendChild(span);
-
-        siteDiv.appendChild(title);
-
-        if (!alerts.isEmpty()) {
-
-            H2 siteAlertsTitle = new H2();
-            siteAlertsTitle.appendText("Site alerts");
-            siteDiv.appendChild(siteAlertsTitle);
-
-            Ul siteAlertList = new Ul();
-            alerts.stream().forEach((siteAlert) -> {
-                siteAlertList.appendChild(siteAlert.toHtml());
-            });
-            siteDiv.appendChild(siteAlertList);
-        }
-
-        if (!FIELDS.isEmpty()) {
-            H2 siteAlertsTitle = new H2();
-            siteAlertsTitle.appendText("Field alerts");
-            siteDiv.appendChild(siteAlertsTitle);
-
-            Div accordion = new Div();
-            accordion.setId("accordion");
-
-            FIELDS.values().stream().forEach((field) -> {
-                accordion.appendChild(field.toHtml());
-            });
-            siteDiv.appendChild(accordion);
-        }
-        return siteDiv;
-         */
     }
 
     @Override

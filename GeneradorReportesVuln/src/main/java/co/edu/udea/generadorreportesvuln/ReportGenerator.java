@@ -63,7 +63,7 @@ public class ReportGenerator {
      * Initializes recognized CLI options.
      */
     private static void initializeCLIOptions() {
-        OPTIONS.addOption("s", "site", true, "Sets the site to analyze");
+        OPTIONS.addOption("t", "toe", true, "Sets the site to analyze");
         OPTIONS.addOption("F", "force", true, "Force sites analyzed to be equals to -s option given argument");
         OPTIONS.addOption("f", "fields-file", true, "Sets the fields to analyze");
         OPTIONS.addOption("o", "output", true, "Sets the path where the HTML report will be exported");
@@ -155,13 +155,7 @@ public class ReportGenerator {
     }
 
     private static String generateReportString() throws IOException {
-        if (site != null && "".equals(site)) {
-            zapAnalyzer = new ZapAnalyzer(ZAPURL, site);
-        } else {
-            zapAnalyzer = new ZapAnalyzer(ZAPURL);
-        }
-
-        zapAnalyzer.setForced(forced);
+        
 
         executeAnalysis();
 
@@ -170,6 +164,13 @@ public class ReportGenerator {
     }
 
     private static void executeAnalysis() throws IOException {
+        if (site != null && "".equals(site)) {
+            zapAnalyzer = new ZapAnalyzer(ZAPURL, site);
+        } else {
+            zapAnalyzer = new ZapAnalyzer(ZAPURL);
+        }
+
+        zapAnalyzer.setForced(forced);
         zapAnalyzer.setFieldList(fieldList);
 
         // Execute the ZAP report checking
@@ -196,8 +197,8 @@ public class ReportGenerator {
         CommandLine cmd = PARSER.parse(OPTIONS, args);
 
         // If it is entered <code>-s</code> argument, analyze ZAP report with site
-        if (cmd.hasOption("s")) {
-            site = cmd.getOptionValue("s");
+        if (cmd.hasOption("t")) {
+            site = cmd.getOptionValue("t");
             LOGGER.info("Analyzing site reports of: " + site);
         }
 

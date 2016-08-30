@@ -15,6 +15,7 @@ import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Meta;
 import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
+import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
 import com.hp.gagawa.java.elements.Ul;
 import java.io.File;
@@ -105,31 +106,28 @@ public class Report {
         script = new Script("text/javascript");
         script.appendText(FilesAsStrings.getFileAsString(BOOTSTRAPMINJS));
         head.appendChild(script);
-
-        Link style = new Link();
-        style.setRel("stylesheet");
-        style.setType("text/css");
+        
+        Style style = new Style("text/css");
         style.appendText(FilesAsStrings.getFileAsString(CSS_FILE));
         head.appendChild(style);
 
-        Link link = new Link();
-        link.setRel("stylesheet");
+        Style link = new Style("text/css");
         link.appendText(FilesAsStrings.getFileAsString(BOOTSTRAPMINCSS));
         link.setType("text/css");
 
         head.appendChild(link);
 
-        link = new Link();
-        link.setHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
-        link.setRel("stylesheet");
-        link.setType("text/css");
-        head.appendChild(link);
+        Link link2 = new Link();
+        link2.setHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+        link2.setRel("stylesheet");
+        link2.setType("text/css");
+        head.appendChild(link2);
 
-        link = new Link();
-        link.setHref("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800");
-        link.setRel("stylesheet");
-        link.setType("text/css");
-        head.appendChild(link);
+        link2 = new Link();
+        link2.setHref("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800");
+        link2.setRel("stylesheet");
+        link2.setType("text/css");
+        head.appendChild(link2);
 
         script = new Script("text/javascript");
         script.appendText(FilesAsStrings.getFileAsString(JAVASCRIPT_FILE));
