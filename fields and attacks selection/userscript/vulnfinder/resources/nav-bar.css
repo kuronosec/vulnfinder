@@ -131,7 +131,7 @@ body {
     clear: left;
 }
 
-.li-f .label-ch {
+.li-f .vuln-label-ch {
     display: block;
     cursor: pointer;
     text-indent: 15px;
@@ -142,7 +142,7 @@ body {
     color: black
 }
 
-.ch {
+.vuln-ch {
     cursor: pointer;
 }
 

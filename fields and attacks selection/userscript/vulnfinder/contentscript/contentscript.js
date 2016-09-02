@@ -13,6 +13,9 @@ function initNavBar() {
 
     $('#nav-bar-iframe').on("load", function () {
         findInput();
+        $(".vuln-label-ch").click(function () {
+            syncPopoverNavbar($(this), 2)
+        });
     });
 
     return navBarUI = {
@@ -67,7 +70,7 @@ function attacksUI(idx) {
     var content = "<ul class='attack-list ' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f'>";
-        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack] + "'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -133,8 +136,61 @@ function checking() {
     }
 }
 
+function syncPopoverNavbar(actLabel, checked) {
+    if (checked == 1) {
+        var labelNavbar = actLabel;
+        var labelPopover = $('#' + actLabel.attr('id'));
+    } else {
+        var labelPopover = actLabel;
+        var labelNavbar = iframe.find('#' + actLabel.attr('id'));
+    }
+
+    var attackNavbar = labelNavbar.find('input');
+    var attackPopover = labelPopover.find('input');
+    var index = labelNavbar.attr('id').split('-')[0];
+    var field = iframe.find('#field-' + index);
+    var input = field.find('input');
+
+    function handlingCheckingTrue() {
+        input.prop('checked', true);
+        field.addClass('vulnfinder-selected-field');
+        field.toggleClass('active');
+        field.toggleClass('active-field');
+    }
+
+    function handlingCheckingFalse() {
+        if (labelNavbar.parent().parent().find('input:checkbox:checked').length == 0) {
+            input.prop('checked', false);
+            field.removeClass('vulnfinder-selected-field');
+        } else {
+            input.prop('checked', true);
+            field.toggleClass('active');
+            field.toggleClass('active-field');
+        }
+    }
+
+    if (checked == 1) {
+        if (attackNavbar.prop('checked')) {
+            attackPopover.prop('checked', true);
+            handlingCheckingTrue();
+
+        } else {
+            attackPopover.prop('checked', false);
+            handlingCheckingFalse();
+        }
+    } else {
+        if (attackPopover.prop('checked')) {
+            attackNavbar.prop('checked', true);
+            handlingCheckingTrue();
+        } else {
+            attackNavbar.prop('checked', false);
+            handlingCheckingFalse();
+        }
+    }
+}
+
 function findInput() {
-    var iframe = $('#nav-bar-iframe').contents();
+    iframe = $('#nav-bar-iframe').contents();
 
     // function syncPopoverNavbar(checked) {
     //
@@ -143,15 +199,7 @@ function findInput() {
     //
     // }
 
-    function onHover(input, field, elm) {
-
-        if (elm != null) {
-            input.webuiPopover('show');
-            $(".vuln-label-ch").click(function () {
-                syncPopoverNavbar($(this), 2)
-            });
-        }
-
+    function onHover(input, field) {
         input.toggleClass('active-input');
         field.toggleClass('active-field');
 
@@ -175,26 +223,27 @@ function findInput() {
             divAttacks.setAttribute('id', 'vuln-attacks-' + idx);
             divAttacks.appendChild(element.childNodes[1]);
             document.body.appendChild(divAttacks);
-            input.webuiPopover({url: '#vuln-attacks-' + idx});
+            input.webuiPopover({url: '#vuln-attacks-' + idx, trigger: 'hover', width: 175});
         }
 
         var field = iframe.find('#field-' + idx);
         var attack = iframe.find('#attacks-' + idx);
 
         field.hover(function () {
-            onHover(input, $(this), null);
+            onHover(input, $(this));
             input.focus();
         }, function () {
-            onHover(input, $(this), null);
+            onHover(input, $(this));
         }).click(function () {
             attack.toggle();
         });
 
         input.hover(function () {
-            onHover(input, field, elm);
+            onHover(input, field);
+            // input.webuiPopover('show');
             field.find('input')[0].focus();
         }, function () {
-            onHover(input, field, null);
+            onHover(input, field);
         });
     });
 
@@ -206,24 +255,38 @@ function findInput() {
         var elm = format(input, idx, actionForm(input));
         iframe.find('.all-fields').append(elm);
 
+        if (elm.length > 0) {
+            input.addClass('vulnfinder-target');
+
+            //Create popover of this input
+            var element = document.createElement('div');
+            element.innerHTML = elm;
+            var divAttacks = document.createElement('div');
+            divAttacks.setAttribute('class', 'webui-popover-content');
+            divAttacks.setAttribute('id', 'vuln-attacks-' + idx);
+            divAttacks.appendChild(element.childNodes[1]);
+            document.body.appendChild(divAttacks);
+            input.webuiPopover({url: '#vuln-attacks-' + idx, trigger: 'hover', width: 175});
+        }
+
         var field = iframe.find('#field-' + idx);
         var attack = iframe.find('#attacks-' + idx);
 
         // var hack = idx;
         field.hover(function () {
-            if (attack.css('display') === 'none') {
-                onHover(input, $(this), null);
-            }
+            onHover(input, $(this));
             input.focus();
+        }, function () {
+            onHover(input, $(this));
         }).click(function () {
             attack.toggle();
         });
 
         input.hover(function () {
-            if (attack.css('display') === 'none') {
-                onHover(input, field, elm);
-            }
+            onHover(input, field);
             field.find('input')[0].focus();
+        }, function () {
+            onHover(input, field);
         });
         idx += 1;
         // }
@@ -248,59 +311,6 @@ function findInput() {
         }
     });
 
-
-    function syncPopoverNavbar(actLabel, checked) {
-        if (checked == 1){
-            var labelNavbar = actLabel;
-            var labelPopover = document.getElementById('#' + actLabel.attr('id'));
-        }else{
-            var labelPopover = actLabel;
-            var labelNavbar = iframe.find('#' + actLabel.attr('id'));
-        }
-
-        var attackNavbar = labelNavbar.find('input');
-        var attackPopover = labelPopover.find('input');
-        var index = labelNavbar.attr('id').split('-')[0];
-        var field = iframe.find('#field-' + index);
-        var input = field.find('input');
-
-        function handlingCheckingTrue() {
-            input.prop('checked', true);
-            field.addClass('vulnfinder-selected-field');
-            field.toggleClass('active');
-            field.toggleClass('active-field');
-        }
-
-        function handlingCheckingFalse() {
-            if (labelNavbar.parent().parent().find('input:checkbox:checked').length == 0) {
-                input.prop('checked', false);
-                field.removeClass('vulnfinder-selected-field');
-            } else {
-                input.prop('checked', true);
-                field.toggleClass('active');
-                field.toggleClass('active-field');
-            }
-        }
-
-        if (checked == 1) {
-            if (attackNavbar.prop('checked')) {
-                attackPopover.prop('checked', true);
-                handlingCheckingTrue();
-
-            } else {
-                handlingCheckingFalse();
-                attackPopover.prop('checked', false);
-            }
-        } else {
-            if (!attackPopover.prop('checked')) {
-                attackNavbar.prop('checked', true);
-                handlingCheckingTrue();
-            } else {
-                handlingCheckingFalse();
-                attackNavbar.prop('checked', false);
-            }
-        }
-    }
 
     iframe.find('.vuln-label-ch').click(function () {
         syncPopoverNavbar($(this), 1)
@@ -340,14 +350,12 @@ function findInput() {
 
     iframe.find('.vul-send').click(function () {
         TOEDomain = document.domain;
-        if (currentTOE != null & currentTOE != TOEDomain) {
+        if (currentTOE != null && currentTOE != TOEDomain) {
             iframe.find("#TOE-panel").toggleClass("target-js");
             // window.location.href = "#TOE-panel";
         } else {
             sendData();
         }
-        ;
-
     });
 
     function sendData() {
@@ -384,7 +392,9 @@ function findInput() {
                     var response = invocation.responseXML;
                     alert("Data sent successfully");
                     notifyBackgroundPage(TOEDomain);
-
+                    window.addEventListener("beforeunload", function (event) {
+                        event.returnValue = "If you continue won't be able keep sending information to the server about this TOE ";
+                    });
                 }
                 else
                     alert("Invocation Errors Occured");
@@ -393,7 +403,7 @@ function findInput() {
                 dump("currently the application is at" + invocation.readyState);
         }
 
-        onReset();
+        // onReset();
     }
 
     //Send the last TOE analized to background script
