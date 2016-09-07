@@ -36,7 +36,7 @@ public class ReportGenerator {
     private final static Logger LOGGER = Logger.getLogger(ReportGenerator.class);
 
     // Zap API URL
-    private final static String ZAPURL = "http://zap/";
+    private static String zapUrl = "http://zap/";
 
     // Object that contains information about CLI arguments
     private static final Options OPTIONS = new Options();
@@ -83,6 +83,8 @@ public class ReportGenerator {
     /**
      * Generate a single report html
      *
+     * @param zapHost Zap host url
+     * @param port Zap port
      * @param site Site to be analyzed
      * @param forcedEqualSite Force site to be strictly equals instead of
      * checking if the report site contains the given "site"
@@ -91,7 +93,8 @@ public class ReportGenerator {
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
-    public static String generateReport(String site, boolean forcedEqualSite, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
+    public static String generateReport(String zapHost, int port, String site, boolean forcedEqualSite, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
+        ReportGenerator.zapUrl = zapHost + ":" + port;
         ReportGenerator.site = site;
         forced = forcedEqualSite;
         ReportGenerator.fieldList = fieldList;
@@ -103,23 +106,27 @@ public class ReportGenerator {
             throw ex;
         }
     }
-    
+
     /**
      * Generate a single report html
      *
+     * @param zapHost Zap host url
+     * @param port Zap port
      * @param site Site to be analyzed
      * @param fieldList List of fields to be included.
      * @param sqlMapFiles List of sqlMapFiles
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
-    public static String generateReport(String site, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
-        return generateReport(site, false, fieldList, sqlMapFiles);
+    public static String generateReport(String zapHost, int port, String site, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
+        return generateReport(zapUrl, port, site, false, fieldList, sqlMapFiles);
     }
-    
+
     /**
      * Generate a single report html
      *
+     * @param zapHost Zap host url
+     * @param port Zap port
      * @param site Site to be analyzed
      * @param forcedEqualSite Force site to be strictly equals instead of
      * checking if the report site contains the given "site"
@@ -127,35 +134,38 @@ public class ReportGenerator {
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
-    public static String generateReport(String site, boolean forcedEqualSite, List<String> sqlMapFiles) throws IOException {
-        return generateReport(site, forcedEqualSite, null, sqlMapFiles);
+    public static String generateReport(String zapHost, int port, String site, boolean forcedEqualSite, List<String> sqlMapFiles) throws IOException {
+        return generateReport(zapUrl, port, site, forcedEqualSite, null, sqlMapFiles);
     }
-    
+
     /**
      * Generate a single report html
      *
+     * @param zapHost Zap host url
+     * @param port Zap port
      * @param site Site to be analyzed
      * @param sqlMapFiles List of sqlMapFiles
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
-    public static String generateReport(String site, List<String> sqlMapFiles) throws IOException {
-        return generateReport(site, false, null, sqlMapFiles);
+    public static String generateReport(String zapHost, int port, String site, List<String> sqlMapFiles) throws IOException {
+        return generateReport(zapUrl, port, site, false, null, sqlMapFiles);
     }
-    
+
     /**
      * Generate a single report html
      *
+     * @param zapHost Zap host url
+     * @param port Zap port
      * @param site Site to be analyzed
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
-    public static String generateReport(String site) throws IOException {
-        return generateReport(site, false, null, null);
+    public static String generateReport(String zapHost, int port, String site) throws IOException {
+        return generateReport(zapUrl, port, site, false, null, null);
     }
 
     private static String generateReportString() throws IOException {
-        
 
         executeAnalysis();
 
@@ -165,9 +175,9 @@ public class ReportGenerator {
 
     private static void executeAnalysis() throws IOException {
         if (site != null && "".equals(site)) {
-            zapAnalyzer = new ZapAnalyzer(ZAPURL, site);
+            zapAnalyzer = new ZapAnalyzer(zapUrl, site);
         } else {
-            zapAnalyzer = new ZapAnalyzer(ZAPURL);
+            zapAnalyzer = new ZapAnalyzer(zapUrl);
         }
 
         zapAnalyzer.setForced(forced);
