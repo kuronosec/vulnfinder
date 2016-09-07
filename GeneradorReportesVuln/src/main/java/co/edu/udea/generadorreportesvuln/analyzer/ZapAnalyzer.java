@@ -35,10 +35,21 @@ public class ZapAnalyzer {
     private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
 
     private String zapUrl;
+    private String zapHost;
     private final static String REPORTURL = "OTHER/core/other/xmlreport/";
     private String siteURL = "";
     private boolean forced = false;
     private List<String> fieldList;
+    private int port;
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+    
 
     public String getZapUrl() {
         return zapUrl;
@@ -48,11 +59,13 @@ public class ZapAnalyzer {
         this.zapUrl = zapUrl;
     }
 
-    public ZapAnalyzer(String zapUrl) {
+    public ZapAnalyzer(String zapUrl, String zapHost) {
+        this.zapHost = zapHost;
         this.zapUrl = zapUrl;
     }
 
-    public ZapAnalyzer(String zapUrl, String site) {
+    public ZapAnalyzer(String zapUrl, String site, String zapHost) {
+        this.zapHost = zapHost;
         this.zapUrl = zapUrl;
         this.siteURL = site;
     }
@@ -99,15 +112,15 @@ public class ZapAnalyzer {
         try {
             LOGGER.info("Connecting to ZAP API");
             URL obj = new URL(zapUrl + REPORTURL);
-            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("localhost", 8080));
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(zapHost, port));
             HttpURLConnection con = (HttpURLConnection) obj.openConnection(proxy);
             SAXBuilder jdomBuilder = new SAXBuilder();
             Document jdomDocument = jdomBuilder.build(con.getInputStream());
             LOGGER.info("Connected! XML document retrieved, analyzing...");
             return jdomDocument.getRootElement();
         } catch (MalformedURLException ex) {
-            LOGGER.error("There was an error connecting to ZAP Api", ex);
-            throw new ZAPApiConnectionException("Malformed ZAP URL" + ex.getMessage());
+            LOGGER.error("There was an error connecting to ZAP Api: " + zapUrl + " malformed", ex);
+            throw new ZAPApiConnectionException("Malformed ZAP URL: " + zapUrl + " " +  ex.getMessage());
         } catch (IOException ex) {
             LOGGER.error("There was an error connecting to ZAP Api", ex);
             throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api" + ex.getMessage());

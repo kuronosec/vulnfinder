@@ -36,7 +36,11 @@ public class ReportGenerator {
     private final static Logger LOGGER = Logger.getLogger(ReportGenerator.class);
 
     // Zap API URL
-    private static String zapUrl = "http://zap/";
+    private static final String zapUrl = "http://zap/";
+    
+    private static String zapHost = "localhost";
+
+    private static int port;
 
     // Object that contains information about CLI arguments
     private static final Options OPTIONS = new Options();
@@ -94,7 +98,8 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site, boolean forcedEqualSite, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
-        ReportGenerator.zapUrl = zapHost + ":" + port;
+        ReportGenerator.zapHost = zapHost + ":" + port;
+        ReportGenerator.port = port;
         ReportGenerator.site = site;
         forced = forcedEqualSite;
         ReportGenerator.fieldList = fieldList;
@@ -119,7 +124,7 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
-        return generateReport(zapUrl, port, site, false, fieldList, sqlMapFiles);
+        return generateReport(zapHost, port, site, false, fieldList, sqlMapFiles);
     }
 
     /**
@@ -135,7 +140,7 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site, boolean forcedEqualSite, List<String> sqlMapFiles) throws IOException {
-        return generateReport(zapUrl, port, site, forcedEqualSite, null, sqlMapFiles);
+        return generateReport(zapHost, port, site, forcedEqualSite, null, sqlMapFiles);
     }
 
     /**
@@ -149,7 +154,7 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site, List<String> sqlMapFiles) throws IOException {
-        return generateReport(zapUrl, port, site, false, null, sqlMapFiles);
+        return generateReport(zapHost, port, site, false, null, sqlMapFiles);
     }
 
     /**
@@ -162,7 +167,7 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site) throws IOException {
-        return generateReport(zapUrl, port, site, false, null, null);
+        return generateReport(zapHost, port, site, false, null, null);
     }
 
     private static String generateReportString() throws IOException {
@@ -175,13 +180,14 @@ public class ReportGenerator {
 
     private static void executeAnalysis() throws IOException {
         if (site != null && "".equals(site)) {
-            zapAnalyzer = new ZapAnalyzer(zapUrl, site);
+            zapAnalyzer = new ZapAnalyzer(zapUrl, site, zapHost);
         } else {
-            zapAnalyzer = new ZapAnalyzer(zapUrl);
+            zapAnalyzer = new ZapAnalyzer(zapUrl, zapHost);
         }
 
         zapAnalyzer.setForced(forced);
         zapAnalyzer.setFieldList(fieldList);
+        zapAnalyzer.setPort(port);
 
         // Execute the ZAP report checking
         try {
