@@ -98,7 +98,7 @@ public class ReportGenerator {
      * @throws IOException Error reading the SQLMap files given
      */
     public static String generateReport(String zapHost, int port, String site, boolean forcedEqualSite, List<String> fieldList, List<String> sqlMapFiles) throws IOException {
-        ReportGenerator.zapHost = zapHost + ":" + port;
+        ReportGenerator.zapHost = zapHost;
         ReportGenerator.port = port;
         ReportGenerator.site = site;
         forced = forcedEqualSite;
