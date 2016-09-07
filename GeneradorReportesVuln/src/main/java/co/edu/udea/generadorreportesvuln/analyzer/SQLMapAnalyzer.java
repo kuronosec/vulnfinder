@@ -46,7 +46,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
     public void analyze() throws IOException {
         LOGGER.info("Analyzing file: " + file);
         //Report reporte = new Report();
-        Site site = null;
+        Site site = SiteStore.getSite(siteToAnalyze);
 
         actualParameter = "";
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {

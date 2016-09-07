@@ -52,6 +52,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>vuln-reportgenerator</finalName>    
                 </configuration>
             </plugin>
         </plugins>
