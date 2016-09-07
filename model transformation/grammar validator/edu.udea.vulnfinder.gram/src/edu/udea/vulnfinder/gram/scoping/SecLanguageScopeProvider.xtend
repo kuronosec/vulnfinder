@@ -21,11 +21,11 @@ import securityTest.Input
 class SecLanguageScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
-		println('pos estoy aqui: '+context+" ref; "+reference)
-		println("field i nstance? "+(context instanceof Input))
+		//println('pos estoy aqui: '+context+" ref; "+reference)
+		//println("field i nstance? "+(context instanceof Input))
 		// We want to define the Scope for the Element's superElement cross-reference
 		if (context instanceof Input && reference == SecurityTestPackage.Literals.INPUT__ATTACKS) {
-			println('holi, tuve éxito :D')
+			//println('holi, tuve éxito :D')
 			// Collect a list of candidates by going through the model
 			// EcoreUtil2 provides useful functionality to do that
 			// For example searching for all elements within the root Object's tree
@@ -35,7 +35,7 @@ class SecLanguageScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDe
 			// Create IEObjectDescriptions and puts them into an IScope instance
 			return Scopes.scopeFor(candidates)
 		}
-		println('badfsdfsdfsdgi')
+		//println('badfsdfsdfsdgi')
 		return super.getScope(context, reference);
 	}
 }
