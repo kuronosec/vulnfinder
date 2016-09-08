@@ -31,50 +31,49 @@ import co.edu.udea.generadorreportesvuln.service.SiteStore;
  * @author camilosampedro
  */
 public class ZapAnalyzer {
-
+    
     private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
-
+    
     private String zapUrl;
-    private String zapHost;
+    private final String zapHost;
     private final static String REPORTURL = "OTHER/core/other/xmlreport/";
     private String siteURL = "";
     private boolean forced = false;
     private List<String> fieldList;
     private int port;
-
+    
     public int getPort() {
         return port;
     }
-
+    
     public void setPort(int port) {
         this.port = port;
     }
     
-
     public String getZapUrl() {
         return zapUrl;
     }
-
+    
     public void setZapUrl(String zapUrl) {
         this.zapUrl = zapUrl;
     }
-
+    
     public ZapAnalyzer(String zapUrl, String zapHost) {
         this.zapHost = zapHost;
         this.zapUrl = zapUrl;
     }
-
+    
     public ZapAnalyzer(String zapUrl, String site, String zapHost) {
         this.zapHost = zapHost;
         this.zapUrl = zapUrl;
         this.siteURL = site;
     }
-
+    
     public List<Site> getReport() throws ZAPApiConnectionException {
         List<Site> sites = new ArrayList<>();
         Element root = getXmlRoot();
         List<Element> siteElements = root.getChildren();
-
+        
         if (siteElements.isEmpty()) {
             LOGGER.warn("Empty ZAP XML report");
         } else {
@@ -107,45 +106,68 @@ public class ZapAnalyzer {
         }
         return sites;
     }
-
+    
     private Element getXmlRoot() throws ZAPApiConnectionException {
         try {
             LOGGER.info("Connecting to ZAP API");
-            URL obj = new URL(zapUrl + REPORTURL);
+            URL obj = null;
+            HttpURLConnection con = null;
+            try {
+                obj = new URL(zapUrl + REPORTURL);
+            } catch (IOException ex) {
+                LOGGER.error("There was an error connecting to ZAP Api", ex);
+                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api: " + ex.getMessage());
+            }
             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(zapHost, port));
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection(proxy);
+            try {
+                con = (HttpURLConnection) obj.openConnection(proxy);
+            } catch (IOException ex) {
+                LOGGER.error("There was an error connecting to ZAP Api", ex);
+                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api: " + ex.getMessage());
+            }
             SAXBuilder jdomBuilder = new SAXBuilder();
             Document jdomDocument = jdomBuilder.build(con.getInputStream());
             LOGGER.info("Connected! XML document retrieved, analyzing...");
             return jdomDocument.getRootElement();
         } catch (MalformedURLException ex) {
             LOGGER.error("There was an error connecting to ZAP Api: " + zapUrl + " malformed", ex);
-            throw new ZAPApiConnectionException("Malformed ZAP URL: " + zapUrl + " " +  ex.getMessage());
+            throw new ZAPApiConnectionException("Malformed ZAP URL: " + zapUrl + " " + ex.getMessage());
         } catch (IOException ex) {
             LOGGER.error("There was an error connecting to ZAP Api", ex);
-            throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api" + ex.getMessage());
+            throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api (" + zapUrl + REPORTURL + " | proxy: " + zapHost + ":" + port + "): " + ex.getMessage());
         } catch (JDOMException ex) {
             LOGGER.error("There was an error connecting to ZAP Api", ex);
             throw new ZAPApiConnectionException("Jdom exception: " + ex.getMessage());
         }
     }
-
+    
     private void analyzeFieldAlerts(Site site, Element alertElement) {
         List<Element> instances = alertElement.getChild("instances").getChildren();
-        instances.stream().map((instance) -> instance.getChild("param")).filter((paramElement) -> (paramElement != null)).map((paramElement) -> paramElement.getText()).filter((param) -> (!"N/A".equals(param)&&((!fieldList.isEmpty() && fieldList.contains(param))||(fieldList.isEmpty())))).map((param) -> site.getField(param)).forEach((field) -> {
+        instances.stream().map((instance)
+                -> instance.getChild("param")
+        ).filter((paramElement)
+                -> (paramElement != null)
+        ).map((paramElement)
+                -> paramElement.getText()
+        ).filter((param)
+                -> (!"N/A".equals(param)
+                && (((fieldList != null && !fieldList.isEmpty())
+                && fieldList.contains(param))
+                || (fieldList != null && fieldList.isEmpty())))
+        ).map((param)
+                -> site.getField(param)
+        ).forEach((field) -> {
             //LOGGER.debug("Param found with ZAP: " + param);
             FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
             fieldAlert.setTitle(alertElement.getChildText("name"));
             field.addAlert(fieldAlert);
         });
     }
-
+    
     public void setFieldList(List<String> fieldList) {
         this.fieldList = fieldList;
     }
     
-    
-
     public void setForced(boolean forced) {
         this.forced = forced;
     }

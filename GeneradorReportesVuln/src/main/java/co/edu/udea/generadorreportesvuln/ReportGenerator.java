@@ -36,11 +36,11 @@ public class ReportGenerator {
     private final static Logger LOGGER = Logger.getLogger(ReportGenerator.class);
 
     // Zap API URL
-    private static final String zapUrl = "http://zap/";
+    private static final String ZAPURL = "http://zap/";
     
     private static String zapHost = "localhost";
 
-    private static int port;
+    private static int port = 8080;
 
     // Object that contains information about CLI arguments
     private static final Options OPTIONS = new Options();
@@ -180,9 +180,9 @@ public class ReportGenerator {
 
     private static void executeAnalysis() throws IOException {
         if (site != null && "".equals(site)) {
-            zapAnalyzer = new ZapAnalyzer(zapUrl, site, zapHost);
+            zapAnalyzer = new ZapAnalyzer(ZAPURL, site, zapHost);
         } else {
-            zapAnalyzer = new ZapAnalyzer(zapUrl, zapHost);
+            zapAnalyzer = new ZapAnalyzer(ZAPURL, zapHost);
         }
 
         zapAnalyzer.setForced(forced);
