@@ -32,7 +32,7 @@ public class ServerStartHandler {
 
 		try {
 			Main.startServer();
-			MessageDialog.openInformation(shell, "Mensaje", "Iniciado exitosamente");
+			MessageDialog.openInformation(shell, "Information", "VulnFinder Server is now running.");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			MessageDialog.openError(shell, "Error",

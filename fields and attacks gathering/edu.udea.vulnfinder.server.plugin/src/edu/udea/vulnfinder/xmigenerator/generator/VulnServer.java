@@ -100,7 +100,7 @@ public class VulnServer extends NanoHTTPD {
 
 	private WebComponent handleDomain(String url) throws VulnServerException {
 		String domStr = TargetOfEvaluation.extractDomain(url);
-		if(Main.getDominio() != null && !Main.getDominio().getNombre().equals(url)){
+		if(Main.getDominio() != null && !Main.getDominio().getNombre().equals(domStr)){
 			Main.clearDomain();
 		}
 		int domIni = Main.insertarDominio(domStr);

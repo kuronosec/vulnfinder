@@ -161,19 +161,25 @@ public class Main {
 			realizarSpidering();
 			if (monitor != null) {
 				if (monitor.isCanceled()) {
-					Main.setMonitor(null);
-					state = 2;
-					throw new VulnSpideringException(2);
+					//Main.setMonitor(null);
+					//state = 2;
+					//throw new VulnSpideringException(2);
+					cola.clear();
 				}
 
 			}
 		}
 		try {
 			if(monitor != null){
-				monitor.subTask("Retrieving results...");
+				if(monitor.isCanceled()){
+					monitor.subTask("Cancelling spidering, retrieving partial results.");
+				}else{
+					monitor.subTask("Retrieving results...");
+				}
 			}
 			ingresarEntradas();
 			state = 4;
+			clientApi.spider.stopAllScans(null);
 		} catch (ClientApiException cae) {
 			state = 2;
 			throw new VulnSpideringException(cae, 3);

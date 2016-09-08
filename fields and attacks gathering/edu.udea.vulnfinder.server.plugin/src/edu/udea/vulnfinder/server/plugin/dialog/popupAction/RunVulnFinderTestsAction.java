@@ -33,8 +33,6 @@ import org.eclipse.ui.actions.ActionDelegate;
 import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.internal.WorkbenchWindow;
 
-
-
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
 import transformation.core;
@@ -57,6 +55,7 @@ public class RunVulnFinderTestsAction extends ActionDelegate implements IActionD
 		Workbench wb;
 		WorkbenchWindow ww;
 		Shell shell;
+		boolean accepted = false;
 
 		if (files.size() != 1) {
 			MessageLauncher.showError(null, "Error", "You can only run one test at a time.");
@@ -99,14 +98,14 @@ public class RunVulnFinderTestsAction extends ActionDelegate implements IActionD
 			// MessageLauncher.showInformation(null, "Information", "Running
 			// Tests");
 			try {
-				MessageDialog.openInformation(shell, "Action Required", 
+
+				accepted = MessageDialog.openConfirm(shell, "Action Required",
 						"Before clicking Ok and running the tests, make sure ZAP is running and you have logged into the TOE "
-						+ "or the session is in the required state while using ZAP as a proxy.");
-				IRunnableWithProgress op = new TestRunThread(shell, textModelPath, outputTestPath, outputFolder);
-				new ProgressMonitorDialog(shell).run(true, true, op);
-				ProgressMonitorDialog p;
-				
-				
+								+ "or the session is in the required state while using ZAP as a proxy.");
+				if (accepted) {
+					IRunnableWithProgress op = new TestRunThread(shell, textModelPath, outputTestPath, outputFolder);
+					new ProgressMonitorDialog(shell).run(true, true, op);
+				}
 			} catch (InvocationTargetException ex) {
 				ex.printStackTrace();
 			} catch (InterruptedException ex) {
@@ -139,28 +138,26 @@ public class RunVulnFinderTestsAction extends ActionDelegate implements IActionD
 		@Override
 		public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 			// Tell the user what you are doing
-			//monitor.beginTask("Running tests...", IProgressMonitor.UNKNOWN);
+			// monitor.beginTask("Running tests...", IProgressMonitor.UNKNOWN);
 			// monitor.subTask("Running tests");
-			
+
 			SubMonitor subMonitor = SubMonitor.convert(monitor);
-			
 
 			try {
 				core.start(textModelPath, outputTestPath, new ProgressController(subMonitor));
 				System.out.println("---FIN DE EJECUCIÓN DE core.start---");
-				
+
 			} catch (Exception e) {
-				//e.printStackTrace();
+				// e.printStackTrace();
 				if (e instanceof NoRouteToHostException || e instanceof ConnectException) {
 					MessageLauncher.showError(null, "Error",
 							"Couldn't connect to the TOE, are you sure it's running in the specified host and port?.");
 				} else if (e instanceof FileNotFoundException) {
 					MessageLauncher.showError(null, "Error",
 							"Couldn't find the VulnFinder temporary files, are you sure you have the right permissions?.");
-				} else if(e instanceof OperationCanceledException){
-					MessageLauncher.showError(null, "Error",
-							"Operation cancelled by user.");
-				}else{
+				} else if (e instanceof OperationCanceledException) {
+					MessageLauncher.showError(null, "Error", "Operation cancelled by user.");
+				} else {
 					MessageLauncher.showError(null, "Error",
 							"An unknown error happened while trying to run the tests.");
 					System.err.println(e.getMessage());
@@ -171,55 +168,56 @@ public class RunVulnFinderTestsAction extends ActionDelegate implements IActionD
 					MessageLauncher.showError(null, "Error",
 							"Error while refreshing the generated folder, try doing it manually.");
 				}
-				//monitor.done();
-				
+				// monitor.done();
+
 				return;
 			}
-			
+
 			try {
 				generatedFolder.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			} catch (CoreException ce) {
 				MessageLauncher.showError(null, "Error",
 						"Error while refreshing the generated folder, try doing it manually.");
 			}
-			//monitor.done();
+			// monitor.done();
 			MessageLauncher.showInformation(null, "Information", "Tests ran successfully");
 		}
 	}
-	
+
 	public interface IProgressController {
 		void updateProgress(int progressDone, String progressMessage) throws Exception;
-	    void updateProgress(int progressDone) throws Exception;
+
+		void updateProgress(int progressDone) throws Exception;
 	}
 
-
 	private static class ProgressController implements IProgressController {
-		
+
 		SubMonitor subMonitor;
-		
+
 		public ProgressController(SubMonitor s) {
 			subMonitor = s;
 		}
 
 		@Override
 		public void updateProgress(int progressDone, String progressMessage) throws Exception {
-			//System.out.println("UPDATE PROGRESS "+progressDone + " MESSAGE: "+progressMessage);
-			try{
+			// System.out.println("UPDATE PROGRESS "+progressDone + " MESSAGE:
+			// "+progressMessage);
+			try {
 				subMonitor.setWorkRemaining(1000).split(1);
 				subMonitor.subTask(progressMessage);
-			}catch(OperationCanceledException e){
+			} catch (OperationCanceledException e) {
 				subMonitor.subTask("Canceling tests...");
-				
+
 				throw e;
 			}
 		}
 
 		@Override
 		public void updateProgress(int progressDone) throws Exception {
-			//System.out.println("UPDATE PROGRESS "+progressDone);
-			try{
+			// System.out.println("UPDATE PROGRESS "+progressDone);
+			try {
 				subMonitor.setWorkRemaining(1000).split(1);
-			}catch(OperationCanceledException e){
+			} catch (OperationCanceledException e) {
 				subMonitor.subTask("Canceling tests...");
 				throw e;
 			}
