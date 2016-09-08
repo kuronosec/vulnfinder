@@ -31,9 +31,9 @@ import co.edu.udea.generadorreportesvuln.service.SiteStore;
  * @author camilosampedro
  */
 public class ZapAnalyzer {
-    
+
     private final static Logger LOGGER = Logger.getLogger(ZapAnalyzer.class);
-    
+
     private String zapUrl;
     private final String zapHost;
     private final static String REPORTURL = "OTHER/core/other/xmlreport/";
@@ -41,39 +41,39 @@ public class ZapAnalyzer {
     private boolean forced = false;
     private List<String> fieldList;
     private int port;
-    
+
     public int getPort() {
         return port;
     }
-    
+
     public void setPort(int port) {
         this.port = port;
     }
-    
+
     public String getZapUrl() {
         return zapUrl;
     }
-    
+
     public void setZapUrl(String zapUrl) {
         this.zapUrl = zapUrl;
     }
-    
+
     public ZapAnalyzer(String zapUrl, String zapHost) {
         this.zapHost = zapHost;
         this.zapUrl = zapUrl;
     }
-    
+
     public ZapAnalyzer(String zapUrl, String site, String zapHost) {
         this.zapHost = zapHost;
         this.zapUrl = zapUrl;
         this.siteURL = site;
     }
-    
+
     public List<Site> getReport() throws ZAPApiConnectionException {
         List<Site> sites = new ArrayList<>();
         Element root = getXmlRoot();
         List<Element> siteElements = root.getChildren();
-        
+
         if (siteElements.isEmpty()) {
             LOGGER.warn("Empty ZAP XML report");
         } else {
@@ -84,7 +84,7 @@ public class ZapAnalyzer {
                     site.addAnalyzer(Analyzer.ZAP);
                     List<Element> alerts = siteElement.getChild("alerts").getChildren();
                     alerts.stream().forEach((Element alertElement) -> {
-                        
+
                         String riskcodeString = alertElement.getChild("riskcode").getText();
                         int riskcode = Integer.parseInt(riskcodeString);
                         String riskdescription = alertElement.getChild("riskdesc").getText();
@@ -106,7 +106,7 @@ public class ZapAnalyzer {
         }
         return sites;
     }
-    
+
     private Element getXmlRoot() throws ZAPApiConnectionException {
         try {
             LOGGER.info("Connecting to ZAP API");
@@ -116,14 +116,14 @@ public class ZapAnalyzer {
                 obj = new URL(zapUrl + REPORTURL);
             } catch (IOException ex) {
                 LOGGER.error("There was an error connecting to ZAP Api", ex);
-                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api: " + ex.getMessage());
+                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api (" + zapUrl + REPORTURL + "): " + ex.getMessage());
             }
             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(zapHost, port));
             try {
                 con = (HttpURLConnection) obj.openConnection(proxy);
             } catch (IOException ex) {
                 LOGGER.error("There was an error connecting to ZAP Api", ex);
-                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api: " + ex.getMessage());
+                throw new ZAPApiConnectionException("Input Output Exception connecting to ZAP Api (Proxy: " + zapHost + ":" + port + "): " + ex.getMessage());
             }
             SAXBuilder jdomBuilder = new SAXBuilder();
             Document jdomDocument = jdomBuilder.build(con.getInputStream());
@@ -140,7 +140,7 @@ public class ZapAnalyzer {
             throw new ZAPApiConnectionException("Jdom exception: " + ex.getMessage());
         }
     }
-    
+
     private void analyzeFieldAlerts(Site site, Element alertElement) {
         List<Element> instances = alertElement.getChild("instances").getChildren();
         instances.stream().map((instance)
@@ -163,11 +163,11 @@ public class ZapAnalyzer {
             field.addAlert(fieldAlert);
         });
     }
-    
+
     public void setFieldList(List<String> fieldList) {
         this.fieldList = fieldList;
     }
-    
+
     public void setForced(boolean forced) {
         this.forced = forced;
     }
