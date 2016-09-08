@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/edu.udea.vulnfinder.feature_0.5.1.jar" id="edu.udea.vulnfinder.feature" version="0.5.1">
-      <category name="vulnfinder"/>
-   </feature>
+   <feature url="features/edu.udea.vulnfinder.feature_0.5.2.jar" id="edu.udea.vulnfinder.feature" version="0.5.2"/>
    <category-def name="vulnfinder" label="Vulnfinder">
       <description>
          This category includes the necessary plugins to run Vulnfinder.

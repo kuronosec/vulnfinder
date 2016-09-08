@@ -2,7 +2,7 @@
 <feature
       id="edu.udea.vulnfinder.feature"
       label="Vulnfinder EMT Module"
-      version="0.5.1"
+      version="0.5.2"
       provider-name="UdeA">
 
    <description url="http://www.example.com/description">
