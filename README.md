@@ -2,13 +2,14 @@
 In order to run a developer instance of Vulnfinder you will need:
 
 - [Java 8 or higher.] [Java8]
-- [OWASP ZAP 2.4.3 or superior.] [ZAP]
-- [Eclipse Modelling Tools Neon Release 2 or superior.] [EMT]
+- [OWASP ZAP 2.4.3 or later.] [ZAP]
+- [Eclipse Modelling Tools Neon Release 2 or later.] [EMT]
     -  [Sirius Plugin for Eclipse.] [Sirius]
     -  [Xtext Plugin for Eclipse.] [Xtext]
     -  [Acceleo Plugin for Eclipse.] [Acceleo]
     -  [Xpand Plugin for Eclipse.] [Xpand]
 - [**Greasemonkey**] [GM] extension on Firefox / [**Tampermonkey**] [TM] extension on Google Chrome
+- Firefox 48 or later
 
 ### Installing & Getting Ready
 The following steps are to be executed before trying to run or modify *Vulnfinder*. These steps will become simplier as soon as an stable version is ready to be launched.
