@@ -18,11 +18,11 @@
                 <h2>Select a Server</h2>
             </div>
             <div class='modal-body'>
-                <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc1' value='1'
+                <input type='radio' name='vul-config-server' class='vuln-input vul-chk-config vcc1' value='1'
                        checked/> Use online servers<br><br>
-                <input type='radio' name='vul-config-server' class='vulnfinder-input vul-chk-config vcc2' value='2'/> I
+                <input type='radio' name='vul-config-server' class='vuln-input vul-chk-config vcc2' value='2'/> I
                 have my own server<br><br>
-                <input type='text' name='vul-server-ip' id='vul-server-field' class='vulnfinder-input form-control'
+                <input type='text' name='vul-server-ip' id='vul-server-field' class='vuln-input form-control'
                        value='+server_url+' placeholder='e.g. 127.0.0.1' hidden='true'/>
             </div>
             <div class='modal-footer'>
@@ -44,23 +44,26 @@
             </div>
         </div>
     </div>
-    <div id="vulnfinder-header">
-        <img src="905.png" id="vulnfinder-logo">
-        <!--<h1 class='vulnfinder-header'> vulnfinder </h1>-->
+    <div id="vuln-header">
+        <img src="905.png" id="vuln-logo">
+        <!--<h1 class='vuln-header'> vulnfinder </h1>-->
     </div>
-    <div id="vulnfinder-content">
-        <div id="vulnfinder-see-hidden">
+    <div id="vuln-content">
+        <div id="vuln-see-hidden">
             <a class='button' href='#config-panel' id="config-btn">Server settings</a>
             <label id='see-hidden'>
-                <input type='checkbox' class='vulnfinder-input ch'/>
+                <input type='checkbox' class='vuln-input ch'/>
                 <span class='noselect' id='see-hidden-span'> See hidden fields </span>
             </label>
         </div>
         <div class='all-fields' id="fields-div">
+            <div id="vuln-get-parameters-div">
+                <h3>GET parameters</h3>
+            </div>
         </div>
     </div>
-    <div id="vulnfinder-footer">
-        <button class='button vul-send' id="vulnfinder-send-button">Analize input fields</button>
+    <div id="vuln-footer">
+        <button class='button vul-send' id="vuln-send-button">Analize input fields</button>
     </div>
 </div>
 

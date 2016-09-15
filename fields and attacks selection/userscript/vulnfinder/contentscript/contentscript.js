@@ -1,3 +1,9 @@
+/*
+ @author Jonathan Medina
+ This Script is the part of web extension that runs in the context of a particular web page (as opposed to background
+ script wich are part of the extension)
+ */
+
 var navBarUI = false;
 var currentTOE = null;
 
@@ -9,10 +15,12 @@ function initNavBar() {
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
     iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 1000; border:none");
     document.body.appendChild(iframe);
-    // $('#nav-bar-iframe').ready(findInput());
 
+    // When the navBar is ready this call findInput function to find all input fields of the web page
     $('#nav-bar-iframe').on("load", function () {
         findInput();
+
+        //handle the clic event of the attacks popover's checkbox
         $(".vuln-label-ch").click(function () {
             syncPopoverNavbar($(this), 2)
         });
@@ -23,7 +31,7 @@ function initNavBar() {
     };
 }
 
-
+//Put or remove the nav bar of the web page
 function toggleNavBar(navBarUI) {
     if (navBarUI.visible) {
         navBarUI.visible = false;
@@ -37,14 +45,18 @@ function toggleNavBar(navBarUI) {
 // Handle messages from the add-on background page (only in top level iframes)
 if (window.parent == window) {
     chrome.runtime.onMessage.addListener(function (msg) {
+
+        //assign the domain of the current TOE in a global variable
         currentTOE = msg.currentTOE;
-        // alert(currentTOE);
+
+        //This message is sent when the browser action button is pressed
         if (msg.action == "toggle-in-page-navBar") {
             if (navBarUI) {
                 toggleNavBar(navBarUI);
             } else {
                 navBarUI = initNavBar();
             }
+            //    This message is sent when occur an event of change or update of a tab
         } else if (msg.action == "add-in-page-navBar") {
             if (navBarUI) {
                 navBarUI.visible = true;
@@ -62,15 +74,16 @@ if (window.parent == window) {
 //initializing variables
 var attackList = ['SQL Injection', 'Authentication', 'XSS', 'Authorization', 'Privilege Scalation'];
 // var schema = "<div class='site'> <div class='menu' id='nav-bar'/> <div class='original' id='original-content' /> </div>";
-var server_url = vulnfinder_server = 'localhost:3000';
+var server_url = vuln_server = 'localhost:3000';
 var toHide = [];
 
 
+//Create the list of attack in html
 function attacksUI(idx) {
     var content = "<ul class='attack-list ' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f'>";
-        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vulnfinder-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vuln-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -86,7 +99,7 @@ function format(field, idx, action) {
     // }else{
     //     label = 'no-name'+ idx;
     // }
-    var text = "<div class='vulnfinder-attack-item truncate' id='field-" + idx + "'>";
+    var text = "<div class='vuln-attack-item truncate' id='field-" + idx + "'>";
     text += "<input type='checkbox' class='vuln-input vuln-ch'/><span class='field-name'>" + label + "</span>";
     text += "<input type='hidden' class='vuln-input input-form-url' value='" + action + "' />";
     text += "</div>";
@@ -121,7 +134,7 @@ function actionForm(input) {
 function onReset() {
     $('input:checkbox').prop('checked', false);
     $('.attack-list').css('display', 'none');
-    $('.vulnfinder-attack-item').removeClass('active-field');
+    $('.vuln-attack-item').removeClass('active-field');
     $('input').removeClass('active-input');
 }
 
@@ -153,7 +166,7 @@ function syncPopoverNavbar(actLabel, checked) {
 
     function handlingCheckingTrue() {
         input.prop('checked', true);
-        field.addClass('vulnfinder-selected-field');
+        field.addClass('vuln-selected-field');
         field.toggleClass('active');
         field.toggleClass('active-field');
     }
@@ -161,7 +174,7 @@ function syncPopoverNavbar(actLabel, checked) {
     function handlingCheckingFalse() {
         if (labelNavbar.parent().parent().find('input:checkbox:checked').length == 0) {
             input.prop('checked', false);
-            field.removeClass('vulnfinder-selected-field');
+            field.removeClass('vuln-selected-field');
         } else {
             input.prop('checked', true);
             field.toggleClass('active');
@@ -192,19 +205,26 @@ function syncPopoverNavbar(actLabel, checked) {
 function findInput() {
     iframe = $('#nav-bar-iframe').contents();
 
-    // function syncPopoverNavbar(checked) {
-    //
-    //     handlecheckbox(labelNavbar, labelPopover, checked);
-    //
-    //
-    // }
-
     function onHover(input, field) {
         input.toggleClass('active-input');
         field.toggleClass('active-field');
 
     }
 
+    var getParameters = window.location.search.substr(1);
+    var keyElement;   
+    var action = String(location.pathname).split('/').slice(-1);  
+    if (getParameters.length){
+        var keys = getParameters.split('&');
+        for (k in keys){
+            key = keys[k].split('=')[0];
+            keyElement = document.createElement('input');
+            keyElement.setAttribute('name', key);
+            keyElement = $(keyElement);
+            var elm = format(keyElement, k, action);
+            iframe.find('#vuln-get-parameters-div').append(elm);
+        }
+    }
 
     // attach input and bind events
     $('body').find('input').each(function (idx, val) {
@@ -213,7 +233,7 @@ function findInput() {
         iframe.find('#fields-div').append(elm);
 
         if (elm.length > 0) {
-            input.addClass('vulnfinder-target');
+            input.addClass('vuln-target');
 
             //Create popover of this input
             var element = document.createElement('div');
@@ -251,12 +271,12 @@ function findInput() {
     var idx = 1000;
     $('body').find('select').each(function () {
         var input = $(this);
-        // if (!input.hasClass('vulnfinder-input')) {
+        // if (!input.hasClass('vuln-input')) {
         var elm = format(input, idx, actionForm(input));
         iframe.find('.all-fields').append(elm);
 
         if (elm.length > 0) {
-            input.addClass('vulnfinder-target');
+            input.addClass('vuln-target');
 
             //Create popover of this input
             var element = document.createElement('div');
@@ -297,7 +317,7 @@ function findInput() {
         var chk = $(this).find('input:checkbox').first();
         if (chk.prop('checked')) {
             chk.prop('checked', true);
-            $('.vulnfinder-target').each(function () {
+            $('.vuln-target').each(function () {
                 if ($(this).attr('type') == 'hidden') {
                     toHide.push($(this));
                     $(this).attr('type', 'text');
@@ -326,7 +346,7 @@ function findInput() {
     });
 
     iframe.find('.vcc1').click(function () {
-        server_url = vulnfinder_server;
+        server_url = vuln_server;
         iframe.find('#vul-server-field').attr('value', server_url);
         iframe.find('#vul-server-field').css('display', 'none');
     });
@@ -364,12 +384,18 @@ function findInput() {
         var action_d = String(document.location.href);
         var last = String(action_d.split('/').slice(-1)).length;
 
-        iframe.find('.vulnfinder-selected-field').each(function () {
+        iframe.find('.vuln-selected-field').each(function () {
             var dataField = {};
             var index = $(this).attr('id').split('-')[1];
             var field = $(this).find('.field-name').html();
 
-            action = action_d.substr(0, action_d.length - last - 1) + String($(this).find('.input-form-url').attr('value'));
+            action = String($(this).find('.input-form-url').attr('value'));
+            if (action[0]=='/'){
+                action = action.substring(1);
+            }
+            if (action != action_d) {
+                action = action_d.substr(0, action_d.length - last) + action;
+            }
             dataField.actionForm = action;
             dataField.inputName = field;
             dataField.attacks = dataContent(index, iframe);
