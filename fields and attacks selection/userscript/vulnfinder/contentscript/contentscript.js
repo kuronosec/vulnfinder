@@ -13,7 +13,7 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe");
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 1000; border:none");
+    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 2147483647; border:none");
     document.body.appendChild(iframe);
 
     // When the navBar is ready this call findInput function to find all input fields of the web page
@@ -212,8 +212,8 @@ function findInput() {
     }
 
     var getParameters = window.location.search.substr(1);
-    var keyElement;   
-    var action = String(location.pathname).split('/').slice(-1);  
+    var keyElement;
+    var action = String(location.pathname).split('/').slice(-1);
     if (getParameters.length){
         var keys = getParameters.split('&');
         for (k in keys){
@@ -439,6 +439,3 @@ function findInput() {
         );
     }
 }
-
-
-
