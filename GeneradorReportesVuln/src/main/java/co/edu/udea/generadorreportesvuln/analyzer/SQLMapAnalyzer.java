@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class SQLMapAnalyzer extends FilePatternFinder {
 
-    private final static Logger LOGGER = Logger.getLogger(ReportGenerator.class);
+    private final static Logger LOGGER = Logger.getLogger(SQLMapAnalyzer.class);
     private final String file;
     private final String siteToAnalyze;
     private List<String> fieldList;
@@ -121,7 +121,7 @@ public class SQLMapAnalyzer extends FilePatternFinder {
     }
 
     private String analyzeBeginning(Site site, BufferedReader bufferedReader, String line) throws IOException {
-        LOGGER.debug("Analyzing beginning: " + line);
+        LOGGER.debug("Analyzing beginning: \"" + line + "\"");
         Matcher parameterMatcher = parameterPattern.matcher(line);
         if (parameterMatcher.find()) {
             

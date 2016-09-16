@@ -23,6 +23,7 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -177,8 +178,13 @@ public class ReportGenerator {
         DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");
         return htmlReport.toString();
     }
+    
+    public static void setDebugMode(boolean on){
+        Logger.getRootLogger().setLevel(Level.DEBUG);
+    }
 
     private static void executeAnalysis() throws IOException {
+        
         if (site != null && "".equals(site)) {
             zapAnalyzer = new ZapAnalyzer(ZAPURL, site, zapHost);
         } else {
