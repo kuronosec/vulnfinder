@@ -13,7 +13,7 @@ function initNavBar() {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "nav-bar-iframe");
     iframe.setAttribute("src", chrome.runtime.getURL("resources/nav-bar.html"));
-    iframe.setAttribute("style", "position: fixed; top: 0px; left: 0px; z-index: 2147483647; border:none");
+    iframe.setAttribute("class", "nav-bar-iframe-left");
     document.body.appendChild(iframe);
 
     // When the navBar is ready this call findInput function to find all input fields of the web page
@@ -25,6 +25,7 @@ function initNavBar() {
             syncPopoverNavbar($(this), 2)
         });
     });
+
 
     return navBarUI = {
         iframe: iframe, visible: true
@@ -205,6 +206,12 @@ function syncPopoverNavbar(actLabel, checked) {
 function findInput() {
     iframe = $('#nav-bar-iframe').contents();
 
+    //this event move the nav-bar left to right
+    iframe.find("#vuln-lateral-move").click(function () {
+        $('#nav-bar-iframe').toggleClass("nav-bar-iframe-left");
+        $('#nav-bar-iframe').toggleClass("nav-bar-iframe-right");
+    })
+
     function onHover(input, field) {
         input.toggleClass('active-input');
         field.toggleClass('active-field');
@@ -221,7 +228,7 @@ function findInput() {
             keyElement = document.createElement('input');
             keyElement.setAttribute('name', key);
             keyElement = $(keyElement);
-            var elm = format(keyElement, k, action);
+            var elm = format(keyElement, k+2000, action);
             iframe.find('#vuln-get-parameters-div').append(elm);
         }
     }

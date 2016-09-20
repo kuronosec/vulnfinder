@@ -45,21 +45,29 @@
         </div>
     </div>
     <div id="vuln-header">
-        <img src="905.png" id="vuln-logo">
-        <!--<h1 class='vuln-header'> vulnfinder </h1>-->
+        <div id="vuln-logo-div">
+            <img src="905.png" id="vuln-logo">
+        </div>
+        <div id="vuln-window-bar">
+            <button class="window-button" id="vuln-lateral-move">|></button>
+        </div>
     </div>
     <div id="vuln-content">
-        <div id="vuln-see-hidden">
+        <div id="vuln-settings-div">
             <a class='button' href='#config-panel' id="config-btn">Server settings</a>
-            <label id='see-hidden'>
-                <input type='checkbox' class='vuln-input ch'/>
-                <span class='noselect' id='see-hidden-span'> See hidden fields </span>
-            </label>
+            <div id="vuln-see-hidden">
+                <label id='see-hidden'>
+                    <input type='checkbox' class='vuln-input ch'/>
+                    <span class='noselect' id='see-hidden-span'> See hidden fields </span>
+                </label>
+            </div>
         </div>
+
         <div class='all-fields' id="fields-div">
             <div id="vuln-get-parameters-div">
-                <h3>GET parameters</h3>
+                <h3>URL parameters</h3>
             </div>
+            <h3>BODY parameters</h3>
         </div>
     </div>
     <div id="vuln-footer">

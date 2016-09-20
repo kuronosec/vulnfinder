@@ -2,11 +2,30 @@
     background-color: yellow !important;
 }
 /* CSS general */
-#nav-bar-iframe {
+.nav-bar-iframe-left {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2147483647;
+    border:none
+}
+
+.nav-bar-iframe-right {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 2147483647;
+    border:none
+}
+
+#vuln-right-div{
     width: 250px;
     height: 100%;
 }
-
 /* CSS pantallas de 1366px o superior */
 @media (min-width: 1366px) {
 
