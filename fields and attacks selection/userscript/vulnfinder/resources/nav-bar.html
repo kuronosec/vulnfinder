@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="nav-bar.css">
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js'>
-    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js'></script>
     <!--<script type="text/javascript" src="vulnfinder.js">-->
     <!--</script>-->
-
 </head>
+
 <body id="nav-bar-body">
 <div id="nav-bar" class="menu">
     <div class="overlay" id="config-panel">
@@ -49,12 +49,12 @@
             <img src="905.png" id="vuln-logo">
         </div>
         <div id="vuln-window-bar">
-            <button class="window-button" id="vuln-lateral-move">|></button>
+            <button class="fa fa fa-caret-square-o-right button" id="vuln-lateral-move"></button>
         </div>
     </div>
     <div id="vuln-content">
         <div id="vuln-settings-div">
-            <a class='button' href='#config-panel' id="config-btn">Server settings</a>
+            <a class='button fa fa-cogs' href='#config-panel' id="config-btn"> Server settings</a>
             <div id="vuln-see-hidden">
                 <label id='see-hidden'>
                     <input type='checkbox' class='vuln-input ch'/>
@@ -71,7 +71,7 @@
         </div>
     </div>
     <div id="vuln-footer">
-        <button class='button vul-send' id="vuln-send-button">Analize input fields</button>
+        <button class='button fa fa-bolt vul-send' id="vuln-send-button"> Analize input fields</button>
     </div>
 </div>
 

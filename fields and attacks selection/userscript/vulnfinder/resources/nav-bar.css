@@ -18,6 +18,16 @@ body {
     border: none;
 }
 
+.field-name {
+  color: #89e5a2;
+  font-family: monospace;
+}
+
+#vuln-content h3 {
+  color: #d3e6ea;
+  text-align: center;
+}
+
 .vul-send:hover .button:hover {
     background-color: #3e8e41
 }
@@ -155,7 +165,7 @@ body {
 }
 
 .active-field {
-    background: #f1f1f1;
+    background: #004c14;
     color: black
 }
 
@@ -171,6 +181,7 @@ body {
 
 .domain {
     float: left;
+    font-family: monospace;
 }
 
 .truncate {
@@ -203,6 +214,11 @@ body {
     text-align: center;
 }
 
+#vuln-lateral-move{
+  padding: 10px 10px;
+  margin-right: 20px;
+}
+
 #vuln-settings-div {
     border-top: solid 1px white;
     border-bottom: solid 1px white;
@@ -216,6 +232,7 @@ body {
 
 #vuln-content {
     position: absolute;
+    background: #15272b;
     top:122px;
     bottom: 62px;
     width:100%;
@@ -231,6 +248,7 @@ body {
 #vuln-header {
     position: absolute;
     /*text-align: center;*/
+    background: #d3e6ea;
     width:100%;
     height:130px;
 }
@@ -254,4 +272,3 @@ body {
 
 
 }
-
