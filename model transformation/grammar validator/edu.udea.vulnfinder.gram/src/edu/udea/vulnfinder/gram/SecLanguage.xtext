@@ -13,7 +13,12 @@ SecurityTest returns Test:
 		
 		('(' 'toes' ( scope=TargetOfEvaluation) ')' )?
 		('(' 'attacks' (possibleAttacks+=Attack)+ ')' )?
+		('(' 'notes' (note=Note)  ')' )?
 	')';
+
+Note returns Note:
+	{Note}
+	noteText=EString;
 
 
 TargetOfEvaluation returns TargetOfEvaluation:

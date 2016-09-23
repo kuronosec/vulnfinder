@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "'securityTest'", "'toes'", "')'", "'attacks'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'", "'Low'", "'Medium'", "'High'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "'securityTest'", "'toes'", "')'", "'attacks'", "'notes'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'", "'Low'", "'Medium'", "'High'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -43,6 +43,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=6;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -126,7 +127,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSecurityTest"
-    // InternalSecLanguage.g:77:1: ruleSecurityTest returns [EObject current=null] : ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? otherlv_12= ')' ) ;
+    // InternalSecLanguage.g:77:1: ruleSecurityTest returns [EObject current=null] : ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )? otherlv_16= ')' ) ;
     public final EObject ruleSecurityTest() throws RecognitionException {
         EObject current = null;
 
@@ -139,21 +140,26 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
         Token otherlv_9=null;
         Token otherlv_11=null;
         Token otherlv_12=null;
+        Token otherlv_13=null;
+        Token otherlv_15=null;
+        Token otherlv_16=null;
         AntlrDatatypeRuleToken lv_id_3_0 = null;
 
         EObject lv_scope_6_0 = null;
 
         EObject lv_possibleAttacks_10_0 = null;
 
+        EObject lv_note_14_0 = null;
+
 
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:80:28: ( ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? otherlv_12= ')' ) )
-            // InternalSecLanguage.g:81:1: ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? otherlv_12= ')' )
+            // InternalSecLanguage.g:80:28: ( ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )? otherlv_16= ')' ) )
+            // InternalSecLanguage.g:81:1: ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )? otherlv_16= ')' )
             {
-            // InternalSecLanguage.g:81:1: ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? otherlv_12= ')' )
-            // InternalSecLanguage.g:81:2: () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? otherlv_12= ')'
+            // InternalSecLanguage.g:81:1: ( () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )? otherlv_16= ')' )
+            // InternalSecLanguage.g:81:2: () otherlv_1= '(' otherlv_2= 'securityTest' ( (lv_id_3_0= ruleEString ) ) (otherlv_4= '(' otherlv_5= 'toes' ( (lv_scope_6_0= ruleTargetOfEvaluation ) ) otherlv_7= ')' )? (otherlv_8= '(' otherlv_9= 'attacks' ( (lv_possibleAttacks_10_0= ruleAttack ) )+ otherlv_11= ')' )? (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )? otherlv_16= ')'
             {
             // InternalSecLanguage.g:81:2: ()
             // InternalSecLanguage.g:82:5: 
@@ -274,7 +280,11 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==11) ) {
-                alt3=1;
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1==15) ) {
+                    alt3=1;
+                }
             }
             switch (alt3) {
                 case 1 :
@@ -342,7 +352,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                         cnt2++;
                     } while (true);
 
-                    otherlv_11=(Token)match(input,14,FollowSets000.FOLLOW_8); 
+                    otherlv_11=(Token)match(input,14,FollowSets000.FOLLOW_5); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_5_3());
                         
@@ -352,9 +362,69 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,14,FollowSets000.FOLLOW_2); 
+            // InternalSecLanguage.g:173:3: (otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')' )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-                	newLeafNode(otherlv_12, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6());
+            if ( (LA4_0==11) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalSecLanguage.g:173:5: otherlv_12= '(' otherlv_13= 'notes' ( (lv_note_14_0= ruleNote ) ) otherlv_15= ')'
+                    {
+                    otherlv_12=(Token)match(input,11,FollowSets000.FOLLOW_10); 
+
+                        	newLeafNode(otherlv_12, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0());
+                        
+                    otherlv_13=(Token)match(input,16,FollowSets000.FOLLOW_4); 
+
+                        	newLeafNode(otherlv_13, grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1());
+                        
+                    // InternalSecLanguage.g:181:1: ( (lv_note_14_0= ruleNote ) )
+                    // InternalSecLanguage.g:182:1: (lv_note_14_0= ruleNote )
+                    {
+                    // InternalSecLanguage.g:182:1: (lv_note_14_0= ruleNote )
+                    // InternalSecLanguage.g:183:3: lv_note_14_0= ruleNote
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getSecurityTestAccess().getNoteNoteParserRuleCall_6_2_0()); 
+                    	    
+                    pushFollow(FollowSets000.FOLLOW_8);
+                    lv_note_14_0=ruleNote();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getSecurityTestRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"note",
+                            		lv_note_14_0, 
+                            		"edu.udea.vulnfinder.gram.SecLanguage.Note");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+                    otherlv_15=(Token)match(input,14,FollowSets000.FOLLOW_8); 
+
+                        	newLeafNode(otherlv_15, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_16=(Token)match(input,14,FollowSets000.FOLLOW_2); 
+
+                	newLeafNode(otherlv_16, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7());
                 
 
             }
@@ -376,8 +446,123 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSecurityTest"
 
 
+    // $ANTLR start "entryRuleNote"
+    // InternalSecLanguage.g:215:1: entryRuleNote returns [EObject current=null] : iv_ruleNote= ruleNote EOF ;
+    public final EObject entryRuleNote() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNote = null;
+
+
+        try {
+            // InternalSecLanguage.g:216:2: (iv_ruleNote= ruleNote EOF )
+            // InternalSecLanguage.g:217:2: iv_ruleNote= ruleNote EOF
+            {
+             newCompositeNode(grammarAccess.getNoteRule()); 
+            pushFollow(FollowSets000.FOLLOW_1);
+            iv_ruleNote=ruleNote();
+
+            state._fsp--;
+
+             current =iv_ruleNote; 
+            match(input,EOF,FollowSets000.FOLLOW_2); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNote"
+
+
+    // $ANTLR start "ruleNote"
+    // InternalSecLanguage.g:224:1: ruleNote returns [EObject current=null] : ( () ( (lv_noteText_1_0= ruleEString ) ) ) ;
+    public final EObject ruleNote() throws RecognitionException {
+        EObject current = null;
+
+        AntlrDatatypeRuleToken lv_noteText_1_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // InternalSecLanguage.g:227:28: ( ( () ( (lv_noteText_1_0= ruleEString ) ) ) )
+            // InternalSecLanguage.g:228:1: ( () ( (lv_noteText_1_0= ruleEString ) ) )
+            {
+            // InternalSecLanguage.g:228:1: ( () ( (lv_noteText_1_0= ruleEString ) ) )
+            // InternalSecLanguage.g:228:2: () ( (lv_noteText_1_0= ruleEString ) )
+            {
+            // InternalSecLanguage.g:228:2: ()
+            // InternalSecLanguage.g:229:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getNoteAccess().getNoteAction_0(),
+                        current);
+                
+
+            }
+
+            // InternalSecLanguage.g:234:2: ( (lv_noteText_1_0= ruleEString ) )
+            // InternalSecLanguage.g:235:1: (lv_noteText_1_0= ruleEString )
+            {
+            // InternalSecLanguage.g:235:1: (lv_noteText_1_0= ruleEString )
+            // InternalSecLanguage.g:236:3: lv_noteText_1_0= ruleEString
+            {
+             
+            	        newCompositeNode(grammarAccess.getNoteAccess().getNoteTextEStringParserRuleCall_1_0()); 
+            	    
+            pushFollow(FollowSets000.FOLLOW_2);
+            lv_noteText_1_0=ruleEString();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getNoteRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"noteText",
+                    		lv_noteText_1_0, 
+                    		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNote"
+
+
     // $ANTLR start "entryRuleTargetOfEvaluation"
-    // InternalSecLanguage.g:185:1: entryRuleTargetOfEvaluation returns [EObject current=null] : iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF ;
+    // InternalSecLanguage.g:260:1: entryRuleTargetOfEvaluation returns [EObject current=null] : iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF ;
     public final EObject entryRuleTargetOfEvaluation() throws RecognitionException {
         EObject current = null;
 
@@ -385,8 +570,8 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSecLanguage.g:186:2: (iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF )
-            // InternalSecLanguage.g:187:2: iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF
+            // InternalSecLanguage.g:261:2: (iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF )
+            // InternalSecLanguage.g:262:2: iv_ruleTargetOfEvaluation= ruleTargetOfEvaluation EOF
             {
              newCompositeNode(grammarAccess.getTargetOfEvaluationRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -413,7 +598,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTargetOfEvaluation"
-    // InternalSecLanguage.g:194:1: ruleTargetOfEvaluation returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' ) ;
+    // InternalSecLanguage.g:269:1: ruleTargetOfEvaluation returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' ) ;
     public final EObject ruleTargetOfEvaluation() throws RecognitionException {
         EObject current = null;
 
@@ -428,14 +613,14 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:197:28: ( ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' ) )
-            // InternalSecLanguage.g:198:1: ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' )
+            // InternalSecLanguage.g:272:28: ( ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' ) )
+            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' )
             {
-            // InternalSecLanguage.g:198:1: ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' )
-            // InternalSecLanguage.g:198:2: () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')'
+            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')' )
+            // InternalSecLanguage.g:273:2: () otherlv_1= '(' (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* ) otherlv_5= ')'
             {
-            // InternalSecLanguage.g:198:2: ()
-            // InternalSecLanguage.g:199:5: 
+            // InternalSecLanguage.g:273:2: ()
+            // InternalSecLanguage.g:274:5: 
             {
 
                     current = forceCreateModelElement(
@@ -445,22 +630,22 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_10); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_11); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getTargetOfEvaluationAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:208:1: (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* )
-            // InternalSecLanguage.g:208:3: otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )*
+            // InternalSecLanguage.g:283:1: (otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )* )
+            // InternalSecLanguage.g:283:3: otherlv_2= 'toe' ( (lv_domain_3_0= ruleEString ) ) ( (lv_components_4_0= ruleWebComponent ) )*
             {
-            otherlv_2=(Token)match(input,16,FollowSets000.FOLLOW_4); 
+            otherlv_2=(Token)match(input,17,FollowSets000.FOLLOW_4); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getTargetOfEvaluationAccess().getToeKeyword_2_0());
                 
-            // InternalSecLanguage.g:212:1: ( (lv_domain_3_0= ruleEString ) )
-            // InternalSecLanguage.g:213:1: (lv_domain_3_0= ruleEString )
+            // InternalSecLanguage.g:287:1: ( (lv_domain_3_0= ruleEString ) )
+            // InternalSecLanguage.g:288:1: (lv_domain_3_0= ruleEString )
             {
-            // InternalSecLanguage.g:213:1: (lv_domain_3_0= ruleEString )
-            // InternalSecLanguage.g:214:3: lv_domain_3_0= ruleEString
+            // InternalSecLanguage.g:288:1: (lv_domain_3_0= ruleEString )
+            // InternalSecLanguage.g:289:3: lv_domain_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getTargetOfEvaluationAccess().getDomainEStringParserRuleCall_2_1_0()); 
@@ -487,23 +672,23 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:230:2: ( (lv_components_4_0= ruleWebComponent ) )*
-            loop4:
+            // InternalSecLanguage.g:305:2: ( (lv_components_4_0= ruleWebComponent ) )*
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA4_0==11) ) {
-                    alt4=1;
+                if ( (LA5_0==11) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
-            	    // InternalSecLanguage.g:231:1: (lv_components_4_0= ruleWebComponent )
+            	    // InternalSecLanguage.g:306:1: (lv_components_4_0= ruleWebComponent )
             	    {
-            	    // InternalSecLanguage.g:231:1: (lv_components_4_0= ruleWebComponent )
-            	    // InternalSecLanguage.g:232:3: lv_components_4_0= ruleWebComponent
+            	    // InternalSecLanguage.g:306:1: (lv_components_4_0= ruleWebComponent )
+            	    // InternalSecLanguage.g:307:3: lv_components_4_0= ruleWebComponent
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getTargetOfEvaluationAccess().getComponentsWebComponentParserRuleCall_2_2_0()); 
@@ -532,7 +717,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop5;
                 }
             } while (true);
 
@@ -564,7 +749,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttack"
-    // InternalSecLanguage.g:260:1: entryRuleAttack returns [EObject current=null] : iv_ruleAttack= ruleAttack EOF ;
+    // InternalSecLanguage.g:335:1: entryRuleAttack returns [EObject current=null] : iv_ruleAttack= ruleAttack EOF ;
     public final EObject entryRuleAttack() throws RecognitionException {
         EObject current = null;
 
@@ -572,8 +757,8 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSecLanguage.g:261:2: (iv_ruleAttack= ruleAttack EOF )
-            // InternalSecLanguage.g:262:2: iv_ruleAttack= ruleAttack EOF
+            // InternalSecLanguage.g:336:2: (iv_ruleAttack= ruleAttack EOF )
+            // InternalSecLanguage.g:337:2: iv_ruleAttack= ruleAttack EOF
             {
              newCompositeNode(grammarAccess.getAttackRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -600,7 +785,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttack"
-    // InternalSecLanguage.g:269:1: ruleAttack returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) ;
+    // InternalSecLanguage.g:344:1: ruleAttack returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) ;
     public final EObject ruleAttack() throws RecognitionException {
         EObject current = null;
 
@@ -618,14 +803,14 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:272:28: ( ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) )
-            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
+            // InternalSecLanguage.g:347:28: ( ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' ) )
+            // InternalSecLanguage.g:348:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
             {
-            // InternalSecLanguage.g:273:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
-            // InternalSecLanguage.g:273:2: () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')'
+            // InternalSecLanguage.g:348:1: ( () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')' )
+            // InternalSecLanguage.g:348:2: () otherlv_1= '(' (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? ) otherlv_8= ')'
             {
-            // InternalSecLanguage.g:273:2: ()
-            // InternalSecLanguage.g:274:5: 
+            // InternalSecLanguage.g:348:2: ()
+            // InternalSecLanguage.g:349:5: 
             {
 
                     current = forceCreateModelElement(
@@ -635,27 +820,27 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_11); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_12); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getAttackAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:283:1: (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? )
-            // InternalSecLanguage.g:283:3: otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
+            // InternalSecLanguage.g:358:1: (otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )? )
+            // InternalSecLanguage.g:358:3: otherlv_2= 'attack' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
             {
-            otherlv_2=(Token)match(input,17,FollowSets000.FOLLOW_4); 
+            otherlv_2=(Token)match(input,18,FollowSets000.FOLLOW_4); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getAttackAccess().getAttackKeyword_2_0());
                 
-            // InternalSecLanguage.g:287:1: ( (lv_name_3_0= ruleEString ) )
-            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEString )
+            // InternalSecLanguage.g:362:1: ( (lv_name_3_0= ruleEString ) )
+            // InternalSecLanguage.g:363:1: (lv_name_3_0= ruleEString )
             {
-            // InternalSecLanguage.g:288:1: (lv_name_3_0= ruleEString )
-            // InternalSecLanguage.g:289:3: lv_name_3_0= ruleEString
+            // InternalSecLanguage.g:363:1: (lv_name_3_0= ruleEString )
+            // InternalSecLanguage.g:364:3: lv_name_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getAttackAccess().getNameEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_12);
+            pushFollow(FollowSets000.FOLLOW_13);
             lv_name_3_0=ruleEString();
 
             state._fsp--;
@@ -677,35 +862,35 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:305:2: (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalSecLanguage.g:380:2: (otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==18) ) {
-                alt5=1;
+            if ( (LA6_0==19) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalSecLanguage.g:305:4: otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}'
+                    // InternalSecLanguage.g:380:4: otherlv_4= '{' otherlv_5= ':level' ( (lv_severity_6_0= ruleESeverity ) ) otherlv_7= '}'
                     {
-                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_13); 
+                    otherlv_4=(Token)match(input,19,FollowSets000.FOLLOW_14); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getAttackAccess().getLeftCurlyBracketKeyword_2_2_0());
                         
-                    otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_14); 
+                    otherlv_5=(Token)match(input,20,FollowSets000.FOLLOW_15); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getAttackAccess().getLevelKeyword_2_2_1());
                         
-                    // InternalSecLanguage.g:313:1: ( (lv_severity_6_0= ruleESeverity ) )
-                    // InternalSecLanguage.g:314:1: (lv_severity_6_0= ruleESeverity )
+                    // InternalSecLanguage.g:388:1: ( (lv_severity_6_0= ruleESeverity ) )
+                    // InternalSecLanguage.g:389:1: (lv_severity_6_0= ruleESeverity )
                     {
-                    // InternalSecLanguage.g:314:1: (lv_severity_6_0= ruleESeverity )
-                    // InternalSecLanguage.g:315:3: lv_severity_6_0= ruleESeverity
+                    // InternalSecLanguage.g:389:1: (lv_severity_6_0= ruleESeverity )
+                    // InternalSecLanguage.g:390:3: lv_severity_6_0= ruleESeverity
                     {
                      
                     	        newCompositeNode(grammarAccess.getAttackAccess().getSeverityESeverityEnumRuleCall_2_2_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_15);
+                    pushFollow(FollowSets000.FOLLOW_16);
                     lv_severity_6_0=ruleESeverity();
 
                     state._fsp--;
@@ -727,7 +912,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,20,FollowSets000.FOLLOW_8); 
+                    otherlv_7=(Token)match(input,21,FollowSets000.FOLLOW_8); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getAttackAccess().getRightCurlyBracketKeyword_2_2_3());
                         
@@ -765,7 +950,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalSecLanguage.g:347:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalSecLanguage.g:422:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -773,8 +958,8 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSecLanguage.g:348:2: (iv_ruleEString= ruleEString EOF )
-            // InternalSecLanguage.g:349:2: iv_ruleEString= ruleEString EOF
+            // InternalSecLanguage.g:423:2: (iv_ruleEString= ruleEString EOF )
+            // InternalSecLanguage.g:424:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -801,7 +986,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalSecLanguage.g:356:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalSecLanguage.g:431:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -811,28 +996,28 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:359:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalSecLanguage.g:360:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalSecLanguage.g:434:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalSecLanguage.g:435:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalSecLanguage.g:360:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalSecLanguage.g:435:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_STRING) ) {
-                alt6=1;
+            if ( (LA7_0==RULE_STRING) ) {
+                alt7=1;
             }
-            else if ( (LA6_0==RULE_ID) ) {
-                alt6=2;
+            else if ( (LA7_0==RULE_ID) ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalSecLanguage.g:360:6: this_STRING_0= RULE_STRING
+                    // InternalSecLanguage.g:435:6: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_2); 
 
@@ -845,7 +1030,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSecLanguage.g:368:10: this_ID_1= RULE_ID
+                    // InternalSecLanguage.g:443:10: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_2); 
 
@@ -878,7 +1063,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWebComponent"
-    // InternalSecLanguage.g:383:1: entryRuleWebComponent returns [EObject current=null] : iv_ruleWebComponent= ruleWebComponent EOF ;
+    // InternalSecLanguage.g:458:1: entryRuleWebComponent returns [EObject current=null] : iv_ruleWebComponent= ruleWebComponent EOF ;
     public final EObject entryRuleWebComponent() throws RecognitionException {
         EObject current = null;
 
@@ -886,8 +1071,8 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSecLanguage.g:384:2: (iv_ruleWebComponent= ruleWebComponent EOF )
-            // InternalSecLanguage.g:385:2: iv_ruleWebComponent= ruleWebComponent EOF
+            // InternalSecLanguage.g:459:2: (iv_ruleWebComponent= ruleWebComponent EOF )
+            // InternalSecLanguage.g:460:2: iv_ruleWebComponent= ruleWebComponent EOF
             {
              newCompositeNode(grammarAccess.getWebComponentRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -914,7 +1099,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWebComponent"
-    // InternalSecLanguage.g:392:1: ruleWebComponent returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' ) ;
+    // InternalSecLanguage.g:467:1: ruleWebComponent returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' ) ;
     public final EObject ruleWebComponent() throws RecognitionException {
         EObject current = null;
 
@@ -934,14 +1119,14 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:395:28: ( ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' ) )
-            // InternalSecLanguage.g:396:1: ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' )
+            // InternalSecLanguage.g:470:28: ( ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' ) )
+            // InternalSecLanguage.g:471:1: ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' )
             {
-            // InternalSecLanguage.g:396:1: ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' )
-            // InternalSecLanguage.g:396:2: () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')'
+            // InternalSecLanguage.g:471:1: ( () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')' )
+            // InternalSecLanguage.g:471:2: () otherlv_1= '(' (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* ) otherlv_11= ')'
             {
-            // InternalSecLanguage.g:396:2: ()
-            // InternalSecLanguage.g:397:5: 
+            // InternalSecLanguage.g:471:2: ()
+            // InternalSecLanguage.g:472:5: 
             {
 
                     current = forceCreateModelElement(
@@ -951,27 +1136,27 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_16); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_17); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getWebComponentAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:406:1: (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* )
-            // InternalSecLanguage.g:406:3: otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )*
+            // InternalSecLanguage.g:481:1: (otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )* )
+            // InternalSecLanguage.g:481:3: otherlv_2= 'page' ( (lv_path_3_0= ruleEString ) ) (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )? ( (lv_inputs_10_0= ruleInput ) )*
             {
-            otherlv_2=(Token)match(input,21,FollowSets000.FOLLOW_4); 
+            otherlv_2=(Token)match(input,22,FollowSets000.FOLLOW_4); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWebComponentAccess().getPageKeyword_2_0());
                 
-            // InternalSecLanguage.g:410:1: ( (lv_path_3_0= ruleEString ) )
-            // InternalSecLanguage.g:411:1: (lv_path_3_0= ruleEString )
+            // InternalSecLanguage.g:485:1: ( (lv_path_3_0= ruleEString ) )
+            // InternalSecLanguage.g:486:1: (lv_path_3_0= ruleEString )
             {
-            // InternalSecLanguage.g:411:1: (lv_path_3_0= ruleEString )
-            // InternalSecLanguage.g:412:3: lv_path_3_0= ruleEString
+            // InternalSecLanguage.g:486:1: (lv_path_3_0= ruleEString )
+            // InternalSecLanguage.g:487:3: lv_path_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getWebComponentAccess().getPathEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_17);
+            pushFollow(FollowSets000.FOLLOW_18);
             lv_path_3_0=ruleEString();
 
             state._fsp--;
@@ -993,48 +1178,48 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:428:2: (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalSecLanguage.g:503:2: (otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}' )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==18) ) {
-                alt8=1;
+            if ( (LA9_0==19) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalSecLanguage.g:428:4: otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}'
+                    // InternalSecLanguage.g:503:4: otherlv_4= '{' otherlv_5= ':target' otherlv_6= '[' ( ruleEString )* otherlv_8= ']' otherlv_9= '}'
                     {
-                    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_18); 
+                    otherlv_4=(Token)match(input,19,FollowSets000.FOLLOW_19); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getWebComponentAccess().getLeftCurlyBracketKeyword_2_2_0());
                         
-                    otherlv_5=(Token)match(input,22,FollowSets000.FOLLOW_19); 
+                    otherlv_5=(Token)match(input,23,FollowSets000.FOLLOW_20); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWebComponentAccess().getTargetKeyword_2_2_1());
                         
-                    otherlv_6=(Token)match(input,23,FollowSets000.FOLLOW_20); 
+                    otherlv_6=(Token)match(input,24,FollowSets000.FOLLOW_21); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getWebComponentAccess().getLeftSquareBracketKeyword_2_2_2());
                         
-                    // InternalSecLanguage.g:440:1: ( ruleEString )*
-                    loop7:
+                    // InternalSecLanguage.g:515:1: ( ruleEString )*
+                    loop8:
                     do {
-                        int alt7=2;
-                        int LA7_0 = input.LA(1);
+                        int alt8=2;
+                        int LA8_0 = input.LA(1);
 
-                        if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)) ) {
-                            alt7=1;
+                        if ( ((LA8_0>=RULE_STRING && LA8_0<=RULE_ID)) ) {
+                            alt8=1;
                         }
 
 
-                        switch (alt7) {
+                        switch (alt8) {
                     	case 1 :
-                    	    // InternalSecLanguage.g:441:5: ruleEString
+                    	    // InternalSecLanguage.g:516:5: ruleEString
                     	    {
                     	     
                     	            newCompositeNode(grammarAccess.getWebComponentAccess().getEStringParserRuleCall_2_2_3()); 
                     	        
-                    	    pushFollow(FollowSets000.FOLLOW_20);
+                    	    pushFollow(FollowSets000.FOLLOW_21);
                     	    ruleEString();
 
                     	    state._fsp--;
@@ -1047,15 +1232,15 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop7;
+                    	    break loop8;
                         }
                     } while (true);
 
-                    otherlv_8=(Token)match(input,24,FollowSets000.FOLLOW_15); 
+                    otherlv_8=(Token)match(input,25,FollowSets000.FOLLOW_16); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getWebComponentAccess().getRightSquareBracketKeyword_2_2_4());
                         
-                    otherlv_9=(Token)match(input,20,FollowSets000.FOLLOW_5); 
+                    otherlv_9=(Token)match(input,21,FollowSets000.FOLLOW_5); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getWebComponentAccess().getRightCurlyBracketKeyword_2_2_5());
                         
@@ -1065,23 +1250,23 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:456:3: ( (lv_inputs_10_0= ruleInput ) )*
-            loop9:
+            // InternalSecLanguage.g:531:3: ( (lv_inputs_10_0= ruleInput ) )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==11) ) {
-                    alt9=1;
+                if ( (LA10_0==11) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalSecLanguage.g:457:1: (lv_inputs_10_0= ruleInput )
+            	    // InternalSecLanguage.g:532:1: (lv_inputs_10_0= ruleInput )
             	    {
-            	    // InternalSecLanguage.g:457:1: (lv_inputs_10_0= ruleInput )
-            	    // InternalSecLanguage.g:458:3: lv_inputs_10_0= ruleInput
+            	    // InternalSecLanguage.g:532:1: (lv_inputs_10_0= ruleInput )
+            	    // InternalSecLanguage.g:533:3: lv_inputs_10_0= ruleInput
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getWebComponentAccess().getInputsInputParserRuleCall_2_3_0()); 
@@ -1110,7 +1295,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -1142,7 +1327,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInput"
-    // InternalSecLanguage.g:486:1: entryRuleInput returns [EObject current=null] : iv_ruleInput= ruleInput EOF ;
+    // InternalSecLanguage.g:561:1: entryRuleInput returns [EObject current=null] : iv_ruleInput= ruleInput EOF ;
     public final EObject entryRuleInput() throws RecognitionException {
         EObject current = null;
 
@@ -1150,8 +1335,8 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSecLanguage.g:487:2: (iv_ruleInput= ruleInput EOF )
-            // InternalSecLanguage.g:488:2: iv_ruleInput= ruleInput EOF
+            // InternalSecLanguage.g:562:2: (iv_ruleInput= ruleInput EOF )
+            // InternalSecLanguage.g:563:2: iv_ruleInput= ruleInput EOF
             {
              newCompositeNode(grammarAccess.getInputRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -1178,7 +1363,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInput"
-    // InternalSecLanguage.g:495:1: ruleInput returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) ;
+    // InternalSecLanguage.g:570:1: ruleInput returns [EObject current=null] : ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) ;
     public final EObject ruleInput() throws RecognitionException {
         EObject current = null;
 
@@ -1193,14 +1378,14 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalSecLanguage.g:498:28: ( ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) )
-            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
+            // InternalSecLanguage.g:573:28: ( ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' ) )
+            // InternalSecLanguage.g:574:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
             {
-            // InternalSecLanguage.g:499:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
-            // InternalSecLanguage.g:499:2: () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')'
+            // InternalSecLanguage.g:574:1: ( () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')' )
+            // InternalSecLanguage.g:574:2: () otherlv_1= '(' (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? ) otherlv_7= ')'
             {
-            // InternalSecLanguage.g:499:2: ()
-            // InternalSecLanguage.g:500:5: 
+            // InternalSecLanguage.g:574:2: ()
+            // InternalSecLanguage.g:575:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1210,27 +1395,27 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_21); 
+            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_22); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getInputAccess().getLeftParenthesisKeyword_1());
                 
-            // InternalSecLanguage.g:509:1: (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? )
-            // InternalSecLanguage.g:509:3: otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
+            // InternalSecLanguage.g:584:1: (otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )? )
+            // InternalSecLanguage.g:584:3: otherlv_2= 'field' ( (lv_name_3_0= ruleEString ) ) (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
             {
-            otherlv_2=(Token)match(input,25,FollowSets000.FOLLOW_4); 
+            otherlv_2=(Token)match(input,26,FollowSets000.FOLLOW_4); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getInputAccess().getFieldKeyword_2_0());
                 
-            // InternalSecLanguage.g:513:1: ( (lv_name_3_0= ruleEString ) )
-            // InternalSecLanguage.g:514:1: (lv_name_3_0= ruleEString )
+            // InternalSecLanguage.g:588:1: ( (lv_name_3_0= ruleEString ) )
+            // InternalSecLanguage.g:589:1: (lv_name_3_0= ruleEString )
             {
-            // InternalSecLanguage.g:514:1: (lv_name_3_0= ruleEString )
-            // InternalSecLanguage.g:515:3: lv_name_3_0= ruleEString
+            // InternalSecLanguage.g:589:1: (lv_name_3_0= ruleEString )
+            // InternalSecLanguage.g:590:3: lv_name_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getInputAccess().getNameEStringParserRuleCall_2_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_22);
+            pushFollow(FollowSets000.FOLLOW_23);
             lv_name_3_0=ruleEString();
 
             state._fsp--;
@@ -1252,38 +1437,38 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSecLanguage.g:531:2: (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalSecLanguage.g:606:2: (otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==23) ) {
-                alt11=1;
+            if ( (LA12_0==24) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalSecLanguage.g:531:4: otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']'
+                    // InternalSecLanguage.g:606:4: otherlv_4= '[' ( ( ruleEString ) )* otherlv_6= ']'
                     {
-                    otherlv_4=(Token)match(input,23,FollowSets000.FOLLOW_20); 
+                    otherlv_4=(Token)match(input,24,FollowSets000.FOLLOW_21); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0());
                         
-                    // InternalSecLanguage.g:535:1: ( ( ruleEString ) )*
-                    loop10:
+                    // InternalSecLanguage.g:610:1: ( ( ruleEString ) )*
+                    loop11:
                     do {
-                        int alt10=2;
-                        int LA10_0 = input.LA(1);
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
 
-                        if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)) ) {
-                            alt10=1;
+                        if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_ID)) ) {
+                            alt11=1;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt11) {
                     	case 1 :
-                    	    // InternalSecLanguage.g:536:1: ( ruleEString )
+                    	    // InternalSecLanguage.g:611:1: ( ruleEString )
                     	    {
-                    	    // InternalSecLanguage.g:536:1: ( ruleEString )
-                    	    // InternalSecLanguage.g:537:3: ruleEString
+                    	    // InternalSecLanguage.g:611:1: ( ruleEString )
+                    	    // InternalSecLanguage.g:612:3: ruleEString
                     	    {
 
                     	    			if (current==null) {
@@ -1293,7 +1478,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getInputAccess().getAttacksAttackCrossReference_2_2_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_20);
+                    	    pushFollow(FollowSets000.FOLLOW_21);
                     	    ruleEString();
 
                     	    state._fsp--;
@@ -1309,11 +1494,11 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop11;
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,24,FollowSets000.FOLLOW_8); 
+                    otherlv_6=(Token)match(input,25,FollowSets000.FOLLOW_8); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2());
                         
@@ -1351,7 +1536,7 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleESeverity"
-    // InternalSecLanguage.g:566:1: ruleESeverity returns [Enumerator current=null] : ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) ;
+    // InternalSecLanguage.g:641:1: ruleESeverity returns [Enumerator current=null] : ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) ;
     public final Enumerator ruleESeverity() throws RecognitionException {
         Enumerator current = null;
 
@@ -1361,42 +1546,42 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // InternalSecLanguage.g:568:28: ( ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) )
-            // InternalSecLanguage.g:569:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
+            // InternalSecLanguage.g:643:28: ( ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) ) )
+            // InternalSecLanguage.g:644:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
             {
-            // InternalSecLanguage.g:569:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
-            int alt12=3;
+            // InternalSecLanguage.g:644:1: ( (enumLiteral_0= 'Low' ) | (enumLiteral_1= 'Medium' ) | (enumLiteral_2= 'High' ) )
+            int alt13=3;
             switch ( input.LA(1) ) {
-            case 26:
-                {
-                alt12=1;
-                }
-                break;
             case 27:
                 {
-                alt12=2;
+                alt13=1;
                 }
                 break;
             case 28:
                 {
-                alt12=3;
+                alt13=2;
+                }
+                break;
+            case 29:
+                {
+                alt13=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // InternalSecLanguage.g:569:2: (enumLiteral_0= 'Low' )
+                    // InternalSecLanguage.g:644:2: (enumLiteral_0= 'Low' )
                     {
-                    // InternalSecLanguage.g:569:2: (enumLiteral_0= 'Low' )
-                    // InternalSecLanguage.g:569:4: enumLiteral_0= 'Low'
+                    // InternalSecLanguage.g:644:2: (enumLiteral_0= 'Low' )
+                    // InternalSecLanguage.g:644:4: enumLiteral_0= 'Low'
                     {
-                    enumLiteral_0=(Token)match(input,26,FollowSets000.FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,27,FollowSets000.FOLLOW_2); 
 
                             current = grammarAccess.getESeverityAccess().getLowEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getESeverityAccess().getLowEnumLiteralDeclaration_0()); 
@@ -1408,12 +1593,12 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSecLanguage.g:575:6: (enumLiteral_1= 'Medium' )
+                    // InternalSecLanguage.g:650:6: (enumLiteral_1= 'Medium' )
                     {
-                    // InternalSecLanguage.g:575:6: (enumLiteral_1= 'Medium' )
-                    // InternalSecLanguage.g:575:8: enumLiteral_1= 'Medium'
+                    // InternalSecLanguage.g:650:6: (enumLiteral_1= 'Medium' )
+                    // InternalSecLanguage.g:650:8: enumLiteral_1= 'Medium'
                     {
-                    enumLiteral_1=(Token)match(input,27,FollowSets000.FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,28,FollowSets000.FOLLOW_2); 
 
                             current = grammarAccess.getESeverityAccess().getMediumEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getESeverityAccess().getMediumEnumLiteralDeclaration_1()); 
@@ -1425,12 +1610,12 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSecLanguage.g:581:6: (enumLiteral_2= 'High' )
+                    // InternalSecLanguage.g:656:6: (enumLiteral_2= 'High' )
                     {
-                    // InternalSecLanguage.g:581:6: (enumLiteral_2= 'High' )
-                    // InternalSecLanguage.g:581:8: enumLiteral_2= 'High'
+                    // InternalSecLanguage.g:656:6: (enumLiteral_2= 'High' )
+                    // InternalSecLanguage.g:656:8: enumLiteral_2= 'High'
                     {
-                    enumLiteral_2=(Token)match(input,28,FollowSets000.FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,29,FollowSets000.FOLLOW_2); 
 
                             current = grammarAccess.getESeverityAccess().getHighEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getESeverityAccess().getHighEnumLiteralDeclaration_2()); 
@@ -1478,17 +1663,18 @@ public class InternalSecLanguageParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
         public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010000L});
         public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000044000L});
-        public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000001C000000L});
-        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100000L});
+        public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000084000L});
+        public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000038000000L});
         public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000044800L});
-        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
+        public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400000L});
+        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000084800L});
         public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000800000L});
-        public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001000030L});
-        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000804000L});
+        public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000030L});
+        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000004000000L});
+        public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000001004000L});
     }
 
 

@@ -22,13 +22,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.google.gson.internal.Excluder;
+
+import edu.udea.vulnfinder.xmigenerator.generator.Main;
+
 /**
  *
  * @author raven
  */
 public class WebComponent {
 
-    private static final Pattern patPag = Pattern.compile("https?://[^/]+/?([^\\?]*)\\??.*");
+    //private static final Pattern patPag = Pattern.compile("https?://[^/]+/?([^\\?]*)\\??.*");
+	private static final Pattern patPag = Pattern.compile("https?:\\/\\/[^/]+\\/?(.*)");
     private String ruta;
     private List<Input> entradas = Collections.synchronizedList(new ArrayList<Input>());
     private boolean spidered;
@@ -88,13 +93,23 @@ public class WebComponent {
     
     public static String extractPagina(String url){
         Matcher m = patPag.matcher(url);
+        String res;
         m.matches();
-        return m.group(1);
+        res = "/"+m.group(1).replaceAll("&", "&amp;");
+        return res;
     }
     
     public static boolean revisaExtensiones(String pag){
-        return !(pag.endsWith("pdf") || pag.endsWith("png") || pag.endsWith("jpeg") || pag.endsWith("doc")
-                || pag.endsWith("gif") || pag.endsWith("jpg") || pag.endsWith("css"));
+    	if(pag == null){
+    		return false;
+    	}
+    	
+    	for(String s : Main.getExcludedExtensionsInSpidering().split("|")){
+    		if(pag.endsWith(s)){
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
 	@Override

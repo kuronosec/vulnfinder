@@ -43,6 +43,8 @@ public class SecLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSecurityTestAccess().getGroup(), "rule__SecurityTest__Group__0");
 					put(grammarAccess.getSecurityTestAccess().getGroup_4(), "rule__SecurityTest__Group_4__0");
 					put(grammarAccess.getSecurityTestAccess().getGroup_5(), "rule__SecurityTest__Group_5__0");
+					put(grammarAccess.getSecurityTestAccess().getGroup_6(), "rule__SecurityTest__Group_6__0");
+					put(grammarAccess.getNoteAccess().getGroup(), "rule__Note__Group__0");
 					put(grammarAccess.getTargetOfEvaluationAccess().getGroup(), "rule__TargetOfEvaluation__Group__0");
 					put(grammarAccess.getTargetOfEvaluationAccess().getGroup_2(), "rule__TargetOfEvaluation__Group_2__0");
 					put(grammarAccess.getAttackAccess().getGroup(), "rule__Attack__Group__0");
@@ -57,6 +59,8 @@ public class SecLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSecurityTestAccess().getIdAssignment_3(), "rule__SecurityTest__IdAssignment_3");
 					put(grammarAccess.getSecurityTestAccess().getScopeAssignment_4_2(), "rule__SecurityTest__ScopeAssignment_4_2");
 					put(grammarAccess.getSecurityTestAccess().getPossibleAttacksAssignment_5_2(), "rule__SecurityTest__PossibleAttacksAssignment_5_2");
+					put(grammarAccess.getSecurityTestAccess().getNoteAssignment_6_2(), "rule__SecurityTest__NoteAssignment_6_2");
+					put(grammarAccess.getNoteAccess().getNoteTextAssignment_1(), "rule__Note__NoteTextAssignment_1");
 					put(grammarAccess.getTargetOfEvaluationAccess().getDomainAssignment_2_1(), "rule__TargetOfEvaluation__DomainAssignment_2_1");
 					put(grammarAccess.getTargetOfEvaluationAccess().getComponentsAssignment_2_2(), "rule__TargetOfEvaluation__ComponentsAssignment_2_2");
 					put(grammarAccess.getAttackAccess().getNameAssignment_2_1(), "rule__Attack__NameAssignment_2_1");

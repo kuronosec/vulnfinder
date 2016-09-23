@@ -24,6 +24,7 @@
 		(attack [attack.name/] { :level [attack.severity/] } )
 	[/for]
 	)
+	
 )
 [/file]
 [/template]

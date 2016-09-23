@@ -3,16 +3,18 @@
  */
 package edu.udea.vulnfinder.gram;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Module;
+
 import org.eclipse.xtext.junit4.GlobalRegistries;
 import org.eclipse.xtext.junit4.GlobalRegistries.GlobalStateMemento;
 import org.eclipse.xtext.junit4.IInjectorProvider;
 import org.eclipse.xtext.junit4.IRegistryConfigurator;
 
-import com.google.inject.Injector;
-
 public class SecLanguageInjectorProvider implements IInjectorProvider, IRegistryConfigurator {
-	
-    protected GlobalStateMemento stateBeforeInjectorCreation;
+
+	protected GlobalStateMemento stateBeforeInjectorCreation;
 	protected GlobalStateMemento stateAfterInjectorCreation;
 	protected Injector injector;
 
@@ -30,9 +32,26 @@ public class SecLanguageInjectorProvider implements IInjectorProvider, IRegistry
 		}
 		return injector;
 	}
-	
+
 	protected Injector internalCreateInjector() {
-	    return new SecLanguageStandaloneSetup().createInjectorAndDoEMFRegistration();
+		return new SecLanguageStandaloneSetup() {
+			@Override
+			public Injector createInjector() {
+				return Guice.createInjector((Module)createRuntimeModule());
+			}
+		}.createInjectorAndDoEMFRegistration();
+	}
+
+	protected SecLanguageRuntimeModule createRuntimeModule() {
+		// make it work also with Maven/Tycho and OSGI
+		// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=493672
+		return new SecLanguageRuntimeModule() {
+			@Override
+			public ClassLoader bindClassLoaderToInstance() {
+				return SecLanguageInjectorProvider.class
+						.getClassLoader();
+			}
+		};
 	}
 
 	@Override

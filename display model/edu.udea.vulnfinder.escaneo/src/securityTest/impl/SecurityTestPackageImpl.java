@@ -14,6 +14,7 @@ import securityTest.Attack;
 import securityTest.EAttackMethod;
 import securityTest.ESeverity;
 import securityTest.Input;
+import securityTest.Note;
 import securityTest.SecurityTestFactory;
 import securityTest.SecurityTestPackage;
 import securityTest.TargetOfEvaluation;
@@ -61,6 +62,13 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 * @generated
 	 */
 	private EClass attackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass noteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +197,15 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 */
 	public EAttribute getTest_Name() {
 		return (EAttribute)testEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTest_Note() {
+		return (EReference)testEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -340,6 +357,24 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNote() {
+		return noteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNote_NoteText() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getESeverity() {
 		return eSeverityEEnum;
 	}
@@ -387,6 +422,7 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		createEAttribute(testEClass, TEST__ID);
 		createEAttribute(testEClass, TEST__DATE);
 		createEAttribute(testEClass, TEST__NAME);
+		createEReference(testEClass, TEST__NOTE);
 
 		targetOfEvaluationEClass = createEClass(TARGET_OF_EVALUATION);
 		createEAttribute(targetOfEvaluationEClass, TARGET_OF_EVALUATION__DOMAIN);
@@ -407,6 +443,9 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		attackEClass = createEClass(ATTACK);
 		createEAttribute(attackEClass, ATTACK__NAME);
 		createEAttribute(attackEClass, ATTACK__SEVERITY);
+
+		noteEClass = createEClass(NOTE);
+		createEAttribute(noteEClass, NOTE__NOTE_TEXT);
 
 		// Create enums
 		eSeverityEEnum = createEEnum(ESEVERITY);
@@ -449,6 +488,7 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		initEAttribute(getTest_Id(), ecorePackage.getEString(), "id", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTest_Note(), this.getNote(), null, "note", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetOfEvaluationEClass, TargetOfEvaluation.class, "TargetOfEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTargetOfEvaluation_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, TargetOfEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -469,6 +509,9 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		initEClass(attackEClass, Attack.class, "Attack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttack_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttack_Severity(), this.getESeverity(), "severity", null, 0, 1, Attack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNote_NoteText(), ecorePackage.getEString(), "noteText", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(eSeverityEEnum, ESeverity.class, "ESeverity");

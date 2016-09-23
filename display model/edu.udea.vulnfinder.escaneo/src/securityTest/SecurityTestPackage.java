@@ -113,13 +113,22 @@ public interface SecurityTestPackage extends EPackage {
 	int TEST__NAME = 4;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__NOTE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Test</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_FEATURE_COUNT = 5;
+	int TEST_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Test</em>' class.
@@ -351,6 +360,43 @@ public interface SecurityTestPackage extends EPackage {
 	int ATTACK_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link securityTest.impl.NoteImpl <em>Note</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see securityTest.impl.NoteImpl
+	 * @see securityTest.impl.SecurityTestPackageImpl#getNote()
+	 * @generated
+	 */
+	int NOTE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Note Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__NOTE_TEXT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Note</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Note</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link securityTest.ESeverity <em>ESeverity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,7 +404,7 @@ public interface SecurityTestPackage extends EPackage {
 	 * @see securityTest.impl.SecurityTestPackageImpl#getESeverity()
 	 * @generated
 	 */
-	int ESEVERITY = 5;
+	int ESEVERITY = 6;
 
 	/**
 	 * The meta object id for the '{@link securityTest.EAttackMethod <em>EAttack Method</em>}' enum.
@@ -368,7 +414,7 @@ public interface SecurityTestPackage extends EPackage {
 	 * @see securityTest.impl.SecurityTestPackageImpl#getEAttackMethod()
 	 * @generated
 	 */
-	int EATTACK_METHOD = 6;
+	int EATTACK_METHOD = 7;
 
 
 	/**
@@ -435,6 +481,17 @@ public interface SecurityTestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTest_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link securityTest.Test#getNote <em>Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Note</em>'.
+	 * @see securityTest.Test#getNote()
+	 * @see #getTest()
+	 * @generated
+	 */
+	EReference getTest_Note();
 
 	/**
 	 * Returns the meta object for class '{@link securityTest.TargetOfEvaluation <em>Target Of Evaluation</em>}'.
@@ -609,6 +666,27 @@ public interface SecurityTestPackage extends EPackage {
 	EAttribute getAttack_Severity();
 
 	/**
+	 * Returns the meta object for class '{@link securityTest.Note <em>Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Note</em>'.
+	 * @see securityTest.Note
+	 * @generated
+	 */
+	EClass getNote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.Note#getNoteText <em>Note Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Note Text</em>'.
+	 * @see securityTest.Note#getNoteText()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_NoteText();
+
+	/**
 	 * Returns the meta object for enum '{@link securityTest.ESeverity <em>ESeverity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -700,6 +778,14 @@ public interface SecurityTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEST__NAME = eINSTANCE.getTest_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Note</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST__NOTE = eINSTANCE.getTest_Note();
 
 		/**
 		 * The meta object literal for the '{@link securityTest.impl.TargetOfEvaluationImpl <em>Target Of Evaluation</em>}' class.
@@ -836,6 +922,24 @@ public interface SecurityTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTACK__SEVERITY = eINSTANCE.getAttack_Severity();
+
+		/**
+		 * The meta object literal for the '{@link securityTest.impl.NoteImpl <em>Note</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see securityTest.impl.NoteImpl
+		 * @see securityTest.impl.SecurityTestPackageImpl#getNote()
+		 * @generated
+		 */
+		EClass NOTE = eINSTANCE.getNote();
+
+		/**
+		 * The meta object literal for the '<em><b>Note Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__NOTE_TEXT = eINSTANCE.getNote_NoteText();
 
 		/**
 		 * The meta object literal for the '{@link securityTest.ESeverity <em>ESeverity</em>}' enum.

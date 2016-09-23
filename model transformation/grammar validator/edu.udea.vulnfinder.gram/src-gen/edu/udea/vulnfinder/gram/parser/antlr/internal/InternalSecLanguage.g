@@ -170,11 +170,86 @@ ruleSecurityTest returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_5_3());
     }
-)?	otherlv_12=')' 
+)?(	otherlv_12='(' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6());
+    	newLeafNode(otherlv_12, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0());
+    }
+	otherlv_13='notes' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSecurityTestAccess().getNoteNoteParserRuleCall_6_2_0()); 
+	    }
+		lv_note_14_0=ruleNote		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
+	        }
+       		set(
+       			$current, 
+       			"note",
+        		lv_note_14_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.Note");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_15=')' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3());
+    }
+)?	otherlv_16=')' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleNote
+entryRuleNote returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getNoteRule()); }
+	 iv_ruleNote=ruleNote 
+	 { $current=$iv_ruleNote.current; } 
+	 EOF 
+;
+
+// Rule Note
+ruleNote returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getNoteAccess().getNoteAction_0(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getNoteAccess().getNoteTextEStringParserRuleCall_1_0()); 
+	    }
+		lv_noteText_1_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getNoteRule());
+	        }
+       		set(
+       			$current, 
+       			"noteText",
+        		lv_noteText_1_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 

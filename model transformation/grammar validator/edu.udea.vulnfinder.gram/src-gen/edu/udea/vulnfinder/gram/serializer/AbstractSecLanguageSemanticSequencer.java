@@ -12,9 +12,12 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import securityTest.Attack;
 import securityTest.Input;
+import securityTest.Note;
 import securityTest.SecurityTestPackage;
 import securityTest.TargetOfEvaluation;
 import securityTest.Test;
@@ -39,6 +42,9 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 				return; 
 			case SecurityTestPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case SecurityTestPackage.NOTE:
+				sequence_Note(context, (Note) semanticObject); 
 				return; 
 			case SecurityTestPackage.TARGET_OF_EVALUATION:
 				sequence_TargetOfEvaluation(context, (TargetOfEvaluation) semanticObject); 
@@ -80,10 +86,28 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Contexts:
+	 *     Note returns Note
+	 *
+	 * Constraint:
+	 *     noteText=EString
+	 */
+	protected void sequence_Note(ISerializationContext context, Note semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SecurityTestPackage.Literals.NOTE__NOTE_TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SecurityTestPackage.Literals.NOTE__NOTE_TEXT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNoteAccess().getNoteTextEStringParserRuleCall_1_0(), semanticObject.getNoteText());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SecurityTest returns Test
 	 *
 	 * Constraint:
-	 *     (id=EString scope=TargetOfEvaluation? possibleAttacks+=Attack*)
+	 *     (id=EString scope=TargetOfEvaluation? possibleAttacks+=Attack* note=Note?)
 	 */
 	protected void sequence_SecurityTest(ISerializationContext context, Test semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

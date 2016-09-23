@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import securityTest.Attack;
+import securityTest.Note;
 import securityTest.SecurityTestPackage;
 import securityTest.TargetOfEvaluation;
 import securityTest.Test;
@@ -37,6 +38,7 @@ import securityTest.Test;
  *   <li>{@link securityTest.impl.TestImpl#getId <em>Id</em>}</li>
  *   <li>{@link securityTest.impl.TestImpl#getDate <em>Date</em>}</li>
  *   <li>{@link securityTest.impl.TestImpl#getName <em>Name</em>}</li>
+ *   <li>{@link securityTest.impl.TestImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,6 +123,16 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected Note note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +276,49 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Note getNote() {
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNote(Note newNote, NotificationChain msgs) {
+		Note oldNote = note;
+		note = newNote;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SecurityTestPackage.TEST__NOTE, oldNote, newNote);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNote(Note newNote) {
+		if (newNote != note) {
+			NotificationChain msgs = null;
+			if (note != null)
+				msgs = ((InternalEObject)note).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SecurityTestPackage.TEST__NOTE, null, msgs);
+			if (newNote != null)
+				msgs = ((InternalEObject)newNote).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SecurityTestPackage.TEST__NOTE, null, msgs);
+			msgs = basicSetNote(newNote, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityTestPackage.TEST__NOTE, newNote, newNote));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -271,6 +326,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return basicSetScope(null, msgs);
 			case SecurityTestPackage.TEST__POSSIBLE_ATTACKS:
 				return ((InternalEList<?>)getPossibleAttacks()).basicRemove(otherEnd, msgs);
+			case SecurityTestPackage.TEST__NOTE:
+				return basicSetNote(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -293,6 +350,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return getDate();
 			case SecurityTestPackage.TEST__NAME:
 				return getName();
+			case SecurityTestPackage.TEST__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +381,9 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case SecurityTestPackage.TEST__NAME:
 				setName((String)newValue);
 				return;
+			case SecurityTestPackage.TEST__NOTE:
+				setNote((Note)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -349,6 +411,9 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case SecurityTestPackage.TEST__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case SecurityTestPackage.TEST__NOTE:
+				setNote((Note)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -371,6 +436,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 			case SecurityTestPackage.TEST__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SecurityTestPackage.TEST__NOTE:
+				return note != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -62,6 +62,7 @@ public class SecurityTestFactoryImpl extends EFactoryImpl implements SecurityTes
 			case SecurityTestPackage.WEB_COMPONENT: return createWebComponent();
 			case SecurityTestPackage.INPUT: return createInput();
 			case SecurityTestPackage.ATTACK: return createAttack();
+			case SecurityTestPackage.NOTE: return createNote();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +150,16 @@ public class SecurityTestFactoryImpl extends EFactoryImpl implements SecurityTes
 	public Attack createAttack() {
 		AttackImpl attack = new AttackImpl();
 		return attack;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Note createNote() {
+		NoteImpl note = new NoteImpl();
+		return note;
 	}
 
 	/**

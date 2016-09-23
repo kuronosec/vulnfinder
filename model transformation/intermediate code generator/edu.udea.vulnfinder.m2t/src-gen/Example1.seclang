@@ -1,0 +1,20 @@
+(securityTest Example1
+	(toes
+		(toe "http://www.udea.edu.co"
+			(page "index.php"
+					(field "user" ["SQLInjection" "XSS"])
+					(field "password" ["SQLInjection"])
+					(field "sessid" ["Auth"])
+			)
+			(page "webcomponent2"
+					(field "inputName1" [])
+			)
+			(page "webcomponent3"
+			)
+		)
+	)
+	(attacks
+		(attack SQLInjection { :level Medium } )
+		(attack XSS { :level Low } )
+		(attack Auth { :level Low } )
+	)

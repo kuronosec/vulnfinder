@@ -60,8 +60,8 @@ public class Main {
 	private static Map<String, Attack> attackMap;
 	private static IProgressMonitor monitor = null;
 	private static VulnServer vulnServer = null;
-	private static String excludedExtensionsInSpidering = "js|jpg|png|css|gif";
-	private static String excludedExtensionsInModel = "js|jpg|png|css|gif";
+	private static String excludedExtensionsInSpidering = "js|jpg|jpe|png|css|gif|pdf|doc";
+	private static String excludedExtensionsInModel = "js|jpg|jpe|png|css|gif|pdf|doc";
 	
 	private static int state = 0;
 

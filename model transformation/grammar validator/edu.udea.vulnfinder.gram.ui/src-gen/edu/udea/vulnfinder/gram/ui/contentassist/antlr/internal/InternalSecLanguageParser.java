@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSecLanguageParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Low'", "'Medium'", "'High'", "'('", "'securityTest'", "')'", "'toes'", "'attacks'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Low'", "'Medium'", "'High'", "'('", "'securityTest'", "')'", "'toes'", "'attacks'", "'notes'", "'toe'", "'attack'", "'{'", "':level'", "'}'", "'page'", "':target'", "'['", "']'", "'field'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -43,6 +43,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=6;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -165,12 +166,89 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
     // $ANTLR end "ruleSecurityTest"
 
 
+    // $ANTLR start "entryRuleNote"
+    // InternalSecLanguage.g:88:1: entryRuleNote : ruleNote EOF ;
+    public final void entryRuleNote() throws RecognitionException {
+        try {
+            // InternalSecLanguage.g:89:1: ( ruleNote EOF )
+            // InternalSecLanguage.g:90:1: ruleNote EOF
+            {
+             before(grammarAccess.getNoteRule()); 
+            pushFollow(FollowSets000.FOLLOW_1);
+            ruleNote();
+
+            state._fsp--;
+
+             after(grammarAccess.getNoteRule()); 
+            match(input,EOF,FollowSets000.FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleNote"
+
+
+    // $ANTLR start "ruleNote"
+    // InternalSecLanguage.g:97:1: ruleNote : ( ( rule__Note__Group__0 ) ) ;
+    public final void ruleNote() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:101:2: ( ( ( rule__Note__Group__0 ) ) )
+            // InternalSecLanguage.g:102:1: ( ( rule__Note__Group__0 ) )
+            {
+            // InternalSecLanguage.g:102:1: ( ( rule__Note__Group__0 ) )
+            // InternalSecLanguage.g:103:1: ( rule__Note__Group__0 )
+            {
+             before(grammarAccess.getNoteAccess().getGroup()); 
+            // InternalSecLanguage.g:104:1: ( rule__Note__Group__0 )
+            // InternalSecLanguage.g:104:2: rule__Note__Group__0
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__Note__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getNoteAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleNote"
+
+
     // $ANTLR start "entryRuleTargetOfEvaluation"
-    // InternalSecLanguage.g:88:1: entryRuleTargetOfEvaluation : ruleTargetOfEvaluation EOF ;
+    // InternalSecLanguage.g:116:1: entryRuleTargetOfEvaluation : ruleTargetOfEvaluation EOF ;
     public final void entryRuleTargetOfEvaluation() throws RecognitionException {
         try {
-            // InternalSecLanguage.g:89:1: ( ruleTargetOfEvaluation EOF )
-            // InternalSecLanguage.g:90:1: ruleTargetOfEvaluation EOF
+            // InternalSecLanguage.g:117:1: ( ruleTargetOfEvaluation EOF )
+            // InternalSecLanguage.g:118:1: ruleTargetOfEvaluation EOF
             {
              before(grammarAccess.getTargetOfEvaluationRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -196,21 +274,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleTargetOfEvaluation"
-    // InternalSecLanguage.g:97:1: ruleTargetOfEvaluation : ( ( rule__TargetOfEvaluation__Group__0 ) ) ;
+    // InternalSecLanguage.g:125:1: ruleTargetOfEvaluation : ( ( rule__TargetOfEvaluation__Group__0 ) ) ;
     public final void ruleTargetOfEvaluation() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:101:2: ( ( ( rule__TargetOfEvaluation__Group__0 ) ) )
-            // InternalSecLanguage.g:102:1: ( ( rule__TargetOfEvaluation__Group__0 ) )
+            // InternalSecLanguage.g:129:2: ( ( ( rule__TargetOfEvaluation__Group__0 ) ) )
+            // InternalSecLanguage.g:130:1: ( ( rule__TargetOfEvaluation__Group__0 ) )
             {
-            // InternalSecLanguage.g:102:1: ( ( rule__TargetOfEvaluation__Group__0 ) )
-            // InternalSecLanguage.g:103:1: ( rule__TargetOfEvaluation__Group__0 )
+            // InternalSecLanguage.g:130:1: ( ( rule__TargetOfEvaluation__Group__0 ) )
+            // InternalSecLanguage.g:131:1: ( rule__TargetOfEvaluation__Group__0 )
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getGroup()); 
-            // InternalSecLanguage.g:104:1: ( rule__TargetOfEvaluation__Group__0 )
-            // InternalSecLanguage.g:104:2: rule__TargetOfEvaluation__Group__0
+            // InternalSecLanguage.g:132:1: ( rule__TargetOfEvaluation__Group__0 )
+            // InternalSecLanguage.g:132:2: rule__TargetOfEvaluation__Group__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__TargetOfEvaluation__Group__0();
@@ -243,11 +321,11 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "entryRuleAttack"
-    // InternalSecLanguage.g:116:1: entryRuleAttack : ruleAttack EOF ;
+    // InternalSecLanguage.g:144:1: entryRuleAttack : ruleAttack EOF ;
     public final void entryRuleAttack() throws RecognitionException {
         try {
-            // InternalSecLanguage.g:117:1: ( ruleAttack EOF )
-            // InternalSecLanguage.g:118:1: ruleAttack EOF
+            // InternalSecLanguage.g:145:1: ( ruleAttack EOF )
+            // InternalSecLanguage.g:146:1: ruleAttack EOF
             {
              before(grammarAccess.getAttackRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -273,21 +351,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleAttack"
-    // InternalSecLanguage.g:125:1: ruleAttack : ( ( rule__Attack__Group__0 ) ) ;
+    // InternalSecLanguage.g:153:1: ruleAttack : ( ( rule__Attack__Group__0 ) ) ;
     public final void ruleAttack() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:129:2: ( ( ( rule__Attack__Group__0 ) ) )
-            // InternalSecLanguage.g:130:1: ( ( rule__Attack__Group__0 ) )
+            // InternalSecLanguage.g:157:2: ( ( ( rule__Attack__Group__0 ) ) )
+            // InternalSecLanguage.g:158:1: ( ( rule__Attack__Group__0 ) )
             {
-            // InternalSecLanguage.g:130:1: ( ( rule__Attack__Group__0 ) )
-            // InternalSecLanguage.g:131:1: ( rule__Attack__Group__0 )
+            // InternalSecLanguage.g:158:1: ( ( rule__Attack__Group__0 ) )
+            // InternalSecLanguage.g:159:1: ( rule__Attack__Group__0 )
             {
              before(grammarAccess.getAttackAccess().getGroup()); 
-            // InternalSecLanguage.g:132:1: ( rule__Attack__Group__0 )
-            // InternalSecLanguage.g:132:2: rule__Attack__Group__0
+            // InternalSecLanguage.g:160:1: ( rule__Attack__Group__0 )
+            // InternalSecLanguage.g:160:2: rule__Attack__Group__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__Group__0();
@@ -320,11 +398,11 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalSecLanguage.g:144:1: entryRuleEString : ruleEString EOF ;
+    // InternalSecLanguage.g:172:1: entryRuleEString : ruleEString EOF ;
     public final void entryRuleEString() throws RecognitionException {
         try {
-            // InternalSecLanguage.g:145:1: ( ruleEString EOF )
-            // InternalSecLanguage.g:146:1: ruleEString EOF
+            // InternalSecLanguage.g:173:1: ( ruleEString EOF )
+            // InternalSecLanguage.g:174:1: ruleEString EOF
             {
              before(grammarAccess.getEStringRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -350,21 +428,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleEString"
-    // InternalSecLanguage.g:153:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
+    // InternalSecLanguage.g:181:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
     public final void ruleEString() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:157:2: ( ( ( rule__EString__Alternatives ) ) )
-            // InternalSecLanguage.g:158:1: ( ( rule__EString__Alternatives ) )
+            // InternalSecLanguage.g:185:2: ( ( ( rule__EString__Alternatives ) ) )
+            // InternalSecLanguage.g:186:1: ( ( rule__EString__Alternatives ) )
             {
-            // InternalSecLanguage.g:158:1: ( ( rule__EString__Alternatives ) )
-            // InternalSecLanguage.g:159:1: ( rule__EString__Alternatives )
+            // InternalSecLanguage.g:186:1: ( ( rule__EString__Alternatives ) )
+            // InternalSecLanguage.g:187:1: ( rule__EString__Alternatives )
             {
              before(grammarAccess.getEStringAccess().getAlternatives()); 
-            // InternalSecLanguage.g:160:1: ( rule__EString__Alternatives )
-            // InternalSecLanguage.g:160:2: rule__EString__Alternatives
+            // InternalSecLanguage.g:188:1: ( rule__EString__Alternatives )
+            // InternalSecLanguage.g:188:2: rule__EString__Alternatives
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__EString__Alternatives();
@@ -397,11 +475,11 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "entryRuleWebComponent"
-    // InternalSecLanguage.g:172:1: entryRuleWebComponent : ruleWebComponent EOF ;
+    // InternalSecLanguage.g:200:1: entryRuleWebComponent : ruleWebComponent EOF ;
     public final void entryRuleWebComponent() throws RecognitionException {
         try {
-            // InternalSecLanguage.g:173:1: ( ruleWebComponent EOF )
-            // InternalSecLanguage.g:174:1: ruleWebComponent EOF
+            // InternalSecLanguage.g:201:1: ( ruleWebComponent EOF )
+            // InternalSecLanguage.g:202:1: ruleWebComponent EOF
             {
              before(grammarAccess.getWebComponentRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -427,21 +505,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleWebComponent"
-    // InternalSecLanguage.g:181:1: ruleWebComponent : ( ( rule__WebComponent__Group__0 ) ) ;
+    // InternalSecLanguage.g:209:1: ruleWebComponent : ( ( rule__WebComponent__Group__0 ) ) ;
     public final void ruleWebComponent() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:185:2: ( ( ( rule__WebComponent__Group__0 ) ) )
-            // InternalSecLanguage.g:186:1: ( ( rule__WebComponent__Group__0 ) )
+            // InternalSecLanguage.g:213:2: ( ( ( rule__WebComponent__Group__0 ) ) )
+            // InternalSecLanguage.g:214:1: ( ( rule__WebComponent__Group__0 ) )
             {
-            // InternalSecLanguage.g:186:1: ( ( rule__WebComponent__Group__0 ) )
-            // InternalSecLanguage.g:187:1: ( rule__WebComponent__Group__0 )
+            // InternalSecLanguage.g:214:1: ( ( rule__WebComponent__Group__0 ) )
+            // InternalSecLanguage.g:215:1: ( rule__WebComponent__Group__0 )
             {
              before(grammarAccess.getWebComponentAccess().getGroup()); 
-            // InternalSecLanguage.g:188:1: ( rule__WebComponent__Group__0 )
-            // InternalSecLanguage.g:188:2: rule__WebComponent__Group__0
+            // InternalSecLanguage.g:216:1: ( rule__WebComponent__Group__0 )
+            // InternalSecLanguage.g:216:2: rule__WebComponent__Group__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__Group__0();
@@ -474,11 +552,11 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "entryRuleInput"
-    // InternalSecLanguage.g:200:1: entryRuleInput : ruleInput EOF ;
+    // InternalSecLanguage.g:228:1: entryRuleInput : ruleInput EOF ;
     public final void entryRuleInput() throws RecognitionException {
         try {
-            // InternalSecLanguage.g:201:1: ( ruleInput EOF )
-            // InternalSecLanguage.g:202:1: ruleInput EOF
+            // InternalSecLanguage.g:229:1: ( ruleInput EOF )
+            // InternalSecLanguage.g:230:1: ruleInput EOF
             {
              before(grammarAccess.getInputRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -504,21 +582,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleInput"
-    // InternalSecLanguage.g:209:1: ruleInput : ( ( rule__Input__Group__0 ) ) ;
+    // InternalSecLanguage.g:237:1: ruleInput : ( ( rule__Input__Group__0 ) ) ;
     public final void ruleInput() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:213:2: ( ( ( rule__Input__Group__0 ) ) )
-            // InternalSecLanguage.g:214:1: ( ( rule__Input__Group__0 ) )
+            // InternalSecLanguage.g:241:2: ( ( ( rule__Input__Group__0 ) ) )
+            // InternalSecLanguage.g:242:1: ( ( rule__Input__Group__0 ) )
             {
-            // InternalSecLanguage.g:214:1: ( ( rule__Input__Group__0 ) )
-            // InternalSecLanguage.g:215:1: ( rule__Input__Group__0 )
+            // InternalSecLanguage.g:242:1: ( ( rule__Input__Group__0 ) )
+            // InternalSecLanguage.g:243:1: ( rule__Input__Group__0 )
             {
              before(grammarAccess.getInputAccess().getGroup()); 
-            // InternalSecLanguage.g:216:1: ( rule__Input__Group__0 )
-            // InternalSecLanguage.g:216:2: rule__Input__Group__0
+            // InternalSecLanguage.g:244:1: ( rule__Input__Group__0 )
+            // InternalSecLanguage.g:244:2: rule__Input__Group__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__Group__0();
@@ -551,21 +629,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "ruleESeverity"
-    // InternalSecLanguage.g:229:1: ruleESeverity : ( ( rule__ESeverity__Alternatives ) ) ;
+    // InternalSecLanguage.g:257:1: ruleESeverity : ( ( rule__ESeverity__Alternatives ) ) ;
     public final void ruleESeverity() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:233:1: ( ( ( rule__ESeverity__Alternatives ) ) )
-            // InternalSecLanguage.g:234:1: ( ( rule__ESeverity__Alternatives ) )
+            // InternalSecLanguage.g:261:1: ( ( ( rule__ESeverity__Alternatives ) ) )
+            // InternalSecLanguage.g:262:1: ( ( rule__ESeverity__Alternatives ) )
             {
-            // InternalSecLanguage.g:234:1: ( ( rule__ESeverity__Alternatives ) )
-            // InternalSecLanguage.g:235:1: ( rule__ESeverity__Alternatives )
+            // InternalSecLanguage.g:262:1: ( ( rule__ESeverity__Alternatives ) )
+            // InternalSecLanguage.g:263:1: ( rule__ESeverity__Alternatives )
             {
              before(grammarAccess.getESeverityAccess().getAlternatives()); 
-            // InternalSecLanguage.g:236:1: ( rule__ESeverity__Alternatives )
-            // InternalSecLanguage.g:236:2: rule__ESeverity__Alternatives
+            // InternalSecLanguage.g:264:1: ( rule__ESeverity__Alternatives )
+            // InternalSecLanguage.g:264:2: rule__ESeverity__Alternatives
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__ESeverity__Alternatives();
@@ -598,13 +676,13 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalSecLanguage.g:249:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // InternalSecLanguage.g:277:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:253:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // InternalSecLanguage.g:281:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -622,10 +700,10 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSecLanguage.g:254:1: ( RULE_STRING )
+                    // InternalSecLanguage.g:282:1: ( RULE_STRING )
                     {
-                    // InternalSecLanguage.g:254:1: ( RULE_STRING )
-                    // InternalSecLanguage.g:255:1: RULE_STRING
+                    // InternalSecLanguage.g:282:1: ( RULE_STRING )
+                    // InternalSecLanguage.g:283:1: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FollowSets000.FOLLOW_2); 
@@ -637,10 +715,10 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
                     }
                     break;
                 case 2 :
-                    // InternalSecLanguage.g:260:6: ( RULE_ID )
+                    // InternalSecLanguage.g:288:6: ( RULE_ID )
                     {
-                    // InternalSecLanguage.g:260:6: ( RULE_ID )
-                    // InternalSecLanguage.g:261:1: RULE_ID
+                    // InternalSecLanguage.g:288:6: ( RULE_ID )
+                    // InternalSecLanguage.g:289:1: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FollowSets000.FOLLOW_2); 
@@ -669,13 +747,13 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ESeverity__Alternatives"
-    // InternalSecLanguage.g:271:1: rule__ESeverity__Alternatives : ( ( ( 'Low' ) ) | ( ( 'Medium' ) ) | ( ( 'High' ) ) );
+    // InternalSecLanguage.g:299:1: rule__ESeverity__Alternatives : ( ( ( 'Low' ) ) | ( ( 'Medium' ) ) | ( ( 'High' ) ) );
     public final void rule__ESeverity__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:275:1: ( ( ( 'Low' ) ) | ( ( 'Medium' ) ) | ( ( 'High' ) ) )
+            // InternalSecLanguage.g:303:1: ( ( ( 'Low' ) ) | ( ( 'Medium' ) ) | ( ( 'High' ) ) )
             int alt2=3;
             switch ( input.LA(1) ) {
             case 11:
@@ -702,14 +780,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
             switch (alt2) {
                 case 1 :
-                    // InternalSecLanguage.g:276:1: ( ( 'Low' ) )
+                    // InternalSecLanguage.g:304:1: ( ( 'Low' ) )
                     {
-                    // InternalSecLanguage.g:276:1: ( ( 'Low' ) )
-                    // InternalSecLanguage.g:277:1: ( 'Low' )
+                    // InternalSecLanguage.g:304:1: ( ( 'Low' ) )
+                    // InternalSecLanguage.g:305:1: ( 'Low' )
                     {
                      before(grammarAccess.getESeverityAccess().getLowEnumLiteralDeclaration_0()); 
-                    // InternalSecLanguage.g:278:1: ( 'Low' )
-                    // InternalSecLanguage.g:278:3: 'Low'
+                    // InternalSecLanguage.g:306:1: ( 'Low' )
+                    // InternalSecLanguage.g:306:3: 'Low'
                     {
                     match(input,11,FollowSets000.FOLLOW_2); 
 
@@ -723,14 +801,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
                     }
                     break;
                 case 2 :
-                    // InternalSecLanguage.g:283:6: ( ( 'Medium' ) )
+                    // InternalSecLanguage.g:311:6: ( ( 'Medium' ) )
                     {
-                    // InternalSecLanguage.g:283:6: ( ( 'Medium' ) )
-                    // InternalSecLanguage.g:284:1: ( 'Medium' )
+                    // InternalSecLanguage.g:311:6: ( ( 'Medium' ) )
+                    // InternalSecLanguage.g:312:1: ( 'Medium' )
                     {
                      before(grammarAccess.getESeverityAccess().getMediumEnumLiteralDeclaration_1()); 
-                    // InternalSecLanguage.g:285:1: ( 'Medium' )
-                    // InternalSecLanguage.g:285:3: 'Medium'
+                    // InternalSecLanguage.g:313:1: ( 'Medium' )
+                    // InternalSecLanguage.g:313:3: 'Medium'
                     {
                     match(input,12,FollowSets000.FOLLOW_2); 
 
@@ -744,14 +822,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
                     }
                     break;
                 case 3 :
-                    // InternalSecLanguage.g:290:6: ( ( 'High' ) )
+                    // InternalSecLanguage.g:318:6: ( ( 'High' ) )
                     {
-                    // InternalSecLanguage.g:290:6: ( ( 'High' ) )
-                    // InternalSecLanguage.g:291:1: ( 'High' )
+                    // InternalSecLanguage.g:318:6: ( ( 'High' ) )
+                    // InternalSecLanguage.g:319:1: ( 'High' )
                     {
                      before(grammarAccess.getESeverityAccess().getHighEnumLiteralDeclaration_2()); 
-                    // InternalSecLanguage.g:292:1: ( 'High' )
-                    // InternalSecLanguage.g:292:3: 'High'
+                    // InternalSecLanguage.g:320:1: ( 'High' )
+                    // InternalSecLanguage.g:320:3: 'High'
                     {
                     match(input,13,FollowSets000.FOLLOW_2); 
 
@@ -782,14 +860,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__0"
-    // InternalSecLanguage.g:305:1: rule__SecurityTest__Group__0 : rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1 ;
+    // InternalSecLanguage.g:333:1: rule__SecurityTest__Group__0 : rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1 ;
     public final void rule__SecurityTest__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:309:1: ( rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1 )
-            // InternalSecLanguage.g:310:2: rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1
+            // InternalSecLanguage.g:337:1: ( rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1 )
+            // InternalSecLanguage.g:338:2: rule__SecurityTest__Group__0__Impl rule__SecurityTest__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__SecurityTest__Group__0__Impl();
@@ -820,21 +898,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__0__Impl"
-    // InternalSecLanguage.g:317:1: rule__SecurityTest__Group__0__Impl : ( () ) ;
+    // InternalSecLanguage.g:345:1: rule__SecurityTest__Group__0__Impl : ( () ) ;
     public final void rule__SecurityTest__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:321:1: ( ( () ) )
-            // InternalSecLanguage.g:322:1: ( () )
+            // InternalSecLanguage.g:349:1: ( ( () ) )
+            // InternalSecLanguage.g:350:1: ( () )
             {
-            // InternalSecLanguage.g:322:1: ( () )
-            // InternalSecLanguage.g:323:1: ()
+            // InternalSecLanguage.g:350:1: ( () )
+            // InternalSecLanguage.g:351:1: ()
             {
              before(grammarAccess.getSecurityTestAccess().getTestAction_0()); 
-            // InternalSecLanguage.g:324:1: ()
-            // InternalSecLanguage.g:326:1: 
+            // InternalSecLanguage.g:352:1: ()
+            // InternalSecLanguage.g:354:1: 
             {
             }
 
@@ -857,14 +935,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__1"
-    // InternalSecLanguage.g:336:1: rule__SecurityTest__Group__1 : rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2 ;
+    // InternalSecLanguage.g:364:1: rule__SecurityTest__Group__1 : rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2 ;
     public final void rule__SecurityTest__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:340:1: ( rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2 )
-            // InternalSecLanguage.g:341:2: rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2
+            // InternalSecLanguage.g:368:1: ( rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2 )
+            // InternalSecLanguage.g:369:2: rule__SecurityTest__Group__1__Impl rule__SecurityTest__Group__2
             {
             pushFollow(FollowSets000.FOLLOW_4);
             rule__SecurityTest__Group__1__Impl();
@@ -895,17 +973,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__1__Impl"
-    // InternalSecLanguage.g:348:1: rule__SecurityTest__Group__1__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:376:1: rule__SecurityTest__Group__1__Impl : ( '(' ) ;
     public final void rule__SecurityTest__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:352:1: ( ( '(' ) )
-            // InternalSecLanguage.g:353:1: ( '(' )
+            // InternalSecLanguage.g:380:1: ( ( '(' ) )
+            // InternalSecLanguage.g:381:1: ( '(' )
             {
-            // InternalSecLanguage.g:353:1: ( '(' )
-            // InternalSecLanguage.g:354:1: '('
+            // InternalSecLanguage.g:381:1: ( '(' )
+            // InternalSecLanguage.g:382:1: '('
             {
              before(grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_1()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -932,14 +1010,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__2"
-    // InternalSecLanguage.g:367:1: rule__SecurityTest__Group__2 : rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3 ;
+    // InternalSecLanguage.g:395:1: rule__SecurityTest__Group__2 : rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3 ;
     public final void rule__SecurityTest__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:371:1: ( rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3 )
-            // InternalSecLanguage.g:372:2: rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3
+            // InternalSecLanguage.g:399:1: ( rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3 )
+            // InternalSecLanguage.g:400:2: rule__SecurityTest__Group__2__Impl rule__SecurityTest__Group__3
             {
             pushFollow(FollowSets000.FOLLOW_5);
             rule__SecurityTest__Group__2__Impl();
@@ -970,17 +1048,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__2__Impl"
-    // InternalSecLanguage.g:379:1: rule__SecurityTest__Group__2__Impl : ( 'securityTest' ) ;
+    // InternalSecLanguage.g:407:1: rule__SecurityTest__Group__2__Impl : ( 'securityTest' ) ;
     public final void rule__SecurityTest__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:383:1: ( ( 'securityTest' ) )
-            // InternalSecLanguage.g:384:1: ( 'securityTest' )
+            // InternalSecLanguage.g:411:1: ( ( 'securityTest' ) )
+            // InternalSecLanguage.g:412:1: ( 'securityTest' )
             {
-            // InternalSecLanguage.g:384:1: ( 'securityTest' )
-            // InternalSecLanguage.g:385:1: 'securityTest'
+            // InternalSecLanguage.g:412:1: ( 'securityTest' )
+            // InternalSecLanguage.g:413:1: 'securityTest'
             {
              before(grammarAccess.getSecurityTestAccess().getSecurityTestKeyword_2()); 
             match(input,15,FollowSets000.FOLLOW_2); 
@@ -1007,14 +1085,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__3"
-    // InternalSecLanguage.g:398:1: rule__SecurityTest__Group__3 : rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4 ;
+    // InternalSecLanguage.g:426:1: rule__SecurityTest__Group__3 : rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4 ;
     public final void rule__SecurityTest__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:402:1: ( rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4 )
-            // InternalSecLanguage.g:403:2: rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4
+            // InternalSecLanguage.g:430:1: ( rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4 )
+            // InternalSecLanguage.g:431:2: rule__SecurityTest__Group__3__Impl rule__SecurityTest__Group__4
             {
             pushFollow(FollowSets000.FOLLOW_6);
             rule__SecurityTest__Group__3__Impl();
@@ -1045,21 +1123,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__3__Impl"
-    // InternalSecLanguage.g:410:1: rule__SecurityTest__Group__3__Impl : ( ( rule__SecurityTest__IdAssignment_3 ) ) ;
+    // InternalSecLanguage.g:438:1: rule__SecurityTest__Group__3__Impl : ( ( rule__SecurityTest__IdAssignment_3 ) ) ;
     public final void rule__SecurityTest__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:414:1: ( ( ( rule__SecurityTest__IdAssignment_3 ) ) )
-            // InternalSecLanguage.g:415:1: ( ( rule__SecurityTest__IdAssignment_3 ) )
+            // InternalSecLanguage.g:442:1: ( ( ( rule__SecurityTest__IdAssignment_3 ) ) )
+            // InternalSecLanguage.g:443:1: ( ( rule__SecurityTest__IdAssignment_3 ) )
             {
-            // InternalSecLanguage.g:415:1: ( ( rule__SecurityTest__IdAssignment_3 ) )
-            // InternalSecLanguage.g:416:1: ( rule__SecurityTest__IdAssignment_3 )
+            // InternalSecLanguage.g:443:1: ( ( rule__SecurityTest__IdAssignment_3 ) )
+            // InternalSecLanguage.g:444:1: ( rule__SecurityTest__IdAssignment_3 )
             {
              before(grammarAccess.getSecurityTestAccess().getIdAssignment_3()); 
-            // InternalSecLanguage.g:417:1: ( rule__SecurityTest__IdAssignment_3 )
-            // InternalSecLanguage.g:417:2: rule__SecurityTest__IdAssignment_3
+            // InternalSecLanguage.g:445:1: ( rule__SecurityTest__IdAssignment_3 )
+            // InternalSecLanguage.g:445:2: rule__SecurityTest__IdAssignment_3
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SecurityTest__IdAssignment_3();
@@ -1092,14 +1170,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__4"
-    // InternalSecLanguage.g:427:1: rule__SecurityTest__Group__4 : rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5 ;
+    // InternalSecLanguage.g:455:1: rule__SecurityTest__Group__4 : rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5 ;
     public final void rule__SecurityTest__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:431:1: ( rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5 )
-            // InternalSecLanguage.g:432:2: rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5
+            // InternalSecLanguage.g:459:1: ( rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5 )
+            // InternalSecLanguage.g:460:2: rule__SecurityTest__Group__4__Impl rule__SecurityTest__Group__5
             {
             pushFollow(FollowSets000.FOLLOW_6);
             rule__SecurityTest__Group__4__Impl();
@@ -1130,20 +1208,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__4__Impl"
-    // InternalSecLanguage.g:439:1: rule__SecurityTest__Group__4__Impl : ( ( rule__SecurityTest__Group_4__0 )? ) ;
+    // InternalSecLanguage.g:467:1: rule__SecurityTest__Group__4__Impl : ( ( rule__SecurityTest__Group_4__0 )? ) ;
     public final void rule__SecurityTest__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:443:1: ( ( ( rule__SecurityTest__Group_4__0 )? ) )
-            // InternalSecLanguage.g:444:1: ( ( rule__SecurityTest__Group_4__0 )? )
+            // InternalSecLanguage.g:471:1: ( ( ( rule__SecurityTest__Group_4__0 )? ) )
+            // InternalSecLanguage.g:472:1: ( ( rule__SecurityTest__Group_4__0 )? )
             {
-            // InternalSecLanguage.g:444:1: ( ( rule__SecurityTest__Group_4__0 )? )
-            // InternalSecLanguage.g:445:1: ( rule__SecurityTest__Group_4__0 )?
+            // InternalSecLanguage.g:472:1: ( ( rule__SecurityTest__Group_4__0 )? )
+            // InternalSecLanguage.g:473:1: ( rule__SecurityTest__Group_4__0 )?
             {
              before(grammarAccess.getSecurityTestAccess().getGroup_4()); 
-            // InternalSecLanguage.g:446:1: ( rule__SecurityTest__Group_4__0 )?
+            // InternalSecLanguage.g:474:1: ( rule__SecurityTest__Group_4__0 )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1156,7 +1234,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             }
             switch (alt3) {
                 case 1 :
-                    // InternalSecLanguage.g:446:2: rule__SecurityTest__Group_4__0
+                    // InternalSecLanguage.g:474:2: rule__SecurityTest__Group_4__0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__SecurityTest__Group_4__0();
@@ -1192,14 +1270,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__5"
-    // InternalSecLanguage.g:456:1: rule__SecurityTest__Group__5 : rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6 ;
+    // InternalSecLanguage.g:484:1: rule__SecurityTest__Group__5 : rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6 ;
     public final void rule__SecurityTest__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:460:1: ( rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6 )
-            // InternalSecLanguage.g:461:2: rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6
+            // InternalSecLanguage.g:488:1: ( rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6 )
+            // InternalSecLanguage.g:489:2: rule__SecurityTest__Group__5__Impl rule__SecurityTest__Group__6
             {
             pushFollow(FollowSets000.FOLLOW_6);
             rule__SecurityTest__Group__5__Impl();
@@ -1230,29 +1308,33 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__5__Impl"
-    // InternalSecLanguage.g:468:1: rule__SecurityTest__Group__5__Impl : ( ( rule__SecurityTest__Group_5__0 )? ) ;
+    // InternalSecLanguage.g:496:1: rule__SecurityTest__Group__5__Impl : ( ( rule__SecurityTest__Group_5__0 )? ) ;
     public final void rule__SecurityTest__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:472:1: ( ( ( rule__SecurityTest__Group_5__0 )? ) )
-            // InternalSecLanguage.g:473:1: ( ( rule__SecurityTest__Group_5__0 )? )
+            // InternalSecLanguage.g:500:1: ( ( ( rule__SecurityTest__Group_5__0 )? ) )
+            // InternalSecLanguage.g:501:1: ( ( rule__SecurityTest__Group_5__0 )? )
             {
-            // InternalSecLanguage.g:473:1: ( ( rule__SecurityTest__Group_5__0 )? )
-            // InternalSecLanguage.g:474:1: ( rule__SecurityTest__Group_5__0 )?
+            // InternalSecLanguage.g:501:1: ( ( rule__SecurityTest__Group_5__0 )? )
+            // InternalSecLanguage.g:502:1: ( rule__SecurityTest__Group_5__0 )?
             {
              before(grammarAccess.getSecurityTestAccess().getGroup_5()); 
-            // InternalSecLanguage.g:475:1: ( rule__SecurityTest__Group_5__0 )?
+            // InternalSecLanguage.g:503:1: ( rule__SecurityTest__Group_5__0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==14) ) {
-                alt4=1;
+                int LA4_1 = input.LA(2);
+
+                if ( (LA4_1==18) ) {
+                    alt4=1;
+                }
             }
             switch (alt4) {
                 case 1 :
-                    // InternalSecLanguage.g:475:2: rule__SecurityTest__Group_5__0
+                    // InternalSecLanguage.g:503:2: rule__SecurityTest__Group_5__0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__SecurityTest__Group_5__0();
@@ -1288,17 +1370,22 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__6"
-    // InternalSecLanguage.g:485:1: rule__SecurityTest__Group__6 : rule__SecurityTest__Group__6__Impl ;
+    // InternalSecLanguage.g:513:1: rule__SecurityTest__Group__6 : rule__SecurityTest__Group__6__Impl rule__SecurityTest__Group__7 ;
     public final void rule__SecurityTest__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:489:1: ( rule__SecurityTest__Group__6__Impl )
-            // InternalSecLanguage.g:490:2: rule__SecurityTest__Group__6__Impl
+            // InternalSecLanguage.g:517:1: ( rule__SecurityTest__Group__6__Impl rule__SecurityTest__Group__7 )
+            // InternalSecLanguage.g:518:2: rule__SecurityTest__Group__6__Impl rule__SecurityTest__Group__7
             {
-            pushFollow(FollowSets000.FOLLOW_2);
+            pushFollow(FollowSets000.FOLLOW_6);
             rule__SecurityTest__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group__7();
 
             state._fsp--;
 
@@ -1321,21 +1408,42 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group__6__Impl"
-    // InternalSecLanguage.g:496:1: rule__SecurityTest__Group__6__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:525:1: rule__SecurityTest__Group__6__Impl : ( ( rule__SecurityTest__Group_6__0 )? ) ;
     public final void rule__SecurityTest__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:500:1: ( ( ')' ) )
-            // InternalSecLanguage.g:501:1: ( ')' )
+            // InternalSecLanguage.g:529:1: ( ( ( rule__SecurityTest__Group_6__0 )? ) )
+            // InternalSecLanguage.g:530:1: ( ( rule__SecurityTest__Group_6__0 )? )
             {
-            // InternalSecLanguage.g:501:1: ( ')' )
-            // InternalSecLanguage.g:502:1: ')'
+            // InternalSecLanguage.g:530:1: ( ( rule__SecurityTest__Group_6__0 )? )
+            // InternalSecLanguage.g:531:1: ( rule__SecurityTest__Group_6__0 )?
             {
-             before(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6()); 
-            match(input,16,FollowSets000.FOLLOW_2); 
-             after(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6()); 
+             before(grammarAccess.getSecurityTestAccess().getGroup_6()); 
+            // InternalSecLanguage.g:532:1: ( rule__SecurityTest__Group_6__0 )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==14) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalSecLanguage.g:532:2: rule__SecurityTest__Group_6__0
+                    {
+                    pushFollow(FollowSets000.FOLLOW_2);
+                    rule__SecurityTest__Group_6__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getSecurityTestAccess().getGroup_6()); 
 
             }
 
@@ -1357,15 +1465,85 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__SecurityTest__Group__6__Impl"
 
 
+    // $ANTLR start "rule__SecurityTest__Group__7"
+    // InternalSecLanguage.g:542:1: rule__SecurityTest__Group__7 : rule__SecurityTest__Group__7__Impl ;
+    public final void rule__SecurityTest__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:546:1: ( rule__SecurityTest__Group__7__Impl )
+            // InternalSecLanguage.g:547:2: rule__SecurityTest__Group__7__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group__7__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group__7"
+
+
+    // $ANTLR start "rule__SecurityTest__Group__7__Impl"
+    // InternalSecLanguage.g:553:1: rule__SecurityTest__Group__7__Impl : ( ')' ) ;
+    public final void rule__SecurityTest__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:557:1: ( ( ')' ) )
+            // InternalSecLanguage.g:558:1: ( ')' )
+            {
+            // InternalSecLanguage.g:558:1: ( ')' )
+            // InternalSecLanguage.g:559:1: ')'
+            {
+             before(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7()); 
+            match(input,16,FollowSets000.FOLLOW_2); 
+             after(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group__7__Impl"
+
+
     // $ANTLR start "rule__SecurityTest__Group_4__0"
-    // InternalSecLanguage.g:529:1: rule__SecurityTest__Group_4__0 : rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1 ;
+    // InternalSecLanguage.g:588:1: rule__SecurityTest__Group_4__0 : rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1 ;
     public final void rule__SecurityTest__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:533:1: ( rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1 )
-            // InternalSecLanguage.g:534:2: rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1
+            // InternalSecLanguage.g:592:1: ( rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1 )
+            // InternalSecLanguage.g:593:2: rule__SecurityTest__Group_4__0__Impl rule__SecurityTest__Group_4__1
             {
             pushFollow(FollowSets000.FOLLOW_7);
             rule__SecurityTest__Group_4__0__Impl();
@@ -1396,17 +1574,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__0__Impl"
-    // InternalSecLanguage.g:541:1: rule__SecurityTest__Group_4__0__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:600:1: rule__SecurityTest__Group_4__0__Impl : ( '(' ) ;
     public final void rule__SecurityTest__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:545:1: ( ( '(' ) )
-            // InternalSecLanguage.g:546:1: ( '(' )
+            // InternalSecLanguage.g:604:1: ( ( '(' ) )
+            // InternalSecLanguage.g:605:1: ( '(' )
             {
-            // InternalSecLanguage.g:546:1: ( '(' )
-            // InternalSecLanguage.g:547:1: '('
+            // InternalSecLanguage.g:605:1: ( '(' )
+            // InternalSecLanguage.g:606:1: '('
             {
              before(grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_4_0()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -1433,14 +1611,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__1"
-    // InternalSecLanguage.g:560:1: rule__SecurityTest__Group_4__1 : rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2 ;
+    // InternalSecLanguage.g:619:1: rule__SecurityTest__Group_4__1 : rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2 ;
     public final void rule__SecurityTest__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:564:1: ( rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2 )
-            // InternalSecLanguage.g:565:2: rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2
+            // InternalSecLanguage.g:623:1: ( rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2 )
+            // InternalSecLanguage.g:624:2: rule__SecurityTest__Group_4__1__Impl rule__SecurityTest__Group_4__2
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__SecurityTest__Group_4__1__Impl();
@@ -1471,17 +1649,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__1__Impl"
-    // InternalSecLanguage.g:572:1: rule__SecurityTest__Group_4__1__Impl : ( 'toes' ) ;
+    // InternalSecLanguage.g:631:1: rule__SecurityTest__Group_4__1__Impl : ( 'toes' ) ;
     public final void rule__SecurityTest__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:576:1: ( ( 'toes' ) )
-            // InternalSecLanguage.g:577:1: ( 'toes' )
+            // InternalSecLanguage.g:635:1: ( ( 'toes' ) )
+            // InternalSecLanguage.g:636:1: ( 'toes' )
             {
-            // InternalSecLanguage.g:577:1: ( 'toes' )
-            // InternalSecLanguage.g:578:1: 'toes'
+            // InternalSecLanguage.g:636:1: ( 'toes' )
+            // InternalSecLanguage.g:637:1: 'toes'
             {
              before(grammarAccess.getSecurityTestAccess().getToesKeyword_4_1()); 
             match(input,17,FollowSets000.FOLLOW_2); 
@@ -1508,14 +1686,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__2"
-    // InternalSecLanguage.g:591:1: rule__SecurityTest__Group_4__2 : rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3 ;
+    // InternalSecLanguage.g:650:1: rule__SecurityTest__Group_4__2 : rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3 ;
     public final void rule__SecurityTest__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:595:1: ( rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3 )
-            // InternalSecLanguage.g:596:2: rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3
+            // InternalSecLanguage.g:654:1: ( rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3 )
+            // InternalSecLanguage.g:655:2: rule__SecurityTest__Group_4__2__Impl rule__SecurityTest__Group_4__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__SecurityTest__Group_4__2__Impl();
@@ -1546,21 +1724,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__2__Impl"
-    // InternalSecLanguage.g:603:1: rule__SecurityTest__Group_4__2__Impl : ( ( rule__SecurityTest__ScopeAssignment_4_2 ) ) ;
+    // InternalSecLanguage.g:662:1: rule__SecurityTest__Group_4__2__Impl : ( ( rule__SecurityTest__ScopeAssignment_4_2 ) ) ;
     public final void rule__SecurityTest__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:607:1: ( ( ( rule__SecurityTest__ScopeAssignment_4_2 ) ) )
-            // InternalSecLanguage.g:608:1: ( ( rule__SecurityTest__ScopeAssignment_4_2 ) )
+            // InternalSecLanguage.g:666:1: ( ( ( rule__SecurityTest__ScopeAssignment_4_2 ) ) )
+            // InternalSecLanguage.g:667:1: ( ( rule__SecurityTest__ScopeAssignment_4_2 ) )
             {
-            // InternalSecLanguage.g:608:1: ( ( rule__SecurityTest__ScopeAssignment_4_2 ) )
-            // InternalSecLanguage.g:609:1: ( rule__SecurityTest__ScopeAssignment_4_2 )
+            // InternalSecLanguage.g:667:1: ( ( rule__SecurityTest__ScopeAssignment_4_2 ) )
+            // InternalSecLanguage.g:668:1: ( rule__SecurityTest__ScopeAssignment_4_2 )
             {
              before(grammarAccess.getSecurityTestAccess().getScopeAssignment_4_2()); 
-            // InternalSecLanguage.g:610:1: ( rule__SecurityTest__ScopeAssignment_4_2 )
-            // InternalSecLanguage.g:610:2: rule__SecurityTest__ScopeAssignment_4_2
+            // InternalSecLanguage.g:669:1: ( rule__SecurityTest__ScopeAssignment_4_2 )
+            // InternalSecLanguage.g:669:2: rule__SecurityTest__ScopeAssignment_4_2
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SecurityTest__ScopeAssignment_4_2();
@@ -1593,14 +1771,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__3"
-    // InternalSecLanguage.g:620:1: rule__SecurityTest__Group_4__3 : rule__SecurityTest__Group_4__3__Impl ;
+    // InternalSecLanguage.g:679:1: rule__SecurityTest__Group_4__3 : rule__SecurityTest__Group_4__3__Impl ;
     public final void rule__SecurityTest__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:624:1: ( rule__SecurityTest__Group_4__3__Impl )
-            // InternalSecLanguage.g:625:2: rule__SecurityTest__Group_4__3__Impl
+            // InternalSecLanguage.g:683:1: ( rule__SecurityTest__Group_4__3__Impl )
+            // InternalSecLanguage.g:684:2: rule__SecurityTest__Group_4__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SecurityTest__Group_4__3__Impl();
@@ -1626,17 +1804,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_4__3__Impl"
-    // InternalSecLanguage.g:631:1: rule__SecurityTest__Group_4__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:690:1: rule__SecurityTest__Group_4__3__Impl : ( ')' ) ;
     public final void rule__SecurityTest__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:635:1: ( ( ')' ) )
-            // InternalSecLanguage.g:636:1: ( ')' )
+            // InternalSecLanguage.g:694:1: ( ( ')' ) )
+            // InternalSecLanguage.g:695:1: ( ')' )
             {
-            // InternalSecLanguage.g:636:1: ( ')' )
-            // InternalSecLanguage.g:637:1: ')'
+            // InternalSecLanguage.g:695:1: ( ')' )
+            // InternalSecLanguage.g:696:1: ')'
             {
              before(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_4_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -1663,14 +1841,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__0"
-    // InternalSecLanguage.g:658:1: rule__SecurityTest__Group_5__0 : rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1 ;
+    // InternalSecLanguage.g:717:1: rule__SecurityTest__Group_5__0 : rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1 ;
     public final void rule__SecurityTest__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:662:1: ( rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1 )
-            // InternalSecLanguage.g:663:2: rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1
+            // InternalSecLanguage.g:721:1: ( rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1 )
+            // InternalSecLanguage.g:722:2: rule__SecurityTest__Group_5__0__Impl rule__SecurityTest__Group_5__1
             {
             pushFollow(FollowSets000.FOLLOW_9);
             rule__SecurityTest__Group_5__0__Impl();
@@ -1701,17 +1879,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__0__Impl"
-    // InternalSecLanguage.g:670:1: rule__SecurityTest__Group_5__0__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:729:1: rule__SecurityTest__Group_5__0__Impl : ( '(' ) ;
     public final void rule__SecurityTest__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:674:1: ( ( '(' ) )
-            // InternalSecLanguage.g:675:1: ( '(' )
+            // InternalSecLanguage.g:733:1: ( ( '(' ) )
+            // InternalSecLanguage.g:734:1: ( '(' )
             {
-            // InternalSecLanguage.g:675:1: ( '(' )
-            // InternalSecLanguage.g:676:1: '('
+            // InternalSecLanguage.g:734:1: ( '(' )
+            // InternalSecLanguage.g:735:1: '('
             {
              before(grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_5_0()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -1738,14 +1916,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__1"
-    // InternalSecLanguage.g:689:1: rule__SecurityTest__Group_5__1 : rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2 ;
+    // InternalSecLanguage.g:748:1: rule__SecurityTest__Group_5__1 : rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2 ;
     public final void rule__SecurityTest__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:693:1: ( rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2 )
-            // InternalSecLanguage.g:694:2: rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2
+            // InternalSecLanguage.g:752:1: ( rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2 )
+            // InternalSecLanguage.g:753:2: rule__SecurityTest__Group_5__1__Impl rule__SecurityTest__Group_5__2
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__SecurityTest__Group_5__1__Impl();
@@ -1776,17 +1954,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__1__Impl"
-    // InternalSecLanguage.g:701:1: rule__SecurityTest__Group_5__1__Impl : ( 'attacks' ) ;
+    // InternalSecLanguage.g:760:1: rule__SecurityTest__Group_5__1__Impl : ( 'attacks' ) ;
     public final void rule__SecurityTest__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:705:1: ( ( 'attacks' ) )
-            // InternalSecLanguage.g:706:1: ( 'attacks' )
+            // InternalSecLanguage.g:764:1: ( ( 'attacks' ) )
+            // InternalSecLanguage.g:765:1: ( 'attacks' )
             {
-            // InternalSecLanguage.g:706:1: ( 'attacks' )
-            // InternalSecLanguage.g:707:1: 'attacks'
+            // InternalSecLanguage.g:765:1: ( 'attacks' )
+            // InternalSecLanguage.g:766:1: 'attacks'
             {
              before(grammarAccess.getSecurityTestAccess().getAttacksKeyword_5_1()); 
             match(input,18,FollowSets000.FOLLOW_2); 
@@ -1813,14 +1991,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__2"
-    // InternalSecLanguage.g:720:1: rule__SecurityTest__Group_5__2 : rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3 ;
+    // InternalSecLanguage.g:779:1: rule__SecurityTest__Group_5__2 : rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3 ;
     public final void rule__SecurityTest__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:724:1: ( rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3 )
-            // InternalSecLanguage.g:725:2: rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3
+            // InternalSecLanguage.g:783:1: ( rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3 )
+            // InternalSecLanguage.g:784:2: rule__SecurityTest__Group_5__2__Impl rule__SecurityTest__Group_5__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__SecurityTest__Group_5__2__Impl();
@@ -1851,24 +2029,24 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__2__Impl"
-    // InternalSecLanguage.g:732:1: rule__SecurityTest__Group_5__2__Impl : ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) ) ;
+    // InternalSecLanguage.g:791:1: rule__SecurityTest__Group_5__2__Impl : ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) ) ;
     public final void rule__SecurityTest__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:736:1: ( ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) ) )
-            // InternalSecLanguage.g:737:1: ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) )
+            // InternalSecLanguage.g:795:1: ( ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) ) )
+            // InternalSecLanguage.g:796:1: ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) )
             {
-            // InternalSecLanguage.g:737:1: ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) )
-            // InternalSecLanguage.g:738:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* )
+            // InternalSecLanguage.g:796:1: ( ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* ) )
+            // InternalSecLanguage.g:797:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) ) ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* )
             {
-            // InternalSecLanguage.g:738:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) )
-            // InternalSecLanguage.g:739:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )
+            // InternalSecLanguage.g:797:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 ) )
+            // InternalSecLanguage.g:798:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )
             {
              before(grammarAccess.getSecurityTestAccess().getPossibleAttacksAssignment_5_2()); 
-            // InternalSecLanguage.g:740:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )
-            // InternalSecLanguage.g:740:2: rule__SecurityTest__PossibleAttacksAssignment_5_2
+            // InternalSecLanguage.g:799:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )
+            // InternalSecLanguage.g:799:2: rule__SecurityTest__PossibleAttacksAssignment_5_2
             {
             pushFollow(FollowSets000.FOLLOW_10);
             rule__SecurityTest__PossibleAttacksAssignment_5_2();
@@ -1882,24 +2060,24 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
             }
 
-            // InternalSecLanguage.g:743:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* )
-            // InternalSecLanguage.g:744:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )*
+            // InternalSecLanguage.g:802:1: ( ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )* )
+            // InternalSecLanguage.g:803:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )*
             {
              before(grammarAccess.getSecurityTestAccess().getPossibleAttacksAssignment_5_2()); 
-            // InternalSecLanguage.g:745:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )*
-            loop5:
+            // InternalSecLanguage.g:804:1: ( rule__SecurityTest__PossibleAttacksAssignment_5_2 )*
+            loop6:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA5_0==14) ) {
-                    alt5=1;
+                if ( (LA6_0==14) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalSecLanguage.g:745:2: rule__SecurityTest__PossibleAttacksAssignment_5_2
+            	    // InternalSecLanguage.g:804:2: rule__SecurityTest__PossibleAttacksAssignment_5_2
             	    {
             	    pushFollow(FollowSets000.FOLLOW_10);
             	    rule__SecurityTest__PossibleAttacksAssignment_5_2();
@@ -1911,7 +2089,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop6;
                 }
             } while (true);
 
@@ -1941,14 +2119,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__3"
-    // InternalSecLanguage.g:756:1: rule__SecurityTest__Group_5__3 : rule__SecurityTest__Group_5__3__Impl ;
+    // InternalSecLanguage.g:815:1: rule__SecurityTest__Group_5__3 : rule__SecurityTest__Group_5__3__Impl ;
     public final void rule__SecurityTest__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:760:1: ( rule__SecurityTest__Group_5__3__Impl )
-            // InternalSecLanguage.g:761:2: rule__SecurityTest__Group_5__3__Impl
+            // InternalSecLanguage.g:819:1: ( rule__SecurityTest__Group_5__3__Impl )
+            // InternalSecLanguage.g:820:2: rule__SecurityTest__Group_5__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__SecurityTest__Group_5__3__Impl();
@@ -1974,17 +2152,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__Group_5__3__Impl"
-    // InternalSecLanguage.g:767:1: rule__SecurityTest__Group_5__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:826:1: rule__SecurityTest__Group_5__3__Impl : ( ')' ) ;
     public final void rule__SecurityTest__Group_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:771:1: ( ( ')' ) )
-            // InternalSecLanguage.g:772:1: ( ')' )
+            // InternalSecLanguage.g:830:1: ( ( ')' ) )
+            // InternalSecLanguage.g:831:1: ( ')' )
             {
-            // InternalSecLanguage.g:772:1: ( ')' )
-            // InternalSecLanguage.g:773:1: ')'
+            // InternalSecLanguage.g:831:1: ( ')' )
+            // InternalSecLanguage.g:832:1: ')'
             {
              before(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_5_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -2010,15 +2188,475 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__SecurityTest__Group_5__3__Impl"
 
 
+    // $ANTLR start "rule__SecurityTest__Group_6__0"
+    // InternalSecLanguage.g:853:1: rule__SecurityTest__Group_6__0 : rule__SecurityTest__Group_6__0__Impl rule__SecurityTest__Group_6__1 ;
+    public final void rule__SecurityTest__Group_6__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:857:1: ( rule__SecurityTest__Group_6__0__Impl rule__SecurityTest__Group_6__1 )
+            // InternalSecLanguage.g:858:2: rule__SecurityTest__Group_6__0__Impl rule__SecurityTest__Group_6__1
+            {
+            pushFollow(FollowSets000.FOLLOW_11);
+            rule__SecurityTest__Group_6__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group_6__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__0"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__0__Impl"
+    // InternalSecLanguage.g:865:1: rule__SecurityTest__Group_6__0__Impl : ( '(' ) ;
+    public final void rule__SecurityTest__Group_6__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:869:1: ( ( '(' ) )
+            // InternalSecLanguage.g:870:1: ( '(' )
+            {
+            // InternalSecLanguage.g:870:1: ( '(' )
+            // InternalSecLanguage.g:871:1: '('
+            {
+             before(grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0()); 
+            match(input,14,FollowSets000.FOLLOW_2); 
+             after(grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__0__Impl"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__1"
+    // InternalSecLanguage.g:884:1: rule__SecurityTest__Group_6__1 : rule__SecurityTest__Group_6__1__Impl rule__SecurityTest__Group_6__2 ;
+    public final void rule__SecurityTest__Group_6__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:888:1: ( rule__SecurityTest__Group_6__1__Impl rule__SecurityTest__Group_6__2 )
+            // InternalSecLanguage.g:889:2: rule__SecurityTest__Group_6__1__Impl rule__SecurityTest__Group_6__2
+            {
+            pushFollow(FollowSets000.FOLLOW_5);
+            rule__SecurityTest__Group_6__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group_6__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__1"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__1__Impl"
+    // InternalSecLanguage.g:896:1: rule__SecurityTest__Group_6__1__Impl : ( 'notes' ) ;
+    public final void rule__SecurityTest__Group_6__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:900:1: ( ( 'notes' ) )
+            // InternalSecLanguage.g:901:1: ( 'notes' )
+            {
+            // InternalSecLanguage.g:901:1: ( 'notes' )
+            // InternalSecLanguage.g:902:1: 'notes'
+            {
+             before(grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1()); 
+            match(input,19,FollowSets000.FOLLOW_2); 
+             after(grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__1__Impl"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__2"
+    // InternalSecLanguage.g:915:1: rule__SecurityTest__Group_6__2 : rule__SecurityTest__Group_6__2__Impl rule__SecurityTest__Group_6__3 ;
+    public final void rule__SecurityTest__Group_6__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:919:1: ( rule__SecurityTest__Group_6__2__Impl rule__SecurityTest__Group_6__3 )
+            // InternalSecLanguage.g:920:2: rule__SecurityTest__Group_6__2__Impl rule__SecurityTest__Group_6__3
+            {
+            pushFollow(FollowSets000.FOLLOW_8);
+            rule__SecurityTest__Group_6__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group_6__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__2"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__2__Impl"
+    // InternalSecLanguage.g:927:1: rule__SecurityTest__Group_6__2__Impl : ( ( rule__SecurityTest__NoteAssignment_6_2 ) ) ;
+    public final void rule__SecurityTest__Group_6__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:931:1: ( ( ( rule__SecurityTest__NoteAssignment_6_2 ) ) )
+            // InternalSecLanguage.g:932:1: ( ( rule__SecurityTest__NoteAssignment_6_2 ) )
+            {
+            // InternalSecLanguage.g:932:1: ( ( rule__SecurityTest__NoteAssignment_6_2 ) )
+            // InternalSecLanguage.g:933:1: ( rule__SecurityTest__NoteAssignment_6_2 )
+            {
+             before(grammarAccess.getSecurityTestAccess().getNoteAssignment_6_2()); 
+            // InternalSecLanguage.g:934:1: ( rule__SecurityTest__NoteAssignment_6_2 )
+            // InternalSecLanguage.g:934:2: rule__SecurityTest__NoteAssignment_6_2
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__NoteAssignment_6_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSecurityTestAccess().getNoteAssignment_6_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__2__Impl"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__3"
+    // InternalSecLanguage.g:944:1: rule__SecurityTest__Group_6__3 : rule__SecurityTest__Group_6__3__Impl ;
+    public final void rule__SecurityTest__Group_6__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:948:1: ( rule__SecurityTest__Group_6__3__Impl )
+            // InternalSecLanguage.g:949:2: rule__SecurityTest__Group_6__3__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__SecurityTest__Group_6__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__3"
+
+
+    // $ANTLR start "rule__SecurityTest__Group_6__3__Impl"
+    // InternalSecLanguage.g:955:1: rule__SecurityTest__Group_6__3__Impl : ( ')' ) ;
+    public final void rule__SecurityTest__Group_6__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:959:1: ( ( ')' ) )
+            // InternalSecLanguage.g:960:1: ( ')' )
+            {
+            // InternalSecLanguage.g:960:1: ( ')' )
+            // InternalSecLanguage.g:961:1: ')'
+            {
+             before(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3()); 
+            match(input,16,FollowSets000.FOLLOW_2); 
+             after(grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__Group_6__3__Impl"
+
+
+    // $ANTLR start "rule__Note__Group__0"
+    // InternalSecLanguage.g:982:1: rule__Note__Group__0 : rule__Note__Group__0__Impl rule__Note__Group__1 ;
+    public final void rule__Note__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:986:1: ( rule__Note__Group__0__Impl rule__Note__Group__1 )
+            // InternalSecLanguage.g:987:2: rule__Note__Group__0__Impl rule__Note__Group__1
+            {
+            pushFollow(FollowSets000.FOLLOW_5);
+            rule__Note__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__Note__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Note__Group__0"
+
+
+    // $ANTLR start "rule__Note__Group__0__Impl"
+    // InternalSecLanguage.g:994:1: rule__Note__Group__0__Impl : ( () ) ;
+    public final void rule__Note__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:998:1: ( ( () ) )
+            // InternalSecLanguage.g:999:1: ( () )
+            {
+            // InternalSecLanguage.g:999:1: ( () )
+            // InternalSecLanguage.g:1000:1: ()
+            {
+             before(grammarAccess.getNoteAccess().getNoteAction_0()); 
+            // InternalSecLanguage.g:1001:1: ()
+            // InternalSecLanguage.g:1003:1: 
+            {
+            }
+
+             after(grammarAccess.getNoteAccess().getNoteAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Note__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Note__Group__1"
+    // InternalSecLanguage.g:1013:1: rule__Note__Group__1 : rule__Note__Group__1__Impl ;
+    public final void rule__Note__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:1017:1: ( rule__Note__Group__1__Impl )
+            // InternalSecLanguage.g:1018:2: rule__Note__Group__1__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__Note__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Note__Group__1"
+
+
+    // $ANTLR start "rule__Note__Group__1__Impl"
+    // InternalSecLanguage.g:1024:1: rule__Note__Group__1__Impl : ( ( rule__Note__NoteTextAssignment_1 ) ) ;
+    public final void rule__Note__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:1028:1: ( ( ( rule__Note__NoteTextAssignment_1 ) ) )
+            // InternalSecLanguage.g:1029:1: ( ( rule__Note__NoteTextAssignment_1 ) )
+            {
+            // InternalSecLanguage.g:1029:1: ( ( rule__Note__NoteTextAssignment_1 ) )
+            // InternalSecLanguage.g:1030:1: ( rule__Note__NoteTextAssignment_1 )
+            {
+             before(grammarAccess.getNoteAccess().getNoteTextAssignment_1()); 
+            // InternalSecLanguage.g:1031:1: ( rule__Note__NoteTextAssignment_1 )
+            // InternalSecLanguage.g:1031:2: rule__Note__NoteTextAssignment_1
+            {
+            pushFollow(FollowSets000.FOLLOW_2);
+            rule__Note__NoteTextAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getNoteAccess().getNoteTextAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Note__Group__1__Impl"
+
+
     // $ANTLR start "rule__TargetOfEvaluation__Group__0"
-    // InternalSecLanguage.g:794:1: rule__TargetOfEvaluation__Group__0 : rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1 ;
+    // InternalSecLanguage.g:1045:1: rule__TargetOfEvaluation__Group__0 : rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1 ;
     public final void rule__TargetOfEvaluation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:798:1: ( rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1 )
-            // InternalSecLanguage.g:799:2: rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1
+            // InternalSecLanguage.g:1049:1: ( rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1 )
+            // InternalSecLanguage.g:1050:2: rule__TargetOfEvaluation__Group__0__Impl rule__TargetOfEvaluation__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__TargetOfEvaluation__Group__0__Impl();
@@ -2049,21 +2687,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__0__Impl"
-    // InternalSecLanguage.g:806:1: rule__TargetOfEvaluation__Group__0__Impl : ( () ) ;
+    // InternalSecLanguage.g:1057:1: rule__TargetOfEvaluation__Group__0__Impl : ( () ) ;
     public final void rule__TargetOfEvaluation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:810:1: ( ( () ) )
-            // InternalSecLanguage.g:811:1: ( () )
+            // InternalSecLanguage.g:1061:1: ( ( () ) )
+            // InternalSecLanguage.g:1062:1: ( () )
             {
-            // InternalSecLanguage.g:811:1: ( () )
-            // InternalSecLanguage.g:812:1: ()
+            // InternalSecLanguage.g:1062:1: ( () )
+            // InternalSecLanguage.g:1063:1: ()
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getTargetOfEvaluationAction_0()); 
-            // InternalSecLanguage.g:813:1: ()
-            // InternalSecLanguage.g:815:1: 
+            // InternalSecLanguage.g:1064:1: ()
+            // InternalSecLanguage.g:1066:1: 
             {
             }
 
@@ -2086,16 +2724,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__1"
-    // InternalSecLanguage.g:825:1: rule__TargetOfEvaluation__Group__1 : rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2 ;
+    // InternalSecLanguage.g:1076:1: rule__TargetOfEvaluation__Group__1 : rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2 ;
     public final void rule__TargetOfEvaluation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:829:1: ( rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2 )
-            // InternalSecLanguage.g:830:2: rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2
+            // InternalSecLanguage.g:1080:1: ( rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2 )
+            // InternalSecLanguage.g:1081:2: rule__TargetOfEvaluation__Group__1__Impl rule__TargetOfEvaluation__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_11);
+            pushFollow(FollowSets000.FOLLOW_12);
             rule__TargetOfEvaluation__Group__1__Impl();
 
             state._fsp--;
@@ -2124,17 +2762,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__1__Impl"
-    // InternalSecLanguage.g:837:1: rule__TargetOfEvaluation__Group__1__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:1088:1: rule__TargetOfEvaluation__Group__1__Impl : ( '(' ) ;
     public final void rule__TargetOfEvaluation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:841:1: ( ( '(' ) )
-            // InternalSecLanguage.g:842:1: ( '(' )
+            // InternalSecLanguage.g:1092:1: ( ( '(' ) )
+            // InternalSecLanguage.g:1093:1: ( '(' )
             {
-            // InternalSecLanguage.g:842:1: ( '(' )
-            // InternalSecLanguage.g:843:1: '('
+            // InternalSecLanguage.g:1093:1: ( '(' )
+            // InternalSecLanguage.g:1094:1: '('
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getLeftParenthesisKeyword_1()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -2161,14 +2799,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__2"
-    // InternalSecLanguage.g:856:1: rule__TargetOfEvaluation__Group__2 : rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3 ;
+    // InternalSecLanguage.g:1107:1: rule__TargetOfEvaluation__Group__2 : rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3 ;
     public final void rule__TargetOfEvaluation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:860:1: ( rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3 )
-            // InternalSecLanguage.g:861:2: rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3
+            // InternalSecLanguage.g:1111:1: ( rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3 )
+            // InternalSecLanguage.g:1112:2: rule__TargetOfEvaluation__Group__2__Impl rule__TargetOfEvaluation__Group__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__TargetOfEvaluation__Group__2__Impl();
@@ -2199,21 +2837,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__2__Impl"
-    // InternalSecLanguage.g:868:1: rule__TargetOfEvaluation__Group__2__Impl : ( ( rule__TargetOfEvaluation__Group_2__0 ) ) ;
+    // InternalSecLanguage.g:1119:1: rule__TargetOfEvaluation__Group__2__Impl : ( ( rule__TargetOfEvaluation__Group_2__0 ) ) ;
     public final void rule__TargetOfEvaluation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:872:1: ( ( ( rule__TargetOfEvaluation__Group_2__0 ) ) )
-            // InternalSecLanguage.g:873:1: ( ( rule__TargetOfEvaluation__Group_2__0 ) )
+            // InternalSecLanguage.g:1123:1: ( ( ( rule__TargetOfEvaluation__Group_2__0 ) ) )
+            // InternalSecLanguage.g:1124:1: ( ( rule__TargetOfEvaluation__Group_2__0 ) )
             {
-            // InternalSecLanguage.g:873:1: ( ( rule__TargetOfEvaluation__Group_2__0 ) )
-            // InternalSecLanguage.g:874:1: ( rule__TargetOfEvaluation__Group_2__0 )
+            // InternalSecLanguage.g:1124:1: ( ( rule__TargetOfEvaluation__Group_2__0 ) )
+            // InternalSecLanguage.g:1125:1: ( rule__TargetOfEvaluation__Group_2__0 )
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getGroup_2()); 
-            // InternalSecLanguage.g:875:1: ( rule__TargetOfEvaluation__Group_2__0 )
-            // InternalSecLanguage.g:875:2: rule__TargetOfEvaluation__Group_2__0
+            // InternalSecLanguage.g:1126:1: ( rule__TargetOfEvaluation__Group_2__0 )
+            // InternalSecLanguage.g:1126:2: rule__TargetOfEvaluation__Group_2__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__TargetOfEvaluation__Group_2__0();
@@ -2246,14 +2884,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__3"
-    // InternalSecLanguage.g:885:1: rule__TargetOfEvaluation__Group__3 : rule__TargetOfEvaluation__Group__3__Impl ;
+    // InternalSecLanguage.g:1136:1: rule__TargetOfEvaluation__Group__3 : rule__TargetOfEvaluation__Group__3__Impl ;
     public final void rule__TargetOfEvaluation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:889:1: ( rule__TargetOfEvaluation__Group__3__Impl )
-            // InternalSecLanguage.g:890:2: rule__TargetOfEvaluation__Group__3__Impl
+            // InternalSecLanguage.g:1140:1: ( rule__TargetOfEvaluation__Group__3__Impl )
+            // InternalSecLanguage.g:1141:2: rule__TargetOfEvaluation__Group__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__TargetOfEvaluation__Group__3__Impl();
@@ -2279,17 +2917,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group__3__Impl"
-    // InternalSecLanguage.g:896:1: rule__TargetOfEvaluation__Group__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:1147:1: rule__TargetOfEvaluation__Group__3__Impl : ( ')' ) ;
     public final void rule__TargetOfEvaluation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:900:1: ( ( ')' ) )
-            // InternalSecLanguage.g:901:1: ( ')' )
+            // InternalSecLanguage.g:1151:1: ( ( ')' ) )
+            // InternalSecLanguage.g:1152:1: ( ')' )
             {
-            // InternalSecLanguage.g:901:1: ( ')' )
-            // InternalSecLanguage.g:902:1: ')'
+            // InternalSecLanguage.g:1152:1: ( ')' )
+            // InternalSecLanguage.g:1153:1: ')'
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getRightParenthesisKeyword_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -2316,14 +2954,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__0"
-    // InternalSecLanguage.g:923:1: rule__TargetOfEvaluation__Group_2__0 : rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1 ;
+    // InternalSecLanguage.g:1174:1: rule__TargetOfEvaluation__Group_2__0 : rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1 ;
     public final void rule__TargetOfEvaluation__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:927:1: ( rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1 )
-            // InternalSecLanguage.g:928:2: rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1
+            // InternalSecLanguage.g:1178:1: ( rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1 )
+            // InternalSecLanguage.g:1179:2: rule__TargetOfEvaluation__Group_2__0__Impl rule__TargetOfEvaluation__Group_2__1
             {
             pushFollow(FollowSets000.FOLLOW_5);
             rule__TargetOfEvaluation__Group_2__0__Impl();
@@ -2354,20 +2992,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__0__Impl"
-    // InternalSecLanguage.g:935:1: rule__TargetOfEvaluation__Group_2__0__Impl : ( 'toe' ) ;
+    // InternalSecLanguage.g:1186:1: rule__TargetOfEvaluation__Group_2__0__Impl : ( 'toe' ) ;
     public final void rule__TargetOfEvaluation__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:939:1: ( ( 'toe' ) )
-            // InternalSecLanguage.g:940:1: ( 'toe' )
+            // InternalSecLanguage.g:1190:1: ( ( 'toe' ) )
+            // InternalSecLanguage.g:1191:1: ( 'toe' )
             {
-            // InternalSecLanguage.g:940:1: ( 'toe' )
-            // InternalSecLanguage.g:941:1: 'toe'
+            // InternalSecLanguage.g:1191:1: ( 'toe' )
+            // InternalSecLanguage.g:1192:1: 'toe'
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getToeKeyword_2_0()); 
-            match(input,19,FollowSets000.FOLLOW_2); 
+            match(input,20,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getTargetOfEvaluationAccess().getToeKeyword_2_0()); 
 
             }
@@ -2391,14 +3029,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__1"
-    // InternalSecLanguage.g:954:1: rule__TargetOfEvaluation__Group_2__1 : rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2 ;
+    // InternalSecLanguage.g:1205:1: rule__TargetOfEvaluation__Group_2__1 : rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2 ;
     public final void rule__TargetOfEvaluation__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:958:1: ( rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2 )
-            // InternalSecLanguage.g:959:2: rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2
+            // InternalSecLanguage.g:1209:1: ( rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2 )
+            // InternalSecLanguage.g:1210:2: rule__TargetOfEvaluation__Group_2__1__Impl rule__TargetOfEvaluation__Group_2__2
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__TargetOfEvaluation__Group_2__1__Impl();
@@ -2429,21 +3067,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__1__Impl"
-    // InternalSecLanguage.g:966:1: rule__TargetOfEvaluation__Group_2__1__Impl : ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) ) ;
+    // InternalSecLanguage.g:1217:1: rule__TargetOfEvaluation__Group_2__1__Impl : ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) ) ;
     public final void rule__TargetOfEvaluation__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:970:1: ( ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) ) )
-            // InternalSecLanguage.g:971:1: ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) )
+            // InternalSecLanguage.g:1221:1: ( ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) ) )
+            // InternalSecLanguage.g:1222:1: ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) )
             {
-            // InternalSecLanguage.g:971:1: ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) )
-            // InternalSecLanguage.g:972:1: ( rule__TargetOfEvaluation__DomainAssignment_2_1 )
+            // InternalSecLanguage.g:1222:1: ( ( rule__TargetOfEvaluation__DomainAssignment_2_1 ) )
+            // InternalSecLanguage.g:1223:1: ( rule__TargetOfEvaluation__DomainAssignment_2_1 )
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getDomainAssignment_2_1()); 
-            // InternalSecLanguage.g:973:1: ( rule__TargetOfEvaluation__DomainAssignment_2_1 )
-            // InternalSecLanguage.g:973:2: rule__TargetOfEvaluation__DomainAssignment_2_1
+            // InternalSecLanguage.g:1224:1: ( rule__TargetOfEvaluation__DomainAssignment_2_1 )
+            // InternalSecLanguage.g:1224:2: rule__TargetOfEvaluation__DomainAssignment_2_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__TargetOfEvaluation__DomainAssignment_2_1();
@@ -2476,14 +3114,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__2"
-    // InternalSecLanguage.g:983:1: rule__TargetOfEvaluation__Group_2__2 : rule__TargetOfEvaluation__Group_2__2__Impl ;
+    // InternalSecLanguage.g:1234:1: rule__TargetOfEvaluation__Group_2__2 : rule__TargetOfEvaluation__Group_2__2__Impl ;
     public final void rule__TargetOfEvaluation__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:987:1: ( rule__TargetOfEvaluation__Group_2__2__Impl )
-            // InternalSecLanguage.g:988:2: rule__TargetOfEvaluation__Group_2__2__Impl
+            // InternalSecLanguage.g:1238:1: ( rule__TargetOfEvaluation__Group_2__2__Impl )
+            // InternalSecLanguage.g:1239:2: rule__TargetOfEvaluation__Group_2__2__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__TargetOfEvaluation__Group_2__2__Impl();
@@ -2509,33 +3147,33 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__Group_2__2__Impl"
-    // InternalSecLanguage.g:994:1: rule__TargetOfEvaluation__Group_2__2__Impl : ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* ) ;
+    // InternalSecLanguage.g:1245:1: rule__TargetOfEvaluation__Group_2__2__Impl : ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* ) ;
     public final void rule__TargetOfEvaluation__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:998:1: ( ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* ) )
-            // InternalSecLanguage.g:999:1: ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* )
+            // InternalSecLanguage.g:1249:1: ( ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* ) )
+            // InternalSecLanguage.g:1250:1: ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* )
             {
-            // InternalSecLanguage.g:999:1: ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* )
-            // InternalSecLanguage.g:1000:1: ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )*
+            // InternalSecLanguage.g:1250:1: ( ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )* )
+            // InternalSecLanguage.g:1251:1: ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )*
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getComponentsAssignment_2_2()); 
-            // InternalSecLanguage.g:1001:1: ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )*
-            loop6:
+            // InternalSecLanguage.g:1252:1: ( rule__TargetOfEvaluation__ComponentsAssignment_2_2 )*
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA6_0==14) ) {
-                    alt6=1;
+                if ( (LA7_0==14) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalSecLanguage.g:1001:2: rule__TargetOfEvaluation__ComponentsAssignment_2_2
+            	    // InternalSecLanguage.g:1252:2: rule__TargetOfEvaluation__ComponentsAssignment_2_2
             	    {
             	    pushFollow(FollowSets000.FOLLOW_10);
             	    rule__TargetOfEvaluation__ComponentsAssignment_2_2();
@@ -2547,7 +3185,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop7;
                 }
             } while (true);
 
@@ -2574,14 +3212,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__0"
-    // InternalSecLanguage.g:1017:1: rule__Attack__Group__0 : rule__Attack__Group__0__Impl rule__Attack__Group__1 ;
+    // InternalSecLanguage.g:1268:1: rule__Attack__Group__0 : rule__Attack__Group__0__Impl rule__Attack__Group__1 ;
     public final void rule__Attack__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1021:1: ( rule__Attack__Group__0__Impl rule__Attack__Group__1 )
-            // InternalSecLanguage.g:1022:2: rule__Attack__Group__0__Impl rule__Attack__Group__1
+            // InternalSecLanguage.g:1272:1: ( rule__Attack__Group__0__Impl rule__Attack__Group__1 )
+            // InternalSecLanguage.g:1273:2: rule__Attack__Group__0__Impl rule__Attack__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__Attack__Group__0__Impl();
@@ -2612,21 +3250,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__0__Impl"
-    // InternalSecLanguage.g:1029:1: rule__Attack__Group__0__Impl : ( () ) ;
+    // InternalSecLanguage.g:1280:1: rule__Attack__Group__0__Impl : ( () ) ;
     public final void rule__Attack__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1033:1: ( ( () ) )
-            // InternalSecLanguage.g:1034:1: ( () )
+            // InternalSecLanguage.g:1284:1: ( ( () ) )
+            // InternalSecLanguage.g:1285:1: ( () )
             {
-            // InternalSecLanguage.g:1034:1: ( () )
-            // InternalSecLanguage.g:1035:1: ()
+            // InternalSecLanguage.g:1285:1: ( () )
+            // InternalSecLanguage.g:1286:1: ()
             {
              before(grammarAccess.getAttackAccess().getAttackAction_0()); 
-            // InternalSecLanguage.g:1036:1: ()
-            // InternalSecLanguage.g:1038:1: 
+            // InternalSecLanguage.g:1287:1: ()
+            // InternalSecLanguage.g:1289:1: 
             {
             }
 
@@ -2649,16 +3287,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__1"
-    // InternalSecLanguage.g:1048:1: rule__Attack__Group__1 : rule__Attack__Group__1__Impl rule__Attack__Group__2 ;
+    // InternalSecLanguage.g:1299:1: rule__Attack__Group__1 : rule__Attack__Group__1__Impl rule__Attack__Group__2 ;
     public final void rule__Attack__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1052:1: ( rule__Attack__Group__1__Impl rule__Attack__Group__2 )
-            // InternalSecLanguage.g:1053:2: rule__Attack__Group__1__Impl rule__Attack__Group__2
+            // InternalSecLanguage.g:1303:1: ( rule__Attack__Group__1__Impl rule__Attack__Group__2 )
+            // InternalSecLanguage.g:1304:2: rule__Attack__Group__1__Impl rule__Attack__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_12);
+            pushFollow(FollowSets000.FOLLOW_13);
             rule__Attack__Group__1__Impl();
 
             state._fsp--;
@@ -2687,17 +3325,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__1__Impl"
-    // InternalSecLanguage.g:1060:1: rule__Attack__Group__1__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:1311:1: rule__Attack__Group__1__Impl : ( '(' ) ;
     public final void rule__Attack__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1064:1: ( ( '(' ) )
-            // InternalSecLanguage.g:1065:1: ( '(' )
+            // InternalSecLanguage.g:1315:1: ( ( '(' ) )
+            // InternalSecLanguage.g:1316:1: ( '(' )
             {
-            // InternalSecLanguage.g:1065:1: ( '(' )
-            // InternalSecLanguage.g:1066:1: '('
+            // InternalSecLanguage.g:1316:1: ( '(' )
+            // InternalSecLanguage.g:1317:1: '('
             {
              before(grammarAccess.getAttackAccess().getLeftParenthesisKeyword_1()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -2724,14 +3362,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__2"
-    // InternalSecLanguage.g:1079:1: rule__Attack__Group__2 : rule__Attack__Group__2__Impl rule__Attack__Group__3 ;
+    // InternalSecLanguage.g:1330:1: rule__Attack__Group__2 : rule__Attack__Group__2__Impl rule__Attack__Group__3 ;
     public final void rule__Attack__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1083:1: ( rule__Attack__Group__2__Impl rule__Attack__Group__3 )
-            // InternalSecLanguage.g:1084:2: rule__Attack__Group__2__Impl rule__Attack__Group__3
+            // InternalSecLanguage.g:1334:1: ( rule__Attack__Group__2__Impl rule__Attack__Group__3 )
+            // InternalSecLanguage.g:1335:2: rule__Attack__Group__2__Impl rule__Attack__Group__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__Attack__Group__2__Impl();
@@ -2762,21 +3400,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__2__Impl"
-    // InternalSecLanguage.g:1091:1: rule__Attack__Group__2__Impl : ( ( rule__Attack__Group_2__0 ) ) ;
+    // InternalSecLanguage.g:1342:1: rule__Attack__Group__2__Impl : ( ( rule__Attack__Group_2__0 ) ) ;
     public final void rule__Attack__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1095:1: ( ( ( rule__Attack__Group_2__0 ) ) )
-            // InternalSecLanguage.g:1096:1: ( ( rule__Attack__Group_2__0 ) )
+            // InternalSecLanguage.g:1346:1: ( ( ( rule__Attack__Group_2__0 ) ) )
+            // InternalSecLanguage.g:1347:1: ( ( rule__Attack__Group_2__0 ) )
             {
-            // InternalSecLanguage.g:1096:1: ( ( rule__Attack__Group_2__0 ) )
-            // InternalSecLanguage.g:1097:1: ( rule__Attack__Group_2__0 )
+            // InternalSecLanguage.g:1347:1: ( ( rule__Attack__Group_2__0 ) )
+            // InternalSecLanguage.g:1348:1: ( rule__Attack__Group_2__0 )
             {
              before(grammarAccess.getAttackAccess().getGroup_2()); 
-            // InternalSecLanguage.g:1098:1: ( rule__Attack__Group_2__0 )
-            // InternalSecLanguage.g:1098:2: rule__Attack__Group_2__0
+            // InternalSecLanguage.g:1349:1: ( rule__Attack__Group_2__0 )
+            // InternalSecLanguage.g:1349:2: rule__Attack__Group_2__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__Group_2__0();
@@ -2809,14 +3447,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__3"
-    // InternalSecLanguage.g:1108:1: rule__Attack__Group__3 : rule__Attack__Group__3__Impl ;
+    // InternalSecLanguage.g:1359:1: rule__Attack__Group__3 : rule__Attack__Group__3__Impl ;
     public final void rule__Attack__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1112:1: ( rule__Attack__Group__3__Impl )
-            // InternalSecLanguage.g:1113:2: rule__Attack__Group__3__Impl
+            // InternalSecLanguage.g:1363:1: ( rule__Attack__Group__3__Impl )
+            // InternalSecLanguage.g:1364:2: rule__Attack__Group__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__Group__3__Impl();
@@ -2842,17 +3480,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group__3__Impl"
-    // InternalSecLanguage.g:1119:1: rule__Attack__Group__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:1370:1: rule__Attack__Group__3__Impl : ( ')' ) ;
     public final void rule__Attack__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1123:1: ( ( ')' ) )
-            // InternalSecLanguage.g:1124:1: ( ')' )
+            // InternalSecLanguage.g:1374:1: ( ( ')' ) )
+            // InternalSecLanguage.g:1375:1: ( ')' )
             {
-            // InternalSecLanguage.g:1124:1: ( ')' )
-            // InternalSecLanguage.g:1125:1: ')'
+            // InternalSecLanguage.g:1375:1: ( ')' )
+            // InternalSecLanguage.g:1376:1: ')'
             {
              before(grammarAccess.getAttackAccess().getRightParenthesisKeyword_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -2879,14 +3517,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__0"
-    // InternalSecLanguage.g:1146:1: rule__Attack__Group_2__0 : rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1 ;
+    // InternalSecLanguage.g:1397:1: rule__Attack__Group_2__0 : rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1 ;
     public final void rule__Attack__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1150:1: ( rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1 )
-            // InternalSecLanguage.g:1151:2: rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1
+            // InternalSecLanguage.g:1401:1: ( rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1 )
+            // InternalSecLanguage.g:1402:2: rule__Attack__Group_2__0__Impl rule__Attack__Group_2__1
             {
             pushFollow(FollowSets000.FOLLOW_5);
             rule__Attack__Group_2__0__Impl();
@@ -2917,20 +3555,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__0__Impl"
-    // InternalSecLanguage.g:1158:1: rule__Attack__Group_2__0__Impl : ( 'attack' ) ;
+    // InternalSecLanguage.g:1409:1: rule__Attack__Group_2__0__Impl : ( 'attack' ) ;
     public final void rule__Attack__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1162:1: ( ( 'attack' ) )
-            // InternalSecLanguage.g:1163:1: ( 'attack' )
+            // InternalSecLanguage.g:1413:1: ( ( 'attack' ) )
+            // InternalSecLanguage.g:1414:1: ( 'attack' )
             {
-            // InternalSecLanguage.g:1163:1: ( 'attack' )
-            // InternalSecLanguage.g:1164:1: 'attack'
+            // InternalSecLanguage.g:1414:1: ( 'attack' )
+            // InternalSecLanguage.g:1415:1: 'attack'
             {
              before(grammarAccess.getAttackAccess().getAttackKeyword_2_0()); 
-            match(input,20,FollowSets000.FOLLOW_2); 
+            match(input,21,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getAttackAccess().getAttackKeyword_2_0()); 
 
             }
@@ -2954,16 +3592,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__1"
-    // InternalSecLanguage.g:1177:1: rule__Attack__Group_2__1 : rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2 ;
+    // InternalSecLanguage.g:1428:1: rule__Attack__Group_2__1 : rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2 ;
     public final void rule__Attack__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1181:1: ( rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2 )
-            // InternalSecLanguage.g:1182:2: rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2
+            // InternalSecLanguage.g:1432:1: ( rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2 )
+            // InternalSecLanguage.g:1433:2: rule__Attack__Group_2__1__Impl rule__Attack__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_13);
+            pushFollow(FollowSets000.FOLLOW_14);
             rule__Attack__Group_2__1__Impl();
 
             state._fsp--;
@@ -2992,21 +3630,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__1__Impl"
-    // InternalSecLanguage.g:1189:1: rule__Attack__Group_2__1__Impl : ( ( rule__Attack__NameAssignment_2_1 ) ) ;
+    // InternalSecLanguage.g:1440:1: rule__Attack__Group_2__1__Impl : ( ( rule__Attack__NameAssignment_2_1 ) ) ;
     public final void rule__Attack__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1193:1: ( ( ( rule__Attack__NameAssignment_2_1 ) ) )
-            // InternalSecLanguage.g:1194:1: ( ( rule__Attack__NameAssignment_2_1 ) )
+            // InternalSecLanguage.g:1444:1: ( ( ( rule__Attack__NameAssignment_2_1 ) ) )
+            // InternalSecLanguage.g:1445:1: ( ( rule__Attack__NameAssignment_2_1 ) )
             {
-            // InternalSecLanguage.g:1194:1: ( ( rule__Attack__NameAssignment_2_1 ) )
-            // InternalSecLanguage.g:1195:1: ( rule__Attack__NameAssignment_2_1 )
+            // InternalSecLanguage.g:1445:1: ( ( rule__Attack__NameAssignment_2_1 ) )
+            // InternalSecLanguage.g:1446:1: ( rule__Attack__NameAssignment_2_1 )
             {
              before(grammarAccess.getAttackAccess().getNameAssignment_2_1()); 
-            // InternalSecLanguage.g:1196:1: ( rule__Attack__NameAssignment_2_1 )
-            // InternalSecLanguage.g:1196:2: rule__Attack__NameAssignment_2_1
+            // InternalSecLanguage.g:1447:1: ( rule__Attack__NameAssignment_2_1 )
+            // InternalSecLanguage.g:1447:2: rule__Attack__NameAssignment_2_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__NameAssignment_2_1();
@@ -3039,14 +3677,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__2"
-    // InternalSecLanguage.g:1206:1: rule__Attack__Group_2__2 : rule__Attack__Group_2__2__Impl ;
+    // InternalSecLanguage.g:1457:1: rule__Attack__Group_2__2 : rule__Attack__Group_2__2__Impl ;
     public final void rule__Attack__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1210:1: ( rule__Attack__Group_2__2__Impl )
-            // InternalSecLanguage.g:1211:2: rule__Attack__Group_2__2__Impl
+            // InternalSecLanguage.g:1461:1: ( rule__Attack__Group_2__2__Impl )
+            // InternalSecLanguage.g:1462:2: rule__Attack__Group_2__2__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__Group_2__2__Impl();
@@ -3072,29 +3710,29 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2__2__Impl"
-    // InternalSecLanguage.g:1217:1: rule__Attack__Group_2__2__Impl : ( ( rule__Attack__Group_2_2__0 )? ) ;
+    // InternalSecLanguage.g:1468:1: rule__Attack__Group_2__2__Impl : ( ( rule__Attack__Group_2_2__0 )? ) ;
     public final void rule__Attack__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1221:1: ( ( ( rule__Attack__Group_2_2__0 )? ) )
-            // InternalSecLanguage.g:1222:1: ( ( rule__Attack__Group_2_2__0 )? )
+            // InternalSecLanguage.g:1472:1: ( ( ( rule__Attack__Group_2_2__0 )? ) )
+            // InternalSecLanguage.g:1473:1: ( ( rule__Attack__Group_2_2__0 )? )
             {
-            // InternalSecLanguage.g:1222:1: ( ( rule__Attack__Group_2_2__0 )? )
-            // InternalSecLanguage.g:1223:1: ( rule__Attack__Group_2_2__0 )?
+            // InternalSecLanguage.g:1473:1: ( ( rule__Attack__Group_2_2__0 )? )
+            // InternalSecLanguage.g:1474:1: ( rule__Attack__Group_2_2__0 )?
             {
              before(grammarAccess.getAttackAccess().getGroup_2_2()); 
-            // InternalSecLanguage.g:1224:1: ( rule__Attack__Group_2_2__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalSecLanguage.g:1475:1: ( rule__Attack__Group_2_2__0 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==21) ) {
-                alt7=1;
+            if ( (LA8_0==22) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalSecLanguage.g:1224:2: rule__Attack__Group_2_2__0
+                    // InternalSecLanguage.g:1475:2: rule__Attack__Group_2_2__0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__Attack__Group_2_2__0();
@@ -3130,16 +3768,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__0"
-    // InternalSecLanguage.g:1240:1: rule__Attack__Group_2_2__0 : rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1 ;
+    // InternalSecLanguage.g:1491:1: rule__Attack__Group_2_2__0 : rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1 ;
     public final void rule__Attack__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1244:1: ( rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1 )
-            // InternalSecLanguage.g:1245:2: rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1
+            // InternalSecLanguage.g:1495:1: ( rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1 )
+            // InternalSecLanguage.g:1496:2: rule__Attack__Group_2_2__0__Impl rule__Attack__Group_2_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_14);
+            pushFollow(FollowSets000.FOLLOW_15);
             rule__Attack__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -3168,20 +3806,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__0__Impl"
-    // InternalSecLanguage.g:1252:1: rule__Attack__Group_2_2__0__Impl : ( '{' ) ;
+    // InternalSecLanguage.g:1503:1: rule__Attack__Group_2_2__0__Impl : ( '{' ) ;
     public final void rule__Attack__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1256:1: ( ( '{' ) )
-            // InternalSecLanguage.g:1257:1: ( '{' )
+            // InternalSecLanguage.g:1507:1: ( ( '{' ) )
+            // InternalSecLanguage.g:1508:1: ( '{' )
             {
-            // InternalSecLanguage.g:1257:1: ( '{' )
-            // InternalSecLanguage.g:1258:1: '{'
+            // InternalSecLanguage.g:1508:1: ( '{' )
+            // InternalSecLanguage.g:1509:1: '{'
             {
              before(grammarAccess.getAttackAccess().getLeftCurlyBracketKeyword_2_2_0()); 
-            match(input,21,FollowSets000.FOLLOW_2); 
+            match(input,22,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getAttackAccess().getLeftCurlyBracketKeyword_2_2_0()); 
 
             }
@@ -3205,16 +3843,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__1"
-    // InternalSecLanguage.g:1271:1: rule__Attack__Group_2_2__1 : rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2 ;
+    // InternalSecLanguage.g:1522:1: rule__Attack__Group_2_2__1 : rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2 ;
     public final void rule__Attack__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1275:1: ( rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2 )
-            // InternalSecLanguage.g:1276:2: rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2
+            // InternalSecLanguage.g:1526:1: ( rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2 )
+            // InternalSecLanguage.g:1527:2: rule__Attack__Group_2_2__1__Impl rule__Attack__Group_2_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_15);
+            pushFollow(FollowSets000.FOLLOW_16);
             rule__Attack__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -3243,20 +3881,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__1__Impl"
-    // InternalSecLanguage.g:1283:1: rule__Attack__Group_2_2__1__Impl : ( ':level' ) ;
+    // InternalSecLanguage.g:1534:1: rule__Attack__Group_2_2__1__Impl : ( ':level' ) ;
     public final void rule__Attack__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1287:1: ( ( ':level' ) )
-            // InternalSecLanguage.g:1288:1: ( ':level' )
+            // InternalSecLanguage.g:1538:1: ( ( ':level' ) )
+            // InternalSecLanguage.g:1539:1: ( ':level' )
             {
-            // InternalSecLanguage.g:1288:1: ( ':level' )
-            // InternalSecLanguage.g:1289:1: ':level'
+            // InternalSecLanguage.g:1539:1: ( ':level' )
+            // InternalSecLanguage.g:1540:1: ':level'
             {
              before(grammarAccess.getAttackAccess().getLevelKeyword_2_2_1()); 
-            match(input,22,FollowSets000.FOLLOW_2); 
+            match(input,23,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getAttackAccess().getLevelKeyword_2_2_1()); 
 
             }
@@ -3280,16 +3918,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__2"
-    // InternalSecLanguage.g:1302:1: rule__Attack__Group_2_2__2 : rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3 ;
+    // InternalSecLanguage.g:1553:1: rule__Attack__Group_2_2__2 : rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3 ;
     public final void rule__Attack__Group_2_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1306:1: ( rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3 )
-            // InternalSecLanguage.g:1307:2: rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3
+            // InternalSecLanguage.g:1557:1: ( rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3 )
+            // InternalSecLanguage.g:1558:2: rule__Attack__Group_2_2__2__Impl rule__Attack__Group_2_2__3
             {
-            pushFollow(FollowSets000.FOLLOW_16);
+            pushFollow(FollowSets000.FOLLOW_17);
             rule__Attack__Group_2_2__2__Impl();
 
             state._fsp--;
@@ -3318,21 +3956,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__2__Impl"
-    // InternalSecLanguage.g:1314:1: rule__Attack__Group_2_2__2__Impl : ( ( rule__Attack__SeverityAssignment_2_2_2 ) ) ;
+    // InternalSecLanguage.g:1565:1: rule__Attack__Group_2_2__2__Impl : ( ( rule__Attack__SeverityAssignment_2_2_2 ) ) ;
     public final void rule__Attack__Group_2_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1318:1: ( ( ( rule__Attack__SeverityAssignment_2_2_2 ) ) )
-            // InternalSecLanguage.g:1319:1: ( ( rule__Attack__SeverityAssignment_2_2_2 ) )
+            // InternalSecLanguage.g:1569:1: ( ( ( rule__Attack__SeverityAssignment_2_2_2 ) ) )
+            // InternalSecLanguage.g:1570:1: ( ( rule__Attack__SeverityAssignment_2_2_2 ) )
             {
-            // InternalSecLanguage.g:1319:1: ( ( rule__Attack__SeverityAssignment_2_2_2 ) )
-            // InternalSecLanguage.g:1320:1: ( rule__Attack__SeverityAssignment_2_2_2 )
+            // InternalSecLanguage.g:1570:1: ( ( rule__Attack__SeverityAssignment_2_2_2 ) )
+            // InternalSecLanguage.g:1571:1: ( rule__Attack__SeverityAssignment_2_2_2 )
             {
              before(grammarAccess.getAttackAccess().getSeverityAssignment_2_2_2()); 
-            // InternalSecLanguage.g:1321:1: ( rule__Attack__SeverityAssignment_2_2_2 )
-            // InternalSecLanguage.g:1321:2: rule__Attack__SeverityAssignment_2_2_2
+            // InternalSecLanguage.g:1572:1: ( rule__Attack__SeverityAssignment_2_2_2 )
+            // InternalSecLanguage.g:1572:2: rule__Attack__SeverityAssignment_2_2_2
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__SeverityAssignment_2_2_2();
@@ -3365,14 +4003,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__3"
-    // InternalSecLanguage.g:1331:1: rule__Attack__Group_2_2__3 : rule__Attack__Group_2_2__3__Impl ;
+    // InternalSecLanguage.g:1582:1: rule__Attack__Group_2_2__3 : rule__Attack__Group_2_2__3__Impl ;
     public final void rule__Attack__Group_2_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1335:1: ( rule__Attack__Group_2_2__3__Impl )
-            // InternalSecLanguage.g:1336:2: rule__Attack__Group_2_2__3__Impl
+            // InternalSecLanguage.g:1586:1: ( rule__Attack__Group_2_2__3__Impl )
+            // InternalSecLanguage.g:1587:2: rule__Attack__Group_2_2__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Attack__Group_2_2__3__Impl();
@@ -3398,20 +4036,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__Group_2_2__3__Impl"
-    // InternalSecLanguage.g:1342:1: rule__Attack__Group_2_2__3__Impl : ( '}' ) ;
+    // InternalSecLanguage.g:1593:1: rule__Attack__Group_2_2__3__Impl : ( '}' ) ;
     public final void rule__Attack__Group_2_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1346:1: ( ( '}' ) )
-            // InternalSecLanguage.g:1347:1: ( '}' )
+            // InternalSecLanguage.g:1597:1: ( ( '}' ) )
+            // InternalSecLanguage.g:1598:1: ( '}' )
             {
-            // InternalSecLanguage.g:1347:1: ( '}' )
-            // InternalSecLanguage.g:1348:1: '}'
+            // InternalSecLanguage.g:1598:1: ( '}' )
+            // InternalSecLanguage.g:1599:1: '}'
             {
              before(grammarAccess.getAttackAccess().getRightCurlyBracketKeyword_2_2_3()); 
-            match(input,23,FollowSets000.FOLLOW_2); 
+            match(input,24,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getAttackAccess().getRightCurlyBracketKeyword_2_2_3()); 
 
             }
@@ -3435,14 +4073,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__0"
-    // InternalSecLanguage.g:1369:1: rule__WebComponent__Group__0 : rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1 ;
+    // InternalSecLanguage.g:1620:1: rule__WebComponent__Group__0 : rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1 ;
     public final void rule__WebComponent__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1373:1: ( rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1 )
-            // InternalSecLanguage.g:1374:2: rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1
+            // InternalSecLanguage.g:1624:1: ( rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1 )
+            // InternalSecLanguage.g:1625:2: rule__WebComponent__Group__0__Impl rule__WebComponent__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__WebComponent__Group__0__Impl();
@@ -3473,21 +4111,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__0__Impl"
-    // InternalSecLanguage.g:1381:1: rule__WebComponent__Group__0__Impl : ( () ) ;
+    // InternalSecLanguage.g:1632:1: rule__WebComponent__Group__0__Impl : ( () ) ;
     public final void rule__WebComponent__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1385:1: ( ( () ) )
-            // InternalSecLanguage.g:1386:1: ( () )
+            // InternalSecLanguage.g:1636:1: ( ( () ) )
+            // InternalSecLanguage.g:1637:1: ( () )
             {
-            // InternalSecLanguage.g:1386:1: ( () )
-            // InternalSecLanguage.g:1387:1: ()
+            // InternalSecLanguage.g:1637:1: ( () )
+            // InternalSecLanguage.g:1638:1: ()
             {
              before(grammarAccess.getWebComponentAccess().getWebComponentAction_0()); 
-            // InternalSecLanguage.g:1388:1: ()
-            // InternalSecLanguage.g:1390:1: 
+            // InternalSecLanguage.g:1639:1: ()
+            // InternalSecLanguage.g:1641:1: 
             {
             }
 
@@ -3510,16 +4148,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__1"
-    // InternalSecLanguage.g:1400:1: rule__WebComponent__Group__1 : rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2 ;
+    // InternalSecLanguage.g:1651:1: rule__WebComponent__Group__1 : rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2 ;
     public final void rule__WebComponent__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1404:1: ( rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2 )
-            // InternalSecLanguage.g:1405:2: rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2
+            // InternalSecLanguage.g:1655:1: ( rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2 )
+            // InternalSecLanguage.g:1656:2: rule__WebComponent__Group__1__Impl rule__WebComponent__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_17);
+            pushFollow(FollowSets000.FOLLOW_18);
             rule__WebComponent__Group__1__Impl();
 
             state._fsp--;
@@ -3548,17 +4186,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__1__Impl"
-    // InternalSecLanguage.g:1412:1: rule__WebComponent__Group__1__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:1663:1: rule__WebComponent__Group__1__Impl : ( '(' ) ;
     public final void rule__WebComponent__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1416:1: ( ( '(' ) )
-            // InternalSecLanguage.g:1417:1: ( '(' )
+            // InternalSecLanguage.g:1667:1: ( ( '(' ) )
+            // InternalSecLanguage.g:1668:1: ( '(' )
             {
-            // InternalSecLanguage.g:1417:1: ( '(' )
-            // InternalSecLanguage.g:1418:1: '('
+            // InternalSecLanguage.g:1668:1: ( '(' )
+            // InternalSecLanguage.g:1669:1: '('
             {
              before(grammarAccess.getWebComponentAccess().getLeftParenthesisKeyword_1()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -3585,14 +4223,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__2"
-    // InternalSecLanguage.g:1431:1: rule__WebComponent__Group__2 : rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3 ;
+    // InternalSecLanguage.g:1682:1: rule__WebComponent__Group__2 : rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3 ;
     public final void rule__WebComponent__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1435:1: ( rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3 )
-            // InternalSecLanguage.g:1436:2: rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3
+            // InternalSecLanguage.g:1686:1: ( rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3 )
+            // InternalSecLanguage.g:1687:2: rule__WebComponent__Group__2__Impl rule__WebComponent__Group__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__WebComponent__Group__2__Impl();
@@ -3623,21 +4261,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__2__Impl"
-    // InternalSecLanguage.g:1443:1: rule__WebComponent__Group__2__Impl : ( ( rule__WebComponent__Group_2__0 ) ) ;
+    // InternalSecLanguage.g:1694:1: rule__WebComponent__Group__2__Impl : ( ( rule__WebComponent__Group_2__0 ) ) ;
     public final void rule__WebComponent__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1447:1: ( ( ( rule__WebComponent__Group_2__0 ) ) )
-            // InternalSecLanguage.g:1448:1: ( ( rule__WebComponent__Group_2__0 ) )
+            // InternalSecLanguage.g:1698:1: ( ( ( rule__WebComponent__Group_2__0 ) ) )
+            // InternalSecLanguage.g:1699:1: ( ( rule__WebComponent__Group_2__0 ) )
             {
-            // InternalSecLanguage.g:1448:1: ( ( rule__WebComponent__Group_2__0 ) )
-            // InternalSecLanguage.g:1449:1: ( rule__WebComponent__Group_2__0 )
+            // InternalSecLanguage.g:1699:1: ( ( rule__WebComponent__Group_2__0 ) )
+            // InternalSecLanguage.g:1700:1: ( rule__WebComponent__Group_2__0 )
             {
              before(grammarAccess.getWebComponentAccess().getGroup_2()); 
-            // InternalSecLanguage.g:1450:1: ( rule__WebComponent__Group_2__0 )
-            // InternalSecLanguage.g:1450:2: rule__WebComponent__Group_2__0
+            // InternalSecLanguage.g:1701:1: ( rule__WebComponent__Group_2__0 )
+            // InternalSecLanguage.g:1701:2: rule__WebComponent__Group_2__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__Group_2__0();
@@ -3670,14 +4308,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__3"
-    // InternalSecLanguage.g:1460:1: rule__WebComponent__Group__3 : rule__WebComponent__Group__3__Impl ;
+    // InternalSecLanguage.g:1711:1: rule__WebComponent__Group__3 : rule__WebComponent__Group__3__Impl ;
     public final void rule__WebComponent__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1464:1: ( rule__WebComponent__Group__3__Impl )
-            // InternalSecLanguage.g:1465:2: rule__WebComponent__Group__3__Impl
+            // InternalSecLanguage.g:1715:1: ( rule__WebComponent__Group__3__Impl )
+            // InternalSecLanguage.g:1716:2: rule__WebComponent__Group__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__Group__3__Impl();
@@ -3703,17 +4341,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group__3__Impl"
-    // InternalSecLanguage.g:1471:1: rule__WebComponent__Group__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:1722:1: rule__WebComponent__Group__3__Impl : ( ')' ) ;
     public final void rule__WebComponent__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1475:1: ( ( ')' ) )
-            // InternalSecLanguage.g:1476:1: ( ')' )
+            // InternalSecLanguage.g:1726:1: ( ( ')' ) )
+            // InternalSecLanguage.g:1727:1: ( ')' )
             {
-            // InternalSecLanguage.g:1476:1: ( ')' )
-            // InternalSecLanguage.g:1477:1: ')'
+            // InternalSecLanguage.g:1727:1: ( ')' )
+            // InternalSecLanguage.g:1728:1: ')'
             {
              before(grammarAccess.getWebComponentAccess().getRightParenthesisKeyword_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -3740,14 +4378,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__0"
-    // InternalSecLanguage.g:1498:1: rule__WebComponent__Group_2__0 : rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1 ;
+    // InternalSecLanguage.g:1749:1: rule__WebComponent__Group_2__0 : rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1 ;
     public final void rule__WebComponent__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1502:1: ( rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1 )
-            // InternalSecLanguage.g:1503:2: rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1
+            // InternalSecLanguage.g:1753:1: ( rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1 )
+            // InternalSecLanguage.g:1754:2: rule__WebComponent__Group_2__0__Impl rule__WebComponent__Group_2__1
             {
             pushFollow(FollowSets000.FOLLOW_5);
             rule__WebComponent__Group_2__0__Impl();
@@ -3778,20 +4416,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__0__Impl"
-    // InternalSecLanguage.g:1510:1: rule__WebComponent__Group_2__0__Impl : ( 'page' ) ;
+    // InternalSecLanguage.g:1761:1: rule__WebComponent__Group_2__0__Impl : ( 'page' ) ;
     public final void rule__WebComponent__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1514:1: ( ( 'page' ) )
-            // InternalSecLanguage.g:1515:1: ( 'page' )
+            // InternalSecLanguage.g:1765:1: ( ( 'page' ) )
+            // InternalSecLanguage.g:1766:1: ( 'page' )
             {
-            // InternalSecLanguage.g:1515:1: ( 'page' )
-            // InternalSecLanguage.g:1516:1: 'page'
+            // InternalSecLanguage.g:1766:1: ( 'page' )
+            // InternalSecLanguage.g:1767:1: 'page'
             {
              before(grammarAccess.getWebComponentAccess().getPageKeyword_2_0()); 
-            match(input,24,FollowSets000.FOLLOW_2); 
+            match(input,25,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getPageKeyword_2_0()); 
 
             }
@@ -3815,16 +4453,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__1"
-    // InternalSecLanguage.g:1529:1: rule__WebComponent__Group_2__1 : rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2 ;
+    // InternalSecLanguage.g:1780:1: rule__WebComponent__Group_2__1 : rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2 ;
     public final void rule__WebComponent__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1533:1: ( rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2 )
-            // InternalSecLanguage.g:1534:2: rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2
+            // InternalSecLanguage.g:1784:1: ( rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2 )
+            // InternalSecLanguage.g:1785:2: rule__WebComponent__Group_2__1__Impl rule__WebComponent__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_18);
+            pushFollow(FollowSets000.FOLLOW_19);
             rule__WebComponent__Group_2__1__Impl();
 
             state._fsp--;
@@ -3853,21 +4491,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__1__Impl"
-    // InternalSecLanguage.g:1541:1: rule__WebComponent__Group_2__1__Impl : ( ( rule__WebComponent__PathAssignment_2_1 ) ) ;
+    // InternalSecLanguage.g:1792:1: rule__WebComponent__Group_2__1__Impl : ( ( rule__WebComponent__PathAssignment_2_1 ) ) ;
     public final void rule__WebComponent__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1545:1: ( ( ( rule__WebComponent__PathAssignment_2_1 ) ) )
-            // InternalSecLanguage.g:1546:1: ( ( rule__WebComponent__PathAssignment_2_1 ) )
+            // InternalSecLanguage.g:1796:1: ( ( ( rule__WebComponent__PathAssignment_2_1 ) ) )
+            // InternalSecLanguage.g:1797:1: ( ( rule__WebComponent__PathAssignment_2_1 ) )
             {
-            // InternalSecLanguage.g:1546:1: ( ( rule__WebComponent__PathAssignment_2_1 ) )
-            // InternalSecLanguage.g:1547:1: ( rule__WebComponent__PathAssignment_2_1 )
+            // InternalSecLanguage.g:1797:1: ( ( rule__WebComponent__PathAssignment_2_1 ) )
+            // InternalSecLanguage.g:1798:1: ( rule__WebComponent__PathAssignment_2_1 )
             {
              before(grammarAccess.getWebComponentAccess().getPathAssignment_2_1()); 
-            // InternalSecLanguage.g:1548:1: ( rule__WebComponent__PathAssignment_2_1 )
-            // InternalSecLanguage.g:1548:2: rule__WebComponent__PathAssignment_2_1
+            // InternalSecLanguage.g:1799:1: ( rule__WebComponent__PathAssignment_2_1 )
+            // InternalSecLanguage.g:1799:2: rule__WebComponent__PathAssignment_2_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__PathAssignment_2_1();
@@ -3900,16 +4538,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__2"
-    // InternalSecLanguage.g:1558:1: rule__WebComponent__Group_2__2 : rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3 ;
+    // InternalSecLanguage.g:1809:1: rule__WebComponent__Group_2__2 : rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3 ;
     public final void rule__WebComponent__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1562:1: ( rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3 )
-            // InternalSecLanguage.g:1563:2: rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3
+            // InternalSecLanguage.g:1813:1: ( rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3 )
+            // InternalSecLanguage.g:1814:2: rule__WebComponent__Group_2__2__Impl rule__WebComponent__Group_2__3
             {
-            pushFollow(FollowSets000.FOLLOW_18);
+            pushFollow(FollowSets000.FOLLOW_19);
             rule__WebComponent__Group_2__2__Impl();
 
             state._fsp--;
@@ -3938,29 +4576,29 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__2__Impl"
-    // InternalSecLanguage.g:1570:1: rule__WebComponent__Group_2__2__Impl : ( ( rule__WebComponent__Group_2_2__0 )? ) ;
+    // InternalSecLanguage.g:1821:1: rule__WebComponent__Group_2__2__Impl : ( ( rule__WebComponent__Group_2_2__0 )? ) ;
     public final void rule__WebComponent__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1574:1: ( ( ( rule__WebComponent__Group_2_2__0 )? ) )
-            // InternalSecLanguage.g:1575:1: ( ( rule__WebComponent__Group_2_2__0 )? )
+            // InternalSecLanguage.g:1825:1: ( ( ( rule__WebComponent__Group_2_2__0 )? ) )
+            // InternalSecLanguage.g:1826:1: ( ( rule__WebComponent__Group_2_2__0 )? )
             {
-            // InternalSecLanguage.g:1575:1: ( ( rule__WebComponent__Group_2_2__0 )? )
-            // InternalSecLanguage.g:1576:1: ( rule__WebComponent__Group_2_2__0 )?
+            // InternalSecLanguage.g:1826:1: ( ( rule__WebComponent__Group_2_2__0 )? )
+            // InternalSecLanguage.g:1827:1: ( rule__WebComponent__Group_2_2__0 )?
             {
              before(grammarAccess.getWebComponentAccess().getGroup_2_2()); 
-            // InternalSecLanguage.g:1577:1: ( rule__WebComponent__Group_2_2__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalSecLanguage.g:1828:1: ( rule__WebComponent__Group_2_2__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==21) ) {
-                alt8=1;
+            if ( (LA9_0==22) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalSecLanguage.g:1577:2: rule__WebComponent__Group_2_2__0
+                    // InternalSecLanguage.g:1828:2: rule__WebComponent__Group_2_2__0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__WebComponent__Group_2_2__0();
@@ -3996,14 +4634,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__3"
-    // InternalSecLanguage.g:1587:1: rule__WebComponent__Group_2__3 : rule__WebComponent__Group_2__3__Impl ;
+    // InternalSecLanguage.g:1838:1: rule__WebComponent__Group_2__3 : rule__WebComponent__Group_2__3__Impl ;
     public final void rule__WebComponent__Group_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1591:1: ( rule__WebComponent__Group_2__3__Impl )
-            // InternalSecLanguage.g:1592:2: rule__WebComponent__Group_2__3__Impl
+            // InternalSecLanguage.g:1842:1: ( rule__WebComponent__Group_2__3__Impl )
+            // InternalSecLanguage.g:1843:2: rule__WebComponent__Group_2__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__Group_2__3__Impl();
@@ -4029,33 +4667,33 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2__3__Impl"
-    // InternalSecLanguage.g:1598:1: rule__WebComponent__Group_2__3__Impl : ( ( rule__WebComponent__InputsAssignment_2_3 )* ) ;
+    // InternalSecLanguage.g:1849:1: rule__WebComponent__Group_2__3__Impl : ( ( rule__WebComponent__InputsAssignment_2_3 )* ) ;
     public final void rule__WebComponent__Group_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1602:1: ( ( ( rule__WebComponent__InputsAssignment_2_3 )* ) )
-            // InternalSecLanguage.g:1603:1: ( ( rule__WebComponent__InputsAssignment_2_3 )* )
+            // InternalSecLanguage.g:1853:1: ( ( ( rule__WebComponent__InputsAssignment_2_3 )* ) )
+            // InternalSecLanguage.g:1854:1: ( ( rule__WebComponent__InputsAssignment_2_3 )* )
             {
-            // InternalSecLanguage.g:1603:1: ( ( rule__WebComponent__InputsAssignment_2_3 )* )
-            // InternalSecLanguage.g:1604:1: ( rule__WebComponent__InputsAssignment_2_3 )*
+            // InternalSecLanguage.g:1854:1: ( ( rule__WebComponent__InputsAssignment_2_3 )* )
+            // InternalSecLanguage.g:1855:1: ( rule__WebComponent__InputsAssignment_2_3 )*
             {
              before(grammarAccess.getWebComponentAccess().getInputsAssignment_2_3()); 
-            // InternalSecLanguage.g:1605:1: ( rule__WebComponent__InputsAssignment_2_3 )*
-            loop9:
+            // InternalSecLanguage.g:1856:1: ( rule__WebComponent__InputsAssignment_2_3 )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==14) ) {
-                    alt9=1;
+                if ( (LA10_0==14) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalSecLanguage.g:1605:2: rule__WebComponent__InputsAssignment_2_3
+            	    // InternalSecLanguage.g:1856:2: rule__WebComponent__InputsAssignment_2_3
             	    {
             	    pushFollow(FollowSets000.FOLLOW_10);
             	    rule__WebComponent__InputsAssignment_2_3();
@@ -4067,7 +4705,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -4094,16 +4732,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__0"
-    // InternalSecLanguage.g:1623:1: rule__WebComponent__Group_2_2__0 : rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1 ;
+    // InternalSecLanguage.g:1874:1: rule__WebComponent__Group_2_2__0 : rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1 ;
     public final void rule__WebComponent__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1627:1: ( rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1 )
-            // InternalSecLanguage.g:1628:2: rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1
+            // InternalSecLanguage.g:1878:1: ( rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1 )
+            // InternalSecLanguage.g:1879:2: rule__WebComponent__Group_2_2__0__Impl rule__WebComponent__Group_2_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_19);
+            pushFollow(FollowSets000.FOLLOW_20);
             rule__WebComponent__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -4132,20 +4770,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__0__Impl"
-    // InternalSecLanguage.g:1635:1: rule__WebComponent__Group_2_2__0__Impl : ( '{' ) ;
+    // InternalSecLanguage.g:1886:1: rule__WebComponent__Group_2_2__0__Impl : ( '{' ) ;
     public final void rule__WebComponent__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1639:1: ( ( '{' ) )
-            // InternalSecLanguage.g:1640:1: ( '{' )
+            // InternalSecLanguage.g:1890:1: ( ( '{' ) )
+            // InternalSecLanguage.g:1891:1: ( '{' )
             {
-            // InternalSecLanguage.g:1640:1: ( '{' )
-            // InternalSecLanguage.g:1641:1: '{'
+            // InternalSecLanguage.g:1891:1: ( '{' )
+            // InternalSecLanguage.g:1892:1: '{'
             {
              before(grammarAccess.getWebComponentAccess().getLeftCurlyBracketKeyword_2_2_0()); 
-            match(input,21,FollowSets000.FOLLOW_2); 
+            match(input,22,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getLeftCurlyBracketKeyword_2_2_0()); 
 
             }
@@ -4169,16 +4807,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__1"
-    // InternalSecLanguage.g:1654:1: rule__WebComponent__Group_2_2__1 : rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2 ;
+    // InternalSecLanguage.g:1905:1: rule__WebComponent__Group_2_2__1 : rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2 ;
     public final void rule__WebComponent__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1658:1: ( rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2 )
-            // InternalSecLanguage.g:1659:2: rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2
+            // InternalSecLanguage.g:1909:1: ( rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2 )
+            // InternalSecLanguage.g:1910:2: rule__WebComponent__Group_2_2__1__Impl rule__WebComponent__Group_2_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_20);
+            pushFollow(FollowSets000.FOLLOW_21);
             rule__WebComponent__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -4207,20 +4845,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__1__Impl"
-    // InternalSecLanguage.g:1666:1: rule__WebComponent__Group_2_2__1__Impl : ( ':target' ) ;
+    // InternalSecLanguage.g:1917:1: rule__WebComponent__Group_2_2__1__Impl : ( ':target' ) ;
     public final void rule__WebComponent__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1670:1: ( ( ':target' ) )
-            // InternalSecLanguage.g:1671:1: ( ':target' )
+            // InternalSecLanguage.g:1921:1: ( ( ':target' ) )
+            // InternalSecLanguage.g:1922:1: ( ':target' )
             {
-            // InternalSecLanguage.g:1671:1: ( ':target' )
-            // InternalSecLanguage.g:1672:1: ':target'
+            // InternalSecLanguage.g:1922:1: ( ':target' )
+            // InternalSecLanguage.g:1923:1: ':target'
             {
              before(grammarAccess.getWebComponentAccess().getTargetKeyword_2_2_1()); 
-            match(input,25,FollowSets000.FOLLOW_2); 
+            match(input,26,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getTargetKeyword_2_2_1()); 
 
             }
@@ -4244,16 +4882,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__2"
-    // InternalSecLanguage.g:1685:1: rule__WebComponent__Group_2_2__2 : rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3 ;
+    // InternalSecLanguage.g:1936:1: rule__WebComponent__Group_2_2__2 : rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3 ;
     public final void rule__WebComponent__Group_2_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1689:1: ( rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3 )
-            // InternalSecLanguage.g:1690:2: rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3
+            // InternalSecLanguage.g:1940:1: ( rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3 )
+            // InternalSecLanguage.g:1941:2: rule__WebComponent__Group_2_2__2__Impl rule__WebComponent__Group_2_2__3
             {
-            pushFollow(FollowSets000.FOLLOW_21);
+            pushFollow(FollowSets000.FOLLOW_22);
             rule__WebComponent__Group_2_2__2__Impl();
 
             state._fsp--;
@@ -4282,20 +4920,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__2__Impl"
-    // InternalSecLanguage.g:1697:1: rule__WebComponent__Group_2_2__2__Impl : ( '[' ) ;
+    // InternalSecLanguage.g:1948:1: rule__WebComponent__Group_2_2__2__Impl : ( '[' ) ;
     public final void rule__WebComponent__Group_2_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1701:1: ( ( '[' ) )
-            // InternalSecLanguage.g:1702:1: ( '[' )
+            // InternalSecLanguage.g:1952:1: ( ( '[' ) )
+            // InternalSecLanguage.g:1953:1: ( '[' )
             {
-            // InternalSecLanguage.g:1702:1: ( '[' )
-            // InternalSecLanguage.g:1703:1: '['
+            // InternalSecLanguage.g:1953:1: ( '[' )
+            // InternalSecLanguage.g:1954:1: '['
             {
              before(grammarAccess.getWebComponentAccess().getLeftSquareBracketKeyword_2_2_2()); 
-            match(input,26,FollowSets000.FOLLOW_2); 
+            match(input,27,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getLeftSquareBracketKeyword_2_2_2()); 
 
             }
@@ -4319,16 +4957,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__3"
-    // InternalSecLanguage.g:1716:1: rule__WebComponent__Group_2_2__3 : rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4 ;
+    // InternalSecLanguage.g:1967:1: rule__WebComponent__Group_2_2__3 : rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4 ;
     public final void rule__WebComponent__Group_2_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1720:1: ( rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4 )
-            // InternalSecLanguage.g:1721:2: rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4
+            // InternalSecLanguage.g:1971:1: ( rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4 )
+            // InternalSecLanguage.g:1972:2: rule__WebComponent__Group_2_2__3__Impl rule__WebComponent__Group_2_2__4
             {
-            pushFollow(FollowSets000.FOLLOW_21);
+            pushFollow(FollowSets000.FOLLOW_22);
             rule__WebComponent__Group_2_2__3__Impl();
 
             state._fsp--;
@@ -4357,35 +4995,35 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__3__Impl"
-    // InternalSecLanguage.g:1728:1: rule__WebComponent__Group_2_2__3__Impl : ( ( ruleEString )* ) ;
+    // InternalSecLanguage.g:1979:1: rule__WebComponent__Group_2_2__3__Impl : ( ( ruleEString )* ) ;
     public final void rule__WebComponent__Group_2_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1732:1: ( ( ( ruleEString )* ) )
-            // InternalSecLanguage.g:1733:1: ( ( ruleEString )* )
+            // InternalSecLanguage.g:1983:1: ( ( ( ruleEString )* ) )
+            // InternalSecLanguage.g:1984:1: ( ( ruleEString )* )
             {
-            // InternalSecLanguage.g:1733:1: ( ( ruleEString )* )
-            // InternalSecLanguage.g:1734:1: ( ruleEString )*
+            // InternalSecLanguage.g:1984:1: ( ( ruleEString )* )
+            // InternalSecLanguage.g:1985:1: ( ruleEString )*
             {
              before(grammarAccess.getWebComponentAccess().getEStringParserRuleCall_2_2_3()); 
-            // InternalSecLanguage.g:1735:1: ( ruleEString )*
-            loop10:
+            // InternalSecLanguage.g:1986:1: ( ruleEString )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)) ) {
-                    alt10=1;
+                if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_ID)) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalSecLanguage.g:1735:3: ruleEString
+            	    // InternalSecLanguage.g:1986:3: ruleEString
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_22);
+            	    pushFollow(FollowSets000.FOLLOW_23);
             	    ruleEString();
 
             	    state._fsp--;
@@ -4395,7 +5033,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -4422,16 +5060,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__4"
-    // InternalSecLanguage.g:1745:1: rule__WebComponent__Group_2_2__4 : rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5 ;
+    // InternalSecLanguage.g:1996:1: rule__WebComponent__Group_2_2__4 : rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5 ;
     public final void rule__WebComponent__Group_2_2__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1749:1: ( rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5 )
-            // InternalSecLanguage.g:1750:2: rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5
+            // InternalSecLanguage.g:2000:1: ( rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5 )
+            // InternalSecLanguage.g:2001:2: rule__WebComponent__Group_2_2__4__Impl rule__WebComponent__Group_2_2__5
             {
-            pushFollow(FollowSets000.FOLLOW_16);
+            pushFollow(FollowSets000.FOLLOW_17);
             rule__WebComponent__Group_2_2__4__Impl();
 
             state._fsp--;
@@ -4460,20 +5098,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__4__Impl"
-    // InternalSecLanguage.g:1757:1: rule__WebComponent__Group_2_2__4__Impl : ( ']' ) ;
+    // InternalSecLanguage.g:2008:1: rule__WebComponent__Group_2_2__4__Impl : ( ']' ) ;
     public final void rule__WebComponent__Group_2_2__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1761:1: ( ( ']' ) )
-            // InternalSecLanguage.g:1762:1: ( ']' )
+            // InternalSecLanguage.g:2012:1: ( ( ']' ) )
+            // InternalSecLanguage.g:2013:1: ( ']' )
             {
-            // InternalSecLanguage.g:1762:1: ( ']' )
-            // InternalSecLanguage.g:1763:1: ']'
+            // InternalSecLanguage.g:2013:1: ( ']' )
+            // InternalSecLanguage.g:2014:1: ']'
             {
              before(grammarAccess.getWebComponentAccess().getRightSquareBracketKeyword_2_2_4()); 
-            match(input,27,FollowSets000.FOLLOW_2); 
+            match(input,28,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getRightSquareBracketKeyword_2_2_4()); 
 
             }
@@ -4497,14 +5135,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__5"
-    // InternalSecLanguage.g:1776:1: rule__WebComponent__Group_2_2__5 : rule__WebComponent__Group_2_2__5__Impl ;
+    // InternalSecLanguage.g:2027:1: rule__WebComponent__Group_2_2__5 : rule__WebComponent__Group_2_2__5__Impl ;
     public final void rule__WebComponent__Group_2_2__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1780:1: ( rule__WebComponent__Group_2_2__5__Impl )
-            // InternalSecLanguage.g:1781:2: rule__WebComponent__Group_2_2__5__Impl
+            // InternalSecLanguage.g:2031:1: ( rule__WebComponent__Group_2_2__5__Impl )
+            // InternalSecLanguage.g:2032:2: rule__WebComponent__Group_2_2__5__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__WebComponent__Group_2_2__5__Impl();
@@ -4530,20 +5168,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__Group_2_2__5__Impl"
-    // InternalSecLanguage.g:1787:1: rule__WebComponent__Group_2_2__5__Impl : ( '}' ) ;
+    // InternalSecLanguage.g:2038:1: rule__WebComponent__Group_2_2__5__Impl : ( '}' ) ;
     public final void rule__WebComponent__Group_2_2__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1791:1: ( ( '}' ) )
-            // InternalSecLanguage.g:1792:1: ( '}' )
+            // InternalSecLanguage.g:2042:1: ( ( '}' ) )
+            // InternalSecLanguage.g:2043:1: ( '}' )
             {
-            // InternalSecLanguage.g:1792:1: ( '}' )
-            // InternalSecLanguage.g:1793:1: '}'
+            // InternalSecLanguage.g:2043:1: ( '}' )
+            // InternalSecLanguage.g:2044:1: '}'
             {
              before(grammarAccess.getWebComponentAccess().getRightCurlyBracketKeyword_2_2_5()); 
-            match(input,23,FollowSets000.FOLLOW_2); 
+            match(input,24,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getWebComponentAccess().getRightCurlyBracketKeyword_2_2_5()); 
 
             }
@@ -4567,14 +5205,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__0"
-    // InternalSecLanguage.g:1818:1: rule__Input__Group__0 : rule__Input__Group__0__Impl rule__Input__Group__1 ;
+    // InternalSecLanguage.g:2069:1: rule__Input__Group__0 : rule__Input__Group__0__Impl rule__Input__Group__1 ;
     public final void rule__Input__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1822:1: ( rule__Input__Group__0__Impl rule__Input__Group__1 )
-            // InternalSecLanguage.g:1823:2: rule__Input__Group__0__Impl rule__Input__Group__1
+            // InternalSecLanguage.g:2073:1: ( rule__Input__Group__0__Impl rule__Input__Group__1 )
+            // InternalSecLanguage.g:2074:2: rule__Input__Group__0__Impl rule__Input__Group__1
             {
             pushFollow(FollowSets000.FOLLOW_3);
             rule__Input__Group__0__Impl();
@@ -4605,21 +5243,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__0__Impl"
-    // InternalSecLanguage.g:1830:1: rule__Input__Group__0__Impl : ( () ) ;
+    // InternalSecLanguage.g:2081:1: rule__Input__Group__0__Impl : ( () ) ;
     public final void rule__Input__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1834:1: ( ( () ) )
-            // InternalSecLanguage.g:1835:1: ( () )
+            // InternalSecLanguage.g:2085:1: ( ( () ) )
+            // InternalSecLanguage.g:2086:1: ( () )
             {
-            // InternalSecLanguage.g:1835:1: ( () )
-            // InternalSecLanguage.g:1836:1: ()
+            // InternalSecLanguage.g:2086:1: ( () )
+            // InternalSecLanguage.g:2087:1: ()
             {
              before(grammarAccess.getInputAccess().getInputAction_0()); 
-            // InternalSecLanguage.g:1837:1: ()
-            // InternalSecLanguage.g:1839:1: 
+            // InternalSecLanguage.g:2088:1: ()
+            // InternalSecLanguage.g:2090:1: 
             {
             }
 
@@ -4642,16 +5280,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__1"
-    // InternalSecLanguage.g:1849:1: rule__Input__Group__1 : rule__Input__Group__1__Impl rule__Input__Group__2 ;
+    // InternalSecLanguage.g:2100:1: rule__Input__Group__1 : rule__Input__Group__1__Impl rule__Input__Group__2 ;
     public final void rule__Input__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1853:1: ( rule__Input__Group__1__Impl rule__Input__Group__2 )
-            // InternalSecLanguage.g:1854:2: rule__Input__Group__1__Impl rule__Input__Group__2
+            // InternalSecLanguage.g:2104:1: ( rule__Input__Group__1__Impl rule__Input__Group__2 )
+            // InternalSecLanguage.g:2105:2: rule__Input__Group__1__Impl rule__Input__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_23);
+            pushFollow(FollowSets000.FOLLOW_24);
             rule__Input__Group__1__Impl();
 
             state._fsp--;
@@ -4680,17 +5318,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__1__Impl"
-    // InternalSecLanguage.g:1861:1: rule__Input__Group__1__Impl : ( '(' ) ;
+    // InternalSecLanguage.g:2112:1: rule__Input__Group__1__Impl : ( '(' ) ;
     public final void rule__Input__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1865:1: ( ( '(' ) )
-            // InternalSecLanguage.g:1866:1: ( '(' )
+            // InternalSecLanguage.g:2116:1: ( ( '(' ) )
+            // InternalSecLanguage.g:2117:1: ( '(' )
             {
-            // InternalSecLanguage.g:1866:1: ( '(' )
-            // InternalSecLanguage.g:1867:1: '('
+            // InternalSecLanguage.g:2117:1: ( '(' )
+            // InternalSecLanguage.g:2118:1: '('
             {
              before(grammarAccess.getInputAccess().getLeftParenthesisKeyword_1()); 
             match(input,14,FollowSets000.FOLLOW_2); 
@@ -4717,14 +5355,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__2"
-    // InternalSecLanguage.g:1880:1: rule__Input__Group__2 : rule__Input__Group__2__Impl rule__Input__Group__3 ;
+    // InternalSecLanguage.g:2131:1: rule__Input__Group__2 : rule__Input__Group__2__Impl rule__Input__Group__3 ;
     public final void rule__Input__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1884:1: ( rule__Input__Group__2__Impl rule__Input__Group__3 )
-            // InternalSecLanguage.g:1885:2: rule__Input__Group__2__Impl rule__Input__Group__3
+            // InternalSecLanguage.g:2135:1: ( rule__Input__Group__2__Impl rule__Input__Group__3 )
+            // InternalSecLanguage.g:2136:2: rule__Input__Group__2__Impl rule__Input__Group__3
             {
             pushFollow(FollowSets000.FOLLOW_8);
             rule__Input__Group__2__Impl();
@@ -4755,21 +5393,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__2__Impl"
-    // InternalSecLanguage.g:1892:1: rule__Input__Group__2__Impl : ( ( rule__Input__Group_2__0 ) ) ;
+    // InternalSecLanguage.g:2143:1: rule__Input__Group__2__Impl : ( ( rule__Input__Group_2__0 ) ) ;
     public final void rule__Input__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1896:1: ( ( ( rule__Input__Group_2__0 ) ) )
-            // InternalSecLanguage.g:1897:1: ( ( rule__Input__Group_2__0 ) )
+            // InternalSecLanguage.g:2147:1: ( ( ( rule__Input__Group_2__0 ) ) )
+            // InternalSecLanguage.g:2148:1: ( ( rule__Input__Group_2__0 ) )
             {
-            // InternalSecLanguage.g:1897:1: ( ( rule__Input__Group_2__0 ) )
-            // InternalSecLanguage.g:1898:1: ( rule__Input__Group_2__0 )
+            // InternalSecLanguage.g:2148:1: ( ( rule__Input__Group_2__0 ) )
+            // InternalSecLanguage.g:2149:1: ( rule__Input__Group_2__0 )
             {
              before(grammarAccess.getInputAccess().getGroup_2()); 
-            // InternalSecLanguage.g:1899:1: ( rule__Input__Group_2__0 )
-            // InternalSecLanguage.g:1899:2: rule__Input__Group_2__0
+            // InternalSecLanguage.g:2150:1: ( rule__Input__Group_2__0 )
+            // InternalSecLanguage.g:2150:2: rule__Input__Group_2__0
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__Group_2__0();
@@ -4802,14 +5440,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__3"
-    // InternalSecLanguage.g:1909:1: rule__Input__Group__3 : rule__Input__Group__3__Impl ;
+    // InternalSecLanguage.g:2160:1: rule__Input__Group__3 : rule__Input__Group__3__Impl ;
     public final void rule__Input__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1913:1: ( rule__Input__Group__3__Impl )
-            // InternalSecLanguage.g:1914:2: rule__Input__Group__3__Impl
+            // InternalSecLanguage.g:2164:1: ( rule__Input__Group__3__Impl )
+            // InternalSecLanguage.g:2165:2: rule__Input__Group__3__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__Group__3__Impl();
@@ -4835,17 +5473,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group__3__Impl"
-    // InternalSecLanguage.g:1920:1: rule__Input__Group__3__Impl : ( ')' ) ;
+    // InternalSecLanguage.g:2171:1: rule__Input__Group__3__Impl : ( ')' ) ;
     public final void rule__Input__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1924:1: ( ( ')' ) )
-            // InternalSecLanguage.g:1925:1: ( ')' )
+            // InternalSecLanguage.g:2175:1: ( ( ')' ) )
+            // InternalSecLanguage.g:2176:1: ( ')' )
             {
-            // InternalSecLanguage.g:1925:1: ( ')' )
-            // InternalSecLanguage.g:1926:1: ')'
+            // InternalSecLanguage.g:2176:1: ( ')' )
+            // InternalSecLanguage.g:2177:1: ')'
             {
              before(grammarAccess.getInputAccess().getRightParenthesisKeyword_3()); 
             match(input,16,FollowSets000.FOLLOW_2); 
@@ -4872,14 +5510,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__0"
-    // InternalSecLanguage.g:1947:1: rule__Input__Group_2__0 : rule__Input__Group_2__0__Impl rule__Input__Group_2__1 ;
+    // InternalSecLanguage.g:2198:1: rule__Input__Group_2__0 : rule__Input__Group_2__0__Impl rule__Input__Group_2__1 ;
     public final void rule__Input__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1951:1: ( rule__Input__Group_2__0__Impl rule__Input__Group_2__1 )
-            // InternalSecLanguage.g:1952:2: rule__Input__Group_2__0__Impl rule__Input__Group_2__1
+            // InternalSecLanguage.g:2202:1: ( rule__Input__Group_2__0__Impl rule__Input__Group_2__1 )
+            // InternalSecLanguage.g:2203:2: rule__Input__Group_2__0__Impl rule__Input__Group_2__1
             {
             pushFollow(FollowSets000.FOLLOW_5);
             rule__Input__Group_2__0__Impl();
@@ -4910,20 +5548,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__0__Impl"
-    // InternalSecLanguage.g:1959:1: rule__Input__Group_2__0__Impl : ( 'field' ) ;
+    // InternalSecLanguage.g:2210:1: rule__Input__Group_2__0__Impl : ( 'field' ) ;
     public final void rule__Input__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1963:1: ( ( 'field' ) )
-            // InternalSecLanguage.g:1964:1: ( 'field' )
+            // InternalSecLanguage.g:2214:1: ( ( 'field' ) )
+            // InternalSecLanguage.g:2215:1: ( 'field' )
             {
-            // InternalSecLanguage.g:1964:1: ( 'field' )
-            // InternalSecLanguage.g:1965:1: 'field'
+            // InternalSecLanguage.g:2215:1: ( 'field' )
+            // InternalSecLanguage.g:2216:1: 'field'
             {
              before(grammarAccess.getInputAccess().getFieldKeyword_2_0()); 
-            match(input,28,FollowSets000.FOLLOW_2); 
+            match(input,29,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getInputAccess().getFieldKeyword_2_0()); 
 
             }
@@ -4947,16 +5585,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__1"
-    // InternalSecLanguage.g:1978:1: rule__Input__Group_2__1 : rule__Input__Group_2__1__Impl rule__Input__Group_2__2 ;
+    // InternalSecLanguage.g:2229:1: rule__Input__Group_2__1 : rule__Input__Group_2__1__Impl rule__Input__Group_2__2 ;
     public final void rule__Input__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1982:1: ( rule__Input__Group_2__1__Impl rule__Input__Group_2__2 )
-            // InternalSecLanguage.g:1983:2: rule__Input__Group_2__1__Impl rule__Input__Group_2__2
+            // InternalSecLanguage.g:2233:1: ( rule__Input__Group_2__1__Impl rule__Input__Group_2__2 )
+            // InternalSecLanguage.g:2234:2: rule__Input__Group_2__1__Impl rule__Input__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_20);
+            pushFollow(FollowSets000.FOLLOW_21);
             rule__Input__Group_2__1__Impl();
 
             state._fsp--;
@@ -4985,21 +5623,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__1__Impl"
-    // InternalSecLanguage.g:1990:1: rule__Input__Group_2__1__Impl : ( ( rule__Input__NameAssignment_2_1 ) ) ;
+    // InternalSecLanguage.g:2241:1: rule__Input__Group_2__1__Impl : ( ( rule__Input__NameAssignment_2_1 ) ) ;
     public final void rule__Input__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:1994:1: ( ( ( rule__Input__NameAssignment_2_1 ) ) )
-            // InternalSecLanguage.g:1995:1: ( ( rule__Input__NameAssignment_2_1 ) )
+            // InternalSecLanguage.g:2245:1: ( ( ( rule__Input__NameAssignment_2_1 ) ) )
+            // InternalSecLanguage.g:2246:1: ( ( rule__Input__NameAssignment_2_1 ) )
             {
-            // InternalSecLanguage.g:1995:1: ( ( rule__Input__NameAssignment_2_1 ) )
-            // InternalSecLanguage.g:1996:1: ( rule__Input__NameAssignment_2_1 )
+            // InternalSecLanguage.g:2246:1: ( ( rule__Input__NameAssignment_2_1 ) )
+            // InternalSecLanguage.g:2247:1: ( rule__Input__NameAssignment_2_1 )
             {
              before(grammarAccess.getInputAccess().getNameAssignment_2_1()); 
-            // InternalSecLanguage.g:1997:1: ( rule__Input__NameAssignment_2_1 )
-            // InternalSecLanguage.g:1997:2: rule__Input__NameAssignment_2_1
+            // InternalSecLanguage.g:2248:1: ( rule__Input__NameAssignment_2_1 )
+            // InternalSecLanguage.g:2248:2: rule__Input__NameAssignment_2_1
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__NameAssignment_2_1();
@@ -5032,14 +5670,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__2"
-    // InternalSecLanguage.g:2007:1: rule__Input__Group_2__2 : rule__Input__Group_2__2__Impl ;
+    // InternalSecLanguage.g:2258:1: rule__Input__Group_2__2 : rule__Input__Group_2__2__Impl ;
     public final void rule__Input__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2011:1: ( rule__Input__Group_2__2__Impl )
-            // InternalSecLanguage.g:2012:2: rule__Input__Group_2__2__Impl
+            // InternalSecLanguage.g:2262:1: ( rule__Input__Group_2__2__Impl )
+            // InternalSecLanguage.g:2263:2: rule__Input__Group_2__2__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__Group_2__2__Impl();
@@ -5065,29 +5703,29 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2__2__Impl"
-    // InternalSecLanguage.g:2018:1: rule__Input__Group_2__2__Impl : ( ( rule__Input__Group_2_2__0 )? ) ;
+    // InternalSecLanguage.g:2269:1: rule__Input__Group_2__2__Impl : ( ( rule__Input__Group_2_2__0 )? ) ;
     public final void rule__Input__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2022:1: ( ( ( rule__Input__Group_2_2__0 )? ) )
-            // InternalSecLanguage.g:2023:1: ( ( rule__Input__Group_2_2__0 )? )
+            // InternalSecLanguage.g:2273:1: ( ( ( rule__Input__Group_2_2__0 )? ) )
+            // InternalSecLanguage.g:2274:1: ( ( rule__Input__Group_2_2__0 )? )
             {
-            // InternalSecLanguage.g:2023:1: ( ( rule__Input__Group_2_2__0 )? )
-            // InternalSecLanguage.g:2024:1: ( rule__Input__Group_2_2__0 )?
+            // InternalSecLanguage.g:2274:1: ( ( rule__Input__Group_2_2__0 )? )
+            // InternalSecLanguage.g:2275:1: ( rule__Input__Group_2_2__0 )?
             {
              before(grammarAccess.getInputAccess().getGroup_2_2()); 
-            // InternalSecLanguage.g:2025:1: ( rule__Input__Group_2_2__0 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalSecLanguage.g:2276:1: ( rule__Input__Group_2_2__0 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==26) ) {
-                alt11=1;
+            if ( (LA12_0==27) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalSecLanguage.g:2025:2: rule__Input__Group_2_2__0
+                    // InternalSecLanguage.g:2276:2: rule__Input__Group_2_2__0
                     {
                     pushFollow(FollowSets000.FOLLOW_2);
                     rule__Input__Group_2_2__0();
@@ -5123,16 +5761,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__0"
-    // InternalSecLanguage.g:2041:1: rule__Input__Group_2_2__0 : rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1 ;
+    // InternalSecLanguage.g:2292:1: rule__Input__Group_2_2__0 : rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1 ;
     public final void rule__Input__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2045:1: ( rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1 )
-            // InternalSecLanguage.g:2046:2: rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1
+            // InternalSecLanguage.g:2296:1: ( rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1 )
+            // InternalSecLanguage.g:2297:2: rule__Input__Group_2_2__0__Impl rule__Input__Group_2_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_21);
+            pushFollow(FollowSets000.FOLLOW_22);
             rule__Input__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -5161,20 +5799,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__0__Impl"
-    // InternalSecLanguage.g:2053:1: rule__Input__Group_2_2__0__Impl : ( '[' ) ;
+    // InternalSecLanguage.g:2304:1: rule__Input__Group_2_2__0__Impl : ( '[' ) ;
     public final void rule__Input__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2057:1: ( ( '[' ) )
-            // InternalSecLanguage.g:2058:1: ( '[' )
+            // InternalSecLanguage.g:2308:1: ( ( '[' ) )
+            // InternalSecLanguage.g:2309:1: ( '[' )
             {
-            // InternalSecLanguage.g:2058:1: ( '[' )
-            // InternalSecLanguage.g:2059:1: '['
+            // InternalSecLanguage.g:2309:1: ( '[' )
+            // InternalSecLanguage.g:2310:1: '['
             {
              before(grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0()); 
-            match(input,26,FollowSets000.FOLLOW_2); 
+            match(input,27,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getInputAccess().getLeftSquareBracketKeyword_2_2_0()); 
 
             }
@@ -5198,16 +5836,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__1"
-    // InternalSecLanguage.g:2072:1: rule__Input__Group_2_2__1 : rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2 ;
+    // InternalSecLanguage.g:2323:1: rule__Input__Group_2_2__1 : rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2 ;
     public final void rule__Input__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2076:1: ( rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2 )
-            // InternalSecLanguage.g:2077:2: rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2
+            // InternalSecLanguage.g:2327:1: ( rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2 )
+            // InternalSecLanguage.g:2328:2: rule__Input__Group_2_2__1__Impl rule__Input__Group_2_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_21);
+            pushFollow(FollowSets000.FOLLOW_22);
             rule__Input__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -5236,35 +5874,35 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__1__Impl"
-    // InternalSecLanguage.g:2084:1: rule__Input__Group_2_2__1__Impl : ( ( rule__Input__AttacksAssignment_2_2_1 )* ) ;
+    // InternalSecLanguage.g:2335:1: rule__Input__Group_2_2__1__Impl : ( ( rule__Input__AttacksAssignment_2_2_1 )* ) ;
     public final void rule__Input__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2088:1: ( ( ( rule__Input__AttacksAssignment_2_2_1 )* ) )
-            // InternalSecLanguage.g:2089:1: ( ( rule__Input__AttacksAssignment_2_2_1 )* )
+            // InternalSecLanguage.g:2339:1: ( ( ( rule__Input__AttacksAssignment_2_2_1 )* ) )
+            // InternalSecLanguage.g:2340:1: ( ( rule__Input__AttacksAssignment_2_2_1 )* )
             {
-            // InternalSecLanguage.g:2089:1: ( ( rule__Input__AttacksAssignment_2_2_1 )* )
-            // InternalSecLanguage.g:2090:1: ( rule__Input__AttacksAssignment_2_2_1 )*
+            // InternalSecLanguage.g:2340:1: ( ( rule__Input__AttacksAssignment_2_2_1 )* )
+            // InternalSecLanguage.g:2341:1: ( rule__Input__AttacksAssignment_2_2_1 )*
             {
              before(grammarAccess.getInputAccess().getAttacksAssignment_2_2_1()); 
-            // InternalSecLanguage.g:2091:1: ( rule__Input__AttacksAssignment_2_2_1 )*
-            loop12:
+            // InternalSecLanguage.g:2342:1: ( rule__Input__AttacksAssignment_2_2_1 )*
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( ((LA12_0>=RULE_STRING && LA12_0<=RULE_ID)) ) {
-                    alt12=1;
+                if ( ((LA13_0>=RULE_STRING && LA13_0<=RULE_ID)) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalSecLanguage.g:2091:2: rule__Input__AttacksAssignment_2_2_1
+            	    // InternalSecLanguage.g:2342:2: rule__Input__AttacksAssignment_2_2_1
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_22);
+            	    pushFollow(FollowSets000.FOLLOW_23);
             	    rule__Input__AttacksAssignment_2_2_1();
 
             	    state._fsp--;
@@ -5274,7 +5912,7 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -5301,14 +5939,14 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__2"
-    // InternalSecLanguage.g:2101:1: rule__Input__Group_2_2__2 : rule__Input__Group_2_2__2__Impl ;
+    // InternalSecLanguage.g:2352:1: rule__Input__Group_2_2__2 : rule__Input__Group_2_2__2__Impl ;
     public final void rule__Input__Group_2_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2105:1: ( rule__Input__Group_2_2__2__Impl )
-            // InternalSecLanguage.g:2106:2: rule__Input__Group_2_2__2__Impl
+            // InternalSecLanguage.g:2356:1: ( rule__Input__Group_2_2__2__Impl )
+            // InternalSecLanguage.g:2357:2: rule__Input__Group_2_2__2__Impl
             {
             pushFollow(FollowSets000.FOLLOW_2);
             rule__Input__Group_2_2__2__Impl();
@@ -5334,20 +5972,20 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__Group_2_2__2__Impl"
-    // InternalSecLanguage.g:2112:1: rule__Input__Group_2_2__2__Impl : ( ']' ) ;
+    // InternalSecLanguage.g:2363:1: rule__Input__Group_2_2__2__Impl : ( ']' ) ;
     public final void rule__Input__Group_2_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2116:1: ( ( ']' ) )
-            // InternalSecLanguage.g:2117:1: ( ']' )
+            // InternalSecLanguage.g:2367:1: ( ( ']' ) )
+            // InternalSecLanguage.g:2368:1: ( ']' )
             {
-            // InternalSecLanguage.g:2117:1: ( ']' )
-            // InternalSecLanguage.g:2118:1: ']'
+            // InternalSecLanguage.g:2368:1: ( ']' )
+            // InternalSecLanguage.g:2369:1: ']'
             {
              before(grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2()); 
-            match(input,27,FollowSets000.FOLLOW_2); 
+            match(input,28,FollowSets000.FOLLOW_2); 
              after(grammarAccess.getInputAccess().getRightSquareBracketKeyword_2_2_2()); 
 
             }
@@ -5371,17 +6009,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__IdAssignment_3"
-    // InternalSecLanguage.g:2138:1: rule__SecurityTest__IdAssignment_3 : ( ruleEString ) ;
+    // InternalSecLanguage.g:2389:1: rule__SecurityTest__IdAssignment_3 : ( ruleEString ) ;
     public final void rule__SecurityTest__IdAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2142:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2143:1: ( ruleEString )
+            // InternalSecLanguage.g:2393:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2394:1: ( ruleEString )
             {
-            // InternalSecLanguage.g:2143:1: ( ruleEString )
-            // InternalSecLanguage.g:2144:1: ruleEString
+            // InternalSecLanguage.g:2394:1: ( ruleEString )
+            // InternalSecLanguage.g:2395:1: ruleEString
             {
              before(grammarAccess.getSecurityTestAccess().getIdEStringParserRuleCall_3_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5412,17 +6050,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__ScopeAssignment_4_2"
-    // InternalSecLanguage.g:2153:1: rule__SecurityTest__ScopeAssignment_4_2 : ( ruleTargetOfEvaluation ) ;
+    // InternalSecLanguage.g:2404:1: rule__SecurityTest__ScopeAssignment_4_2 : ( ruleTargetOfEvaluation ) ;
     public final void rule__SecurityTest__ScopeAssignment_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2157:1: ( ( ruleTargetOfEvaluation ) )
-            // InternalSecLanguage.g:2158:1: ( ruleTargetOfEvaluation )
+            // InternalSecLanguage.g:2408:1: ( ( ruleTargetOfEvaluation ) )
+            // InternalSecLanguage.g:2409:1: ( ruleTargetOfEvaluation )
             {
-            // InternalSecLanguage.g:2158:1: ( ruleTargetOfEvaluation )
-            // InternalSecLanguage.g:2159:1: ruleTargetOfEvaluation
+            // InternalSecLanguage.g:2409:1: ( ruleTargetOfEvaluation )
+            // InternalSecLanguage.g:2410:1: ruleTargetOfEvaluation
             {
              before(grammarAccess.getSecurityTestAccess().getScopeTargetOfEvaluationParserRuleCall_4_2_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5453,17 +6091,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SecurityTest__PossibleAttacksAssignment_5_2"
-    // InternalSecLanguage.g:2168:1: rule__SecurityTest__PossibleAttacksAssignment_5_2 : ( ruleAttack ) ;
+    // InternalSecLanguage.g:2419:1: rule__SecurityTest__PossibleAttacksAssignment_5_2 : ( ruleAttack ) ;
     public final void rule__SecurityTest__PossibleAttacksAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2172:1: ( ( ruleAttack ) )
-            // InternalSecLanguage.g:2173:1: ( ruleAttack )
+            // InternalSecLanguage.g:2423:1: ( ( ruleAttack ) )
+            // InternalSecLanguage.g:2424:1: ( ruleAttack )
             {
-            // InternalSecLanguage.g:2173:1: ( ruleAttack )
-            // InternalSecLanguage.g:2174:1: ruleAttack
+            // InternalSecLanguage.g:2424:1: ( ruleAttack )
+            // InternalSecLanguage.g:2425:1: ruleAttack
             {
              before(grammarAccess.getSecurityTestAccess().getPossibleAttacksAttackParserRuleCall_5_2_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5493,18 +6131,100 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__SecurityTest__PossibleAttacksAssignment_5_2"
 
 
+    // $ANTLR start "rule__SecurityTest__NoteAssignment_6_2"
+    // InternalSecLanguage.g:2434:1: rule__SecurityTest__NoteAssignment_6_2 : ( ruleNote ) ;
+    public final void rule__SecurityTest__NoteAssignment_6_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:2438:1: ( ( ruleNote ) )
+            // InternalSecLanguage.g:2439:1: ( ruleNote )
+            {
+            // InternalSecLanguage.g:2439:1: ( ruleNote )
+            // InternalSecLanguage.g:2440:1: ruleNote
+            {
+             before(grammarAccess.getSecurityTestAccess().getNoteNoteParserRuleCall_6_2_0()); 
+            pushFollow(FollowSets000.FOLLOW_2);
+            ruleNote();
+
+            state._fsp--;
+
+             after(grammarAccess.getSecurityTestAccess().getNoteNoteParserRuleCall_6_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SecurityTest__NoteAssignment_6_2"
+
+
+    // $ANTLR start "rule__Note__NoteTextAssignment_1"
+    // InternalSecLanguage.g:2449:1: rule__Note__NoteTextAssignment_1 : ( ruleEString ) ;
+    public final void rule__Note__NoteTextAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalSecLanguage.g:2453:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2454:1: ( ruleEString )
+            {
+            // InternalSecLanguage.g:2454:1: ( ruleEString )
+            // InternalSecLanguage.g:2455:1: ruleEString
+            {
+             before(grammarAccess.getNoteAccess().getNoteTextEStringParserRuleCall_1_0()); 
+            pushFollow(FollowSets000.FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getNoteAccess().getNoteTextEStringParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Note__NoteTextAssignment_1"
+
+
     // $ANTLR start "rule__TargetOfEvaluation__DomainAssignment_2_1"
-    // InternalSecLanguage.g:2183:1: rule__TargetOfEvaluation__DomainAssignment_2_1 : ( ruleEString ) ;
+    // InternalSecLanguage.g:2464:1: rule__TargetOfEvaluation__DomainAssignment_2_1 : ( ruleEString ) ;
     public final void rule__TargetOfEvaluation__DomainAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2187:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2188:1: ( ruleEString )
+            // InternalSecLanguage.g:2468:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2469:1: ( ruleEString )
             {
-            // InternalSecLanguage.g:2188:1: ( ruleEString )
-            // InternalSecLanguage.g:2189:1: ruleEString
+            // InternalSecLanguage.g:2469:1: ( ruleEString )
+            // InternalSecLanguage.g:2470:1: ruleEString
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getDomainEStringParserRuleCall_2_1_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5535,17 +6255,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TargetOfEvaluation__ComponentsAssignment_2_2"
-    // InternalSecLanguage.g:2198:1: rule__TargetOfEvaluation__ComponentsAssignment_2_2 : ( ruleWebComponent ) ;
+    // InternalSecLanguage.g:2479:1: rule__TargetOfEvaluation__ComponentsAssignment_2_2 : ( ruleWebComponent ) ;
     public final void rule__TargetOfEvaluation__ComponentsAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2202:1: ( ( ruleWebComponent ) )
-            // InternalSecLanguage.g:2203:1: ( ruleWebComponent )
+            // InternalSecLanguage.g:2483:1: ( ( ruleWebComponent ) )
+            // InternalSecLanguage.g:2484:1: ( ruleWebComponent )
             {
-            // InternalSecLanguage.g:2203:1: ( ruleWebComponent )
-            // InternalSecLanguage.g:2204:1: ruleWebComponent
+            // InternalSecLanguage.g:2484:1: ( ruleWebComponent )
+            // InternalSecLanguage.g:2485:1: ruleWebComponent
             {
              before(grammarAccess.getTargetOfEvaluationAccess().getComponentsWebComponentParserRuleCall_2_2_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5576,17 +6296,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__NameAssignment_2_1"
-    // InternalSecLanguage.g:2213:1: rule__Attack__NameAssignment_2_1 : ( ruleEString ) ;
+    // InternalSecLanguage.g:2494:1: rule__Attack__NameAssignment_2_1 : ( ruleEString ) ;
     public final void rule__Attack__NameAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2217:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2218:1: ( ruleEString )
+            // InternalSecLanguage.g:2498:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2499:1: ( ruleEString )
             {
-            // InternalSecLanguage.g:2218:1: ( ruleEString )
-            // InternalSecLanguage.g:2219:1: ruleEString
+            // InternalSecLanguage.g:2499:1: ( ruleEString )
+            // InternalSecLanguage.g:2500:1: ruleEString
             {
              before(grammarAccess.getAttackAccess().getNameEStringParserRuleCall_2_1_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5617,17 +6337,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attack__SeverityAssignment_2_2_2"
-    // InternalSecLanguage.g:2228:1: rule__Attack__SeverityAssignment_2_2_2 : ( ruleESeverity ) ;
+    // InternalSecLanguage.g:2509:1: rule__Attack__SeverityAssignment_2_2_2 : ( ruleESeverity ) ;
     public final void rule__Attack__SeverityAssignment_2_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2232:1: ( ( ruleESeverity ) )
-            // InternalSecLanguage.g:2233:1: ( ruleESeverity )
+            // InternalSecLanguage.g:2513:1: ( ( ruleESeverity ) )
+            // InternalSecLanguage.g:2514:1: ( ruleESeverity )
             {
-            // InternalSecLanguage.g:2233:1: ( ruleESeverity )
-            // InternalSecLanguage.g:2234:1: ruleESeverity
+            // InternalSecLanguage.g:2514:1: ( ruleESeverity )
+            // InternalSecLanguage.g:2515:1: ruleESeverity
             {
              before(grammarAccess.getAttackAccess().getSeverityESeverityEnumRuleCall_2_2_2_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5658,17 +6378,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__PathAssignment_2_1"
-    // InternalSecLanguage.g:2243:1: rule__WebComponent__PathAssignment_2_1 : ( ruleEString ) ;
+    // InternalSecLanguage.g:2524:1: rule__WebComponent__PathAssignment_2_1 : ( ruleEString ) ;
     public final void rule__WebComponent__PathAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2247:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2248:1: ( ruleEString )
+            // InternalSecLanguage.g:2528:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2529:1: ( ruleEString )
             {
-            // InternalSecLanguage.g:2248:1: ( ruleEString )
-            // InternalSecLanguage.g:2249:1: ruleEString
+            // InternalSecLanguage.g:2529:1: ( ruleEString )
+            // InternalSecLanguage.g:2530:1: ruleEString
             {
              before(grammarAccess.getWebComponentAccess().getPathEStringParserRuleCall_2_1_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5699,17 +6419,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__WebComponent__InputsAssignment_2_3"
-    // InternalSecLanguage.g:2258:1: rule__WebComponent__InputsAssignment_2_3 : ( ruleInput ) ;
+    // InternalSecLanguage.g:2539:1: rule__WebComponent__InputsAssignment_2_3 : ( ruleInput ) ;
     public final void rule__WebComponent__InputsAssignment_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2262:1: ( ( ruleInput ) )
-            // InternalSecLanguage.g:2263:1: ( ruleInput )
+            // InternalSecLanguage.g:2543:1: ( ( ruleInput ) )
+            // InternalSecLanguage.g:2544:1: ( ruleInput )
             {
-            // InternalSecLanguage.g:2263:1: ( ruleInput )
-            // InternalSecLanguage.g:2264:1: ruleInput
+            // InternalSecLanguage.g:2544:1: ( ruleInput )
+            // InternalSecLanguage.g:2545:1: ruleInput
             {
              before(grammarAccess.getWebComponentAccess().getInputsInputParserRuleCall_2_3_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5740,17 +6460,17 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__NameAssignment_2_1"
-    // InternalSecLanguage.g:2273:1: rule__Input__NameAssignment_2_1 : ( ruleEString ) ;
+    // InternalSecLanguage.g:2554:1: rule__Input__NameAssignment_2_1 : ( ruleEString ) ;
     public final void rule__Input__NameAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2277:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2278:1: ( ruleEString )
+            // InternalSecLanguage.g:2558:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2559:1: ( ruleEString )
             {
-            // InternalSecLanguage.g:2278:1: ( ruleEString )
-            // InternalSecLanguage.g:2279:1: ruleEString
+            // InternalSecLanguage.g:2559:1: ( ruleEString )
+            // InternalSecLanguage.g:2560:1: ruleEString
             {
              before(grammarAccess.getInputAccess().getNameEStringParserRuleCall_2_1_0()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5781,21 +6501,21 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Input__AttacksAssignment_2_2_1"
-    // InternalSecLanguage.g:2288:1: rule__Input__AttacksAssignment_2_2_1 : ( ( ruleEString ) ) ;
+    // InternalSecLanguage.g:2569:1: rule__Input__AttacksAssignment_2_2_1 : ( ( ruleEString ) ) ;
     public final void rule__Input__AttacksAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalSecLanguage.g:2292:1: ( ( ( ruleEString ) ) )
-            // InternalSecLanguage.g:2293:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2573:1: ( ( ( ruleEString ) ) )
+            // InternalSecLanguage.g:2574:1: ( ( ruleEString ) )
             {
-            // InternalSecLanguage.g:2293:1: ( ( ruleEString ) )
-            // InternalSecLanguage.g:2294:1: ( ruleEString )
+            // InternalSecLanguage.g:2574:1: ( ( ruleEString ) )
+            // InternalSecLanguage.g:2575:1: ( ruleEString )
             {
              before(grammarAccess.getInputAccess().getAttacksAttackCrossReference_2_2_1_0()); 
-            // InternalSecLanguage.g:2295:1: ( ruleEString )
-            // InternalSecLanguage.g:2296:1: ruleEString
+            // InternalSecLanguage.g:2576:1: ( ruleEString )
+            // InternalSecLanguage.g:2577:1: ruleEString
             {
              before(grammarAccess.getInputAccess().getAttacksAttackEStringParserRuleCall_2_2_1_0_1()); 
             pushFollow(FollowSets000.FOLLOW_2);
@@ -5849,15 +6569,16 @@ public class InternalSecLanguageParser extends AbstractInternalContentAssistPars
         public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
         public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
         public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000003800L});
-        public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000003800L});
         public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000204000L});
-        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
+        public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000000L});
+        public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000404000L});
         public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
-        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000008000030L});
-        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000032L});
-        public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000000L});
+        public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000008000000L});
+        public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000010000030L});
+        public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000032L});
+        public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000020000000L});
     }
 
 

@@ -38,18 +38,25 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPossibleAttacksAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cPossibleAttacksAttackParserRuleCall_5_2_0 = (RuleCall)cPossibleAttacksAssignment_5_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cLeftParenthesisKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cNotesKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cNoteAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cNoteNoteParserRuleCall_6_2_0 = (RuleCall)cNoteAssignment_6_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		////import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
 		//SecurityTest Test:
 		//	{Test}
 		//	'('
 		//	'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
+		//	('(' 'notes' note=Note ')')?
 		//	')'
 		@Override public ParserRule getRule() { return rule; }
 
 		//{Test} '(' 'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+
-		//')')? ')'
+		//')')? ('(' 'notes' note=Note ')')? ')'
 		public Group getGroup() { return cGroup; }
 
 		//{Test}
@@ -103,8 +110,50 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_5_3() { return cRightParenthesisKeyword_5_3; }
 
+		//('(' 'notes' note=Note ')')?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//'('
+		public Keyword getLeftParenthesisKeyword_6_0() { return cLeftParenthesisKeyword_6_0; }
+
+		//'notes'
+		public Keyword getNotesKeyword_6_1() { return cNotesKeyword_6_1; }
+
+		//note=Note
+		public Assignment getNoteAssignment_6_2() { return cNoteAssignment_6_2; }
+
+		//Note
+		public RuleCall getNoteNoteParserRuleCall_6_2_0() { return cNoteNoteParserRuleCall_6_2_0; }
+
 		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_6_3() { return cRightParenthesisKeyword_6_3; }
+
+		//')'
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+
+	public class NoteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "edu.udea.vulnfinder.gram.SecLanguage.Note");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNoteAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNoteTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNoteTextEStringParserRuleCall_1_0 = (RuleCall)cNoteTextAssignment_1.eContents().get(0);
+		
+		//Note:
+		//	{Note} noteText=EString;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{Note} noteText=EString
+		public Group getGroup() { return cGroup; }
+
+		//{Note}
+		public Action getNoteAction_0() { return cNoteAction_0; }
+
+		//noteText=EString
+		public Assignment getNoteTextAssignment_1() { return cNoteTextAssignment_1; }
+
+		//EString
+		public RuleCall getNoteTextEStringParserRuleCall_1_0() { return cNoteTextEStringParserRuleCall_1_0; }
 	}
 
 	public class TargetOfEvaluationElements extends AbstractParserRuleElementFinder {
@@ -480,6 +529,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final SecurityTestElements pSecurityTest;
+	private final NoteElements pNote;
 	private final TargetOfEvaluationElements pTargetOfEvaluation;
 	private final AttackElements pAttack;
 	private final EStringElements pEString;
@@ -498,6 +548,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSecurityTest = new SecurityTestElements();
+		this.pNote = new NoteElements();
 		this.pTargetOfEvaluation = new TargetOfEvaluationElements();
 		this.pAttack = new AttackElements();
 		this.pEString = new EStringElements();
@@ -539,6 +590,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Test}
 	//	'('
 	//	'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
+	//	('(' 'notes' note=Note ')')?
 	//	')'
 	public SecurityTestElements getSecurityTestAccess() {
 		return pSecurityTest;
@@ -546,6 +598,16 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSecurityTestRule() {
 		return getSecurityTestAccess().getRule();
+	}
+
+	//Note:
+	//	{Note} noteText=EString;
+	public NoteElements getNoteAccess() {
+		return pNote;
+	}
+	
+	public ParserRule getNoteRule() {
+		return getNoteAccess().getRule();
 	}
 
 	//TargetOfEvaluation:

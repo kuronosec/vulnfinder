@@ -24,6 +24,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/date"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference escaneo.ecore#//Test/note"/>
     </genClasses>
     <genClasses ecoreClass="escaneo.ecore#//TargetOfEvaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//TargetOfEvaluation/domain"/>
@@ -44,6 +45,9 @@
     <genClasses ecoreClass="escaneo.ecore#//Attack">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Attack/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Attack/severity"/>
+    </genClasses>
+    <genClasses ecoreClass="escaneo.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Note/noteText"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
