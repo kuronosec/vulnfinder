@@ -221,6 +221,15 @@ function findInput() {
     var getParameters = window.location.search.substr(1);
     var keyElement;
     var action = String(location.pathname).split('/').slice(-1);
+    var tableGet = document.createElement("table");
+    var trTitleGet = document.createElement("tr");
+    var th1Get = document.createElement("th");
+    var th2Get = document.createElement("th");
+    th1Get.innerHTML = "";
+    trTitleGet.appendChild(th1Get);
+    th2Get.innerHTML = "Static";
+    trTitleGet.appendChild(th2Get);
+
     if (getParameters.length){
         var keys = getParameters.split('&');
         for (k in keys){
@@ -228,9 +237,18 @@ function findInput() {
             keyElement = document.createElement('input');
             keyElement.setAttribute('name', key);
             keyElement = $(keyElement);
+            var trFieldGet = document.createElement("tr");
+            var tdFieldGet = document.createElement("td");
+            var tdCheckGet = document.createElement("td");
             var elm = format(keyElement, k+2000, action);
-            iframe.find('#vuln-get-parameters-div').append(elm);
+            element = document.createElement("div");
+            element.innerHTML = elm;
+            tdFieldGet.appendChild(element);
+            trFieldGet.appendChild(tdFieldGet);
+            // iframe.find('#vuln-get-parameters-div').append(elm);
+            tableGet.appendChild(trFieldGet);
         }
+        iframe.find('#vuln-get-parameters-div').append(tableGet);
     }
 
     // attach input and bind events
