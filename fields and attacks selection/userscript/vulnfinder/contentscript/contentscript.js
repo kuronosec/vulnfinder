@@ -222,6 +222,7 @@ function findInput() {
     var keyElement;
     var action = String(location.pathname).split('/').slice(-1);
     var tableGet = document.createElement("table");
+    tableGet.setAttribute("style", "width:100%");
     var trTitleGet = document.createElement("tr");
     var th1Get = document.createElement("th");
     var th2Get = document.createElement("th");
@@ -229,6 +230,7 @@ function findInput() {
     trTitleGet.appendChild(th1Get);
     th2Get.innerHTML = "Static";
     trTitleGet.appendChild(th2Get);
+    tableGet.appendChild(trTitleGet);
 
     if (getParameters.length){
         var keys = getParameters.split('&');
@@ -240,11 +242,17 @@ function findInput() {
             var trFieldGet = document.createElement("tr");
             var tdFieldGet = document.createElement("td");
             var tdCheckGet = document.createElement("td");
+            var checkGet = document.createElement("input");
             var elm = format(keyElement, k+2000, action);
             element = document.createElement("div");
             element.innerHTML = elm;
             tdFieldGet.appendChild(element);
+            checkGet.setAttribute("type", "checkbox");
+            checkGet.setAttribute("id", "parameter-static" + k+2000);
+            checkGet.setAttribute("class", "vuln-ch-parameter-static");
+            tdCheckGet.appendChild(checkGet);
             trFieldGet.appendChild(tdFieldGet);
+            trFieldGet.appendChild(tdCheckGet);
             // iframe.find('#vuln-get-parameters-div').append(elm);
             tableGet.appendChild(trFieldGet);
         }
