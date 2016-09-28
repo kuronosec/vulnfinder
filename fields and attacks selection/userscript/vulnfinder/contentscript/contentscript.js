@@ -143,22 +143,20 @@ function onReset() {
 function checking() {
     var inputField = $(this);
     var idx = inputField.parent().attr('id').split('-').slice(1);
+    var attackPopover = $('#vuln-attacks-' + idx);
     var field = $(this).parent();
     field.parent().find('#attacks-' + idx).find('.vuln-label-ch').each(function (idx, val) {
         if (inputField.prop('checked')){
             $(this).find('input').prop('checked', true);
             field.addClass('vuln-selected-field');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'true');
+
         }else{
             $(this).find('input').prop('checked', false);
             field.removeClass('vuln-selected-field');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'false');
         }
     });
-    // if ($(this).prop('checked')) {
-    //     $(this).prop('checked', false);
-    //
-    // } else {
-    //     $(this).prop('checked', true);
-    // }
 }
 
 function syncPopoverNavbar(actLabel, checked) {
@@ -233,17 +231,6 @@ function findInput() {
     var getParameters = window.location.search.substr(1);
     var keyElement;
     var action = String(location.pathname);
-    var tableGet = document.createElement("table");
-    tableGet.setAttribute("style", "width:100%");
-    var trTitleGet = document.createElement("tr");
-    var th1Get = document.createElement("th");
-    var th2Get = document.createElement("th");
-    th1Get.innerHTML = "Parameter";
-    trTitleGet.appendChild(th1Get);
-    th2Get.innerHTML = "Static";
-    trTitleGet.appendChild(th2Get);
-    tableGet.appendChild(trTitleGet);
-    iframe.find('#vuln-get-parameters-div').append(tableGet);
 
     if (getParameters.length){
         var keys = getParameters.split('&');
@@ -252,23 +239,12 @@ function findInput() {
             keyElement = document.createElement('input');
             keyElement.setAttribute('name', key);
             keyElement = $(keyElement);
-            var trFieldGet = document.createElement("tr");
-            var tdFieldGet = document.createElement("td");
-            var tdCheckGet = document.createElement("td");
-            var checkGet = document.createElement("input");
             var idx = parseInt(k)+2000;
             var elm = format(keyElement, idx, action);
             var element = document.createElement("div");
             element.innerHTML = elm;
-            tdFieldGet.appendChild(element);
-            checkGet.setAttribute("type", "checkbox");
-            checkGet.setAttribute("id", "parameter-static" + idx);
-            checkGet.setAttribute("class", "vuln-ch-parameter-static");
-            tdCheckGet.appendChild(checkGet);
-            trFieldGet.appendChild(tdFieldGet);
-            trFieldGet.appendChild(tdCheckGet);
-            // iframe.find('#vuln-get-parameters-div').append(elm);
-            tableGet.appendChild(trFieldGet);
+            iframe.find('#vuln-get-parameters-div').append(elm);
+
 
             iframe.find('#field-' + idx).hover(function () {
                 onHover(null, $(this));
