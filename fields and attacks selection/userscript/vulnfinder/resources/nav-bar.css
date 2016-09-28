@@ -272,3 +272,12 @@ body {
 
 
 }
+
+th{
+    text-align: left;
+}
+
+table{
+    width: 100%;
+}
+

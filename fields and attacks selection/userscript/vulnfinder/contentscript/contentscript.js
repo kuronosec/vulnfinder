@@ -6,6 +6,7 @@
 
 var navBarUI = false;
 var currentTOE = null;
+var urlParameters = "";
 
 // Create the navBar ui iframe and inject it in the current page
 function initNavBar() {
@@ -81,10 +82,10 @@ var toHide = [];
 
 //Create the list of attack in html
 function attacksUI(idx) {
-    var content = "<ul class='attack-list ' id='attacks-" + idx + "'>";
+    var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f'>";
-        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vuln-input  ch'> <span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vuln-input  ch'><span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
@@ -140,14 +141,24 @@ function onReset() {
 }
 
 function checking() {
-    // var attack = field.find('input');
-
-    if ($(this).prop('checked')) {
-        $(this).prop('checked', false);
-
-    } else {
-        $(this).prop('checked', true);
-    }
+    var inputField = $(this);
+    var idx = inputField.parent().attr('id').split('-').slice(1);
+    var field = $(this).parent();
+    field.parent().find('#attacks-' + idx).find('.vuln-label-ch').each(function (idx, val) {
+        if (inputField.prop('checked')){
+            $(this).find('input').prop('checked', true);
+            field.addClass('vuln-selected-field');
+        }else{
+            $(this).find('input').prop('checked', false);
+            field.removeClass('vuln-selected-field');
+        }
+    });
+    // if ($(this).prop('checked')) {
+    //     $(this).prop('checked', false);
+    //
+    // } else {
+    //     $(this).prop('checked', true);
+    // }
 }
 
 function syncPopoverNavbar(actLabel, checked) {
@@ -213,24 +224,26 @@ function findInput() {
     })
 
     function onHover(input, field) {
-        input.toggleClass('active-input');
+        if (input != null)
+            input.toggleClass('active-input');
         field.toggleClass('active-field');
 
     }
 
     var getParameters = window.location.search.substr(1);
     var keyElement;
-    var action = String(location.pathname).split('/').slice(-1);
+    var action = String(location.pathname);
     var tableGet = document.createElement("table");
     tableGet.setAttribute("style", "width:100%");
     var trTitleGet = document.createElement("tr");
     var th1Get = document.createElement("th");
     var th2Get = document.createElement("th");
-    th1Get.innerHTML = "";
+    th1Get.innerHTML = "Parameter";
     trTitleGet.appendChild(th1Get);
     th2Get.innerHTML = "Static";
     trTitleGet.appendChild(th2Get);
     tableGet.appendChild(trTitleGet);
+    iframe.find('#vuln-get-parameters-div').append(tableGet);
 
     if (getParameters.length){
         var keys = getParameters.split('&');
@@ -243,21 +256,34 @@ function findInput() {
             var tdFieldGet = document.createElement("td");
             var tdCheckGet = document.createElement("td");
             var checkGet = document.createElement("input");
-            var elm = format(keyElement, k+2000, action);
-            element = document.createElement("div");
+            var idx = parseInt(k)+2000;
+            var elm = format(keyElement, idx, action);
+            var element = document.createElement("div");
             element.innerHTML = elm;
             tdFieldGet.appendChild(element);
             checkGet.setAttribute("type", "checkbox");
-            checkGet.setAttribute("id", "parameter-static" + k+2000);
+            checkGet.setAttribute("id", "parameter-static" + idx);
             checkGet.setAttribute("class", "vuln-ch-parameter-static");
             tdCheckGet.appendChild(checkGet);
             trFieldGet.appendChild(tdFieldGet);
             trFieldGet.appendChild(tdCheckGet);
             // iframe.find('#vuln-get-parameters-div').append(elm);
             tableGet.appendChild(trFieldGet);
+
+            iframe.find('#field-' + idx).hover(function () {
+                onHover(null, $(this));
+            }, function () {
+                onHover(null, $(this));
+            }).click(function () {
+                var attack = iframe.find('#attacks-' + $(this).attr('id').split('-').slice(-1));
+                attack.toggle();
+            });
+
+
         }
-        iframe.find('#vuln-get-parameters-div').append(tableGet);
+
     }
+
 
     // attach input and bind events
     $('body').find('input').each(function (idx, val) {
@@ -421,6 +447,7 @@ function findInput() {
             var dataField = {};
             var index = $(this).attr('id').split('-')[1];
             var field = $(this).find('.field-name').html();
+
 
             action = String($(this).find('.input-form-url').attr('value'));
             if (action[0]=='/'){
