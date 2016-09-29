@@ -5,6 +5,7 @@ pages:
   - tar xvzf build/emt-plugin-latest.tar.gz -C public/eclipse
   - cp build/web-extension-latest.xpi public
   - cp build/index.html public
+  - cp build/eclipse-index.html public/eclipse/index.html
   artifacts:
     paths:
     - public
