@@ -2,8 +2,9 @@ pages:
   stage: deploy
   script:
   - mkdir -p public/eclipse
-  - cp build/web-extension-latest.xpi public
   - tar xvzf build/emt-plugin-latest.tar.gz -C public/eclipse
+  - cp build/web-extension-latest.xpi public
+  - cp build/index.html public
   artifacts:
     paths:
     - public
