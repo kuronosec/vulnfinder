@@ -1,0 +1,14 @@
+pages:
+  stage: deploy
+  script:
+  - echo 'Empaquetando...'
+  - mkdir public
+  - cp build/*latest* public
+  - rm -r public/eclipse
+  - mkdir public/eclipse
+  - unzip -d public/eclipse build/emt-plugin-latest.zip 
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
