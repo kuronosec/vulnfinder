@@ -4,7 +4,7 @@ pages:
   - echo 'Empaquetando...'
   - mkdir public
   - cp build/*latest* public
-  - rm -r public/eclipse
+  - rm -r public/eclipse || echo "the directory doesn't exist"
   - mkdir public/eclipse
   - unzip -d public/eclipse build/emt-plugin-latest.zip 
   artifacts:
