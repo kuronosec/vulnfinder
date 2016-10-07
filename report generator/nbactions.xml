@@ -10,7 +10,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
+                <exec.args>-classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -d /home/camilosampedro/Descargas/test1/generated/app.empiric.us/target.txt -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
@@ -24,7 +24,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -d /home/camilosampedro/Descargas/test1/generated/app.empiric.us/target.txt -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
@@ -39,7 +39,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
+                <exec.args>-classpath %classpath co.edu.udea.generadorreportesvuln.ReportGenerator -t app.empiric.us -f archivo_de_campos -o output -d /home/camilosampedro/Descargas/test1/generated/app.empiric.us/target.txt -s /home/camilosampedro/Descargas/test1/generated/app.empiric.us/log</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
