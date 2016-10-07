@@ -79,7 +79,7 @@ public class ZapAnalyzer {
         } else {
             siteElements.stream().forEach((Element siteElement) -> {
                 String siteName = siteElement.getAttributeValue("name");
-                if (siteURL.equals("") || (!forced && siteURL.contains(siteName)) || (forced && siteURL.equals(siteName))) {
+                if (siteURL.equals("") || (!forced && siteURL.contains(siteName) || siteName.contains(siteURL)) || (forced && siteURL.equals(siteName)  || siteURL.contains(siteName)|| siteName.contains(siteURL))) {
                     Site site = SiteStore.getSite(siteElement.getAttributeValue("name"));
                     site.addAnalyzer(Analyzer.ZAP);
                     List<Element> alerts = siteElement.getChild("alerts").getChildren();
