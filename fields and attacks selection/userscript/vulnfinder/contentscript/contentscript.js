@@ -149,12 +149,12 @@ function checking() {
         if (inputField.prop('checked')){
             $(this).find('input').prop('checked', true);
             field.addClass('vuln-selected-field');
-            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'true');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', true);
 
         }else{
             $(this).find('input').prop('checked', false);
             field.removeClass('vuln-selected-field');
-            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'false');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', false);
         }
     });
 }
