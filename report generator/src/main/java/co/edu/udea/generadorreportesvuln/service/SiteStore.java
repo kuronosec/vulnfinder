@@ -18,18 +18,23 @@ import java.util.Map;
  */
 public class SiteStore {
 
-    private static final Map<String, ConcreteSite> SITES = new HashMap<>();
+    private static final Map<String, Site> SITES = new HashMap<>();
 
     public static Site getSite(String url) {
-        ConcreteSite site = SITES.get(url);
+        Site site = SITES.get(url);
         if (site == null) {
             site = new ConcreteSite(url);
             SITES.put(url, site);
         }
         return site;
     }
-    
+
     public static List<Site> getAll() {
-        return new ArrayList<>(SITES.values());
+        List<Site> siteList = new ArrayList<>();
+        // Filter empty sites
+        SITES.entrySet().stream().filter((entry) -> (!entry.getValue().isEmpty())).forEach((entry) -> {
+            siteList.add(entry.getValue());
+        });
+        return siteList;
     }
 }

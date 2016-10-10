@@ -5,6 +5,7 @@
  */
 package co.edu.udea.generadorreportesvuln.model;
 
+import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Td;
 import com.hp.gagawa.java.elements.Tr;
 import java.util.Objects;
@@ -16,8 +17,8 @@ import java.util.Objects;
 public class FieldAlert extends Alert {
 
     private String type;
-    private String title;
-    private String payload;
+    private String typeExplanation;
+    private String exploit;
 
     public FieldAlert(Analyzer analyzer) {
         super(analyzer);
@@ -32,40 +33,60 @@ public class FieldAlert extends Alert {
     }
 
     public String getTitle() {
-        return title;
+        return typeExplanation;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.typeExplanation = title;
     }
 
     public String getPayload() {
-        return payload;
+        return exploit;
     }
 
     public void setPayload(String payload) {
-        this.payload = payload;
+        this.exploit = payload;
     }
 
     @Override
     public Tr toHtml() {
+        // Row
         Tr alertDiv = new Tr();
+        
+        // Analyzer column
         Td sameTd = new Td();
         sameTd.appendText(getAnalyzer().toString());
         alertDiv.appendChild(sameTd);
+        
+        // Type column
         sameTd = new Td();
+        A titleA = new A(type);
         if (type != null) {
-            sameTd.appendText(type);
+            titleA.appendText(type);
         } else {
-            sameTd.appendText("N/A");
+            titleA.appendText("N/A");
         }
+        
+        titleA.setCSSClass("alert-title");
+        titleA.setHref("#");
+        // Payload popover
+        titleA.setAttribute("data-toggle", "popover");
+//        titleA.setAttribute("data-placement", "left");
+//        titleA.setAttribute("data-trigger", "focus");
+        if (typeExplanation != null) {
+            titleA.setAttribute("data-content", typeExplanation);
+        } else {
+            titleA.setAttribute("data-content", "N/A");
+        }
+        titleA.setTitle("Type explanation");
+        sameTd.appendChild(titleA);
+        
         alertDiv.appendChild(sameTd);
+        
+        
         sameTd = new Td();
-        sameTd.appendText(title);
-        alertDiv.appendChild(sameTd);
-        sameTd = new Td();
-        if (payload != null) {
-            sameTd.appendText(payload);
+        if (exploit != null) {
+            sameTd.appendText(exploit);
         } else {
             sameTd.appendText("N/A");
         }
@@ -75,13 +96,13 @@ public class FieldAlert extends Alert {
 
     @Override
     public String toString() {
-        return "FieldAlert{\n\t\t\tType: " + type + "\n\t\t\tTitle:" + title + "\n\t\t\tPayload:" + payload + "}";
+        return "FieldAlert{\n\t\t\tType: " + type + "\n\t\t\tTitle:" + typeExplanation + "\n\t\t\tPayload:" + exploit + "}";
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.title);
+        hash = 97 * hash + Objects.hashCode(this.typeExplanation);
         return hash;
     }
 
@@ -97,7 +118,7 @@ public class FieldAlert extends Alert {
             return false;
         }
         final FieldAlert other = (FieldAlert) obj;
-        return Objects.equals(this.title, other.title);
+        return Objects.equals(this.typeExplanation, other.typeExplanation);
     }
     
     

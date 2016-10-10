@@ -65,19 +65,17 @@ public class Field implements HtmlElement {
         fieldPanel.setCSSClass("panel panel-default");
 
         Div fieldPanelHeading = new Div();
-        fieldPanelHeading.setCSSClass("panel-heading");
+        fieldPanelHeading.setCSSClass("panel-heading field-title");
         fieldPanelHeading.setAttribute("role", "tab");
         fieldPanelHeading.setId("heading" + id);
 
-        H3 fieldTitle = new H3();
-        fieldTitle = fieldTitle.setCSSClass("field-title");
         A toggle = new A();
         toggle.setAttribute("data-toggle", "collapse");
         toggle.appendText(fieldName);
         toggle.setHref("#body" + id);
         toggle.setAttribute("aria-controls", "body" + id);
-        fieldTitle.appendChild(toggle);
-        fieldPanelHeading.appendChild(fieldTitle);
+        
+        fieldPanelHeading.appendChild(toggle);
         fieldPanel.appendChild(fieldPanelHeading);
 
         if (!alerts.isEmpty()) {
@@ -99,12 +97,12 @@ public class Field implements HtmlElement {
             Th typeTh = new Th();
             typeTh.appendText("Type");
             tr.appendChild(typeTh);
-            Th titleTh = new Th();
-            titleTh.appendText("Title");
-            tr.appendChild(titleTh);
-            Th payloadTh = new Th();
-            payloadTh.appendText("Payload");
-            tr.appendChild(payloadTh);
+//            Th titleTh = new Th();
+//            titleTh.appendText("Title");
+//            tr.appendChild(titleTh);
+            Th exploitTh = new Th();
+            exploitTh.appendText("Exploit");
+            tr.appendChild(exploitTh);
             thead.appendChild(tr);
             table.appendChild(thead);
 

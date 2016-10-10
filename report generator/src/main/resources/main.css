@@ -15,6 +15,30 @@ span {
 a, a:hover, a:focus a:hover {
     text-decoration: none !important;
 }
+.jumbotron {
+    background-color: #e1e9f2;
+}
+
+.jumbotron span {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+    color: #555;
+}
+
+.generated-date:before {
+    font-family: FontAwesome;
+    content: "\f073\00a0";
+}
+
+.generated-hour:before {
+    font-family: FontAwesome;
+    content: "\f017\00a0";
+}
+
+body {
+    background-color: #f4f4f4;
+}
 .siteurl {
     font-family: monospace;
     color: #006680;
@@ -49,8 +73,24 @@ a, a:hover, a:focus a:hover {
     background: #efefef;
 }
 .field-title {
+    background-color: #e2f4e1;
     font-family: monospace;
-    margin: 5px;
+    /*margin: 5px;*/
+}
+.field-title a {
+    text-decoration: none;
+    width: 100%;
+    color: #009B29;
+    /*border: 1px solid #009B29;*/
+    padding: 6px 10px 5px;
+    /*font-size: 0.4em;*/
+    margin-right: 7px;
+    /*font-weight: bold;*/
+}
+.field-title a:before {
+    font-family: FontAwesome;
+    content: "\f132\00a0\00a0";
+
 }
 
 #logo {
@@ -80,20 +120,7 @@ a, a:hover, a:focus a:hover {
     vertical-align: middle;
     width: 80%;
 }
-.detail a {
-    text-decoration: none;
-    width: 100%;
-    color: #009B29;
-    border: 1px solid #009B29;
-    padding: 6px 10px 5px;
-    font-size: 13px;
-    margin-right: 7px;
-}
-.detail a:before {
-    font-family: FontAwesome;
-    content: "\f132\00a0\00a0";
 
-}
 .detail {
     margin: 10px 0 10px 0px;
     display: none;
@@ -133,4 +160,8 @@ a, a:hover, a:focus a:hover {
 .sitealertcounter .fieldalertcounter {
     background-color: white;
     color: darkred;
+}
+
+.popover {
+    overflow: auto;
 }
