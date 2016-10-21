@@ -22,7 +22,7 @@ This way, the test becomes repeatable and reduces the influence of the tester's 
 We consider black box testing technique, given that this kind of scenario is commonly the only available when the security analyst does not have access to the source code of the application.
 
 
-## Where can I find more information on installation and use?
+## Where can I find more information on installation and usage?
 
 Please follow the links to see the available documentation:
  * [How to install](https://gitlab.com/ryepesg/vulnfinder/wikis/installation)
