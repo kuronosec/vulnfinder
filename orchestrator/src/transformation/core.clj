@@ -136,6 +136,17 @@
    (fn [[_ field-name attacks]]
      ((set attacks) "SQLInjection"))))
 
+(defn validate-url
+  "Allow only valid characters in urls"
+  [url]
+  (re-find #"^(?:[!#$&+=?~:/@,\[\]\w\.\-]|%[0-9a-fA-F]{2})+$"
+           url))
+
+(defn validate-path
+  "Allow only valid characters in file paths"
+  [url]
+  (re-find #"^[\w\s\\/:\-]+$" url))
+
 (defn fields->sqlmap
   "Construct the comand of a specific field for SQLmap"
   [dir {:keys [url-with-params post-params]}]
@@ -153,9 +164,9 @@
            "--random-agent"
            "--threads=10"
            "--answers='extending=N,others=Y'"
-           (format "--url '%s'" url-with-params)
-           (format "--data '%s'" post-params)
-           (format "--output-dir '%s'" dir)]))
+           (format "--url '%s'" (validate-url url-with-params))
+           (format "--data '%s'" (validate-url post-params))
+           (format "--output-dir '%s'" (validate-path dir))]))
 
 (defn url-get-post
   "Return a map with the url and get params, and also the post params"

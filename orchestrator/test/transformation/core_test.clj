@@ -2,6 +2,20 @@
   (:require [clojure.test :refer :all]
             [transformation.core :refer :all]))
 
+(deftest validation
+  (testing "validate-url fn"
+    (is (= "http://udea.edu.co:80/dir/index.php?login=123&lang=es"
+           (validate-url "http://udea.edu.co:80/dir/index.php?login=123&lang=es")))
+    (is (= nil (validate-url "\"")))
+    (is (= nil (validate-url "'"))))
+  (testing "validate-path fn"
+    (is (= "c:\\\\Docs and Setts\\user\\" (validate-path "c:\\\\Docs and Setts\\user\\")))
+    (is (= "/home/user/" (validate-path "/home/user/")))
+    (is (= "-" (validate-path "-")))
+    (is (= nil (validate-path ".")))
+    (is (= nil (validate-path "\\.\\")))
+    (is (= nil (validate-path "../"))))
+  )
 
 (deftest append-static-field-t
   (testing "append-static-field fn"
@@ -29,12 +43,12 @@
            (correct-pad "http://www.udea.edu.co/2/")))))
 
 (deftest toe
-  (is (= "http://app.empiric.us:81/"
-         (correct-toe "http://app.empiric.us:81/")))
-  (is (= "http://app.empiric.us:81/"
-         (correct-toe "http://app.empiric.us:81")))
-  (is (= "http://app.empiric.us:81/"
-         (correct-toe "http://app.empiric.us:81/mapp/index.php?page=login.php"))))
+  (is (= "http://www.udea.edu.co:81/"
+         (correct-toe "http://www.udea.edu.co:81/")))
+  (is (= "http://www.udea.edu.co:81/"
+         (correct-toe "http://www.udea.edu.co:81")))
+  (is (= "http://www.udea.edu.co:81/"
+         (correct-toe "http://www.udea.edu.co:81/directory/index.php?page=login.php"))))
 
 (deftest wraping
   (is (= (unwrap-str "\"hola\"") "hola"))
