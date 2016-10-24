@@ -27,34 +27,39 @@ import java.util.regex.Pattern;
  * @author raven
  */
 public class TargetOfEvaluation {
-    private List<WebComponent> paginas = Collections.synchronizedList(new ArrayList<WebComponent>());
+    private List<WebComponent> webComponents = Collections.synchronizedList(new ArrayList<WebComponent>());
     private static final Pattern patDom = Pattern.compile("(https?://[^/]+)/?.*");
-    private String nombre;
+    private String name;
     
 
-    public TargetOfEvaluation(String nombre) {
-        this.nombre = nombre;
+    public TargetOfEvaluation(String name) {
+        this.name = name;
     }
 
-    public List<WebComponent> getPaginas() {
-        return paginas;
+    public List<WebComponent> getWebComponents() {
+        return webComponents;
     }
     
     
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
     
-    public int insertarPagina(String pagPath){
-        for(int i = 0; i < paginas.size(); i++){
-            if(paginas.get(i).getRuta().equals(pagPath)){
+    public String getTOEOnly(){
+    	String toe = name.substring(name.lastIndexOf('/')+1);
+    	return toe;
+    }
+    
+    public int addNewWebComponent(String pagPath){
+        for(int i = 0; i < webComponents.size(); i++){
+            if(webComponents.get(i).getPath().equals(pagPath)){
                 return i;
             }
         }
         WebComponent nueva = new WebComponent(pagPath);
-        paginas.add(nueva);
-        return paginas.size()-1;
+        webComponents.add(nueva);
+        return webComponents.size()-1;
     }
     
     

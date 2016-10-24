@@ -5,7 +5,7 @@
 [template public generateElement(aSecurityTest : Test)]
 [comment @main/]
 [file (aSecurityTest.id+'.seclang', false, 'UTF-8')]
-(securityTest [aSecurityTest.id/]
+(securityTest "[aSecurityTest.id/]"
 	(toes
 	[for (toe : TargetOfEvaluation | aSecurityTest.scope)]
 		(toe "[toe.domain/]"
@@ -21,7 +21,7 @@
 	)
 	(attacks
 	[for (attack : Attack | aSecurityTest.possibleAttacks)]
-		(attack [attack.name/] { :level [attack.severity/] } )
+		(attack "[attack.name/]" { :level [attack.severity/] } )
 	[/for]
 	)
 	

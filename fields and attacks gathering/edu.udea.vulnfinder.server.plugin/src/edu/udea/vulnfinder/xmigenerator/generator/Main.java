@@ -16,6 +16,7 @@
 package edu.udea.vulnfinder.xmigenerator.generator;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -44,10 +45,6 @@ import fi.iki.elonen.NanoHTTPD;
  * @author Christian Delany
  */
 public class Main {
-
-	//private static String toe = null;
-	// private static final ArrayList<TargetOfEvaluation> dominios = new
-	// ArrayList<>();
 	private static final String EXCLUDED_REGEX_BEGIN = ".*\\.(?:";
 	private static final String EXCLUDED_REGEX_END  = ")(?:\\?.*)?";
 	private static TargetOfEvaluation dominio = null;
@@ -67,8 +64,8 @@ public class Main {
 
 	public static void startServer() throws IOException, VulnServerException {
 		initialize();
-		if(vulnServer == null || !vulnServer.isAlive() ){
-			clientApi = new ClientApi(zapHost, zapPort);
+		if( !isServerUp() ){
+			readyUpZapAPI();
 			vulnServer = new VulnServer(serverPort);
 		}else{
 			throw new VulnServerException("There is another instance of the server running, please wait or restart the application.");
@@ -87,15 +84,24 @@ public class Main {
 			throw new VulnServerException("The server can't be stopped because it's not running.");
 		}
 	}
+	
+	public static void restartServer() throws VulnServerException, IOException{
+		stopServer();
+		startServer();
+	}
+	
+	public static boolean isServerUp(){
+		return vulnServer != null && vulnServer.isAlive();
+	}
 
 	public static void startSpidering() throws VulnSpideringException, VulnServerException {
-		try {
+		/*try {
 			stopServer();
 		} catch (VulnServerException e) {
 			//It's fine if it's not running.
-		}
-		clientApi = new ClientApi(zapHost, zapPort);
-		if(dominio != null && dominio.getNombre() != null){
+		}*/
+		readyUpZapAPI();
+		if(dominio != null && dominio.getName() != null){
 			//insertarDominio(TargetOfEvaluation.extractDomain(toe));
 			start();
 		}else{
@@ -104,30 +110,37 @@ public class Main {
 		
 	}
 	
+	public static void readyUpZapAPI(){
+		clientApi = new ClientApi(zapHost, zapPort);
+	}
+	
+	public static ArrayList<String> getZAPSites() throws VulnServerException{
+		ArrayList<String> res = new ArrayList<>();
+		ApiResponseList arl = null;
+		String val;
+		try{
+			arl = (ApiResponseList) clientApi.core.sites();
+			for (ApiResponse ar : arl.getItems()) {
+				val = ((ApiResponseElement) ar).getValue();
+				res.add(val);
+			}
+		}catch(ClientApiException e){
+			throw new VulnServerException(e);
+		}
+		
+		return res;
+	}
+	
 	
 	public static String generateXMI(){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap);
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, false);
 		return mem2xmi.generateXMIFormat();
 	}
 	
-	public static String generateXMI(String testId, String testName){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, testId, testName);
+	public static String generateXMI(String testId, String testName, boolean allAttacks){
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, testId, testName, allAttacks);
 		return mem2xmi.generateXMIFormat();
 	}
-
-	/*
-	 * public static void main(String[] args) throws ClientApiException,
-	 * IOException {
-	 * 
-	 * 
-	 * /*System.out.println("Dominio: " + dominio.getNombre()); for
-	 * (WebComponent c : dominio.getPaginas()) { System.out.println("Pagina: " +
-	 * c.getRuta()); for (Input i : c.getEntradas()) { System.out.println(
-	 * "\tInput: " + i.getNombre()); for (Attack a : i.getAttList()) {
-	 * System.out.println("\t\tAttack: " + a.getName()); } } }
-	 * 
-	 * }
-	 */
 
 	public static void initialize() {
 		attackMap = new ConcurrentHashMap<>();
@@ -136,29 +149,43 @@ public class Main {
 		attackMap.put("Authorization", new Attack("Authorization"));
 		attackMap.put("XSS", new Attack("XSS"));
 		attackMap.put("Privilege Scalation", new Attack("PrivilegeScalation"));
+		attackMap.put("*", new Attack("*"));
 		int i = 0;
 		for (Map.Entry<String, Attack> e : attackMap.entrySet()) {
 			e.getValue().setIndex(i++);
 		}
 		
 	}
+	
+	
+	private static boolean checkValidExtension(String toe){
+		return toe != null && !toe.matches(EXCLUDED_REGEX_BEGIN+excludedExtensionsInSpidering+EXCLUDED_REGEX_END);
+	}
+	
 
 	private static void start() throws VulnSpideringException, VulnServerException {
 		ApiResponseList arl = null;
 		state = 3;
-		cola.offer(dominio.getNombre());
+		cola.offer(dominio.getName());
+		for(WebComponent wc : dominio.getWebComponents()){
+			wc.setSpidered(false);
+		}
 		try{
 			arl = (ApiResponseList) clientApi.core.urls();
 			for (ApiResponse ar : arl.getItems()) {
 				String res = ((ApiResponseElement) ar).getValue();
-				cola.offer(res);
+				boolean cb = checkValidExtension(res);
+				System.out.println(res+" "+cb);
+				if(cb){
+					cola.offer(res);
+				}
 			}
 		}catch(ClientApiException e){
 			throw new VulnSpideringException(e, 3);
 		}
 		
 		while (!cola.isEmpty()) {
-			realizarSpidering();
+			runSpidering();
 			if (monitor != null) {
 				if (monitor.isCanceled()) {
 					//Main.setMonitor(null);
@@ -177,7 +204,7 @@ public class Main {
 					monitor.subTask("Retrieving results...");
 				}
 			}
-			ingresarEntradas();
+			addInputs();
 			state = 4;
 			clientApi.spider.stopAllScans(null);
 		} catch (ClientApiException cae) {
@@ -189,7 +216,7 @@ public class Main {
 		
 	}
 
-	private static void ingresarEntradas() throws ClientApiException, VulnServerException {
+	private static void addInputs() throws ClientApiException, VulnServerException {
 		ApiResponseSet ars;
 		for (ApiResponse respuestaParams : ((ApiResponseList) clientApi.params.params(null)).getItems()) {
 			for (ApiResponse valoresParams : ((ApiResponseList) respuestaParams).getItems()) {
@@ -198,13 +225,13 @@ public class Main {
 					String nombreParam = ars.getAttribute("name");
 					String tipoParam = ars.getAttribute("type");
 					// System.out.println("sitio: "+ars.getAttribute("site"));
-					agregarParam(tipoParam, nombreParam);
+					addParam(tipoParam, nombreParam);
 				}
 			}
 		}
 	}
 
-	private static void agregarParam(String tipoParam, String nombreParam) throws ClientApiException, VulnServerException {
+	private static void addParam(String tipoParam, String nombreParam) throws ClientApiException, VulnServerException {
 		ApiResponseSet ars;
 		ApiResponseList respuesta = null;
 		String url = null;
@@ -244,40 +271,41 @@ public class Main {
 		for (ApiResponse ar : respuesta.getItems()) {
 			ars = (ApiResponseSet) ar;
 			url = ars.getAttribute("url");
-			dom = insertarDominio(TargetOfEvaluation.extractDomain(url));
-			if (dom != 1) {
+			dom = insertDomain(TargetOfEvaluation.extractDomain(url));
+			if (dom != 1 || !checkValidExtension(url)) {
 				continue;
 			}
 			// pag =
 			// dominios.get(dom).insertarPagina(WebComponent.extractPagina(url));
-			pag = dominio.insertarPagina(WebComponent.extractPagina(url));
-			dominio.getPaginas().get(pag).insertarEntrada(/* tipo, */nombreParam);
+			
+			pag = dominio.addNewWebComponent(WebComponent.extractWebComponent(url));
+			dominio.getWebComponents().get(pag).addInput(/* tipo, */nombreParam);
 		}
 	}
 
-	private static void realizarSpidering() throws VulnServerException {
+	private static void runSpidering() throws VulnServerException {
 
 		String urlInicial = cola.poll();
-		int domIni = insertarDominio(TargetOfEvaluation.extractDomain(urlInicial));
+		int domIni = insertDomain(TargetOfEvaluation.extractDomain(urlInicial));
 
 		if (domIni != 1) {
 			return;
 		}
 		// int pagIni =
 		// dominios.get(domIni).insertarPagina(WebComponent.extractPagina(urlInicial));
-		int pagIni = dominio.insertarPagina(WebComponent.extractPagina(urlInicial));
+		int pagIni = dominio.addNewWebComponent(WebComponent.extractWebComponent(urlInicial));
 		// WebComponent p = dominios.get(domIni).getPaginas().get(pagIni);
-		WebComponent p = dominio.getPaginas().get(pagIni);
+		WebComponent p = dominio.getWebComponents().get(pagIni);
 
 		if (p.isSpidered()) {
 			return;
 		}
 
-		String sp = spiderear(urlInicial);
-		insertarPaginas(sp, p);
+		String sp = doSpider(urlInicial);
+		insertWebComponent(sp, p);
 	}
 
-	private static void insertarPaginas(String spID, WebComponent paginaRoot) throws VulnServerException {
+	private static void insertWebComponent(String spID, WebComponent paginaRoot) throws VulnServerException {
 		int domIns;
 		int pagIns;
 		String pagPath, domPath;
@@ -289,21 +317,21 @@ public class Main {
 				String res = ((ApiResponseElement) ar).getValue();
 				domPath = TargetOfEvaluation.extractDomain(res); // Sacamos el
 																	// dominio
-				pagPath = WebComponent.extractPagina(res); // Sacamos la ruta
-				if (!WebComponent.revisaExtensiones(pagPath) || paginaRoot.getRuta().equals(pagPath)) {
+				pagPath = WebComponent.extractWebComponent(res); // Sacamos la ruta
+				if (!WebComponent.checkExtensions(pagPath) || paginaRoot.getPath().equals(pagPath)) {
 					continue;
 				}
 				
-				domIns = insertarDominio(domPath);
+				domIns = insertDomain(domPath);
 				
 				if (domIns != 1) {
 					continue;
 				}
 				// pagIns = dominios.get(domIns).insertarPagina(pagPath);
-				pagIns = dominio.insertarPagina(pagPath);
+				pagIns = dominio.addNewWebComponent(pagPath);
 				// int[] enlaceIns = {domIns, pagIns};
 				int[] enlaceIns = { pagIns };
-				paginaRoot.insertarEnlaces(enlaceIns);
+				paginaRoot.addLinks(enlaceIns);
 				cola.offer(res);
 				// clientApi.spider.stop("JSON", spID);
 			}
@@ -313,7 +341,7 @@ public class Main {
 		paginaRoot.setSpidered();
 	}
 
-	public static int insertarDominio(String strDominio) throws VulnServerException {
+	public static int insertDomain(String strDominio) throws VulnServerException {
 		String reg = "";
 		if (dominio == null) {
 			dominio = new TargetOfEvaluation(strDominio);
@@ -321,7 +349,7 @@ public class Main {
 			reg = strDominio.replace("/", "\\/").replace(".", "\\.");
 			reg = "^(?:(?!"+reg+").*).$";
 			try{
-				clientApi.core.newSession("JSON", "", "");
+				//clientApi.core.newSession("JSON", "", "");
 				clientApi.core.excludeFromProxy("JSON", reg);
 				clientApi.core.excludeFromProxy("JSON", EXCLUDED_REGEX_BEGIN+excludedExtensionsInSpidering+EXCLUDED_REGEX_END);
 				
@@ -330,7 +358,7 @@ public class Main {
 			}
 			
 			return 1;
-		} else if (dominio.getNombre().equals(strDominio)) {
+		} else if (dominio.getName().equals(strDominio)) {
 			return 1;
 		} else {
 			return 0;
@@ -345,7 +373,7 @@ public class Main {
 		 */
 	}
 
-	public static TargetOfEvaluation getDominio() {
+	public static TargetOfEvaluation getDomain() {
 		return dominio;
 	}
 	
@@ -354,7 +382,7 @@ public class Main {
 		
 	}
 
-	public static Queue<String> getCola() {
+	public static Queue<String> getQueue() {
 		return cola;
 	}
 
@@ -362,8 +390,8 @@ public class Main {
 		return attackMap;
 	}
 
-	private static String spiderear(String url) {
-		// System.out.println("Spidereando: " + url);
+	private static String doSpider(String url) {
+
 		
 		
 		if (monitor != null) {

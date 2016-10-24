@@ -7,6 +7,7 @@
     <elements xsi:type="commands:Command" xmi:id="_DwMN8EdrEeaNmeSwF4pibA" elementId="edu.udea.vulnfinder.server.plugin.command.startSpider" commandName="StartSpider"/>
     <elements xsi:type="commands:Command" xmi:id="_APNxoE6qEeaxA4W_SX8TvQ" elementId="edu.udea.vulnfinder.server.plugin.command.generatevulnfindermodel" commandName="GenerateVulnfinderModel"/>
     <elements xsi:type="commands:Command" xmi:id="_ek-cQG7BEeawN7onw5OSNA" elementId="edu.udea.vulnfinder.server.plugin.command.generatereport" commandName="GenerateReport"/>
+    <elements xsi:type="commands:Command" xmi:id="_-fl8EI-tEearzef4u2LJ-A" elementId="edu.udea.vulnfinder.server.plugin.command.executequickfinder" commandName="ExecuteQuickFinder"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_qGqXYEdcEeaNBMPU6MkGTg" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_1S9bIE3HEeaBCs6_M1paqA" elementId="edu.udea.vulnfinder.server.plugin.handler.openVulnConfig" contributionURI="bundleclass://edu.udea.vulnfinder.server.plugin/edu.udea.vulnfinder.server.plugin.handlers.VulnConfigurationHandler" command="_uzZWsE3HEeaBCs6_M1paqA"/>
@@ -15,6 +16,7 @@
     <elements xsi:type="commands:Handler" xmi:id="_Hq6-IEdrEeaNmeSwF4pibA" elementId="edu.udea.vulnfinder.server.plugin.handler.startSpider" contributionURI="bundleclass://edu.udea.vulnfinder.server.plugin/edu.udea.vulnfinder.server.plugin.handlers.SpiderStartHandler" command="_DwMN8EdrEeaNmeSwF4pibA"/>
     <elements xsi:type="commands:Handler" xmi:id="_GsAO4E6qEeaxA4W_SX8TvQ" elementId="edu.udea.vulnfinder.server.plugin.handler.generateXMI" contributionURI="bundleclass://edu.udea.vulnfinder.server.plugin/edu.udea.vulnfinder.server.plugin.handlers.GenerateXMIHandler" command="_APNxoE6qEeaxA4W_SX8TvQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_h5COAG7BEeawN7onw5OSNA" elementId="edu.udea.vulnfinder.server.plugin.handler.generateVulnReport" contributionURI="bundleclass://edu.udea.vulnfinder.server.plugin/edu.udea.vulnfinder.server.plugin.handlers.GenerateReport" command="_ek-cQG7BEeawN7onw5OSNA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_FYyogI-uEearzef4u2LJ-A" elementId="edu.udea.vulnfinder.server.plugin.handler.QuickFinder" contributionURI="bundleclass://edu.udea.vulnfinder.server.plugin/edu.udea.vulnfinder.server.plugin.handlers.QuickFinder" command="_-fl8EI-tEearzef4u2LJ-A"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_qV9-sEdcEeaNBMPU6MkGTg" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_XAgJYEddEeaNBMPU6MkGTg" elementId="edu.udea.vulnfinder.server.plugin.menucontribution.server" positionInParent="after=additions" parentId="org.eclipse.ui.main.menu">
@@ -25,6 +27,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_AHmWoEdrEeaNmeSwF4pibA" elementId="edu.udea.vulnfinder.server.plugin.handledmenuitem.startSpider" label="Start Spider" command="_DwMN8EdrEeaNmeSwF4pibA"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NBE6kE6qEeaxA4W_SX8TvQ" elementId="edu.udea.vulnfinder.server.plugin.handledmenuitem.genVulnModel" label="Generate Vulnfinder Model" command="_APNxoE6qEeaxA4W_SX8TvQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_lczPsG7BEeawN7onw5OSNA" elementId="edu.udea.vulnfinder.server.plugin.handledmenuitem.generatereport" label="Generate Report" command="_ek-cQG7BEeawN7onw5OSNA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_LG1JYI-uEearzef4u2LJ-A" elementId="edu.udea.vulnfinder.server.plugin.handledmenuitem.runquickfinder" label="Run QuickFinder" command="_-fl8EI-tEearzef4u2LJ-A"/>
       </children>
     </elements>
   </fragments>
