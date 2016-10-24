@@ -134,7 +134,9 @@
   (concat-fields
    page-with-fields
    (fn [[_ field-name attacks]]
-     ((set attacks) "SQLInjection"))))
+     (let [attack-set (set attacks)]
+       (or (attack-set "*")
+           (attack-set "SQLInjection"))))))
 
 (defn validate-url
   "Allow only valid characters in urls"
@@ -153,7 +155,7 @@
         (re-find #"^[\w\s\\/:\-]+$"
                  path)]
     (when-not filtered-path
-      (println "WARNING: The following URL has no valid characters" path))
+      (println "WARNING: The following Path has no valid characters" path))
     filtered-path))
 
 (defn fields->sqlmap
