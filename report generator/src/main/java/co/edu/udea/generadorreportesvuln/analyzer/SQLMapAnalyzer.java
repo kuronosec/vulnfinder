@@ -6,7 +6,6 @@
 package co.edu.udea.generadorreportesvuln.analyzer;
 
 import co.edu.udea.generadorreportesvuln.FilePatternFinder;
-import co.edu.udea.generadorreportesvuln.ReportGenerator;
 import co.edu.udea.generadorreportesvuln.model.FieldAlert;
 import co.edu.udea.generadorreportesvuln.model.Analyzer;
 import co.edu.udea.generadorreportesvuln.model.Field;

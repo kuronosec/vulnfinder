@@ -15,6 +15,7 @@ import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Meta;
 import com.hp.gagawa.java.elements.P;
 import com.hp.gagawa.java.elements.Script;
+import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Style;
 import com.hp.gagawa.java.elements.Title;
 import com.hp.gagawa.java.elements.Ul;
@@ -168,8 +169,18 @@ public class Report {
         pageTitleElement.appendText(pageTitleToPut);
         P dateP = new P();
         Date date = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
-        dateP.appendText("Generated at " + ft.format(date));
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat hourFormatter = new SimpleDateFormat("hh:mm:ss");
+        dateP.appendText("Generated at: ");
+        Span dateSpan = new Span();
+        dateSpan.setCSSClass("generated-date");
+        dateSpan.appendText(dateFormatter.format(date));
+        dateP.appendChild(dateSpan);
+        dateP.appendText(" - ");
+        Span hourSpan = new Span();
+        hourSpan.setCSSClass("generated-hour");
+        hourSpan.appendText(hourFormatter.format(date));
+        dateP.appendChild(hourSpan);
 
         titleCol.appendChild(pageTitleElement);
         titleCol.appendChild(dateP);

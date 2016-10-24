@@ -9,27 +9,27 @@
     "description": "Description of the add-on."
   },
 
-  "contextMenuItemSQLInjection": {
+  "itemSQLInjection": {
     "message": "SQL Injection",
     "description": "Title of context menu item that apply the SQL Injection attack."
   },
 
-  "contextMenuItemAuthentication": {
+  "itemAuthentication": {
     "message": "Authentication",
     "description": "Title of context menu item that apply the Authentication attack."
   },
 
-  "contextMenuItemXSS": {
+  "itemXSS": {
     "message": "XSS",
     "description": "Title of context menu item that apply the XSS attack."
   },
 
-  "contextMenuItemAuthorization": {
+  "itemAuthorization": {
     "message": "Authorization",
     "description": "Title of context menu item that apply the Authorization attack."
   },
 
-  "contextMenuItemPrivilegeScalation": {
+  "itemPrivilegeScalation": {
     "message": "Privilege Scalation",
     "description": "Title of context menu item that apply the Privilege Scalation attack."
   }

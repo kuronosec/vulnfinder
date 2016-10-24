@@ -6,7 +6,7 @@
 
 var navBarUI = false;
 var currentTOE = null;
-var urlParameters = "";
+// var urlParameters = "";
 
 // Create the navBar ui iframe and inject it in the current page
 function initNavBar() {
@@ -73,8 +73,9 @@ if (window.parent == window) {
     });
 }
 
-//initializing variables
-var attackList = ['SQL Injection', 'Authentication', 'XSS', 'Authorization', 'Privilege Scalation'];
+//initializing variables with support to multiple language
+var attackList = [chrome.i18n.getMessage("itemSQLInjection"), chrome.i18n.getMessage("itemAuthentication"),
+    chrome.i18n.getMessage("itemXSS"), chrome.i18n.getMessage("itemAuthorization"), chrome.i18n.getMessage("itemPrivilegeScalation")];
 // var schema = "<div class='site'> <div class='menu' id='nav-bar'/> <div class='original' id='original-content' /> </div>";
 var server_url = vuln_server = 'localhost:3000';
 var toHide = [];
@@ -85,13 +86,15 @@ function attacksUI(idx) {
     var content = "<ul class='attack-list' id='attacks-" + idx + "'>";
     for (attack in attackList) {
         content += "<li class='li-f'>";
-        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'><input type='checkbox' class='vuln-input  ch'><span class='attack-name'>" + attackList[attack] + "</span></label>";
+        content += "<label class='vuln-label-ch' id='" + idx + "-" + attackList[attack].replace(' ', '') + "'>" +
+            "<input type='checkbox' class='vuln-input  ch'><span class='attack-name'>" + attackList[attack] + "</span></label>";
         content += "</li>";
     }
     content += "</ul>";
     return content;
 }
 
+//Create the div with attacks of each field
 function format(field, idx, action) {
     var label;
     // if(field.attr('name')){
@@ -110,7 +113,7 @@ function format(field, idx, action) {
     return text + attacksUI(idx) + " <span class='domain'>(" + action + ")</span>";
 }
 
-
+//Return each attack selected to a field
 function dataContent(idx, iframe) {
     var res = [];
     iframe.find('#attacks-' + idx).find('input:checkbox:checked').each(function () {
@@ -120,19 +123,18 @@ function dataContent(idx, iframe) {
     return res;
 }
 
+//Return the actionForm asociated to a field
 function actionForm(input) {
     var action = input.closest('form').attr('action');
     var action_d = String(document.location.href);
 
     if (action == '' || action === undefined) {
-        action = action_d;
-        // } else if (action[0] == '/') {
-        // var last = String(action_d.split('/').slice(-1)).length;
-        // action = action_d.substr(0, action_d.length - last - 1) + String(action);
+        action = action_d;        
     }
     return String(action);
 }
 
+//Reset the navBar
 function onReset() {
     $('input:checkbox').prop('checked', false);
     $('.attack-list').css('display', 'none');
@@ -140,25 +142,30 @@ function onReset() {
     $('input').removeClass('active-input');
 }
 
+//Handle checking of fields in the navBar
 function checking() {
     var inputField = $(this);
     var idx = inputField.parent().attr('id').split('-').slice(1);
     var attackPopover = $('#vuln-attacks-' + idx);
     var field = $(this).parent();
     field.parent().find('#attacks-' + idx).find('.vuln-label-ch').each(function (idx, val) {
-        if (inputField.prop('checked')){
+        if (inputField.prop('checked')) {
             $(this).find('input').prop('checked', true);
             field.addClass('vuln-selected-field');
-            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'true');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', true);
 
-        }else{
+        } else {
             $(this).find('input').prop('checked', false);
             field.removeClass('vuln-selected-field');
-            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', 'false');
+            attackPopover.find('#' + $(this).attr('id')).find('input').prop('checked', false);
         }
+    });
+    window.addEventListener("beforeunload", function (event) {
+        event.returnValue = "If you continue won't be able keep sending information to the server about this TOE ";
     });
 }
 
+//Handle checking of attacks and sync with popovers
 function syncPopoverNavbar(actLabel, checked) {
     if (checked == 1) {
         var labelNavbar = actLabel;
@@ -179,6 +186,9 @@ function syncPopoverNavbar(actLabel, checked) {
         field.addClass('vuln-selected-field');
         field.toggleClass('active');
         field.toggleClass('active-field');
+        window.addEventListener("beforeunload", function (event) {
+            event.returnValue = "If you continue won't be able keep sending information to the server about this TOE ";
+        });
     }
 
     function handlingCheckingFalse() {
@@ -212,6 +222,7 @@ function syncPopoverNavbar(actLabel, checked) {
     }
 }
 
+//Find all inputs on TOE
 function findInput() {
     iframe = $('#nav-bar-iframe').contents();
 
@@ -232,14 +243,14 @@ function findInput() {
     var keyElement;
     var action = String(location.pathname);
 
-    if (getParameters.length){
+    if (getParameters.length) {
         var keys = getParameters.split('&');
-        for (k in keys){
+        for (k in keys) {
             key = keys[k].split('=')[0];
             keyElement = document.createElement('input');
             keyElement.setAttribute('name', key);
             keyElement = $(keyElement);
-            var idx = parseInt(k)+2000;
+            var idx = parseInt(k) + 2000;
             var elm = format(keyElement, idx, action);
             var element = document.createElement("div");
             element.innerHTML = elm;
@@ -426,7 +437,7 @@ function findInput() {
 
 
             action = String($(this).find('.input-form-url').attr('value'));
-            if (action[0]=='/'){
+            if (action[0] == '/') {
                 action = action.substring(1);
             }
             if (action != action_d) {
@@ -440,26 +451,35 @@ function findInput() {
         });
 
 
-        alert(JSON.stringify(data));
-        var url = 'http://' + server_url;
-        invocation.open('POST', url, true);
-        invocation.onreadystatechange = responseHandler;
-        invocation.send(JSON.stringify(data));
+        // alert(JSON.stringify(data));
+        if (data.length == 0){
+            alert("You must send at least one attack.")
+        }else{
+            var url = 'http://' + server_url;
+            invocation.open('POST', url, true);
+            invocation.onreadystatechange = responseHandler;
+            invocation.send(JSON.stringify(data));
+        }
+
 
 
         //handle the response of XMLHttpRequest()
         function responseHandler(evtXHR) {
             if (invocation.readyState == 4) {
-                if (invocation.status == 200) {
-                    var response = invocation.responseXML;
-                    alert("Data sent successfully");
-                    notifyBackgroundPage(TOEDomain);
-                    window.addEventListener("beforeunload", function (event) {
-                        event.returnValue = "If you continue won't be able keep sending information to the server about this TOE ";
-                    });
+                switch (invocation.status) {
+                    case 0:
+                        alert("The server doesn't response!");
+                        break;
+                    case 200:
+                        alert("Data sent successfully");
+                        notifyBackgroundPage(TOEDomain);
+                        break;
+                    case 400:
+                        alert("A processing error has occurred in the server. Response code: " + invocation.status);
+                        break;
+                    default:
+                        alert("Invocation error has occurred. Response code: " + invocation.status);
                 }
-                else
-                    alert("Invocation Errors Occured");
             }
             else
                 dump("currently the application is at" + invocation.readyState);

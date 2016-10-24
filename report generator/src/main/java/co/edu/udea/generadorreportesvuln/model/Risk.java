@@ -43,7 +43,7 @@ public class Risk {
 
     @Override
     public String toString() {
-        return "Risk{" + "code=" + code + ", description=" + description + '}';
+        return Integer.toString(code) + " ( " + description + " ) ";
     }
 
     @Override

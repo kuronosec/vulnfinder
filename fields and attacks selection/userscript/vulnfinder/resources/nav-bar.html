@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="nav-bar.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js'></script>
-    <!--<script type="text/javascript" src="vulnfinder.js">-->
-    <!--</script>-->
+
 </head>
 
 <body id="nav-bar-body">
@@ -44,14 +43,16 @@
             </div>
         </div>
     </div>
-    <div id="vuln-header">
-        <div id="vuln-logo-div">
-            <img src="905.png" id="vuln-logo">
-        </div>
-        <div id="vuln-window-bar">
-            <button class="fa fa fa-caret-square-o-right button" id="vuln-lateral-move"></button>
-        </div>
-    </div>
+    <table id="vuln-header">
+      <tbody>
+        <td id="vuln-logo-div">
+            <img src="905.png" id="vuln-logo" alt="VulnFinder logo">
+        </td>
+        <td id="vuln-window-bar">
+            <button class="fa fa fa-arrows-h button" id="vuln-lateral-move" title="Change bar's side"></button>
+        </td>
+      </tbody>
+    </table>
     <div id="vuln-content">
         <div id="vuln-settings-div">
             <a class='button fa fa-cogs' href='#config-panel' id="config-btn"> Server settings</a>

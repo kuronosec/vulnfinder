@@ -6,7 +6,9 @@ body {
     display: inline-block;
     width: 94%;
 }
+
 .button {
+    border-radius: 2px;
     display: block;
     padding: 10px 24px;
     font-size: 16px;
@@ -18,14 +20,18 @@ body {
     border: none;
 }
 
+.button:hover {
+    background-color: #0b6c83;
+}
+
 .field-name {
-  color: #89e5a2;
-  font-family: monospace;
+    color: #89e5a2;
+    /*font-family: monospace;*/
 }
 
 #vuln-content h3 {
-  color: #d3e6ea;
-  text-align: center;
+    color: #d3e6ea;
+    text-align: center;
 }
 
 .vul-send:hover .button:hover {
@@ -34,7 +40,7 @@ body {
 
 .vul-send:active .button:active {
     background-color: #3e8e41;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transform: translateY(4px);
 }
 
@@ -54,7 +60,7 @@ body {
     z-index: 1100;
 }
 
-.target-js{
+.target-js {
     visibility: visible;
     opacity: 1;
     z-index: 1100;
@@ -102,7 +108,6 @@ body {
     .box {
         width: 70%;
     }
-
     .popup {
         width: 70%;
     }
@@ -119,7 +124,7 @@ body {
 #nav-bar {
     font-family: sans-serif !important;
     font-size: 14px;
-    background-color: #333;
+    background-color: #15272b;
     margin: 0px 0px 0px 0px;
     border: solid;
     border-color: black;
@@ -139,6 +144,8 @@ body {
     margin-top: 10px;
     cursor: pointer;
     clear: left;
+    padding-left: 3%;
+    width: 97%;
 }
 
 .li-f .vuln-label-ch {
@@ -165,7 +172,7 @@ body {
 }
 
 .active-field {
-    background: #004c14;
+    background: #0a6622;
     color: black
 }
 
@@ -175,13 +182,15 @@ body {
     position: absolute;
     bottom: 0;
     top: 100px;
-    padding-left: 3%;
-    width: 96%;
+    /*padding-left: 3%;*/
+    width: 100%;
 }
 
 .domain {
     float: left;
-    font-family: monospace;
+    /*font-family: monospace;*/
+    padding-left: 3%;
+    width: 97%;
 }
 
 .truncate {
@@ -197,7 +206,7 @@ body {
 }
 
 .active {
-    background-color: #02647C;
+    background: #004c14;
     color: white;
 }
 
@@ -208,15 +217,20 @@ body {
 
 #vuln-footer {
     position: absolute;
+    background-color: #15272b;
     bottom: 8px;
     width: 100%;
     border-top: solid 1px white;
     text-align: center;
 }
 
-#vuln-lateral-move{
-  padding: 10px 10px;
-  margin-right: 20px;
+#vuln-lateral-move {
+    /*padding: 10px 10px;*/
+    /*margin-right: 20px;*/
+    /*height: 100%;*/
+    width: 100%;
+    margin: 0;
+    padding: 10px;
 }
 
 #vuln-settings-div {
@@ -227,15 +241,14 @@ body {
     position: absolute;
     width: 100%;
     text-align: center;
-
 }
 
 #vuln-content {
     position: absolute;
     background: #15272b;
-    top:122px;
+    top: 122px;
     bottom: 62px;
-    width:100%;
+    width: 100%;
     margin: 8px auto;
 }
 
@@ -243,33 +256,40 @@ body {
     margin: 8px;
     width: 100px;
     height: 100px;
+    /*-webkit-filter: drop-shadow(0.5px 0.5px 0 rgba(211, 230, 234, .4))
+                    drop-shadow(-0.5px 0.5px 0 rgba(211, 230, 234, .4))
+                    drop-shadow(0.5px -0.5px 0 rgba(211, 230, 234, .4))
+                    drop-shadow(-0.5px -0.5px 0 rgba(211, 230, 234, .4));
+    filter: drop-shadow(0.5px 0.5px 0 rgba(211, 230, 234, .4))
+            drop-shadow(-0.5px 0.5px 0 rgba(211, 230, 234, .4))
+            drop-shadow(0.5px -0.5px 0 rgba(211, 230, 234, .4))
+            drop-shadow(-0.5px -0.5px 0 rgba(211, 230, 234, .4));*/
 }
 
 #vuln-header {
     position: absolute;
     /*text-align: center;*/
-    background: #d3e6ea;
-    width:100%;
-    height:130px;
+    /*background: #d3e6ea;*/
+    width: 100%;
+    height: 130px;
 }
 
-#vuln-logo-div{
+#vuln-logo-div {
     display: inline-block;
     width: 80%;
     height: 100%;
     text-align: center;
 }
 
-#vuln-window-bar{
-    display: inline-block;
+#vuln-window-bar {
+    /*display: inline-block;*/
     width: 10%;
     height: 100%;
+    text-align: right;
+    vertical-align: bottom;
 }
 
 #vuln-get-parameters-div {
     border-bottom: solid 1px white;
     padding-bottom: 10%;
-
-
 }
-

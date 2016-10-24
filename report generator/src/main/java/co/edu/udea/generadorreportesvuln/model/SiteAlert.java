@@ -6,6 +6,7 @@
 package co.edu.udea.generadorreportesvuln.model;
 
 import com.hp.gagawa.java.Node;
+import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Strong;
 import com.hp.gagawa.java.elements.Ul;
@@ -21,6 +22,7 @@ public class SiteAlert extends Alert {
     private String description;
     private String solution;
     private String confidence;
+    private static final int SHOWN_CHARACTERS = 20;
 
     public SiteAlert(Analyzer analyzer) {
         super(analyzer);
@@ -103,7 +105,7 @@ public class SiteAlert extends Alert {
         }
 
         if (!"".equals(description) && description != null) {
-            alertInformation.appendChild(generateLi("Description", description));
+            alertInformation.appendChild(generateHiddenLi("Description", description));
         }
 
         if (!"".equals(confidence) && confidence != null) {
@@ -111,7 +113,7 @@ public class SiteAlert extends Alert {
         }
 
         if (!"".equals(solution) && solution != null) {
-            alertInformation.appendChild(generateLi("Solution", solution));
+            alertInformation.appendChild(generateHiddenLi("Solution", solution));
         }
         alertItem.appendChild(alertInformation);
 
@@ -124,6 +126,28 @@ public class SiteAlert extends Alert {
         label.appendText(title + ": ");
         li.appendChild(label);
         li.appendText(content);
+        return li;
+    }
+
+    private Node generateHiddenLi(String title, String content) {
+        Li li = new Li();
+        Strong label = new Strong();
+        label.appendText(title + ": ");
+        li.appendChild(label);
+        li.appendText(content.substring(0, Math.min(content.length(), SHOWN_CHARACTERS)) + "... ");
+        A titleA = new A("Information");
+        titleA.appendText("View more");
+        titleA.setCSSClass("alert-title");
+        titleA.setHref("#");
+        // Payload popover
+        titleA.setAttribute("data-toggle", "popover");
+        if (content != null) {
+            titleA.setAttribute("data-content", content);
+        } else {
+            titleA.setAttribute("data-content", "N/A");
+        }
+        titleA.setTitle(title);
+        li.appendChild(titleA);
         return li;
     }
 }
