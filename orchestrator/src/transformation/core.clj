@@ -139,13 +139,22 @@
 (defn validate-url
   "Allow only valid characters in urls"
   [url]
-  (re-find #"^(?:[!#$&+=?~:/@,\[\]\w\.\-]|%[0-9a-fA-F]{2})+$"
-           url))
+  (let [filtered-url
+        (re-find #"^(?:[!#$&+=?~:/@,\[\]\w\.\-]|%[0-9a-fA-F]{2})+$"
+                 url)]
+    (when-not filtered-url
+      (println "WARNING: The following URL has no valid characters" url))
+    filtered-url))
 
 (defn validate-path
   "Allow only valid characters in file paths"
-  [url]
-  (re-find #"^[\w\s\\/:\-]+$" url))
+  [path]
+  (let [filtered-path
+        (re-find #"^[\w\s\\/:\-]+$"
+                 path)]
+    (when-not filtered-path
+      (println "WARNING: The following URL has no valid characters" path))
+    filtered-path))
 
 (defn fields->sqlmap
   "Construct the comand of a specific field for SQLmap"
