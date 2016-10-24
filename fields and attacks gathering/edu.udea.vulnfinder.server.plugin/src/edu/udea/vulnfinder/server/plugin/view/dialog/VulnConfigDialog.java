@@ -156,11 +156,11 @@ public class VulnConfigDialog extends Dialog {
 
 		
 		if(Main.getState() == 1){
-			txtVulnPort.setEnabled(false);
+			txtVulnPort.setEnabled(true);
 			txtZapHost.setEnabled(true);
 			txtZapPort.setEnabled(true);
 			txtSpiderMillis.setEnabled(true);
-			txtFilteredExtensionsInSpidering.setEnabled(false);
+			txtFilteredExtensionsInSpidering.setEnabled(true);
 			txtFilteredExtensionsInModel.setEnabled(true);
 		}else if(Main.getState() == 3){
 			txtVulnPort.setEnabled(true);

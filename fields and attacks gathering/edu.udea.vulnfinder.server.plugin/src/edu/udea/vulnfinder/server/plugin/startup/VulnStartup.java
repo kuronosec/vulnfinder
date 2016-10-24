@@ -1,5 +1,7 @@
 package edu.udea.vulnfinder.server.plugin.startup;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -11,6 +13,7 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.events.MenuEvent;
 import org.eclipse.swt.events.MenuListener;
 import org.eclipse.swt.widgets.Display;
@@ -21,7 +24,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.internal.WorkbenchWindow;
 
+import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
+import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 
 public class VulnStartup implements IStartup {
 
@@ -34,8 +39,31 @@ public class VulnStartup implements IStartup {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				Display.getDefault().syncExec(new Runnable() {
+					
+					
 					@Override
 					public void run() {
+						menuSetup();
+						startServer();
+					}
+					
+					public void startServer(){
+						try {
+							Main.startServer();
+							//MessageLauncher.showInformation(null, "Information", "VulnFinder Server is now running.");
+							System.out.println("VulnFinder Server is now running.");
+						} catch (IOException e) {
+							MessageLauncher.showError(null, "Error",
+									"The server port is currently under use or you might not have permissions to start a server on that port. "
+									+ "\nTry changing the port in the VulnFinder configuration.");
+							e.printStackTrace();
+						} catch (VulnServerException e) {
+							MessageLauncher.showError(null, "Error", e.getMessage());
+						}
+					}
+					
+					
+					public void menuSetup(){
 						Workbench wb;
 						WorkbenchWindow ww;
 						MenuManager menuManager;
@@ -55,16 +83,16 @@ public class VulnStartup implements IStartup {
 								if (Main.getState() == 0) { // Nothing started
 															// yet
 									vMenu.getItem(0).setEnabled(true);
-									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(1).setEnabled(false);
 									vMenu.getItem(2).setEnabled(false);
-									vMenu.getItem(3).setEnabled(false);
+									vMenu.getItem(3).setEnabled(true);
 									vMenu.getItem(4).setEnabled(false);
 
 								} else if (Main.getState() == 1) { // Server
 																	// started
 									vMenu.getItem(0).setEnabled(true);
 									vMenu.getItem(1).setEnabled(false);
-									vMenu.getItem(2).setEnabled(true);
+									vMenu.getItem(2).setEnabled(false);
 									vMenu.getItem(3).setEnabled(true);
 									vMenu.getItem(4).setEnabled(false);
 
@@ -73,7 +101,7 @@ public class VulnStartup implements IStartup {
 																	// but no
 																	// spidering
 									vMenu.getItem(0).setEnabled(true);
-									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(1).setEnabled(false);
 									vMenu.getItem(2).setEnabled(false);
 									vMenu.getItem(3).setEnabled(true);
 									vMenu.getItem(4).setEnabled(false);
@@ -87,7 +115,7 @@ public class VulnStartup implements IStartup {
 								} else if (Main.getState() == 4) { // Spidering
 																	// done
 									vMenu.getItem(0).setEnabled(true);
-									vMenu.getItem(1).setEnabled(true);
+									vMenu.getItem(1).setEnabled(false);
 									vMenu.getItem(2).setEnabled(false);
 									vMenu.getItem(3).setEnabled(true);
 									vMenu.getItem(4).setEnabled(true);
@@ -103,7 +131,6 @@ public class VulnStartup implements IStartup {
 
 							}
 						});
-
 					}
 				});
 				return Status.OK_STATUS;

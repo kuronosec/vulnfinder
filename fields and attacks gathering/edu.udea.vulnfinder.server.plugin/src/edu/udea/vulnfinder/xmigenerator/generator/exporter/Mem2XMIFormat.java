@@ -23,6 +23,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Attack;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Input;
@@ -41,19 +42,22 @@ public class Mem2XMIFormat {
 	//private String savePath;
 	private String testId;
 	private String testName;
+	private boolean allAttacks;
 
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, boolean allAttacks) {
 		this.dominio = dominio;
 		this.ataques = ataques;
 		this.testId = "secTest01";
 		this.testName = "Test01";
+		this.allAttacks = allAttacks;
 	}
 	
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String testId, String testName) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String testId, String testName, boolean allAttacks) {
 		this.dominio = dominio;
 		this.ataques = ataques;
 		this.testId = testId;
 		this.testName = testName;
+		this.allAttacks = allAttacks;
 	}
 
 	public boolean genAndSaveXMIFile(String savePath) {
@@ -72,60 +76,85 @@ public class Mem2XMIFormat {
 	public String generateXMIFormat() {
 		StringBuilder sb = new StringBuilder();
 		List<int[]> enlaces;
-		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<securityTest:Test xmi:version=\"2.0\" "
+		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" 
+				+ "<securityTest:Test xmi:version=\"2.0\" "
 				+ "xmlns:xmi=\"http://www.omg.org/XMI\" "
 				+ "xmlns:securityTest=\"http://udea/vulnfinder/securityTest\" id=\""+testId+"\" name=\""+testName+"\">\n");
-		// for (TargetOfEvaluation d : dominios) {
-		TargetOfEvaluation d = dominio;
-		sb.append("  <scope domain=\"" + d.getNombre() + "\">\n");
-		for (WebComponent p : d.getPaginas()) {
-			sb.append("    <components path=\"" + p.getRuta() + "\"");
-			enlaces = p.getEnlaces();
-			if (!enlaces.isEmpty()) {
-				sb.append(" targetLinks=\"");
-				for (int[] en : enlaces) {
-					// sb.append("//@dominios.");
-					// sb.append(en[0]);
-					sb.append("//@scope");
-					sb.append("/@components.");
-					// sb.append(en[1]);
-					sb.append(en[0]);
-					sb.append(" ");
-				}
-				sb.deleteCharAt(sb.length() - 1);
-				sb.append('\"');
-			}
-			if (!p.getEntradas().isEmpty()) {
+		appendTOE(sb, dominio);
+		appendPossibleAttacks(sb, ataques);
+		sb.append("</securityTest:Test>");
+		return sb.toString();
+	}
+	
+	private void appendTOE(StringBuilder sb, TargetOfEvaluation d){
+		sb.append("  <scope domain=\"" + d.getName() + "\">\n");
+		appendWebComponents(sb, d.getWebComponents());
+		sb.append("  </scope>\n");
+	}
+	
+	private void appendWebComponents(StringBuilder sb, List<WebComponent> webcomponents){
+		for (WebComponent p : webcomponents) {
+			sb.append("    <components path=\"" + p.getPath() + "\"");
+			appendLinks(sb, p.getLinks());
+			if (!p.getInputs().isEmpty()) {
 				sb.append(">\n");
-				for (Input e : p.getEntradas()) {
-					sb.append("      <inputs name=\"" + e.getNombre() + "\"");
-					if (!e.getAttList().isEmpty()) {
-						sb.append(" attacks=\"");
-						for (Attack a : e.getAttList()) {
-							sb.append("//@possibleAttacks.");
-							sb.append(a.getIndex());
-							sb.append(" ");
-						}
-						sb.deleteCharAt(sb.length() - 1);
-						sb.append("\"");
-					}
-					sb.append("/>\n");
-
-				}
+				appendInputs(sb, p.getInputs());
 				sb.append("    </components>\n");
 			} else {
 				sb.append("/>\n");
 			}
 		}
-		sb.append("  </scope>\n");
+	}
+	
+	private void appendLinks(StringBuilder sb, List<int[]> enlaces){
+		
+		if (!enlaces.isEmpty()) {
+			sb.append(" targetLinks=\"");
+			for (int[] en : enlaces) {
+				sb.append("//@scope");
+				sb.append("/@components.");
+				sb.append(en[0]);
+				sb.append(" ");
+			}
+			sb.deleteCharAt(sb.length() - 1);
+			sb.append('\"');
+		}
+	}
+	
+	private void appendInputs(StringBuilder sb, List<Input> inputs){
+		for (Input e : inputs) {
+			sb.append("      <inputs name=\"" + e.getName() + "\"");
+			appendAttacks(sb, e.getAttList());
+			sb.append("/>\n");
 
-		for (Map.Entry<String, Attack> e : ataques.entrySet()) {
+		}
+	}
+	
+	private void appendAttacks(StringBuilder sb, Set<Attack> attList){
+		
+		if (!attList.isEmpty() || allAttacks) {
+			sb.append(" attacks=\"");
+			if(allAttacks){
+				sb.append("//@possibleAttacks.");
+				sb.append(ataques.get("*").getIndex());
+				sb.append(" ");
+			}else{
+				for (Attack a : attList) {
+					sb.append("//@possibleAttacks.");
+					sb.append(a.getIndex());
+					sb.append(" ");
+				}
+				sb.deleteCharAt(sb.length() - 1);
+			}
+			sb.append("\"");
+		}
+	}
+	
+	private void appendPossibleAttacks(StringBuilder sb, Map<String, Attack> attacks){
+		for (Map.Entry<String, Attack> e : attacks.entrySet()) {
 			sb.append("  <possibleAttacks name=\"" + e.getValue().getName() + "\" severity=\""
 					+ e.getValue().getSeverity() + "\"/>\n");
 		}
-
-		sb.append("</securityTest:Test>");
-		return sb.toString();
 	}
 
 }

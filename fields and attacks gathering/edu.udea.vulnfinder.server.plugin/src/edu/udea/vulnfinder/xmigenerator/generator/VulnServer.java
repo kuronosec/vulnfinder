@@ -76,7 +76,7 @@ public class VulnServer extends NanoHTTPD {
 
 				wc = handleDomain(element.getActionForm());
 				if (wc != null) {
-					inp = wc.insertarEntrada(element.getInputName());
+					inp = wc.addInput(element.getInputName());
 					if (inp != null) {
 						for (String at : element.getAttacks()) {
 							a = Main.getAttackMap().get(at);
@@ -100,17 +100,17 @@ public class VulnServer extends NanoHTTPD {
 
 	private WebComponent handleDomain(String url) throws VulnServerException {
 		String domStr = TargetOfEvaluation.extractDomain(url);
-		if(Main.getDominio() != null && !Main.getDominio().getNombre().equals(domStr)){
+		if(Main.getDomain() != null && !Main.getDomain().getName().equals(domStr)){
 			Main.clearDomain();
 		}
-		int domIni = Main.insertarDominio(domStr);
+		int domIni = Main.insertDomain(domStr);
 		if (domIni != 1) {
 			return null;
 		}
-		int pagIni = Main.getDominio().insertarPagina(WebComponent.extractPagina(url));
-		WebComponent p = Main.getDominio().getPaginas().get(pagIni);
+		int pagIni = Main.getDomain().addNewWebComponent(WebComponent.extractWebComponent(url));
+		WebComponent p = Main.getDomain().getWebComponents().get(pagIni);
 		if (!p.isSpidered()) {
-			Main.getCola().offer(url);
+			Main.getQueue().offer(url);
 		}
 		return p;
 	}

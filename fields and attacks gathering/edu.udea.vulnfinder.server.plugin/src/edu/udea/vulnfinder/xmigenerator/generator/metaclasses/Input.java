@@ -27,16 +27,16 @@ import java.util.Set;
  */
 public class Input {
     
-    private String nombre;
+    private String name;
     private final Set<Attack> attList = new HashSet<>();
 
-    public Input(String nombre) {
-        this.nombre = nombre;
+    public Input(String name) {
+        this.name = name;
     }
     
  
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
     public Set<Attack> getAttList() {
@@ -46,9 +46,7 @@ public class Input {
 
 	@Override
 	public String toString() {
-		return "Input [nombre=" + nombre + ", attList=" + attList.toString() + "]";
+		return "Input [name=" + name + ", attList=" + attList + "]";
 	}
-    
-    
     
 }

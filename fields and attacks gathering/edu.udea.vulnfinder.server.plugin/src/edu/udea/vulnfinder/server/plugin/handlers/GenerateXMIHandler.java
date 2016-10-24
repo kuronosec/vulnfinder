@@ -14,8 +14,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 
-
+import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
+import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 
 public class GenerateXMIHandler {
 
@@ -27,6 +28,14 @@ public class GenerateXMIHandler {
 
 	@Execute
 	public void execute(Shell shell) {
+		try {
+			generateXMI(shell, null);
+		} catch (VulnServerException e) {
+			MessageDialog.openError(shell, "Error", e.getMessage());
+		}
+	}
+	
+	public static void generateXMI(Shell shell, String filename) throws VulnServerException{
 		SaveAsDialog saveAsDialog;
 		IPath fpath;
 		String modelName;
@@ -34,18 +43,26 @@ public class GenerateXMIHandler {
 		int posIni, posFin;
 		IWorkspaceRoot rootws;
 		IFile fileRep;
-
+		
+		
 		rootws = ResourcesPlugin.getWorkspace().getRoot();
-		saveAsDialog = new SaveAsDialog(shell);
-		saveAsDialog.setOriginalName("Untitled.securitytest");
-		saveAsDialog.open();
-		fpath = saveAsDialog.getResult();
-
+		//if(filename == null){
+			saveAsDialog = new SaveAsDialog(shell);
+			/*if(filename != null)
+				saveAsDialog.setOriginalName(filename);
+			else*/
+				saveAsDialog.setOriginalName("Untitled.securitytest");
+			saveAsDialog.open();
+			
+			fpath = saveAsDialog.getResult();
+			
+		//}
+		
 		if (fpath != null) {
 			modelName = fpath.toString();
 			if (!modelName.endsWith(".securitytest")) {
-				MessageDialog.openError(shell, "Error", "The generated file must have the .securitytest extension.");
-				return;
+				throw new VulnServerException("The generated file must have the .securitytest extension.");
+				
 			}
 			
 			posFin = modelName.lastIndexOf('.');
@@ -56,19 +73,25 @@ public class GenerateXMIHandler {
 			if(posIni > 0){
 				modelName = modelName.substring(posIni+1);
 			}
-			xmi = Main.generateXMI(modelName, modelName);
+			
 			fileRep = rootws.getFile(fpath);
-			try {
-				fileRep.create((new ByteArrayInputStream(xmi.getBytes())), IResource.NONE, null);
-				MessageDialog.openInformation(shell, "Information", "Sucessfully generated: ");
-			} catch (CoreException e) {
-				MessageDialog.openError(shell, "Error", "Error generating the XMI: " + e.getMessage());
-			}
+			
+			createXMIFile(fileRep, modelName, false, true, shell);
 
 		} else {
 			MessageDialog.openError(shell, "Error", "You must choose a save path.");
 		}
-
+	}
+	
+	public static void createXMIFile(IFile fileRep, String modelName, boolean allAttacks, boolean verbose, Shell shell) throws VulnServerException{
+		String xmi = Main.generateXMI(modelName, modelName, allAttacks);
+		try {
+			fileRep.create((new ByteArrayInputStream(xmi.getBytes())), IResource.NONE, null);
+			if(verbose)
+				MessageLauncher.showInformation(shell, "Information", "Sucessfully generated.");
+		} catch (CoreException e) {
+			throw new VulnServerException("Error generating the XMI: "+e.getMessage(),e);
+		}
 	}
 
 }

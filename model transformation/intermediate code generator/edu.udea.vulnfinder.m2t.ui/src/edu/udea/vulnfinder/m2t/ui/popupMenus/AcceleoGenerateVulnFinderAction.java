@@ -63,39 +63,43 @@ public class AcceleoGenerateVulnFinderAction extends ActionDelegate implements I
 	 */
 	public void run(IAction action) {
 		if (files != null) {
-			IRunnableWithProgress operation = new IRunnableWithProgress() {
-				public void run(IProgressMonitor monitor) {
-					try {
-						Iterator<IFile> filesIt = files.iterator();
-						while (filesIt.hasNext()) {
-							IFile model = (IFile)filesIt.next();
-							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
-							try {
-								IContainer target = model.getProject().getFolder("text-model");
-								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
-								generator.doGenerate(monitor);
-							} catch (IOException e) {
-								IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-								Activator.getDefault().getLog().log(status);
-							} finally {
-								model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
-							}
+			externalGenerate(files);
+		}
+	}
+	
+	public void externalGenerate(final List<IFile> flist){
+		IRunnableWithProgress operation = new IRunnableWithProgress() {
+			public void run(IProgressMonitor monitor) {
+				try {
+					Iterator<IFile> filesIt = flist.iterator();
+					while (filesIt.hasNext()) {
+						IFile model = (IFile)filesIt.next();
+						URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+						try {
+							IContainer target = model.getProject().getFolder("text-model");
+							GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
+							generator.doGenerate(monitor);
+						} catch (IOException e) {
+							IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+							Activator.getDefault().getLog().log(status);
+						} finally {
+							model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
 						}
-					} catch (CoreException e) {
-						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-						Activator.getDefault().getLog().log(status);
 					}
+				} catch (CoreException e) {
+					IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+					Activator.getDefault().getLog().log(status);
 				}
-			};
-			try {
-				PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
-			} catch (InvocationTargetException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				Activator.getDefault().getLog().log(status);
-			} catch (InterruptedException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				Activator.getDefault().getLog().log(status);
 			}
+		};
+		try {
+			PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
+		} catch (InvocationTargetException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			Activator.getDefault().getLog().log(status);
+		} catch (InterruptedException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+			Activator.getDefault().getLog().log(status);
 		}
 	}
 

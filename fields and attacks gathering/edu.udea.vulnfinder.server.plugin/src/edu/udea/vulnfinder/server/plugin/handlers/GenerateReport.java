@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
@@ -14,6 +15,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -37,16 +40,23 @@ import edu.udea.vulnfinder.xmigenerator.generator.Main;
 public class GenerateReport {
 	@Execute
 	public void execute(Shell shell) {
-
+		generateReport(shell,null);
+	}
+	
+	public static void generateReport(Shell shell, IProject project){
 		IFolder generated = null, toeFolder;
 		IFile sqlMapLog;
 		ArrayList<String> elements = null;
 		List<String> sqlMapPaths;
 		String htmlString = null;
 		IFile outHtmlFile;
-
+		
+		if(project == null){
+			project = getCurrentProject();
+		}
+		
 		try {
-			generated = getCurrentProject().getFolder("generated");
+			generated = project.getFolder("generated");
 		} catch (NullPointerException npe) {
 			MessageLauncher.showError(shell, "Error", "Please select a project on the Project Explorer first.");
 			return;
@@ -120,6 +130,7 @@ public class GenerateReport {
 	}
 
 	public static IProject getCurrentProject() {
+		
 		ISelectionService selectionService = Workbench.getInstance().getActiveWorkbenchWindow().getSelectionService();
 
 		ISelection selection = selectionService.getSelection();

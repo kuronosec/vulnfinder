@@ -34,56 +34,60 @@ public class WebComponent {
 
     //private static final Pattern patPag = Pattern.compile("https?://[^/]+/?([^\\?]*)\\??.*");
 	private static final Pattern patPag = Pattern.compile("https?:\\/\\/[^/]+\\/?(.*)");
-    private String ruta;
-    private List<Input> entradas = Collections.synchronizedList(new ArrayList<Input>());
+    private String path;
+    private List<Input> inputs = Collections.synchronizedList(new ArrayList<Input>());
     private boolean spidered;
-    private List<int[]> enlaces = Collections.synchronizedList(new ArrayList<int[]>());
+    private List<int[]> links = Collections.synchronizedList(new ArrayList<int[]>());
 
     public WebComponent(String ruta) {
-        this.ruta = ruta;
+        this.path = ruta;
         this.spidered = false;
     }
     
     public void setSpidered(){
         this.spidered = true;
     }
-
-    public String getRuta() {
-        return ruta;
+    
+    public void setSpidered(boolean s){
+        this.spidered = s;
     }
 
-    public List<int[]> getEnlaces() {
-        return enlaces;
+    public String getPath() {
+        return path;
+    }
+
+    public List<int[]> getLinks() {
+        return links;
     }
     
-    public void insertarEnlaces(int[] enl){
+    public void addLinks(int[] enl){
         /*for(int[] i : enlaces){
             if(i[0] == enl[0] && i[1] == enl[1]){
                 return;
             }
         }*/
-        for(int[] i : enlaces){
+        for(int[] i : links){
             if(i[0] == enl[0]){
                 return;
             }
         }
-        enlaces.add(enl);
+        links.add(enl);
     }
 
-    public List<Input> getEntradas() {
-        return entradas;
+    public List<Input> getInputs() {
+        return inputs;
     }
     
     
     
-    public Input insertarEntrada(/*String tipo,*/ String nombre){
+    public Input addInput(/*String tipo,*/ String nombre){
         Input i;
-        for(Input e : entradas){
-            if(e.getNombre().equals(nombre) /*&& e.getTipo().equals(tipo)*/){
+        for(Input e : inputs){
+            if(e.getName().equals(nombre) /*&& e.getTipo().equals(tipo)*/){
                 return e;
             }
         }
-        entradas.add((i = new Input(/*tipo,*/ nombre)));
+        inputs.add((i = new Input(/*tipo,*/ nombre)));
         return i;
     }
 
@@ -91,7 +95,7 @@ public class WebComponent {
         return spidered;
     }
     
-    public static String extractPagina(String url){
+    public static String extractWebComponent(String url){
         Matcher m = patPag.matcher(url);
         String res;
         m.matches();
@@ -99,7 +103,7 @@ public class WebComponent {
         return res;
     }
     
-    public static boolean revisaExtensiones(String pag){
+    public static boolean checkExtensions(String pag){
     	if(pag == null){
     		return false;
     	}
@@ -114,8 +118,8 @@ public class WebComponent {
 
 	@Override
 	public String toString() {
-		return "WebComponent [ruta=" + ruta + ", entradas=" + entradas.toString() + ", spidered=" + spidered + ", enlaces="
-				+ enlaces.toString() + "]";
+		return "WebComponent [ruta=" + path + ", entradas=" + inputs.toString() + ", spidered=" + spidered + ", enlaces="
+				+ links.toString() + "]";
 	}
     
     
