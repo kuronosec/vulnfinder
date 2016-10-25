@@ -32,19 +32,19 @@ public class FieldAlert extends Alert {
         this.type = type;
     }
 
-    public String getTitle() {
+    public String getTypeExplanation() {
         return typeExplanation;
     }
 
-    public void setTitle(String title) {
+    public void setTypeExplanation(String title) {
         this.typeExplanation = title;
     }
 
-    public String getPayload() {
+    public String getExploit() {
         return exploit;
     }
 
-    public void setPayload(String payload) {
+    public void setExploit(String payload) {
         this.exploit = payload;
     }
 

@@ -154,8 +154,8 @@ public class SQLMapAnalyzer extends FilePatternFinder {
             Field actualField = site.getField(actualParameter);
             FieldAlert alert = new FieldAlert(Analyzer.SQLMAP);
             alert.setType(type);
-            alert.setTitle(title);
-            alert.setPayload(payload);
+            alert.setTypeExplanation(title);
+            alert.setExploit(payload);
             actualField.addAlert(alert);
         }
         return bufferedReader.readLine();

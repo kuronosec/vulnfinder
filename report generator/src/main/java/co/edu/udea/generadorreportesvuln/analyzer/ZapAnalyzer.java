@@ -159,7 +159,9 @@ public class ZapAnalyzer {
         ).forEach((field) -> {
             //LOGGER.debug("Param found with ZAP: " + param);
             FieldAlert fieldAlert = new FieldAlert(Analyzer.ZAP);
-            fieldAlert.setTitle(alertElement.getChildText("name"));
+            fieldAlert.setTypeExplanation(alertElement.getChildText("name"));
+            fieldAlert.setExploit(alertElement.getChildText("evidence"));
+            field.setUri(alertElement.getChildText("uri"));
             field.addAlert(fieldAlert);
         });
     }

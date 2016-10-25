@@ -23,6 +23,7 @@ import java.util.List;
  */
 public class Field implements HtmlElement {
 
+    private String uri;
     private String fieldName;
     private String fieldMethod;
     private final List<Alert> alerts = new ArrayList<>();
@@ -69,6 +70,8 @@ public class Field implements HtmlElement {
         fieldPanelHeading.setAttribute("role", "tab");
         fieldPanelHeading.setId("heading" + id);
 
+        // TODO: Add field's uri in this part (If it is not null)
+        
         A toggle = new A();
         toggle.setAttribute("data-toggle", "collapse");
         toggle.appendText(fieldName);
@@ -129,4 +132,13 @@ public class Field implements HtmlElement {
         return builder.toString();
     }
 
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    
 }
