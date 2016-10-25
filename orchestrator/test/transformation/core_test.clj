@@ -12,6 +12,7 @@
     (is (= "c:\\\\Docs and Setts\\user\\" (validate-path "c:\\\\Docs and Setts\\user\\")))
     (is (= "/home/user/" (validate-path "/home/user/")))
     (is (= "-" (validate-path "-")))
+    (is (= nil (validate-path "'")))
     (is (= nil (validate-path ".")))
     (is (= nil (validate-path "\\.\\")))
     (is (= nil (validate-path "../"))))

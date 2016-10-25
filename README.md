@@ -26,4 +26,4 @@ We consider black box testing technique, given that this kind of scenario is com
 
 Please follow the links to see the available documentation:
  * [How to install](https://gitlab.com/ryepesg/vulnfinder/wikis/installation)
- * [How to use](https://gitlab.com/ryepesg/vulnfinder/wikis/beginners-guide)
+ * [How to use](https://gitlab.com/ryepesg/vulnfinder/wikis/guide)
