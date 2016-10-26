@@ -92,6 +92,18 @@ body {
     content: "\f132\00a0\00a0";
 
 }
+.field-uri.has {
+    color: #5d9b6d;
+}
+
+.field-uri.has-not {
+    color: #839b65;
+}
+
+.field-uri:before {
+    font-family: FontAwesome;
+    content: "\f0c1\00a0\00a0";
+}
 
 #logo {
     float: right;

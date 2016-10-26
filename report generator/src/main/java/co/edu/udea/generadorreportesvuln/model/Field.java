@@ -9,6 +9,7 @@ import co.edu.udea.generadorreportesvuln.service.Counter;
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H3;
+import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Th;
@@ -70,15 +71,23 @@ public class Field implements HtmlElement {
         fieldPanelHeading.setAttribute("role", "tab");
         fieldPanelHeading.setId("heading" + id);
 
-        // TODO: Add field's uri in this part (If it is not null)
-        
         A toggle = new A();
         toggle.setAttribute("data-toggle", "collapse");
         toggle.appendText(fieldName);
         toggle.setHref("#body" + id);
         toggle.setAttribute("aria-controls", "body" + id);
-        
         fieldPanelHeading.appendChild(toggle);
+        Span uriSpan = new Span();
+        if (uri != null) {
+            uriSpan.setCSSClass("field-uri has");
+            uriSpan.appendText(this.uri);
+
+        } else {
+            uriSpan.setCSSClass("field-uri has-not");
+            uriSpan.appendText("No URI found");
+        }
+        fieldPanelHeading.appendChild(uriSpan);
+
         fieldPanel.appendChild(fieldPanelHeading);
 
         if (!alerts.isEmpty()) {
@@ -140,5 +149,4 @@ public class Field implements HtmlElement {
         this.uri = uri;
     }
 
-    
 }
