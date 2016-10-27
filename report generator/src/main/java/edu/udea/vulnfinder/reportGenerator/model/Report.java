@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
-import co.edu.udea.generadorreportesvuln.file.FilesAsStrings;
+import edu.udea.vulnfinder.reportGenerator.file.FilesAsStrings;
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H1;
@@ -35,7 +35,7 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author camilosampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class Report {
 

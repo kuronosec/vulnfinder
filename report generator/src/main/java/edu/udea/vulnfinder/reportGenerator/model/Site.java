@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 import java.util.List;
 
 /**
  *
- * @author camilosampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public interface Site extends HtmlElement {    
     public Field getField(String fieldName);

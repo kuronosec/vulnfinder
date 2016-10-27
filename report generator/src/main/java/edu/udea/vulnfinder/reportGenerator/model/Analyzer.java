@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 import java.util.Objects;
 
 /**
- *
- * @author camilosampedro
+ * Class that represent the Analyzers
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class Analyzer {
     public static final Analyzer ZAP = new Analyzer("ZAP");

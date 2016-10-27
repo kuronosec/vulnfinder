@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln;
+package edu.udea.vulnfinder.reportGenerator;
 
-import co.edu.udea.generadorreportesvuln.analyzer.ZapAnalyzer;
-import co.edu.udea.generadorreportesvuln.analyzer.SQLMapAnalyzer;
-import co.edu.udea.generadorreportesvuln.exception.ZAPApiConnectionException;
-import co.edu.udea.generadorreportesvuln.model.DocumentWithHeadAndBody;
-import co.edu.udea.generadorreportesvuln.model.Report;
-import co.edu.udea.generadorreportesvuln.service.SiteStore;
+import edu.udea.vulnfinder.reportGenerator.analyzer.ZapAnalyzer;
+import edu.udea.vulnfinder.reportGenerator.analyzer.SQLMapAnalyzer;
+import edu.udea.vulnfinder.reportGenerator.exception.ZAPApiConnectionException;
+import edu.udea.vulnfinder.reportGenerator.model.DocumentWithHeadAndBody;
+import edu.udea.vulnfinder.reportGenerator.model.Report;
+import edu.udea.vulnfinder.reportGenerator.service.SiteStore;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
 /**
  * Main class
  *
- * @author Camilo Sampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class ReportGenerator {
 
@@ -64,7 +64,7 @@ public class ReportGenerator {
         // First initialize CLI options, for then recognizing the arguments
         initializeCLIOptions();
 
-        executeAnalysisFromCLI(args);
+        getParametersFromCLIAndStart(args);
         LOGGER.info("Program execution finished!");
     }
 
@@ -82,12 +82,29 @@ public class ReportGenerator {
         OPTIONS.addOption(fileOption);
     }
 
-    // Site to analyze
+    /**
+     * Site URL to analyze.
+     */
     private static String toeURL = "";
+    /**
+     * List of fields to be included in the report.
+     */
     private static List<String> fieldList = null;
+    /**
+     * Zap analyzer object.
+     */
     private static ZapAnalyzer zapAnalyzer;
+    /**
+     * Forces the site to be exactly equal to the received one from parameters.
+     */
     private static boolean forced = false;
+    /**
+     * File where fields will be read from.
+     */
     private static String fieldsFile;
+    /**
+     * SQLMap output log files.
+     */
     private static List<String> sqlMapFiles;
 
     /**
@@ -189,6 +206,7 @@ public class ReportGenerator {
      * @param port Zap port
      * @param toe Site to be analyzed
      * @param sqlMapFiles List of sqlMapFiles
+     * @param targetFile Target.txt file
      * @return Single html file report
      * @throws IOException Error reading the SQLMap files given
      */
@@ -217,51 +235,70 @@ public class ReportGenerator {
         return htmlReport.toString();
     }
 
+    /**
+     * Debug report generation, can be switched off
+     *
+     * @param on Debug mode is on if true or off if false
+     */
     public static void setDebugMode(boolean on) {
-        Logger.getRootLogger().setLevel(Level.DEBUG);
+        if (on) {
+            Logger.getRootLogger().setLevel(Level.DEBUG);
+        } else {
+            Logger.getRootLogger().setLevel(Level.INFO);
+        }
     }
 
+    /**
+     * Execute analysis having the necessary information.
+     * After the preprocess (This class' variables), proceed to analyze
+     * @throws IOException 
+     */
     private static void executeAnalysis() throws IOException {
-        
+        // Analyze the expected content of the variables
         if (targetFile != null && !"".equals(targetFile)) {
+            // Read the target.txt files
             BufferedReader brTest = new BufferedReader(new FileReader(targetFile));
             String targetTOE = brTest.readLine();
-            Matcher matcher = FilePatternFinder.urlPattern.matcher(targetTOE);
-            if (matcher.find()){
-                targetTOE = matcher.group(1);
+            Matcher urlMatcher = FilePatternFinder.URL_PATTERN.matcher(targetTOE);
+            // If the url is found
+            if (urlMatcher.find()) {
+                targetTOE = urlMatcher.group(1);
                 toeURL = targetTOE;
                 LOGGER.debug("TOE found in target file is: " + targetTOE);
             } else {
                 LOGGER.debug("target.txt found but no TOE were found there");
             }
-            
+
         } else {
             LOGGER.debug("No target.txt submitted");
         }
 
+        // If toe have been passed, send it to the Zap Analyzer
         if (toeURL != null && !"".equals(toeURL)) {
             zapAnalyzer = new ZapAnalyzer(ZAPURL, toeURL, zapHost);
         } else {
             zapAnalyzer = new ZapAnalyzer(ZAPURL, zapHost);
         }
 
-        
-
+        // Send the known variables to Zap Analyzer
         zapAnalyzer.setForced(forced);
         zapAnalyzer.setFieldList(fieldList);
         zapAnalyzer.setPort(port);
 
         // Execute the ZAP report checking
         try {
-            zapAnalyzer.getReport();
+            zapAnalyzer.executeAnalysis();
         } catch (ZAPApiConnectionException ex) {
+            // If Zap has an error, stand still on execution
             LOGGER.error("Error generating ZAP Report", ex);
         }
         LOGGER.info("ZAP report finished");
-
+        
+        // Analyze with the SQLMap analyzer
         LOGGER.info("Files to analyze (Input params): " + sqlMapFiles);
         for (String file : sqlMapFiles) {
             SQLMapAnalyzer analyzer = new SQLMapAnalyzer(file, toeURL);
+            // Send fieldList if it has been sent previously
             if (fieldList != null && !fieldList.isEmpty()) {
                 analyzer.setFieldList(fieldList);
             }
@@ -269,7 +306,13 @@ public class ReportGenerator {
         }
     }
 
-    private static void executeAnalysisFromCLI(String[] args) throws ParseException, IOException {
+    /**
+     * Execute analysis receiving all the parameters from CLI.
+     * @param args Raw String with the CLI parameters
+     * @throws ParseException
+     * @throws IOException 
+     */
+    private static void getParametersFromCLIAndStart(String[] args) throws ParseException, IOException {
         // File with site fields to look for
         // This objects will recognize, based on OPTIONS the CLI arguments user sent
         CommandLine cmd = PARSER.parse(OPTIONS, args);
@@ -279,8 +322,9 @@ public class ReportGenerator {
             toeURL = cmd.getOptionValue("t");
             LOGGER.info("Analyzing site reports of: " + toeURL);
         }
-        
-        if (cmd.hasOption("d")){
+
+        // Target.txt file
+        if (cmd.hasOption("d")) {
             targetFile = cmd.getOptionValue("d");
             LOGGER.info("Target file: " + targetFile);
         }
@@ -298,22 +342,25 @@ public class ReportGenerator {
             }
         }
 
+        // If <code>-F</code> is passed, set forced to true.
         if (cmd.hasOption("F")) {
             forced = true;
         }
 
-        // If it is entered <code>-f</code> argument, analyze the given SQLMap files
+        // If it is entered <code>-s</code> argument, analyze the given SQLMap files
         if (cmd.hasOption("s")) {
             LOGGER.info("Analyzing SQLMap files...");
             sqlMapFiles = Arrays.asList(cmd.getOptionValues("s"));
         } else {
-            // If there's not a <code>-f</code> argument, don't analyze SQLMap report
-            LOGGER.info("\"f\" param not entered, skiping SQLMap analysis.");
+            // If there's not a <code>-s</code> argument, don't analyze SQLMap report
+            LOGGER.info("\"s\" param not entered, skiping SQLMap analysis.");
         }
 
+        // With the information asigned to this class' variables, proceed to 
+        // execute the analysis
         executeAnalysis();
-        // System.out.println("REPORT: \n"+generateReport(site, forced, fieldsFile, sqlMapFiles));
 
+        // <code>-o</code> parameter will have the output path for the html
         if (cmd.hasOption("o")) {
             // After the report concluded, generate a Html file with the report information.
             DocumentWithHeadAndBody htmlReport = Report.toHtml(SiteStore.getAll(), "VulnFinder Report");

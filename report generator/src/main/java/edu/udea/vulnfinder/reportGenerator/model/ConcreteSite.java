@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 import com.hp.gagawa.java.Node;
 import com.hp.gagawa.java.elements.A;
@@ -19,8 +19,8 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 /**
- *
- * @author camilosampedro
+ * Implementation of a Site
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class ConcreteSite implements Site {
 

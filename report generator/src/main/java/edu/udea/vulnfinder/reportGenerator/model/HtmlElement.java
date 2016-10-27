@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 import com.hp.gagawa.java.FertileNode;
 
@@ -11,7 +11,7 @@ import com.hp.gagawa.java.FertileNode;
  * This interface is used to ensure the class can be converted to a HTML element
  * with <code>toHtml()</code> method.
  *
- * @author Camilo Sampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public interface HtmlElement {
 

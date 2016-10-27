@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.service;
+package edu.udea.vulnfinder.reportGenerator.service;
 
-import co.edu.udea.generadorreportesvuln.model.ConcreteSite;
-import co.edu.udea.generadorreportesvuln.model.Site;
+import edu.udea.vulnfinder.reportGenerator.model.ConcreteSite;
+import edu.udea.vulnfinder.reportGenerator.model.Site;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  *
- * @author camilosampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class SiteStore {
 

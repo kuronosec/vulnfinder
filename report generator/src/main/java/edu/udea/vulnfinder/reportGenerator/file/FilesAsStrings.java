@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.file;
+package edu.udea.vulnfinder.reportGenerator.file;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,8 +11,8 @@ import java.util.Scanner;
 import org.apache.log4j.Logger;
 
 /**
- *
- * @author camilo
+ * Reads the files and return its String contents
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class FilesAsStrings {
 

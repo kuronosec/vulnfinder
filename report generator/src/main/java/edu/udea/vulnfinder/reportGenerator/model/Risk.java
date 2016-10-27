@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 /**
  *
- * @author camilosampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class Risk {
     private int code;

@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.exception;
+package edu.udea.vulnfinder.reportGenerator.exception;
 
 /**
  *
- * @author camilosampedro
+ * ZAP API connection failed
+ *
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class ZAPApiConnectionException extends Exception {
 

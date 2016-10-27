@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Td;
@@ -12,7 +12,7 @@ import java.util.Objects;
 
 /**
  *
- * @author camilosampedro
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class FieldAlert extends Alert {
 

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
-import co.edu.udea.generadorreportesvuln.service.Counter;
+import edu.udea.vulnfinder.reportGenerator.service.Counter;
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
-import com.hp.gagawa.java.elements.H3;
 import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
@@ -19,8 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author camilosampedro
+ * Field information class.
+ * Contains the field alerts and general information
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class Field implements HtmlElement {
 

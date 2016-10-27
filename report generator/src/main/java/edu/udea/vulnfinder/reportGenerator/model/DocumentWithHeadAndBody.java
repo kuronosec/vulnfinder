@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.udea.generadorreportesvuln.model;
+package edu.udea.vulnfinder.reportGenerator.model;
 
 import com.hp.gagawa.java.elements.Body;
 import com.hp.gagawa.java.elements.Head;
 import com.hp.gagawa.java.elements.Html;
 
 /**
- *
- * @author camilosampedro
+ * A missing feature on gagawa library
+ * @author Camilo Sampedro <camilo.sampedro@udea.edu.co>
  */
 public class DocumentWithHeadAndBody {
 
