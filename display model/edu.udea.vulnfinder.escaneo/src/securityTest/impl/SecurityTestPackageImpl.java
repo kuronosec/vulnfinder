@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import securityTest.Attack;
+import securityTest.AuthSetting;
 import securityTest.EAttackMethod;
 import securityTest.ESeverity;
 import securityTest.Input;
@@ -69,6 +70,13 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 * @generated
 	 */
 	private EClass noteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass authSettingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,6 +214,24 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 */
 	public EReference getTest_Note() {
 		return (EReference)testEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTest_Severity() {
+		return (EAttribute)testEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTest_AuthSetting() {
+		return (EReference)testEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -375,6 +401,69 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAuthSetting() {
+		return authSettingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_Roles() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_UsernameParam() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_PasswordParam() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_LoginTargetURL() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_LoginMessagePattern() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAuthSetting_LogoutMessagePattern() {
+		return (EAttribute)authSettingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getESeverity() {
 		return eSeverityEEnum;
 	}
@@ -423,6 +512,8 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		createEAttribute(testEClass, TEST__DATE);
 		createEAttribute(testEClass, TEST__NAME);
 		createEReference(testEClass, TEST__NOTE);
+		createEAttribute(testEClass, TEST__SEVERITY);
+		createEReference(testEClass, TEST__AUTH_SETTING);
 
 		targetOfEvaluationEClass = createEClass(TARGET_OF_EVALUATION);
 		createEAttribute(targetOfEvaluationEClass, TARGET_OF_EVALUATION__DOMAIN);
@@ -446,6 +537,14 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 
 		noteEClass = createEClass(NOTE);
 		createEAttribute(noteEClass, NOTE__NOTE_TEXT);
+
+		authSettingEClass = createEClass(AUTH_SETTING);
+		createEAttribute(authSettingEClass, AUTH_SETTING__ROLES);
+		createEAttribute(authSettingEClass, AUTH_SETTING__USERNAME_PARAM);
+		createEAttribute(authSettingEClass, AUTH_SETTING__PASSWORD_PARAM);
+		createEAttribute(authSettingEClass, AUTH_SETTING__LOGIN_TARGET_URL);
+		createEAttribute(authSettingEClass, AUTH_SETTING__LOGIN_MESSAGE_PATTERN);
+		createEAttribute(authSettingEClass, AUTH_SETTING__LOGOUT_MESSAGE_PATTERN);
 
 		// Create enums
 		eSeverityEEnum = createEEnum(ESEVERITY);
@@ -489,6 +588,8 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		initEAttribute(getTest_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTest_Note(), this.getNote(), null, "note", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTest_Severity(), this.getESeverity(), "severity", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTest_AuthSetting(), this.getAuthSetting(), null, "authSetting", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetOfEvaluationEClass, TargetOfEvaluation.class, "TargetOfEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTargetOfEvaluation_Domain(), ecorePackage.getEString(), "domain", null, 0, 1, TargetOfEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -513,10 +614,18 @@ public class SecurityTestPackageImpl extends EPackageImpl implements SecurityTes
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNote_NoteText(), ecorePackage.getEString(), "noteText", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(authSettingEClass, AuthSetting.class, "AuthSetting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAuthSetting_Roles(), ecorePackage.getEString(), "roles", null, 0, -1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAuthSetting_UsernameParam(), ecorePackage.getEString(), "usernameParam", "username", 0, 1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAuthSetting_PasswordParam(), ecorePackage.getEString(), "passwordParam", "password", 0, 1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAuthSetting_LoginTargetURL(), ecorePackage.getEString(), "loginTargetURL", null, 0, 1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAuthSetting_LoginMessagePattern(), ecorePackage.getEString(), "loginMessagePattern", null, 0, 1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAuthSetting_LogoutMessagePattern(), ecorePackage.getEString(), "logoutMessagePattern", null, 0, 1, AuthSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(eSeverityEEnum, ESeverity.class, "ESeverity");
-		addEEnumLiteral(eSeverityEEnum, ESeverity.LOW);
 		addEEnumLiteral(eSeverityEEnum, ESeverity.MEDIUM);
+		addEEnumLiteral(eSeverityEEnum, ESeverity.LOW);
 		addEEnumLiteral(eSeverityEEnum, ESeverity.HIGH);
 
 		initEEnum(eAttackMethodEEnum, EAttackMethod.class, "EAttackMethod");

@@ -92,6 +92,10 @@ public class SecurityTestAdapterFactory extends AdapterFactoryImpl {
 				return createNoteAdapter();
 			}
 			@Override
+			public Adapter caseAuthSetting(AuthSetting object) {
+				return createAuthSettingAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -192,6 +196,20 @@ public class SecurityTestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNoteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link securityTest.AuthSetting <em>Auth Setting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see securityTest.AuthSetting
+	 * @generated
+	 */
+	public Adapter createAuthSettingAdapter() {
 		return null;
 	}
 

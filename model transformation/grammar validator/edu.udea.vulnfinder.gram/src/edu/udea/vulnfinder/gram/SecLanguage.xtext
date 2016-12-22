@@ -9,12 +9,23 @@ SecurityTest returns Test:
 	{Test}
 	
 	'('
-	'securityTest' id=EString
-		
+	'security-test' ( '{' ':name' id=EString 
+						 (':severity' severity=ESeverity)?
+						 authSetting=AuthSetting '}')
 		('(' 'toes' ( scope=TargetOfEvaluation) ')' )?
 		('(' 'attacks' (possibleAttacks+=Attack)+ ')' )?
 		('(' 'notes' (note=Note)  ')' )?
 	')';
+
+AuthSetting returns AuthSetting: 
+	{AuthSetting}
+	(':roles' '['(roles+=EString )*']')?
+	(':username-param' usernameParam=EString)?
+	(':password-param' passwordParam=EString)?
+	(':login-target-url' loginTargetURL=EString)?
+	(':login-message-pattern' loginMessagePattern=EString)?
+	(':logout-message-pattern' logoutMessagePattern=EString)?;
+
 
 Note returns Note:
 	{Note}
@@ -30,7 +41,7 @@ TargetOfEvaluation returns TargetOfEvaluation:
 Attack returns Attack:
 	{Attack}
 	'('
-		('attack' name=EString ('{' ':level' severity=ESeverity '}')?   )
+		('attack' name=EString ('{' ':severity' severity=ESeverity '}')?   )
 		//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 	')';
 

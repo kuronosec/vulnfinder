@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
+import edu.udea.vulnfinder.xmigenerator.generator.Main.Duo;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnRequestParseException;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.xmigenerator.generator.gsonClasses.VulnJsonRequestElement;
@@ -107,10 +108,10 @@ public class VulnServer extends NanoHTTPD {
 		if (domIni != 1) {
 			return null;
 		}
-		int pagIni = Main.getDomain().addNewWebComponent(WebComponent.extractWebComponent(url));
+		int pagIni = Main.getDomain().addNewWebComponent(WebComponent.extractWebComponent(url),0);
 		WebComponent p = Main.getDomain().getWebComponents().get(pagIni);
 		if (!p.isSpidered()) {
-			Main.getQueue().offer(url);
+			Main.getQueue().offer(new Duo(url, 0));
 		}
 		return p;
 	}

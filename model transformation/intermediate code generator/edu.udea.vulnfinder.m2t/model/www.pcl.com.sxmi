@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<securityTest:Test xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:securityTest="http://udea/vulnfinder/securityTest" id="www.pcl.com" name="www.pcl.com" severity="Medium">
+  <scope domain="http://www.pcl.com">
+    <components path="/" targetLinks="//@scope/@components.1 //@scope/@components.3 //@scope/@components.4"/>
+    <components path="/Pages/default.aspx"/>
+    <components path="/Pages"/>
+    <components path="/Services-that-Deliver/Pages/default.aspx"/>
+    <components path="/Services-that-Deliver" targetLinks="//@scope/@components.3"/>
+    <components path="/Services-that-Deliver/Pages"/>
+  </scope>
+  <possibleAttacks name="Authorization" severity="Medium"/>
+  <possibleAttacks name="PrivilegeScalation" severity="Medium"/>
+  <possibleAttacks name="Authentication" severity="Medium"/>
+  <possibleAttacks name="XSS" severity="Medium"/>
+  <possibleAttacks name="SQLInjection" severity="Medium"/>
+  <possibleAttacks name="*" severity="Medium"/>
+  <authSetting usernameParam="usernameeee" passwordParam="passwordddd" loginTargetURL="http://fsajdfiodf.com/" loginMessagePattern="exitoso" logoutMessagePattern="diasioffio">
+<roles>Admin</roles><roles>Guest</roles>  </authSetting></securityTest:Test>

@@ -21,10 +21,10 @@ import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 public class GenerateXMIHandler {
 
 	private static final String[] FILTER_NAMES = {
-			"VulnFinder Security Test Model (*.securitytest)"/* , "All Files (*.*)" */ };
+			"VulnFinder Security Test Model (*.sxmi)"/* , "All Files (*.*)" */ };
 
 	// These filter extensions are used to filter which files are displayed.
-	private static final String[] FILTER_EXTS = { "*.securitytest"/* , "*.*" */ };
+	private static final String[] FILTER_EXTS = { "*.sxmi"/* , "*.*" */ };
 
 	@Execute
 	public void execute(Shell shell) {
@@ -51,7 +51,7 @@ public class GenerateXMIHandler {
 			/*if(filename != null)
 				saveAsDialog.setOriginalName(filename);
 			else*/
-				saveAsDialog.setOriginalName("Untitled.securitytest");
+				saveAsDialog.setOriginalName("Untitled.sxmi");
 			saveAsDialog.open();
 			
 			fpath = saveAsDialog.getResult();
@@ -60,8 +60,8 @@ public class GenerateXMIHandler {
 		
 		if (fpath != null) {
 			modelName = fpath.toString();
-			if (!modelName.endsWith(".securitytest")) {
-				throw new VulnServerException("The generated file must have the .securitytest extension.");
+			if (!modelName.endsWith(".sxmi")) {
+				throw new VulnServerException("The generated file must have the .sxmi extension.");
 				
 			}
 			

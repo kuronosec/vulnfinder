@@ -24,8 +24,18 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTestAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cSecurityTestKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdEStringParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cNameKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cIdAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cIdEStringParserRuleCall_3_2_0 = (RuleCall)cIdAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cSeverityKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cSeverityAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cSeverityESeverityEnumRuleCall_3_3_1_0 = (RuleCall)cSeverityAssignment_3_3_1.eContents().get(0);
+		private final Assignment cAuthSettingAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
+		private final RuleCall cAuthSettingAuthSettingParserRuleCall_3_4_0 = (RuleCall)cAuthSettingAssignment_3_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_5 = (Keyword)cGroup_3.eContents().get(5);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cToesKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
@@ -50,13 +60,14 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//SecurityTest Test:
 		//	{Test}
 		//	'('
-		//	'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
+		//	'security-test' ('{' ':name' id=EString (':severity' severity=ESeverity)?
+		//	authSetting=AuthSetting '}') ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
 		//	('(' 'notes' note=Note ')')?
 		//	')'
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Test} '(' 'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+
-		//')')? ('(' 'notes' note=Note ')')? ')'
+		//{Test} '(' 'security-test' ('{' ':name' id=EString (':severity' severity=ESeverity)? authSetting=AuthSetting '}') ('('
+		//'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')? ('(' 'notes' note=Note ')')? ')'
 		public Group getGroup() { return cGroup; }
 
 		//{Test}
@@ -65,14 +76,44 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//'securityTest'
+		//'security-test'
 		public Keyword getSecurityTestKeyword_2() { return cSecurityTestKeyword_2; }
 
+		//('{' ':name' id=EString (':severity' severity=ESeverity)? authSetting=AuthSetting '}')
+		public Group getGroup_3() { return cGroup_3; }
+
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+
+		//':name'
+		public Keyword getNameKeyword_3_1() { return cNameKeyword_3_1; }
+
 		//id=EString
-		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		public Assignment getIdAssignment_3_2() { return cIdAssignment_3_2; }
 
 		//EString
-		public RuleCall getIdEStringParserRuleCall_3_0() { return cIdEStringParserRuleCall_3_0; }
+		public RuleCall getIdEStringParserRuleCall_3_2_0() { return cIdEStringParserRuleCall_3_2_0; }
+
+		//(':severity' severity=ESeverity)?
+		public Group getGroup_3_3() { return cGroup_3_3; }
+
+		//':severity'
+		public Keyword getSeverityKeyword_3_3_0() { return cSeverityKeyword_3_3_0; }
+
+		//severity=ESeverity
+		public Assignment getSeverityAssignment_3_3_1() { return cSeverityAssignment_3_3_1; }
+
+		//ESeverity
+		public RuleCall getSeverityESeverityEnumRuleCall_3_3_1_0() { return cSeverityESeverityEnumRuleCall_3_3_1_0; }
+
+		//authSetting=AuthSetting
+		public Assignment getAuthSettingAssignment_3_4() { return cAuthSettingAssignment_3_4; }
+
+		//AuthSetting
+		public RuleCall getAuthSettingAuthSettingParserRuleCall_3_4_0() { return cAuthSettingAuthSettingParserRuleCall_3_4_0; }
+
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_5() { return cRightCurlyBracketKeyword_3_5; }
 
 		//('(' 'toes' scope=TargetOfEvaluation ')')?
 		public Group getGroup_4() { return cGroup_4; }
@@ -130,6 +171,130 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 		//')'
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+
+	public class AuthSettingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "edu.udea.vulnfinder.gram.SecLanguage.AuthSetting");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAuthSettingAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cRolesKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRolesAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRolesEStringParserRuleCall_1_2_0 = (RuleCall)cRolesAssignment_1_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cUsernameParamKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cUsernameParamAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cUsernameParamEStringParserRuleCall_2_1_0 = (RuleCall)cUsernameParamAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cPasswordParamKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPasswordParamAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPasswordParamEStringParserRuleCall_3_1_0 = (RuleCall)cPasswordParamAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLoginTargetUrlKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLoginTargetURLAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLoginTargetURLEStringParserRuleCall_4_1_0 = (RuleCall)cLoginTargetURLAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLoginMessagePatternKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cLoginMessagePatternAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cLoginMessagePatternEStringParserRuleCall_5_1_0 = (RuleCall)cLoginMessagePatternAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cLogoutMessagePatternKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cLogoutMessagePatternAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cLogoutMessagePatternEStringParserRuleCall_6_1_0 = (RuleCall)cLogoutMessagePatternAssignment_6_1.eContents().get(0);
+		
+		//AuthSetting:
+		//	{AuthSetting} (':roles' '[' roles+=EString* ']')? (':username-param' usernameParam=EString)? (':password-param'
+		//	passwordParam=EString)? (':login-target-url' loginTargetURL=EString)? (':login-message-pattern'
+		//	loginMessagePattern=EString)? (':logout-message-pattern' logoutMessagePattern=EString)?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{AuthSetting} (':roles' '[' roles+=EString* ']')? (':username-param' usernameParam=EString)? (':password-param'
+		//passwordParam=EString)? (':login-target-url' loginTargetURL=EString)? (':login-message-pattern'
+		//loginMessagePattern=EString)? (':logout-message-pattern' logoutMessagePattern=EString)?
+		public Group getGroup() { return cGroup; }
+
+		//{AuthSetting}
+		public Action getAuthSettingAction_0() { return cAuthSettingAction_0; }
+
+		//(':roles' '[' roles+=EString* ']')?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//':roles'
+		public Keyword getRolesKeyword_1_0() { return cRolesKeyword_1_0; }
+
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_1() { return cLeftSquareBracketKeyword_1_1; }
+
+		//roles+=EString*
+		public Assignment getRolesAssignment_1_2() { return cRolesAssignment_1_2; }
+
+		//EString
+		public RuleCall getRolesEStringParserRuleCall_1_2_0() { return cRolesEStringParserRuleCall_1_2_0; }
+
+		//']'
+		public Keyword getRightSquareBracketKeyword_1_3() { return cRightSquareBracketKeyword_1_3; }
+
+		//(':username-param' usernameParam=EString)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//':username-param'
+		public Keyword getUsernameParamKeyword_2_0() { return cUsernameParamKeyword_2_0; }
+
+		//usernameParam=EString
+		public Assignment getUsernameParamAssignment_2_1() { return cUsernameParamAssignment_2_1; }
+
+		//EString
+		public RuleCall getUsernameParamEStringParserRuleCall_2_1_0() { return cUsernameParamEStringParserRuleCall_2_1_0; }
+
+		//(':password-param' passwordParam=EString)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//':password-param'
+		public Keyword getPasswordParamKeyword_3_0() { return cPasswordParamKeyword_3_0; }
+
+		//passwordParam=EString
+		public Assignment getPasswordParamAssignment_3_1() { return cPasswordParamAssignment_3_1; }
+
+		//EString
+		public RuleCall getPasswordParamEStringParserRuleCall_3_1_0() { return cPasswordParamEStringParserRuleCall_3_1_0; }
+
+		//(':login-target-url' loginTargetURL=EString)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//':login-target-url'
+		public Keyword getLoginTargetUrlKeyword_4_0() { return cLoginTargetUrlKeyword_4_0; }
+
+		//loginTargetURL=EString
+		public Assignment getLoginTargetURLAssignment_4_1() { return cLoginTargetURLAssignment_4_1; }
+
+		//EString
+		public RuleCall getLoginTargetURLEStringParserRuleCall_4_1_0() { return cLoginTargetURLEStringParserRuleCall_4_1_0; }
+
+		//(':login-message-pattern' loginMessagePattern=EString)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//':login-message-pattern'
+		public Keyword getLoginMessagePatternKeyword_5_0() { return cLoginMessagePatternKeyword_5_0; }
+
+		//loginMessagePattern=EString
+		public Assignment getLoginMessagePatternAssignment_5_1() { return cLoginMessagePatternAssignment_5_1; }
+
+		//EString
+		public RuleCall getLoginMessagePatternEStringParserRuleCall_5_1_0() { return cLoginMessagePatternEStringParserRuleCall_5_1_0; }
+
+		//(':logout-message-pattern' logoutMessagePattern=EString)?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//':logout-message-pattern'
+		public Keyword getLogoutMessagePatternKeyword_6_0() { return cLogoutMessagePatternKeyword_6_0; }
+
+		//logoutMessagePattern=EString
+		public Assignment getLogoutMessagePatternAssignment_6_1() { return cLogoutMessagePatternAssignment_6_1; }
+
+		//EString
+		public RuleCall getLogoutMessagePatternEStringParserRuleCall_6_1_0() { return cLogoutMessagePatternEStringParserRuleCall_6_1_0; }
 	}
 
 	public class NoteElements extends AbstractParserRuleElementFinder {
@@ -217,7 +382,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Keyword cLevelKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		private final Keyword cSeverityKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
 		private final Assignment cSeverityAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
 		private final RuleCall cSeverityESeverityEnumRuleCall_2_2_2_0 = (RuleCall)cSeverityAssignment_2_2_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_2_3 = (Keyword)cGroup_2_2.eContents().get(3);
@@ -225,12 +390,12 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Attack:
 		//	{Attack}
-		//	'(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
+		//	'(' ('attack' name=EString ('{' ':severity' severity=ESeverity '}')?)
 		//	//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Attack} '(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?) //('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
+		//{Attack} '(' ('attack' name=EString ('{' ':severity' severity=ESeverity '}')?) //('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 		//')'
 		public Group getGroup() { return cGroup; }
 
@@ -240,7 +405,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
+		//('attack' name=EString ('{' ':severity' severity=ESeverity '}')?)
 		public Group getGroup_2() { return cGroup_2; }
 
 		//'attack'
@@ -252,14 +417,14 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_1_0() { return cNameEStringParserRuleCall_2_1_0; }
 
-		//('{' ':level' severity=ESeverity '}')?
+		//('{' ':severity' severity=ESeverity '}')?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2_2_0() { return cLeftCurlyBracketKeyword_2_2_0; }
 
-		//':level'
-		public Keyword getLevelKeyword_2_2_1() { return cLevelKeyword_2_2_1; }
+		//':severity'
+		public Keyword getSeverityKeyword_2_2_1() { return cSeverityKeyword_2_2_1; }
 
 		//severity=ESeverity
 		public Assignment getSeverityAssignment_2_2_2() { return cSeverityAssignment_2_2_2; }
@@ -529,6 +694,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final SecurityTestElements pSecurityTest;
+	private final AuthSettingElements pAuthSetting;
 	private final NoteElements pNote;
 	private final TargetOfEvaluationElements pTargetOfEvaluation;
 	private final AttackElements pAttack;
@@ -548,6 +714,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSecurityTest = new SecurityTestElements();
+		this.pAuthSetting = new AuthSettingElements();
 		this.pNote = new NoteElements();
 		this.pTargetOfEvaluation = new TargetOfEvaluationElements();
 		this.pAttack = new AttackElements();
@@ -589,7 +756,8 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//SecurityTest Test:
 	//	{Test}
 	//	'('
-	//	'securityTest' id=EString ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
+	//	'security-test' ('{' ':name' id=EString (':severity' severity=ESeverity)?
+	//	authSetting=AuthSetting '}') ('(' 'toes' scope=TargetOfEvaluation ')')? ('(' 'attacks' possibleAttacks+=Attack+ ')')?
 	//	('(' 'notes' note=Note ')')?
 	//	')'
 	public SecurityTestElements getSecurityTestAccess() {
@@ -598,6 +766,18 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSecurityTestRule() {
 		return getSecurityTestAccess().getRule();
+	}
+
+	//AuthSetting:
+	//	{AuthSetting} (':roles' '[' roles+=EString* ']')? (':username-param' usernameParam=EString)? (':password-param'
+	//	passwordParam=EString)? (':login-target-url' loginTargetURL=EString)? (':login-message-pattern'
+	//	loginMessagePattern=EString)? (':logout-message-pattern' logoutMessagePattern=EString)?;
+	public AuthSettingElements getAuthSettingAccess() {
+		return pAuthSetting;
+	}
+	
+	public ParserRule getAuthSettingRule() {
+		return getAuthSettingAccess().getRule();
 	}
 
 	//Note:
@@ -624,7 +804,7 @@ public class SecLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Attack:
 	//	{Attack}
-	//	'(' ('attack' name=EString ('{' ':level' severity=ESeverity '}')?)
+	//	'(' ('attack' name=EString ('{' ':severity' severity=ESeverity '}')?)
 	//	//('attack' name=EAttackMethod ('{' ':level' severity=ESeverity '}')?   )
 	//	')';
 	public AttackElements getAttackAccess() {

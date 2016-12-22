@@ -88,123 +88,342 @@ ruleSecurityTest returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_1());
     }
-	otherlv_2='securityTest' 
+	otherlv_2='security-test' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getSecurityTestAccess().getSecurityTestKeyword_2());
+    }
+(	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getSecurityTestAccess().getLeftCurlyBracketKeyword_3_0());
+    }
+	otherlv_4=':name' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getSecurityTestAccess().getNameKeyword_3_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSecurityTestAccess().getIdEStringParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getSecurityTestAccess().getIdEStringParserRuleCall_3_2_0()); 
 	    }
-		lv_id_3_0=ruleEString		{
+		lv_id_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
 	        }
        		set(
        			$current, 
        			"id",
-        		lv_id_3_0, 
+        		lv_id_5_0, 
         		"edu.udea.vulnfinder.gram.SecLanguage.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_4='(' 
+)(	otherlv_6=':severity' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_4_0());
+    	newLeafNode(otherlv_6, grammarAccess.getSecurityTestAccess().getSeverityKeyword_3_3_0());
     }
-	otherlv_5='toes' 
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSecurityTestAccess().getSeverityESeverityEnumRuleCall_3_3_1_0()); 
+	    }
+		lv_severity_7_0=ruleESeverity		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
+	        }
+       		set(
+       			$current, 
+       			"severity",
+        		lv_severity_7_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.ESeverity");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSecurityTestAccess().getAuthSettingAuthSettingParserRuleCall_3_4_0()); 
+	    }
+		lv_authSetting_8_0=ruleAuthSetting		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
+	        }
+       		set(
+       			$current, 
+       			"authSetting",
+        		lv_authSetting_8_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.AuthSetting");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_9='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getSecurityTestAccess().getToesKeyword_4_1());
+    	newLeafNode(otherlv_9, grammarAccess.getSecurityTestAccess().getRightCurlyBracketKeyword_3_5());
+    }
+)(	otherlv_10='(' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_4_0());
+    }
+	otherlv_11='toes' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getSecurityTestAccess().getToesKeyword_4_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSecurityTestAccess().getScopeTargetOfEvaluationParserRuleCall_4_2_0()); 
 	    }
-		lv_scope_6_0=ruleTargetOfEvaluation		{
+		lv_scope_12_0=ruleTargetOfEvaluation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
 	        }
        		set(
        			$current, 
        			"scope",
-        		lv_scope_6_0, 
+        		lv_scope_12_0, 
         		"edu.udea.vulnfinder.gram.SecLanguage.TargetOfEvaluation");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_7=')' 
+)	otherlv_13=')' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_4_3());
+    	newLeafNode(otherlv_13, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_4_3());
     }
-)?(	otherlv_8='(' 
+)?(	otherlv_14='(' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_5_0());
+    	newLeafNode(otherlv_14, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_5_0());
     }
-	otherlv_9='attacks' 
+	otherlv_15='attacks' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getSecurityTestAccess().getAttacksKeyword_5_1());
+    	newLeafNode(otherlv_15, grammarAccess.getSecurityTestAccess().getAttacksKeyword_5_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSecurityTestAccess().getPossibleAttacksAttackParserRuleCall_5_2_0()); 
 	    }
-		lv_possibleAttacks_10_0=ruleAttack		{
+		lv_possibleAttacks_16_0=ruleAttack		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
 	        }
        		add(
        			$current, 
        			"possibleAttacks",
-        		lv_possibleAttacks_10_0, 
+        		lv_possibleAttacks_16_0, 
         		"edu.udea.vulnfinder.gram.SecLanguage.Attack");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_11=')' 
+)+	otherlv_17=')' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_5_3());
+    	newLeafNode(otherlv_17, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_5_3());
     }
-)?(	otherlv_12='(' 
+)?(	otherlv_18='(' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0());
+    	newLeafNode(otherlv_18, grammarAccess.getSecurityTestAccess().getLeftParenthesisKeyword_6_0());
     }
-	otherlv_13='notes' 
+	otherlv_19='notes' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1());
+    	newLeafNode(otherlv_19, grammarAccess.getSecurityTestAccess().getNotesKeyword_6_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSecurityTestAccess().getNoteNoteParserRuleCall_6_2_0()); 
 	    }
-		lv_note_14_0=ruleNote		{
+		lv_note_20_0=ruleNote		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSecurityTestRule());
 	        }
        		set(
        			$current, 
        			"note",
-        		lv_note_14_0, 
+        		lv_note_20_0, 
         		"edu.udea.vulnfinder.gram.SecLanguage.Note");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_15=')' 
+)	otherlv_21=')' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3());
+    	newLeafNode(otherlv_21, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_6_3());
     }
-)?	otherlv_16=')' 
+)?	otherlv_22=')' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7());
+    	newLeafNode(otherlv_22, grammarAccess.getSecurityTestAccess().getRightParenthesisKeyword_7());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleAuthSetting
+entryRuleAuthSetting returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAuthSettingRule()); }
+	 iv_ruleAuthSetting=ruleAuthSetting 
+	 { $current=$iv_ruleAuthSetting.current; } 
+	 EOF 
+;
+
+// Rule AuthSetting
+ruleAuthSetting returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAuthSettingAccess().getAuthSettingAction_0(),
+            $current);
+    }
+)(	otherlv_1=':roles' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAuthSettingAccess().getRolesKeyword_1_0());
+    }
+	otherlv_2='[' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getAuthSettingAccess().getLeftSquareBracketKeyword_1_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getRolesEStringParserRuleCall_1_2_0()); 
+	    }
+		lv_roles_3_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		add(
+       			$current, 
+       			"roles",
+        		lv_roles_3_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_4=']' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getAuthSettingAccess().getRightSquareBracketKeyword_1_3());
+    }
+)?(	otherlv_5=':username-param' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getAuthSettingAccess().getUsernameParamKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getUsernameParamEStringParserRuleCall_2_1_0()); 
+	    }
+		lv_usernameParam_6_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		set(
+       			$current, 
+       			"usernameParam",
+        		lv_usernameParam_6_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_7=':password-param' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getAuthSettingAccess().getPasswordParamKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getPasswordParamEStringParserRuleCall_3_1_0()); 
+	    }
+		lv_passwordParam_8_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		set(
+       			$current, 
+       			"passwordParam",
+        		lv_passwordParam_8_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_9=':login-target-url' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getAuthSettingAccess().getLoginTargetUrlKeyword_4_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getLoginTargetURLEStringParserRuleCall_4_1_0()); 
+	    }
+		lv_loginTargetURL_10_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		set(
+       			$current, 
+       			"loginTargetURL",
+        		lv_loginTargetURL_10_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_11=':login-message-pattern' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getAuthSettingAccess().getLoginMessagePatternKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getLoginMessagePatternEStringParserRuleCall_5_1_0()); 
+	    }
+		lv_loginMessagePattern_12_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		set(
+       			$current, 
+       			"loginMessagePattern",
+        		lv_loginMessagePattern_12_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_13=':logout-message-pattern' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getAuthSettingAccess().getLogoutMessagePatternKeyword_6_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAuthSettingAccess().getLogoutMessagePatternEStringParserRuleCall_6_1_0()); 
+	    }
+		lv_logoutMessagePattern_14_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAuthSettingRule());
+	        }
+       		set(
+       			$current, 
+       			"logoutMessagePattern",
+        		lv_logoutMessagePattern_14_0, 
+        		"edu.udea.vulnfinder.gram.SecLanguage.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
 ;
 
 
@@ -381,9 +600,9 @@ ruleAttack returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getAttackAccess().getLeftCurlyBracketKeyword_2_2_0());
     }
-	otherlv_5=':level' 
+	otherlv_5=':severity' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getAttackAccess().getLevelKeyword_2_2_1());
+    	newLeafNode(otherlv_5, grammarAccess.getAttackAccess().getSeverityKeyword_2_2_1());
     }
 (
 (

@@ -18,21 +18,66 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
+import edu.udea.vulnfinder.server.plugin.view.dialog.AuthParamsDialog;
 import edu.udea.vulnfinder.server.plugin.view.dialog.VulnConfigDialog;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnSpideringException;
+import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.AuthSetting;
 
 public class SpiderStartHandler {
 
 	@Execute
 	public void execute(Shell shell) {
+		
 		try {
 			startFullSpiderInThread(shell, true, null);
 		} catch (VulnServerException e) {
 			return;
 		}
 		
+	}
+	
+	public static void askUserForAuthInfo(Shell shell){
+		AuthSetting aSetting = Main.getAuthSetting();
+		AuthParamsDialog dialog = new AuthParamsDialog(shell);
+		
+		MessageDialog wantToChange = new MessageDialog(null, "Confirmation", null,
+				"Do you want to set up the auth information?: ", MessageDialog.QUESTION,
+				new String[] { "Yes", "No" }, 0);
+		if(wantToChange.open() == 1){
+			return;
+		}
+		
+		while(true){
+			if (dialog.open() == Window.OK) {
+				aSetting.setLoginMessagePattern(dialog.getLoggedIn());
+				aSetting.setLogoutMessagePattern(dialog.getLoggedOut());
+				aSetting.setUsernameParam(dialog.getUserField());
+				aSetting.setUsername(dialog.getUsername());
+				aSetting.setPasswordParam(dialog.getPassField());
+				aSetting.setPassword(dialog.getPassword());
+				aSetting.setLoginTargetUrl(dialog.getLoginUrl());
+				aSetting.setRoles(dialog.getRoles());
+				aSetting.setComplete(dialog.isComplete());
+				if(!dialog.isComplete()){
+					MessageDialog yesNoDialog = new MessageDialog(null, "Confirmation", null,
+							"The provided auth info is incomplete, do you want to continue WITHOUT setting up the auth information?: ", MessageDialog.QUESTION,
+							new String[] { "Yes", "No" }, 0);
+					if(yesNoDialog.open() == 1){
+						continue;
+					}
+				}
+				break;
+			}else{
+				MessageDialog yesNoDialog = new MessageDialog(null, "Confirmation", null,
+						"Do you want to continue without setting up the auth information?: ", MessageDialog.QUESTION,
+						new String[] { "Yes", "No" }, 0);
+				if(yesNoDialog.open() == 0){
+					break;
+				}
+			}
+		}
 	}
 	
 	public static void startFullSpiderInThread(Shell shell, boolean verbose ,Callback c) throws VulnServerException{
@@ -42,6 +87,8 @@ public class SpiderStartHandler {
 	
 	public static void startSpiderInThread(Shell shell, boolean verbose, Callback c){
 		try {
+			Main.readyUpZapAPI();
+			SpiderStartHandler.askUserForAuthInfo(shell);
 			IRunnableWithProgress op = new SpiderThread(shell, verbose, c);
 			new ProgressMonitorDialog(shell).run(true, true, op);
 		} catch (InvocationTargetException ex) {

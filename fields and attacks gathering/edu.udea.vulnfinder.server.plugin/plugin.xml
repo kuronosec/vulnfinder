@@ -4,7 +4,7 @@
       <objectContribution
             adaptable="true"
             objectClass="org.eclipse.core.resources.IFile"
-            nameFilter="*.seclang"
+            nameFilter="*.s"
             id="edu.udea.vulnfinder.server.plugin.popupMenus.contribution.IFile">
          <menu id="edu.udea.vulnfinder.server.plugin.runTestMenu" label="VulnFinder Test Execution" path="vulnfinderMenu" >
                <groupMarker name="runTestMenu"/> 

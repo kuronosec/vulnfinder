@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Attack;
+import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.AuthSetting;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Input;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.TargetOfEvaluation;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.WebComponent;
@@ -42,22 +43,25 @@ public class Mem2XMIFormat {
 	//private String savePath;
 	private String testId;
 	private String testName;
+	private AuthSetting aSetting;
 	private boolean allAttacks;
 
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, boolean allAttacks) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, AuthSetting aSetting, boolean allAttacks) {
 		this.dominio = dominio;
 		this.ataques = ataques;
 		this.testId = "secTest01";
 		this.testName = "Test01";
 		this.allAttacks = allAttacks;
+		this.aSetting = aSetting;
 	}
 	
-	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String testId, String testName, boolean allAttacks) {
+	public Mem2XMIFormat(TargetOfEvaluation dominio, Map<String, Attack> ataques, String testId, String testName, AuthSetting aSetting, boolean allAttacks) {
 		this.dominio = dominio;
 		this.ataques = ataques;
 		this.testId = testId;
 		this.testName = testName;
 		this.allAttacks = allAttacks;
+		this.aSetting = aSetting;
 	}
 
 	public boolean genAndSaveXMIFile(String savePath) {
@@ -79,11 +83,35 @@ public class Mem2XMIFormat {
 		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" 
 				+ "<securityTest:Test xmi:version=\"2.0\" "
 				+ "xmlns:xmi=\"http://www.omg.org/XMI\" "
-				+ "xmlns:securityTest=\"http://udea/vulnfinder/securityTest\" id=\""+testId+"\" name=\""+testName+"\">\n");
+				+ "xmlns:securityTest=\"http://udea/vulnfinder/securityTest\" id=\""+testId+"\" name=\""+testName+"\" severity=\"Medium\">\n");
+		
 		appendTOE(sb, dominio);
 		appendPossibleAttacks(sb, ataques);
+		appendAuthSettings(sb, aSetting);
 		sb.append("</securityTest:Test>");
 		return sb.toString();
+	}
+	
+	private void appendAuthSettings(StringBuilder sb, AuthSetting as){
+		sb.append("  <authSetting usernameParam=\"");
+		sb.append(as.getUsernameParam());
+		sb.append("\" passwordParam=\"");
+		sb.append(as.getPasswordParam());
+		sb.append("\" loginTargetURL=\"");
+		sb.append(as.getLoginTargetUrl());
+		sb.append("\" loginMessagePattern=\"");
+		sb.append(as.getLoginMessagePattern());
+		sb.append("\" logoutMessagePattern=\"");
+		sb.append(as.getLogoutMessagePattern());
+		sb.append("\">\n");
+		appendRoles(sb, as.getRoles());
+		sb.append("  </authSetting>");
+	}
+	
+	private void appendRoles(StringBuilder sb, String[] roles){
+		for(String s : roles){
+			sb.append("<roles>").append(s).append("</roles>");
+;		}
 	}
 	
 	private void appendTOE(StringBuilder sb, TargetOfEvaluation d){

@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
@@ -22,6 +23,7 @@ import edu.udea.vulnfinder.server.plugin.dialog.popupAction.RunVulnFinderTestsAc
 import edu.udea.vulnfinder.server.plugin.handlers.SpiderStartHandler.Callback;
 import edu.udea.vulnfinder.server.plugin.utils.MessageLauncher;
 import edu.udea.vulnfinder.server.plugin.utils.VulnFinderProjectCreator;
+import edu.udea.vulnfinder.server.plugin.view.dialog.AuthParamsDialog;
 import edu.udea.vulnfinder.xmigenerator.generator.Main;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.m2t.ui.popupMenus.*;
@@ -29,7 +31,7 @@ import edu.udea.vulnfinder.m2t.ui.popupMenus.*;
 public class QuickFinder {
 	@Execute
 	public void execute(Shell shell) {
-
+		
 		try {
 			PostSpidering ps = new PostSpidering();
 			SpiderStartHandler.startFullSpiderInThread(shell, false, ps);
@@ -37,15 +39,17 @@ public class QuickFinder {
 			MessageLauncher.showError(shell, "Error", "Couldn't execute QuickFinder:\nReason: " + e.getMessage());
 		}
 	}
+	
+	
 
 	public class PostSpidering implements Callback {
 
 		@Override
 		public void execute(Shell shell) {
-
+			
 			String name = Main.getDomain().getTOEOnly();
 			IProject p = VulnFinderProjectCreator.createNewProject(name);
-			IFile fileRep = p.getFolder("model").getFile(name + ".securitytest");
+			IFile fileRep = p.getFolder("model").getFile(name + ".sxmi");
 			List<IFile> flist = new ArrayList<IFile>();
 			try {
 				GenerateXMIHandler.createXMIFile(fileRep, name, true, false, shell);
@@ -72,7 +76,7 @@ public class QuickFinder {
 							IFile f;
 							try {
 								for(IResource ir : p.getFolder("text-model").members()){
-									if("seclang".equalsIgnoreCase(ir.getFileExtension())){
+									if("s".equalsIgnoreCase(ir.getFileExtension())){
 										
 										MessageDialog dialog = new MessageDialog(null, "Confirmation", null,
 												"Are you sure you want to run the vulnerability tests against the following TOE: "+ir.getName(), MessageDialog.QUESTION,

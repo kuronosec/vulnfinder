@@ -11,6 +11,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="note" eType="#//Note" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//ESeverity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="authSetting" eType="#//AuthSetting"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TargetOfEvaluation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,8 +41,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//ESeverity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ESeverity">
-    <eLiterals name="Low" literal="Low"/>
-    <eLiterals name="Medium" value="1" literal="Medium"/>
+    <eLiterals name="Medium" literal="Medium"/>
+    <eLiterals name="Low" value="1" literal="Low"/>
     <eLiterals name="High" value="2" literal="High"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EAttackMethod">
@@ -51,5 +54,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Note">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noteText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AuthSetting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roles" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usernameParam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="username"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordParam" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="password"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loginTargetURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loginMessagePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logoutMessagePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

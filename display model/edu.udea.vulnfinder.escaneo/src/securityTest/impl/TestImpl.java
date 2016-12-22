@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import securityTest.Attack;
+import securityTest.AuthSetting;
+import securityTest.ESeverity;
 import securityTest.Note;
 import securityTest.SecurityTestPackage;
 import securityTest.TargetOfEvaluation;
@@ -39,6 +41,8 @@ import securityTest.Test;
  *   <li>{@link securityTest.impl.TestImpl#getDate <em>Date</em>}</li>
  *   <li>{@link securityTest.impl.TestImpl#getName <em>Name</em>}</li>
  *   <li>{@link securityTest.impl.TestImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link securityTest.impl.TestImpl#getSeverity <em>Severity</em>}</li>
+ *   <li>{@link securityTest.impl.TestImpl#getAuthSetting <em>Auth Setting</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,6 +137,36 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * @ordered
 	 */
 	protected Note note;
+
+	/**
+	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeverity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ESeverity SEVERITY_EDEFAULT = ESeverity.MEDIUM;
+
+	/**
+	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeverity()
+	 * @generated
+	 * @ordered
+	 */
+	protected ESeverity severity = SEVERITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAuthSetting() <em>Auth Setting</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthSetting()
+	 * @generated
+	 * @ordered
+	 */
+	protected AuthSetting authSetting;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,6 +353,70 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ESeverity getSeverity() {
+		return severity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeverity(ESeverity newSeverity) {
+		ESeverity oldSeverity = severity;
+		severity = newSeverity == null ? SEVERITY_EDEFAULT : newSeverity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityTestPackage.TEST__SEVERITY, oldSeverity, severity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AuthSetting getAuthSetting() {
+		return authSetting;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAuthSetting(AuthSetting newAuthSetting, NotificationChain msgs) {
+		AuthSetting oldAuthSetting = authSetting;
+		authSetting = newAuthSetting;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SecurityTestPackage.TEST__AUTH_SETTING, oldAuthSetting, newAuthSetting);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAuthSetting(AuthSetting newAuthSetting) {
+		if (newAuthSetting != authSetting) {
+			NotificationChain msgs = null;
+			if (authSetting != null)
+				msgs = ((InternalEObject)authSetting).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SecurityTestPackage.TEST__AUTH_SETTING, null, msgs);
+			if (newAuthSetting != null)
+				msgs = ((InternalEObject)newAuthSetting).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SecurityTestPackage.TEST__AUTH_SETTING, null, msgs);
+			msgs = basicSetAuthSetting(newAuthSetting, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityTestPackage.TEST__AUTH_SETTING, newAuthSetting, newAuthSetting));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -328,6 +426,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return ((InternalEList<?>)getPossibleAttacks()).basicRemove(otherEnd, msgs);
 			case SecurityTestPackage.TEST__NOTE:
 				return basicSetNote(null, msgs);
+			case SecurityTestPackage.TEST__AUTH_SETTING:
+				return basicSetAuthSetting(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,6 +452,10 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return getName();
 			case SecurityTestPackage.TEST__NOTE:
 				return getNote();
+			case SecurityTestPackage.TEST__SEVERITY:
+				return getSeverity();
+			case SecurityTestPackage.TEST__AUTH_SETTING:
+				return getAuthSetting();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -384,6 +488,12 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case SecurityTestPackage.TEST__NOTE:
 				setNote((Note)newValue);
 				return;
+			case SecurityTestPackage.TEST__SEVERITY:
+				setSeverity((ESeverity)newValue);
+				return;
+			case SecurityTestPackage.TEST__AUTH_SETTING:
+				setAuthSetting((AuthSetting)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -414,6 +524,12 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case SecurityTestPackage.TEST__NOTE:
 				setNote((Note)null);
 				return;
+			case SecurityTestPackage.TEST__SEVERITY:
+				setSeverity(SEVERITY_EDEFAULT);
+				return;
+			case SecurityTestPackage.TEST__AUTH_SETTING:
+				setAuthSetting((AuthSetting)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -438,6 +554,10 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SecurityTestPackage.TEST__NOTE:
 				return note != null;
+			case SecurityTestPackage.TEST__SEVERITY:
+				return severity != SEVERITY_EDEFAULT;
+			case SecurityTestPackage.TEST__AUTH_SETTING:
+				return authSetting != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -458,6 +578,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 		result.append(date);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", severity: ");
+		result.append(severity);
 		result.append(')');
 		return result.toString();
 	}

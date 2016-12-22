@@ -32,10 +32,12 @@ import org.zaproxy.clientapi.core.ClientApi;
 import org.zaproxy.clientapi.core.ClientApiException;
 
 import edu.udea.vulnfinder.server.plugin.handlers.SpiderStartHandler;
+import edu.udea.vulnfinder.server.plugin.view.dialog.AuthParamsDialog;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnServerException;
 import edu.udea.vulnfinder.xmigenerator.generator.exception.VulnSpideringException;
 import edu.udea.vulnfinder.xmigenerator.generator.exporter.Mem2XMIFormat;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.Attack;
+import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.AuthSetting;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.TargetOfEvaluation;
 import edu.udea.vulnfinder.xmigenerator.generator.metaclasses.WebComponent;
 import fi.iki.elonen.NanoHTTPD;
@@ -51,12 +53,14 @@ public class Main {
 	private static int zapPort = 8080;
 	private static String zapHost = "localhost";
 	private static ClientApi clientApi;
-	private static Queue<String> cola = new ConcurrentLinkedDeque<>();
+	private static Queue<Duo> cola = new ConcurrentLinkedDeque<>();
 	private static int serverPort = 3000;
 	private static int maxSpiderMilliseconds = 3000;
+	private static int maxSpiderDepth = 0;
 	private static Map<String, Attack> attackMap;
 	private static IProgressMonitor monitor = null;
 	private static VulnServer vulnServer = null;
+	private static AuthSetting authSetting = new AuthSetting();
 	private static String excludedExtensionsInSpidering = "js|jpg|jpe|png|css|gif|pdf|doc";
 	private static String excludedExtensionsInModel = "js|jpg|jpe|png|css|gif|pdf|doc";
 	
@@ -100,7 +104,7 @@ public class Main {
 		} catch (VulnServerException e) {
 			//It's fine if it's not running.
 		}*/
-		readyUpZapAPI();
+//		readyUpZapAPI();
 		if(dominio != null && dominio.getName() != null){
 			//insertarDominio(TargetOfEvaluation.extractDomain(toe));
 			start();
@@ -131,14 +135,13 @@ public class Main {
 		return res;
 	}
 	
-	
 	public static String generateXMI(){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, false);
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, authSetting, false);
 		return mem2xmi.generateXMIFormat();
 	}
 	
 	public static String generateXMI(String testId, String testName, boolean allAttacks){
-		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, testId, testName, allAttacks);
+		Mem2XMIFormat mem2xmi = new Mem2XMIFormat(dominio, attackMap, testId, testName, authSetting, allAttacks);
 		return mem2xmi.generateXMIFormat();
 	}
 
@@ -158,26 +161,64 @@ public class Main {
 	}
 	
 	
+	
+	public static void setupAuthWithZAP() throws ClientApiException{
+		StringBuilder sb = new StringBuilder();
+		String userId;
+		
+		if(!authSetting.isComplete()){
+			return;
+		}
+		sb.append("loginUrl=").append(authSetting.getLoginTargetUrl());
+		sb.append("&loginRequestData=");
+		sb.append(authSetting.getUsernameParam()).append("%3D%7B%25").append(authSetting.getUsername()).append("%25%7D%26");
+		sb.append(authSetting.getPasswordParam()).append("%3D%7B%25").append(authSetting.getPassword()).append("%25%7D");
+		clientApi.authentication.setAuthenticationMethod("", "1", "formBasedAuthentication", sb.toString());
+		if(!"".contentEquals(authSetting.getLoginMessagePattern())){
+			clientApi.authentication.setLoggedInIndicator("", "1", authSetting.getLoginMessagePattern());
+		}
+		if(!"".contentEquals(authSetting.getLogoutMessagePattern())){
+			clientApi.authentication.setLoggedOutIndicator("", "1", authSetting.getLogoutMessagePattern());
+		}
+		
+		sb = new StringBuilder();
+		sb.append("type=UsernamePasswordAuthenticationCredentials&username=");
+		sb.append(authSetting.getUsername());
+		sb.append("&password=").append(authSetting.getPassword());
+		
+		
+		ApiResponseElement are = (ApiResponseElement)clientApi.users.newUser("", "1", authSetting.getUsername());
+		userId = are.getValue();
+		clientApi.users.setAuthenticationCredentials("", "1", userId, sb.toString() );
+		clientApi.users.setUserEnabled("", "1", userId, "true");
+		clientApi.forcedUser.setForcedUser("", "1", userId);
+		clientApi.forcedUser.setForcedUserModeEnabled("", true);
+	}
+	
+	
 	private static boolean checkValidExtension(String toe){
 		return toe != null && !toe.matches(EXCLUDED_REGEX_BEGIN+excludedExtensionsInSpidering+EXCLUDED_REGEX_END);
 	}
 	
+	
 
 	private static void start() throws VulnSpideringException, VulnServerException {
+		
 		ApiResponseList arl = null;
 		state = 3;
-		cola.offer(dominio.getName());
+		cola.offer(new Duo(dominio.getName(), 0));
 		for(WebComponent wc : dominio.getWebComponents()){
 			wc.setSpidered(false);
 		}
 		try{
+			setupAuthWithZAP();
 			arl = (ApiResponseList) clientApi.core.urls();
 			for (ApiResponse ar : arl.getItems()) {
 				String res = ((ApiResponseElement) ar).getValue();
 				boolean cb = checkValidExtension(res);
 				System.out.println(res+" "+cb);
 				if(cb){
-					cola.offer(res);
+					cola.offer(new Duo(res, 0));
 				}
 			}
 		}catch(ClientApiException e){
@@ -278,14 +319,14 @@ public class Main {
 			// pag =
 			// dominios.get(dom).insertarPagina(WebComponent.extractPagina(url));
 			
-			pag = dominio.addNewWebComponent(WebComponent.extractWebComponent(url));
+			pag = dominio.addNewWebComponent(WebComponent.extractWebComponentNoGet(url),30);
 			dominio.getWebComponents().get(pag).addInput(/* tipo, */nombreParam);
 		}
 	}
 
 	private static void runSpidering() throws VulnServerException {
-
-		String urlInicial = cola.poll();
+		Duo inicial = cola.poll();
+		String urlInicial = inicial.page;
 		int domIni = insertDomain(TargetOfEvaluation.extractDomain(urlInicial));
 
 		if (domIni != 1) {
@@ -293,11 +334,12 @@ public class Main {
 		}
 		// int pagIni =
 		// dominios.get(domIni).insertarPagina(WebComponent.extractPagina(urlInicial));
-		int pagIni = dominio.addNewWebComponent(WebComponent.extractWebComponent(urlInicial));
+		int pagIni = dominio.addNewWebComponent(WebComponent.extractWebComponent(urlInicial),inicial.depth);
 		// WebComponent p = dominios.get(domIni).getPaginas().get(pagIni);
 		WebComponent p = dominio.getWebComponents().get(pagIni);
 
-		if (p.isSpidered()) {
+		if (p.isSpidered() || (maxSpiderDepth > 0 && p.getDepth() >= maxSpiderDepth)) {
+			p.setSpidered();
 			return;
 		}
 
@@ -317,7 +359,7 @@ public class Main {
 				String res = ((ApiResponseElement) ar).getValue();
 				domPath = TargetOfEvaluation.extractDomain(res); // Sacamos el
 																	// dominio
-				pagPath = WebComponent.extractWebComponent(res); // Sacamos la ruta
+				pagPath = WebComponent.extractWebComponentNoGet(res); // Sacamos la ruta
 				if (!WebComponent.checkExtensions(pagPath) || paginaRoot.getPath().equals(pagPath)) {
 					continue;
 				}
@@ -328,11 +370,11 @@ public class Main {
 					continue;
 				}
 				// pagIns = dominios.get(domIns).insertarPagina(pagPath);
-				pagIns = dominio.addNewWebComponent(pagPath);
+				pagIns = dominio.addNewWebComponent(pagPath, paginaRoot.getDepth()+1);
 				// int[] enlaceIns = {domIns, pagIns};
 				int[] enlaceIns = { pagIns };
 				paginaRoot.addLinks(enlaceIns);
-				cola.offer(res);
+				cola.offer(new Duo(res,paginaRoot.getDepth()+1));
 				// clientApi.spider.stop("JSON", spID);
 			}
 		} catch (ClientApiException ex) {
@@ -382,7 +424,7 @@ public class Main {
 		
 	}
 
-	public static Queue<String> getQueue() {
+	public static Queue<Duo> getQueue() {
 		return cola;
 	}
 
@@ -494,5 +536,36 @@ public class Main {
 	
 	public static void setExcludedExtensionsInModel(String excludedExtensionsInModel) {
 		Main.excludedExtensionsInModel = excludedExtensionsInModel;
+	}
+
+	public static int getMaxSpiderDepth() {
+		return maxSpiderDepth;
+	}
+
+	public static void setMaxSpiderDepth(int maxSpiderDepth) {
+		Main.maxSpiderDepth = maxSpiderDepth;
+	}
+	
+	
+	
+	public static AuthSetting getAuthSetting() {
+		return authSetting;
+	}
+
+	public static void setAuthSetting(AuthSetting authSetting) {
+		Main.authSetting = authSetting;
+	}
+
+
+
+	public static class Duo{
+		String page;
+		int depth;
+		public Duo(String page, int depth) {
+			super();
+			this.page = page;
+			this.depth = depth;
+		}
+		
 	}
 }

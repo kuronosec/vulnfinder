@@ -56,7 +56,7 @@ public class AttackImpl extends MinimalEObjectImpl.Container implements Attack {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ESeverity SEVERITY_EDEFAULT = ESeverity.LOW;
+	protected static final ESeverity SEVERITY_EDEFAULT = ESeverity.MEDIUM;
 
 	/**
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.

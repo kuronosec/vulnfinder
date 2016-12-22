@@ -35,10 +35,13 @@ public class VulnConfigDialog extends Dialog {
 	private String filteredExtensionsInModel = "";
 	private Spinner txtSpiderMillis;
 	private String spiderMillis = "";
+	private Spinner txtSpiderDepth;
+	private String spiderDepth = "";
 	
 	private int zapPortInt = Main.getZapPort();
 	private int vulnPortInt = Main.getZapPort();
 	private int spiderMillisInt = Main.getMaxSpiderMilliseconds();
+	private int spiderDepthInt = Main.getMaxSpiderDepth();
 
 	public VulnConfigDialog(Shell parentShell) {
 		super(parentShell);
@@ -56,7 +59,7 @@ public class VulnConfigDialog extends Dialog {
 		container.setLayout(layout);
 		
 		Label lblVulnPort = new Label(container, SWT.NONE);
-		lblVulnPort.setText("Vulnfinder Server Port:");
+		lblVulnPort.setText("Vulnfinder server port:");
 
 		txtVulnPort = new Text(container, SWT.BORDER);
 		txtVulnPort.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -72,7 +75,7 @@ public class VulnConfigDialog extends Dialog {
 		});
 		
 		Label lblZapHost = new Label(container, SWT.NONE);
-		lblZapHost.setText("ZAP Proxy host:");
+		lblZapHost.setText("ZAP proxy host:");
 
 		txtZapHost = new Text(container, SWT.BORDER);
 		txtZapHost.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -88,7 +91,7 @@ public class VulnConfigDialog extends Dialog {
 		});
 		
 		Label lblZapPort = new Label(container, SWT.NONE);
-		lblZapPort.setText("Zap Proxy Port:");
+		lblZapPort.setText("ZAP proxy port:");
 
 		txtZapPort = new Text(container, SWT.BORDER);
 		txtZapPort.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -123,8 +126,30 @@ public class VulnConfigDialog extends Dialog {
 			}
 		});
 		
+		Label lblSpiderDepth = new Label(container, SWT.NONE);
+		lblSpiderDepth.setText("Spidering max depth:");
+		lblSpiderDepth.setToolTipText("0 means infinite depth levels.");
+		
+		txtSpiderDepth = new Spinner(container, SWT.BORDER);
+		txtSpiderDepth.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtSpiderDepth.setMaximum(19);
+		txtSpiderDepth.setSelection(Main.getMaxSpiderDepth());
+		txtSpiderDepth.setMinimum(0);
+		txtSpiderDepth.setIncrement(1);
+		txtSpiderDepth.setPageIncrement(4);
+		txtSpiderDepth.setToolTipText("0 means infinite depth levels.");
+		txtSpiderDepth.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				Spinner textWidget = (Spinner) e.getSource();
+				String spiderD = textWidget.getText();
+				spiderDepth = spiderD;
+			}
+		});
+		
 		Label lblFilteredExtensionsInSpidering = new Label(container, SWT.NONE);
-		lblFilteredExtensionsInSpidering.setText("Spidering Filtered Extensions:");
+		lblFilteredExtensionsInSpidering.setText("Spidering filtered extensions:");
 
 		txtFilteredExtensionsInSpidering = new Text(container, SWT.BORDER);
 		txtFilteredExtensionsInSpidering.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -140,7 +165,7 @@ public class VulnConfigDialog extends Dialog {
 		});
 		
 		Label lblFilteredExtensionsInModel = new Label(container, SWT.NONE);
-		lblFilteredExtensionsInModel.setText("Filtered Extensions on Model:");
+		lblFilteredExtensionsInModel.setText("Filtered extensions on model:");
 		txtFilteredExtensionsInModel = new Text(container, SWT.BORDER);
 		txtFilteredExtensionsInModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtFilteredExtensionsInModel.setText(Main.getExcludedExtensionsInSpidering());
@@ -160,6 +185,7 @@ public class VulnConfigDialog extends Dialog {
 			txtZapHost.setEnabled(true);
 			txtZapPort.setEnabled(true);
 			txtSpiderMillis.setEnabled(true);
+			txtSpiderDepth.setEnabled(true);
 			txtFilteredExtensionsInSpidering.setEnabled(true);
 			txtFilteredExtensionsInModel.setEnabled(true);
 		}else if(Main.getState() == 3){
@@ -167,6 +193,7 @@ public class VulnConfigDialog extends Dialog {
 			txtZapHost.setEnabled(false);
 			txtZapPort.setEnabled(false);
 			txtSpiderMillis.setEnabled(false);
+			txtSpiderDepth.setEnabled(false);
 			txtFilteredExtensionsInSpidering.setEnabled(false);
 			txtFilteredExtensionsInModel.setEnabled(true);
 		}else{
@@ -174,6 +201,7 @@ public class VulnConfigDialog extends Dialog {
 			txtZapHost.setEnabled(true);
 			txtZapPort.setEnabled(true);
 			txtSpiderMillis.setEnabled(true);
+			txtSpiderDepth.setEnabled(true);
 			txtFilteredExtensionsInSpidering.setEnabled(true);
 			txtFilteredExtensionsInModel.setEnabled(true);
 		}
@@ -190,7 +218,7 @@ public class VulnConfigDialog extends Dialog {
 
 	@Override
 	protected Point getInitialSize() {
-		return new Point(500, 350);
+		return new Point(620, 350);
 	}
 
 	@Override
@@ -199,6 +227,7 @@ public class VulnConfigDialog extends Dialog {
 		zapHost = txtZapHost.getText().trim();
 		zapPort = txtZapPort.getText().trim();
 		spiderMillis = txtSpiderMillis.getText().trim();
+		spiderDepth = txtSpiderDepth.getText().trim();
 		filteredExtensionsInSpidering = txtFilteredExtensionsInSpidering.getText().trim();
 		filteredExtensionsInModel = txtFilteredExtensionsInModel.getText().trim();
 		String[] filteredExtsArrSpider = filteredExtensionsInSpidering.split("\\|");
@@ -226,6 +255,7 @@ public class VulnConfigDialog extends Dialog {
 			vulnPortInt = Integer.parseInt(vulnPort);
 			zapPortInt = Integer.parseInt(zapPort);
 			spiderMillisInt = Integer.parseInt(spiderMillis);
+			spiderDepthInt = Integer.parseInt(spiderDepth);
 			if((vulnPortInt < 1 || vulnPortInt > 65535) || (zapPortInt < 1 || zapPortInt > 65535)){
 				showPortError();
 			}else{
@@ -245,6 +275,7 @@ public class VulnConfigDialog extends Dialog {
 		
 	}
 	
+	@Override
 	protected boolean isResizable() {
 	    return true;
 	}
@@ -280,6 +311,16 @@ public class VulnConfigDialog extends Dialog {
 
 	public int getSpiderMillisInt() {
 		return spiderMillisInt;
+	}
+	
+	
+
+	public int getSpiderDepthInt() {
+		return spiderDepthInt;
+	}
+
+	public void setSpiderDepthInt(int spiderDepthInt) {
+		this.spiderDepthInt = spiderDepthInt;
 	}
 
 	public void setSpiderMillisInt(int spiderMillisInt) {

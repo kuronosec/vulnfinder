@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import securityTest.Attack;
+import securityTest.AuthSetting;
 import securityTest.Input;
 import securityTest.Note;
 import securityTest.SecurityTestPackage;
@@ -39,6 +40,9 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 			switch (semanticObject.eClass().getClassifierID()) {
 			case SecurityTestPackage.ATTACK:
 				sequence_Attack(context, (Attack) semanticObject); 
+				return; 
+			case SecurityTestPackage.AUTH_SETTING:
+				sequence_AuthSetting(context, (AuthSetting) semanticObject); 
 				return; 
 			case SecurityTestPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
@@ -68,6 +72,25 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 	 *     (name=EString severity=ESeverity?)
 	 */
 	protected void sequence_Attack(ISerializationContext context, Attack semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AuthSetting returns AuthSetting
+	 *
+	 * Constraint:
+	 *     (
+	 *         roles+=EString* 
+	 *         usernameParam=EString? 
+	 *         passwordParam=EString? 
+	 *         loginTargetURL=EString? 
+	 *         loginMessagePattern=EString? 
+	 *         logoutMessagePattern=EString?
+	 *     )
+	 */
+	protected void sequence_AuthSetting(ISerializationContext context, AuthSetting semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -107,7 +130,14 @@ public abstract class AbstractSecLanguageSemanticSequencer extends AbstractDeleg
 	 *     SecurityTest returns Test
 	 *
 	 * Constraint:
-	 *     (id=EString scope=TargetOfEvaluation? possibleAttacks+=Attack* note=Note?)
+	 *     (
+	 *         id=EString 
+	 *         severity=ESeverity? 
+	 *         authSetting=AuthSetting 
+	 *         scope=TargetOfEvaluation? 
+	 *         possibleAttacks+=Attack* 
+	 *         note=Note?
+	 *     )
 	 */
 	protected void sequence_SecurityTest(ISerializationContext context, Test semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

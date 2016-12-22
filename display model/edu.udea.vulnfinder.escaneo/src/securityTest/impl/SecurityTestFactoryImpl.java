@@ -63,6 +63,7 @@ public class SecurityTestFactoryImpl extends EFactoryImpl implements SecurityTes
 			case SecurityTestPackage.INPUT: return createInput();
 			case SecurityTestPackage.ATTACK: return createAttack();
 			case SecurityTestPackage.NOTE: return createNote();
+			case SecurityTestPackage.AUTH_SETTING: return createAuthSetting();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -160,6 +161,16 @@ public class SecurityTestFactoryImpl extends EFactoryImpl implements SecurityTes
 	public Note createNote() {
 		NoteImpl note = new NoteImpl();
 		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AuthSetting createAuthSetting() {
+		AuthSettingImpl authSetting = new AuthSettingImpl();
+		return authSetting;
 	}
 
 	/**

@@ -23,6 +23,12 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import securityTest.SecurityTestFactory;
+import securityTest.SecurityTestPackage;
+import securityTest.Test;
+import securityTest.impl.TestImpl;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -330,13 +336,22 @@ public class Generate extends AbstractAcceleoGenerator {
         return TEMPLATE_NAMES;
     }
     
+    
     /**
      * This can be used to update the resource set's package registry with all needed EPackages.
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
+    @Override
+    public void registerPackages(ResourceSet resourceSet) {
+        super.registerPackages(resourceSet);
+        if (!isInWorkspace(SecurityTestPackage.class)) {
+            resourceSet.getPackageRegistry().put(SecurityTestPackage.eINSTANCE.getNsURI(), SecurityTestPackage.eINSTANCE);
+        }
+    }
+    /*
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
@@ -372,15 +387,25 @@ public class Generate extends AbstractAcceleoGenerator {
          * 
          * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
-    }
+    //}
 
     /**
      * This can be used to update the resource set's resource factory registry with all needed factories.
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
+    @Override
+    public void registerResourceFactories(ResourceSet resourceSet) {
+        super.registerResourceFactories(resourceSet);
+        /*resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(SecurityTestPackage.FILE_EXTENSION,
+                                                                                SecurityTestFactory.eINSTANCE);*/
+        
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+    }
+    
+    /*
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
         super.registerResourceFactories(resourceSet);
@@ -401,6 +426,6 @@ public class Generate extends AbstractAcceleoGenerator {
          */ 
         
         // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
-    }
+    //}
     
 }

@@ -5,10 +5,11 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>escaneo.ecore</foreignModel>
-  <genPackages prefix="SecurityTest" disposableProviderFactory="true" ecorePackage="escaneo.ecore#/">
+  <genPackages prefix="SecurityTest" disposableProviderFactory="true" fileExtensions="sxmi"
+      ecorePackage="escaneo.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="escaneo.ecore#//ESeverity">
-      <genEnumLiterals ecoreEnumLiteral="escaneo.ecore#//ESeverity/Low"/>
       <genEnumLiterals ecoreEnumLiteral="escaneo.ecore#//ESeverity/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="escaneo.ecore#//ESeverity/Low"/>
       <genEnumLiterals ecoreEnumLiteral="escaneo.ecore#//ESeverity/High"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="escaneo.ecore#//EAttackMethod">
@@ -25,6 +26,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/date"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference escaneo.ecore#//Test/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Test/severity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference escaneo.ecore#//Test/authSetting"/>
     </genClasses>
     <genClasses ecoreClass="escaneo.ecore#//TargetOfEvaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//TargetOfEvaluation/domain"/>
@@ -48,6 +51,14 @@
     </genClasses>
     <genClasses ecoreClass="escaneo.ecore#//Note">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//Note/noteText"/>
+    </genClasses>
+    <genClasses ecoreClass="escaneo.ecore#//AuthSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/roles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/usernameParam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/passwordParam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/loginTargetURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/loginMessagePattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute escaneo.ecore#//AuthSetting/logoutMessagePattern"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

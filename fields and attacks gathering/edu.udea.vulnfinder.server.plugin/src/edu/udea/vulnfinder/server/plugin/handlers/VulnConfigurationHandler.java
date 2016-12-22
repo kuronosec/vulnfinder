@@ -27,6 +27,7 @@ public class VulnConfigurationHandler {
 				Main.setZapHost(dialog.getZapHost());
 				Main.setZapPort(dialog.getZapPortInt());
 				Main.setMaxSpiderMilliseconds(dialog.getSpiderMillisInt());
+				Main.setMaxSpiderDepth(dialog.getSpiderDepthInt());
 				Main.setExcludedExtensionsInSpidering(dialog.getFilteredExtensionsInSpidering());
 				Main.setExcludedExtensionsInModel(dialog.getFilteredExtensionsInModel());
 

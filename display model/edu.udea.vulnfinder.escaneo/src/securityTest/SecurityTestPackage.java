@@ -122,13 +122,31 @@ public interface SecurityTestPackage extends EPackage {
 	int TEST__NOTE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__SEVERITY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Auth Setting</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__AUTH_SETTING = 7;
+
+	/**
 	 * The number of structural features of the '<em>Test</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_FEATURE_COUNT = 6;
+	int TEST_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Test</em>' class.
@@ -397,6 +415,88 @@ public interface SecurityTestPackage extends EPackage {
 	int NOTE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link securityTest.impl.AuthSettingImpl <em>Auth Setting</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see securityTest.impl.AuthSettingImpl
+	 * @see securityTest.impl.SecurityTestPackageImpl#getAuthSetting()
+	 * @generated
+	 */
+	int AUTH_SETTING = 6;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__ROLES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Username Param</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__USERNAME_PARAM = 1;
+
+	/**
+	 * The feature id for the '<em><b>Password Param</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__PASSWORD_PARAM = 2;
+
+	/**
+	 * The feature id for the '<em><b>Login Target URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__LOGIN_TARGET_URL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Login Message Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__LOGIN_MESSAGE_PATTERN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Logout Message Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING__LOGOUT_MESSAGE_PATTERN = 5;
+
+	/**
+	 * The number of structural features of the '<em>Auth Setting</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Auth Setting</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTH_SETTING_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link securityTest.ESeverity <em>ESeverity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -404,7 +504,7 @@ public interface SecurityTestPackage extends EPackage {
 	 * @see securityTest.impl.SecurityTestPackageImpl#getESeverity()
 	 * @generated
 	 */
-	int ESEVERITY = 6;
+	int ESEVERITY = 7;
 
 	/**
 	 * The meta object id for the '{@link securityTest.EAttackMethod <em>EAttack Method</em>}' enum.
@@ -414,7 +514,7 @@ public interface SecurityTestPackage extends EPackage {
 	 * @see securityTest.impl.SecurityTestPackageImpl#getEAttackMethod()
 	 * @generated
 	 */
-	int EATTACK_METHOD = 7;
+	int EATTACK_METHOD = 8;
 
 
 	/**
@@ -492,6 +592,28 @@ public interface SecurityTestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTest_Note();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.Test#getSeverity <em>Severity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Severity</em>'.
+	 * @see securityTest.Test#getSeverity()
+	 * @see #getTest()
+	 * @generated
+	 */
+	EAttribute getTest_Severity();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link securityTest.Test#getAuthSetting <em>Auth Setting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Auth Setting</em>'.
+	 * @see securityTest.Test#getAuthSetting()
+	 * @see #getTest()
+	 * @generated
+	 */
+	EReference getTest_AuthSetting();
 
 	/**
 	 * Returns the meta object for class '{@link securityTest.TargetOfEvaluation <em>Target Of Evaluation</em>}'.
@@ -687,6 +809,82 @@ public interface SecurityTestPackage extends EPackage {
 	EAttribute getNote_NoteText();
 
 	/**
+	 * Returns the meta object for class '{@link securityTest.AuthSetting <em>Auth Setting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Auth Setting</em>'.
+	 * @see securityTest.AuthSetting
+	 * @generated
+	 */
+	EClass getAuthSetting();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link securityTest.AuthSetting#getRoles <em>Roles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Roles</em>'.
+	 * @see securityTest.AuthSetting#getRoles()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_Roles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.AuthSetting#getUsernameParam <em>Username Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Username Param</em>'.
+	 * @see securityTest.AuthSetting#getUsernameParam()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_UsernameParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.AuthSetting#getPasswordParam <em>Password Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Password Param</em>'.
+	 * @see securityTest.AuthSetting#getPasswordParam()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_PasswordParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.AuthSetting#getLoginTargetURL <em>Login Target URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Login Target URL</em>'.
+	 * @see securityTest.AuthSetting#getLoginTargetURL()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_LoginTargetURL();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.AuthSetting#getLoginMessagePattern <em>Login Message Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Login Message Pattern</em>'.
+	 * @see securityTest.AuthSetting#getLoginMessagePattern()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_LoginMessagePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link securityTest.AuthSetting#getLogoutMessagePattern <em>Logout Message Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Logout Message Pattern</em>'.
+	 * @see securityTest.AuthSetting#getLogoutMessagePattern()
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	EAttribute getAuthSetting_LogoutMessagePattern();
+
+	/**
 	 * Returns the meta object for enum '{@link securityTest.ESeverity <em>ESeverity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,6 +984,22 @@ public interface SecurityTestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEST__NOTE = eINSTANCE.getTest_Note();
+
+		/**
+		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST__SEVERITY = eINSTANCE.getTest_Severity();
+
+		/**
+		 * The meta object literal for the '<em><b>Auth Setting</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST__AUTH_SETTING = eINSTANCE.getTest_AuthSetting();
 
 		/**
 		 * The meta object literal for the '{@link securityTest.impl.TargetOfEvaluationImpl <em>Target Of Evaluation</em>}' class.
@@ -940,6 +1154,64 @@ public interface SecurityTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NOTE__NOTE_TEXT = eINSTANCE.getNote_NoteText();
+
+		/**
+		 * The meta object literal for the '{@link securityTest.impl.AuthSettingImpl <em>Auth Setting</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see securityTest.impl.AuthSettingImpl
+		 * @see securityTest.impl.SecurityTestPackageImpl#getAuthSetting()
+		 * @generated
+		 */
+		EClass AUTH_SETTING = eINSTANCE.getAuthSetting();
+
+		/**
+		 * The meta object literal for the '<em><b>Roles</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__ROLES = eINSTANCE.getAuthSetting_Roles();
+
+		/**
+		 * The meta object literal for the '<em><b>Username Param</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__USERNAME_PARAM = eINSTANCE.getAuthSetting_UsernameParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Password Param</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__PASSWORD_PARAM = eINSTANCE.getAuthSetting_PasswordParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Login Target URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__LOGIN_TARGET_URL = eINSTANCE.getAuthSetting_LoginTargetURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Login Message Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__LOGIN_MESSAGE_PATTERN = eINSTANCE.getAuthSetting_LoginMessagePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Logout Message Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUTH_SETTING__LOGOUT_MESSAGE_PATTERN = eINSTANCE.getAuthSetting_LogoutMessagePattern();
 
 		/**
 		 * The meta object literal for the '{@link securityTest.ESeverity <em>ESeverity</em>}' enum.

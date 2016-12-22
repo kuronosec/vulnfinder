@@ -76,6 +76,15 @@ public interface SecurityTestFactory extends EFactory {
 	Note createNote();
 
 	/**
+	 * Returns a new object of class '<em>Auth Setting</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Auth Setting</em>'.
+	 * @generated
+	 */
+	AuthSetting createAuthSetting();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

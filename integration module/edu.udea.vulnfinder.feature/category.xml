@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/edu.udea.vulnfinder.feature_0.7.0.jar" id="edu.udea.vulnfinder.feature" version="0.7.0">
+   <feature url="features/edu.udea.vulnfinder.feature_0.8.0.jar" id="edu.udea.vulnfinder.feature" version="0.8.0">
       <category name="vulnfinder"/>
    </feature>
    <category-def name="vulnfinder" label="Vulnfinder">

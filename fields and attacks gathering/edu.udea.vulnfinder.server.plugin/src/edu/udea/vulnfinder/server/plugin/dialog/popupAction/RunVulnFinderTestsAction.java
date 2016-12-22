@@ -192,7 +192,8 @@ public class RunVulnFinderTestsAction extends ActionDelegate implements IActionD
 			
 			
 			try {
-				core.start(textModelPath, outputTestPath, (Object)(new ProgressController(subMonitor)), Main.getZapHost(), Main.getZapPort());
+				core.start(textModelPath, outputTestPath, (Object)(new ProgressController(subMonitor)), Main.getZapHost(), Main.getZapPort()
+						);
 				//new VulnOrchestator().run(textModelPath, outputTestPath);
 				System.out.println("---FIN DE EJECUCIÓN DE core.start---");
 

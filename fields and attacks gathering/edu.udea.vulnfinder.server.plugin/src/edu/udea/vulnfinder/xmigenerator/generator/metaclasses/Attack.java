@@ -28,7 +28,7 @@ public class Attack {
 
     public Attack(String name) {
         this.name = name;
-        severity = "High";
+        severity = "Medium";
     }
 
     public Attack(String name, String severity) {

@@ -51,13 +51,14 @@ public class TargetOfEvaluation {
     	return toe;
     }
     
-    public int addNewWebComponent(String pagPath){
+    public int addNewWebComponent(String pagPath, int depth){
         for(int i = 0; i < webComponents.size(); i++){
             if(webComponents.get(i).getPath().equals(pagPath)){
                 return i;
             }
         }
-        WebComponent nueva = new WebComponent(pagPath);
+        WebComponent nueva = new WebComponent(pagPath,depth);
+        
         webComponents.add(nueva);
         return webComponents.size()-1;
     }

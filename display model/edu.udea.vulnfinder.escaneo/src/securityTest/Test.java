@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link securityTest.Test#getDate <em>Date</em>}</li>
  *   <li>{@link securityTest.Test#getName <em>Name</em>}</li>
  *   <li>{@link securityTest.Test#getNote <em>Note</em>}</li>
+ *   <li>{@link securityTest.Test#getSeverity <em>Severity</em>}</li>
+ *   <li>{@link securityTest.Test#getAuthSetting <em>Auth Setting</em>}</li>
  * </ul>
  *
  * @see securityTest.SecurityTestPackage#getTest()
@@ -175,5 +177,60 @@ public interface Test extends EObject {
 	 * @generated
 	 */
 	void setNote(Note value);
+
+	/**
+	 * Returns the value of the '<em><b>Severity</b></em>' attribute.
+	 * The literals are from the enumeration {@link securityTest.ESeverity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Severity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Severity</em>' attribute.
+	 * @see securityTest.ESeverity
+	 * @see #setSeverity(ESeverity)
+	 * @see securityTest.SecurityTestPackage#getTest_Severity()
+	 * @model
+	 * @generated
+	 */
+	ESeverity getSeverity();
+
+	/**
+	 * Sets the value of the '{@link securityTest.Test#getSeverity <em>Severity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Severity</em>' attribute.
+	 * @see securityTest.ESeverity
+	 * @see #getSeverity()
+	 * @generated
+	 */
+	void setSeverity(ESeverity value);
+
+	/**
+	 * Returns the value of the '<em><b>Auth Setting</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Auth Setting</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Auth Setting</em>' containment reference.
+	 * @see #setAuthSetting(AuthSetting)
+	 * @see securityTest.SecurityTestPackage#getTest_AuthSetting()
+	 * @model containment="true"
+	 * @generated
+	 */
+	AuthSetting getAuthSetting();
+
+	/**
+	 * Sets the value of the '{@link securityTest.Test#getAuthSetting <em>Auth Setting</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Auth Setting</em>' containment reference.
+	 * @see #getAuthSetting()
+	 * @generated
+	 */
+	void setAuthSetting(AuthSetting value);
 
 } // Test

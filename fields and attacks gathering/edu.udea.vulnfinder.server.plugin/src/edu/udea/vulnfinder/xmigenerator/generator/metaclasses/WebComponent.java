@@ -32,14 +32,17 @@ import edu.udea.vulnfinder.xmigenerator.generator.Main;
  */
 public class WebComponent {
 
-    //private static final Pattern patPag = Pattern.compile("https?://[^/]+/?([^\\?]*)\\??.*");
+    private static final Pattern patPagNoGET = Pattern.compile("https?://[^/]+/?([^\\?]*)\\??.*");
 	private static final Pattern patPag = Pattern.compile("https?:\\/\\/[^/]+\\/?(.*)");
     private String path;
+    int depth;
     private List<Input> inputs = Collections.synchronizedList(new ArrayList<Input>());
     private boolean spidered;
+    
     private List<int[]> links = Collections.synchronizedList(new ArrayList<int[]>());
 
-    public WebComponent(String ruta) {
+    public WebComponent(String ruta, int depth) {
+    	this.depth = depth;
         this.path = ruta;
         this.spidered = false;
     }
@@ -60,7 +63,18 @@ public class WebComponent {
         return links;
     }
     
-    public void addLinks(int[] enl){
+    
+    
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+
+	public void addLinks(int[] enl){
         /*for(int[] i : enlaces){
             if(i[0] == enl[0] && i[1] == enl[1]){
                 return;
@@ -97,6 +111,14 @@ public class WebComponent {
     
     public static String extractWebComponent(String url){
         Matcher m = patPag.matcher(url);
+        String res;
+        m.matches();
+        res = "/"+m.group(1).replaceAll("&", "&amp;");
+        return res;
+    }
+    
+    public static String extractWebComponentNoGet(String url){
+        Matcher m = patPagNoGET.matcher(url);
         String res;
         m.matches();
         res = "/"+m.group(1).replaceAll("&", "&amp;");

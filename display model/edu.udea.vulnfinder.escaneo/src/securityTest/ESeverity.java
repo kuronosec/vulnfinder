@@ -19,16 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ESeverity implements Enumerator {
 	/**
-	 * The '<em><b>Low</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LOW_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LOW(0, "Low", "Low"),
-
-	/**
 	 * The '<em><b>Medium</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,7 +26,17 @@ public enum ESeverity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDIUM(1, "Medium", "Medium"),
+	MEDIUM(0, "Medium", "Medium"),
+
+	/**
+	 * The '<em><b>Low</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LOW_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	LOW(1, "Low", "Low"),
 
 	/**
 	 * The '<em><b>High</b></em>' literal object.
@@ -47,21 +47,6 @@ public enum ESeverity implements Enumerator {
 	 * @ordered
 	 */
 	HIGH(2, "High", "High");
-
-	/**
-	 * The '<em><b>Low</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Low</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #LOW
-	 * @model name="Low"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int LOW_VALUE = 0;
 
 	/**
 	 * The '<em><b>Medium</b></em>' literal value.
@@ -76,7 +61,22 @@ public enum ESeverity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDIUM_VALUE = 1;
+	public static final int MEDIUM_VALUE = 0;
+
+	/**
+	 * The '<em><b>Low</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Low</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LOW
+	 * @model name="Low"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOW_VALUE = 1;
 
 	/**
 	 * The '<em><b>High</b></em>' literal value.
@@ -101,8 +101,8 @@ public enum ESeverity implements Enumerator {
 	 */
 	private static final ESeverity[] VALUES_ARRAY =
 		new ESeverity[] {
-			LOW,
 			MEDIUM,
+			LOW,
 			HIGH,
 		};
 
@@ -160,8 +160,8 @@ public enum ESeverity implements Enumerator {
 	 */
 	public static ESeverity get(int value) {
 		switch (value) {
-			case LOW_VALUE: return LOW;
 			case MEDIUM_VALUE: return MEDIUM;
+			case LOW_VALUE: return LOW;
 			case HIGH_VALUE: return HIGH;
 		}
 		return null;
