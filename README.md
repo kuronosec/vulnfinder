@@ -1,6 +1,12 @@
 # Vulnfinder
 Welcome to Vulnfinder, a tool for model based security testing on Web applications.
 
+## Authors
+
+Ricardo Yepes Guevara
+Christian Delany Tamayo
+John Freddy Duitama
+
 ## How does it work?
 
 Vulnfinder includes a visual and textual language definition to model security tests. The precise specification using a metamodel and grammar allows models expressed in the language to be transformed into specific commands for vulnerability testing tools like ZAP proxy and SQLmap. We will include other Web vulnerability scanners and fuzzers in the future.
