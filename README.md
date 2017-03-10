@@ -1,14 +1,6 @@
 # Vulnfinder
 Welcome to Vulnfinder, a tool for model based security testing on Web applications.
 
-## Authors
-
-Ricardo Yepes Guevara
-
-Christian Delany Tamayo
-
-John Freddy Duitama
-
 
 ## How does it work?
 
